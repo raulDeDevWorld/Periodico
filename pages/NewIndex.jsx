@@ -23,7 +23,6 @@ function Home() {
 
   return (
    <div className={styles.container}>
-    <Mantenimiento></Mantenimiento>
       <main className={styles.main}>
       <div className={styles.header}>
        <div className={styles.bannerIntroContainer}>
@@ -38,7 +37,7 @@ function Home() {
                 <img src="/SocialMedia/instagram.png" alt="SocialMedia" />
                 <img src="/SocialMedia/twiter.png" alt="SocialMedia" />
                 <img src="/SocialMedia/youtube.png" alt="SocialMedia" />
-                <img src="/SocialMedia/instagram.png" alt="SocialMedia" />
+                <img src="/SocialMedia/tiktok.png" alt="SocialMedia" />
               </div>
             </div>
             <video

@@ -85,9 +85,9 @@
 }
 .socialMediaIcons > :nth-child(n) {
   display: inline-block;
-  height: auto;
-  width: 35px;
-  padding: 5px;
+  height: 35px;
+  width: auto;
+  margin: 5px;
 }
 .main {
   position: relative;
