@@ -11,21 +11,33 @@
 
 }
 .video {
-    width: 40%;
-    min-width: 300px;
-    max-width: 400px;
-
+    height: 40%;
     border:10px solid black;
     border-radius: 5px;
- 
   }
-.img {
-    height: auto;
-    width: 50%;
-    min-width: 300px;
-    max-width: 400px;
 
+.img {
+    height: 55%;
 }
+
+@media (max-width: 800px) and (orientation: portrait) {
+    .video {
+        height: auto;
+        width: 90%;
+      }
+    
+    .img {
+        height: auto;
+        width: 90%;
+    }  
+}
+
+
+
+
+
+
+
 .span {
     background-color: rgb(254, 254, 254);
     display: inline-block;
