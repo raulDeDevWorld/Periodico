@@ -10,6 +10,7 @@ export function UserProvider ({ children }) {
 	const [specificData, setSpecificData] = useState(null)
 	const [specificDataEditable, setSpecificDataEditable] = useState(null)
 	const [postsIMG, setPostsIMG] = useState({})
+	const [date, setDate] = useState(null)
 	const [success, setSuccess] = useState(null)
 
 
@@ -31,6 +32,9 @@ export function UserProvider ({ children }) {
 	function setUserPostsIMG (data) {
 		setPostsIMG(data)
 	}
+	function setUserDate (data) {
+		setDate(data)
+	}
 	function setUserSuccess (mode) {
 		setSuccess(mode)
 		setTimeout(()=>{ setSuccess(null)}, 4000)
@@ -44,6 +48,7 @@ export function UserProvider ({ children }) {
 			specificData,
 			specificDataEditable,
 			postsIMG,
+			date,
 			success,
 			setUserProfile,
 			setUserData,
@@ -51,9 +56,10 @@ export function UserProvider ({ children }) {
 			setUserSpecificData,
 			setUserSpecificDataEditable,
 			setUserPostsIMG,
+			setUserDate,
 			setUserSuccess,
 		})
-	}, [ user, userDB, pdfData, success, specificData, specificDataEditable, postsIMG ])
+	}, [ user, userDB, pdfData, success, specificData, specificDataEditable, postsIMG, date])
 
 	return (
 		<UserContext.Provider value={value} >

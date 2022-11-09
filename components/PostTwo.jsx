@@ -1,5 +1,5 @@
 import { useUser } from '../context/Context.js'
-import styles from '../styles/Posts.module.css'
+import styles from '../styles/Plantillas.module.css'
 
 function Post({topic, post1, post2, post3, post4, post5, bannerTop, bannerBottom}) {
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG } = useUser()

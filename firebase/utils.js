@@ -3,12 +3,14 @@ import { app } from './config'
 import { onAuthStateChanged, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut  } from "firebase/auth";
 import { getDatabase, ref, onValue, set, update, child, get, remove} from "firebase/database";
 import { getList} from './storage'
+import { getDate} from '../utils/Utils'
+
 
 
 const auth = getAuth();
 const db = getDatabase(app);
 
-function onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG) {
+function onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG, setUserDate) {
   return onAuthStateChanged(auth, (user) => {
     if (user) {
       setUserProfile(user)
@@ -17,6 +19,7 @@ function onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG) {
     }
     getList(postsIMG, setUserPostsIMG)
     getData(setUserData)
+    getDate(setUserDate)
   });
 }
 

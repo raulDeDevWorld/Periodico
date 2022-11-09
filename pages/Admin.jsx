@@ -80,17 +80,17 @@ function Admin() {
 
 
 
-        <Section topic="inicio" publicView={false} ></Section>
-        <Section topic="sociedad" publicView={false} ></Section>
-        <Section topic="gestionDeGobierno" publicView={false} ></Section>
-        <Section topic="politica" publicView={false} ></Section>
-        <Section topic="salud" publicView={false} ></Section>
-        <Section topic="economia" publicView={false} ></Section>
-        <Section topic="deportes" publicView={false} ></Section>
-        <Section topic="culturas" publicView={false} ></Section>
-        <Section topic="empresarial" publicView={false} ></Section>
-        <Section topic="internacional" publicView={false} ></Section>
-        <Section topic="opinion" publicView={false} ></Section>
+        <Section topic="Inicio" publicView={false} ></Section>
+        <Section topic="Sociedad" publicView={false} ></Section>
+        <Section topic="GestionDeGobierno" publicView={false} ></Section>
+        <Section topic="Politica" publicView={false} ></Section>
+        <Section topic="Salud" publicView={false} ></Section>
+        <Section topic="Economia" publicView={false} ></Section>
+        <Section topic="Deportes" publicView={false} ></Section>
+        <Section topic="Culturas" publicView={false} ></Section>
+        <Section topic="Empresarial" publicView={false} ></Section>
+        <Section topic="Internacional" publicView={false} ></Section>
+  <Section topic="Opinion" publicView={false} ></Section>
 
 
 

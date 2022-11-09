@@ -1,0 +1,172 @@
+.section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+}
+.section img {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    max-height: 465px;
+    object-fit: cover;
+    margin: 0;
+    transition-duration: .5s;
+}
+
+.section img:hover{
+    filter: brightness(0.5);
+}
+.banner {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 5px;
+    background-color: rgb(127, 180, 255);
+    overflow: hidden;
+}
+.banner > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.subtitle {
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 250px;
+    padding: 10px;
+    padding-left: 20px;
+    color: white;
+    background-color: brown;
+    border-bottom: 10px solid #007484;
+    clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%)
+  }
+.description {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    color: white;
+    bottom: 0;
+    padding: 10px 15px;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(165, 42, 42, 0.679);
+}
+.gridOne, .gridThreeA, .gridThreeB, .gridFour, .gridFive, .gridSix {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    margin-bottom: 5px;
+    color: transparent ;
+    font-size: 16px;
+    text-align: center;
+}
+.gridOne, .gridThreeA, .gridThreeB, .gridFour, .gridFive, .gridSix :hover {
+    color: white;
+}
+.gridOne > :nth-child(n) {
+    width: 100%;
+    height: 230px;
+    position: relative;
+
+}
+.gridOne > :nth-child(1) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    grid-column: 1/4;
+    grid-row: 1/3;
+}
+
+
+
+.gridThreeA > :nth-child(n) {
+    width: 100%;
+    height: 230px;
+    position: relative;
+
+}
+
+.gridThreeB > :nth-child(1) {
+    width: 100%;
+    height: 100%;
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+
+
+
+
+
+.gridThreeB > :nth-child(n) {
+    width: 100%;
+    height: 230px;
+    position: relative;
+
+}
+.gridThreeB > :nth-child(1) {
+    width: 100%;
+    height: 100%;
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+
+
+
+.gridFour > :nth-child(n) {
+    width: 100%;
+    height: 230px;
+    position: relative;
+
+}
+.gridFour > :nth-child(1) {
+    width: 100%;
+    height: 100%;
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+.gridFour > :nth-child(3) {
+    width: 100%;
+    height: 100%;
+    grid-column: 3/4;
+    grid-row: 1/3;
+}
+
+
+.gridFive > :nth-child(n) {
+    width: 100%;
+    height: 230px;
+    position: relative;
+
+}
+.gridFive > :nth-child(3) {
+    width: 100%;
+    height: 100%;
+    grid-column: 3/4;
+    grid-row: 1/3;
+}
+
+
+
+
+
+
+.gridSix > :nth-child(n) {
+    position: relative;
+    width: 100%;
+    height: 230px;
+}
+
+
+
+

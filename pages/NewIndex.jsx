@@ -6,6 +6,7 @@ import PostOne from '../components/PostOne'
 import PostTwo from '../components/PostTwo'
 import Mantenimiento from '../components/Mantenimiento'
 import Section from '../components/Section'
+import Date from '../components/Date'
 import { useUser } from '../context/Context.js'
 import { WithoutAuth } from '../HOCs/WithoutAuth'
 import styles from '../styles/Home.module.css'
@@ -13,13 +14,7 @@ import { writeUserData, uploadIMG } from '../firebase/utils'
 function Home() {
   const { userDB, setUserData, setUserSuccess, success, postsIMG } = useUser()
 
-  console.log(postsIMG)
 
-  function handlerEventChange(e) {
-    const object = { [e.target.name]: e.target.value }
-    writeUserData('/', object, setUserSuccess)
-
-  }
 
   return (
    <div className={styles.container}>
@@ -47,23 +42,23 @@ function Home() {
               loop
               className={styles.video}>
               <source src="/video.mp4" type="video/mp4" />
-            </video>
-            <div></div>
-          </div>
+            </video></div>
+<Date></Date>          
         </div>
         <Navbar navbar={userDB.navbar} />
+        <Section topic="Inicio" publicView={true} ></Section>
+        <Section topic="Sociedad" publicView={true} ></Section>
+        <Section topic="GestionDeGobierno" publicView={true} ></Section>
+        <Section topic="Politica" publicView={true} ></Section>
+        <Section topic="Salud" publicView={true} ></Section>
+        <Section topic="Economia" publicView={true} ></Section>
+        <Section topic="Deportes" publicView={true} ></Section>
+        <Section topic="Culturas" publicView={true} ></Section>
+        <Section topic="Empresarial" publicView={true} ></Section>
+        <Section topic="Internacional" publicView={true} ></Section>
+  <Section topic="Opinion" publicView={true} ></Section>
 
-        <Section topic="inicio" publicView={true} ></Section>
-        <Section topic="sociedad" publicView={true} ></Section>
-        <Section topic="gestionDeGobierno" publicView={true} ></Section>
-        <Section topic="politica" publicView={true} ></Section>
-        <Section topic="salud" publicView={true} ></Section>
-        <Section topic="economia" publicView={true} ></Section>
-        <Section topic="deportes" publicView={true} ></Section>
-        <Section topic="culturas" publicView={true} ></Section>
-        <Section topic="empresarial" publicView={true} ></Section>
-        <Section topic="internacional" publicView={true} ></Section>
-        <Section topic="opinion" publicView={true} ></Section>
+
 
 
         <footer className={styles.footer}>
