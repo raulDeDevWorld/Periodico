@@ -82,7 +82,7 @@ function Admin() {
 
         <Section topic="Inicio" publicView={false} ></Section>
         <Section topic="Sociedad" publicView={false} ></Section>
-        <Section topic="GestionDeGobierno" publicView={false} ></Section>
+        <Section topic="Gestión De Gobierno" publicView={false} ></Section>
         <Section topic="Politica" publicView={false} ></Section>
         <Section topic="Salud" publicView={false} ></Section>
         <Section topic="Economia" publicView={false} ></Section>

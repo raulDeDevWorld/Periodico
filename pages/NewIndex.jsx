@@ -48,7 +48,7 @@ function Home() {
         <Navbar navbar={userDB.navbar} />
         <Section topic="Inicio" publicView={true} ></Section>
         <Section topic="Sociedad" publicView={true} ></Section>
-        <Section topic="GestionDeGobierno" publicView={true} ></Section>
+        <Section topic="Gestión De Gobierno" publicView={true} ></Section>
         <Section topic="Politica" publicView={true} ></Section>
         <Section topic="Salud" publicView={true} ></Section>
         <Section topic="Economia" publicView={true} ></Section>
