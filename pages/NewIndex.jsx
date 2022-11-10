@@ -12,32 +12,32 @@ import { WithoutAuth } from '../HOCs/WithoutAuth'
 import styles from '../styles/Home.module.css'
 import { writeUserData, uploadIMG } from '../firebase/utils'
 function Home() {
-  const { userDB, setUserData, setUserSuccess, success, postsIMG, showImg, date, setUserDate} = useUser()
+  const { userDB, setUserData, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
 
-function dateEvent (e) {
-  const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+  function dateEvent(e) {
+    const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
-console.log(e.target.value)
-const format = e.target.value.split("-")
-console.log(format)
-setUserDate(`${parseInt(format[2]) }-${months[format[1]-1]}-${format[0]}`)
+    console.log(e.target.value)
+    const format = e.target.value.split("-")
+    console.log(format)
+    setUserDate(`${parseInt(format[2])}-${months[format[1] - 1]}-${format[0]}`)
 
-}
+  }
 
   return (
-   <div className={styles.container}>
+    <div className={styles.container}>
       <main className={styles.main}>
-      <div className={styles.header}>
-       <div className={styles.bannerIntroContainer}>
+        <div className={styles.header}>
+          <div className={styles.bannerIntroContainer}>
             {postsIMG.BannerIntro && <img className={styles.bannerIntroIMG} src={postsIMG.BannerIntro && postsIMG.BannerIntro} alt="Vercel Logo" />}
           </div>
           <div className={styles.fecha}>
-            <Date></Date>    
-<input type="date" id="start" name="trip" onChange={dateEvent}
-        />
-            </div>
+            <Date></Date>
+            <input type="date" id="start" name="trip" onChange={dateEvent}
+            />
+          </div>
           <div className={styles.portada}>
-            
+
             <div className={styles.socialMedia}>
               <span>Siguenos en:</span>
               <div className={styles.socialMediaIcons}>
@@ -57,15 +57,15 @@ setUserDate(`${parseInt(format[2]) }-${months[format[1]-1]}-${format[0]}`)
               className={styles.video}>
               <source src="/video.mp4" type="video/mp4" />
             </video></div>
-            
+
 
         </div>
         <Navbar navbar={userDB.navbar} />
-{   showImg == true &&  <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index)=>{
-  return (
-    <img src={i} key={index} alt="Vercel Logo" />
-    )
-})}</div> }
+        {showImg == true && <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index) => {
+          return (
+            <img src={i} key={index} alt="Vercel Logo" />
+          )
+        })}</div>}
         <Section topic="Inicio" publicView={true} ></Section>
         <Section topic="Sociedad" publicView={true} ></Section>
         <Section topic="Gestión De Gobierno" publicView={true} ></Section>
@@ -76,7 +76,7 @@ setUserDate(`${parseInt(format[2]) }-${months[format[1]-1]}-${format[0]}`)
         <Section topic="Culturas" publicView={true} ></Section>
         <Section topic="Empresarial" publicView={true} ></Section>
         <Section topic="Internacional" publicView={true} ></Section>
-  <Section topic="Opinion" publicView={true} ></Section>
+        <Section topic="Opinion" publicView={true} ></Section>
 
 
 
@@ -87,25 +87,25 @@ setUserDate(`${parseInt(format[2]) }-${months[format[1]-1]}-${format[0]}`)
             <p>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacionale internacional.</p>
           </div>
           <div>
-          <h5>PUBLICIDAD ONLINE</h5>
+            <h5>PUBLICIDAD ONLINE</h5>
             <span>(519-2) 2488973</span>
             <span>73002076</span>
             <span>60101760</span>
           </div>
           <div>
-          <h5>VISIÓN</h5>
+            <h5>VISIÓN</h5>
             <p>Ser el medio impreso y digital de mayor influencia en la construccion de un cultura ciudadana en torno a la realidad nacional e internacional</p>
           </div>
           <div>
-          <h5>DIRECCIÓN</h5>
-          <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
+            <h5>DIRECCIÓN</h5>
+            <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
           </div>
           <div>
-          <h5>SIGUENOS EN</h5>
+            <h5>SIGUENOS EN</h5>
 
           </div>
           <div>
-          <h5>ESCRIBENOS A</h5>
+            <h5>ESCRIBENOS A</h5>
 
           </div>
         </footer>

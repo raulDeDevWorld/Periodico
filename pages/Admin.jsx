@@ -31,14 +31,14 @@ function Admin() {
 
   }
 
-  function dateEvent (e) {
+  function dateEvent(e) {
     const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-  
-  console.log(e.target.value)
-  const format = e.target.value.split("-")
-  console.log(format)
-  setUserDate(`${parseInt(format[2]) }-${months[format[1]-1]}-${format[0]}`)
-  
+
+    console.log(e.target.value)
+    const format = e.target.value.split("-")
+    console.log(format)
+    setUserDate(`${parseInt(format[2])}-${months[format[1] - 1]}-${format[0]}`)
+
   }
   useEffect(() => {
 
@@ -63,10 +63,10 @@ function Admin() {
             {postsIMG.BannerIntro && <img className={styles.bannerIntroIMG} src={postsIMG.BannerIntro && postsIMG.BannerIntro} alt="Vercel Logo" />}
           </div>
           <div className={styles.fecha}>
-            <Date></Date>    
-<input type="date" id="start" name="trip" onChange={dateEvent}
-        />
-            </div>
+            <Date></Date>
+            <input type="date" id="start" name="trip" onChange={dateEvent}
+            />
+          </div>
           <div className={styles.portada}>
             <div className={styles.socialMedia}>
               <span>Siguenos en:</span>
@@ -105,7 +105,7 @@ function Admin() {
         <Section topic="Culturas" publicView={false} ></Section>
         <Section topic="Empresarial" publicView={false} ></Section>
         <Section topic="Internacional" publicView={false} ></Section>
-  <Section topic="Opinion" publicView={false} ></Section>
+        <Section topic="Opinion" publicView={false} ></Section>
 
 
 
