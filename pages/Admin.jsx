@@ -14,7 +14,7 @@ import { useEffect } from 'react'
 
 
 function Admin() {
-  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG } = useUser()
+  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, setUserDate } = useUser()
   const router = useRouter()
 
   console.log(userDB)
@@ -29,7 +29,15 @@ function Admin() {
 
   }
 
-
+  function dateEvent (e) {
+    const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+  
+  console.log(e.target.value)
+  const format = e.target.value.split("-")
+  console.log(format)
+  setUserDate(`${parseInt(format[2]) }-${months[format[1]-1]}-${format[0]}`)
+  
+  }
   useEffect(() => {
 
     if (!user) router.replace('/Login')
@@ -52,6 +60,11 @@ function Admin() {
           <div className={styles.bannerIntroContainer}>
             {postsIMG.BannerIntro && <img className={styles.bannerIntroIMG} src={postsIMG.BannerIntro && postsIMG.BannerIntro} alt="Vercel Logo" />}
           </div>
+          <div className={styles.fecha}>
+            <Date></Date>    
+<input type="date" id="start" name="trip" onChange={dateEvent}
+        />
+            </div>
           <div className={styles.portada}>
             <div className={styles.socialMedia}>
               <span>Siguenos en:</span>

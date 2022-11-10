@@ -12,9 +12,17 @@ import { WithoutAuth } from '../HOCs/WithoutAuth'
 import styles from '../styles/Home.module.css'
 import { writeUserData, uploadIMG } from '../firebase/utils'
 function Home() {
-  const { userDB, setUserData, setUserSuccess, success, postsIMG } = useUser()
+  const { userDB, setUserData, setUserSuccess, success, postsIMG, showImg, date, setUserDate} = useUser()
 
+function dateEvent (e) {
+  const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
+console.log(e.target.value)
+const format = e.target.value.split("-")
+console.log(format)
+setUserDate(`${parseInt(format[2]) }-${months[format[1]-1]}-${format[0]}`)
+
+}
 
   return (
    <div className={styles.container}>
@@ -23,7 +31,13 @@ function Home() {
        <div className={styles.bannerIntroContainer}>
             {postsIMG.BannerIntro && <img className={styles.bannerIntroIMG} src={postsIMG.BannerIntro && postsIMG.BannerIntro} alt="Vercel Logo" />}
           </div>
+          <div className={styles.fecha}>
+            <Date></Date>    
+<input type="date" id="start" name="trip" onChange={dateEvent}
+        />
+            </div>
           <div className={styles.portada}>
+            
             <div className={styles.socialMedia}>
               <span>Siguenos en:</span>
               <div className={styles.socialMediaIcons}>
@@ -43,9 +57,15 @@ function Home() {
               className={styles.video}>
               <source src="/video.mp4" type="video/mp4" />
             </video></div>
-<Date></Date>          
+            
+
         </div>
         <Navbar navbar={userDB.navbar} />
+{   showImg == true &&  <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index)=>{
+  return (
+    <img src={i} key={index} alt="Vercel Logo" />
+    )
+})}</div> }
         <Section topic="Inicio" publicView={true} ></Section>
         <Section topic="Sociedad" publicView={true} ></Section>
         <Section topic="Gestión De Gobierno" publicView={true} ></Section>
@@ -61,7 +81,7 @@ function Home() {
 
 
 
-        <footer className={styles.footer}>
+        <footer className={styles.footer} id="nosotros">
           <div>
             <h5>MISIÓN</h5>
             <p>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacionale internacional.</p>

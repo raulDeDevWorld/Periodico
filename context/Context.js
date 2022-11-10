@@ -11,6 +11,7 @@ export function UserProvider ({ children }) {
 	const [specificDataEditable, setSpecificDataEditable] = useState(null)
 	const [postsIMG, setPostsIMG] = useState({})
 	const [date, setDate] = useState(null)
+	const [showImg, setShowImg] = useState(false)
 	const [success, setSuccess] = useState(null)
 
 
@@ -39,7 +40,9 @@ export function UserProvider ({ children }) {
 		setSuccess(mode)
 		setTimeout(()=>{ setSuccess(null)}, 4000)
 	}
-
+	function setUserShowImg (mode) {
+		setShowImg(mode)
+	}
 	const value = useMemo(()=>{
 		return ({
 			user,
@@ -48,6 +51,7 @@ export function UserProvider ({ children }) {
 			specificData,
 			specificDataEditable,
 			postsIMG,
+			showImg,
 			date,
 			success,
 			setUserProfile,
@@ -56,10 +60,11 @@ export function UserProvider ({ children }) {
 			setUserSpecificData,
 			setUserSpecificDataEditable,
 			setUserPostsIMG,
+			setUserShowImg,
 			setUserDate,
 			setUserSuccess,
 		})
-	}, [ user, userDB, pdfData, success, specificData, specificDataEditable, postsIMG, date])
+	}, [ user, userDB, pdfData, success, specificData, specificDataEditable, postsIMG, showImg, date])
 
 	return (
 		<UserContext.Provider value={value} >

@@ -54,7 +54,7 @@
     text-overflow: ellipsis;
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(165, 42, 42, 0.679);
+    background-color: brown;
 }
 .gridOne, .gridThreeA, .gridThreeB, .gridFour, .gridFive, .gridSix {
     position: relative;

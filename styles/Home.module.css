@@ -105,6 +105,19 @@
   width: 100%;
   margin: 5px 0;
 }
+.gridIMG {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 5px;
+}
+.gridIMG > :nth-child(n) {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
 .gridOne {
   background-color: rgb(255, 255, 255);
   width: 100%;
@@ -185,7 +198,14 @@
 
 
 
-
+.fecha {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: brown;
+  color: #ffffff;
+}
 
 
 .footer {
