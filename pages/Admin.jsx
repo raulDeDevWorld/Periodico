@@ -6,6 +6,8 @@ import { WithAuth } from '../HOCs/WithAuth'
 import Button from '../components/Button'
 import Success from '../components/Success'
 import Section from '../components/Section'
+import Date from '../components/Date'
+
 import styles from '../styles/Home.module.css'
 import { handleSignOut } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
