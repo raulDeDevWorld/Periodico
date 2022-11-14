@@ -38,7 +38,7 @@ function TemplateOne() {
                 
                 {arr.map((i, index) => {
                     return (
-                        <div className={styles.items}>
+                        <div className={styles.items} key={index}>
                             <select className={styles.select} name={"select"}>
                                 <option value="Text" >Texto</option>
                                 <option value="Img" >Imagen</option>
