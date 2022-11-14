@@ -3,23 +3,24 @@ import { app } from './config'
 import { onAuthStateChanged, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut  } from "firebase/auth";
 import { getDatabase, ref, onValue, set, update, child, get, remove} from "firebase/database";
 import { getList} from './storage'
-import { getDate} from '../utils/Utils'
+import { getDate, getDayMonthYear, getMonthAndYear} from '../utils/Utils'
 
 
 
 const auth = getAuth();
 const db = getDatabase(app);
 
-function onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG, setUserDate) {
+function onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG, setUserDate, setUserMonthAndYear, setUserDayMonthYear, monthAndYear) {
   return onAuthStateChanged(auth, (user) => {
     if (user) {
       setUserProfile(user)
     } else {
       setUserProfile(user)
     }
-    getList(postsIMG, setUserPostsIMG)
-    getData(setUserData)
+    getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG)
     getDate(setUserDate)
+    getMonthAndYear(setUserMonthAndYear)
+    getDayMonthYear(setUserDayMonthYear)
   });
 }
 
@@ -64,10 +65,13 @@ function handleSignOut () {
 
 const dbRef = ref(getDatabase());
 
-function getData(setUserData) {
+function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG) {
   onValue(ref(db, '/'), (snapshot) => {
     if (snapshot.exists()) {
       setUserData(snapshot.val())
+      console.log('getdata')
+
+      getList(snapshot.val(), monthAndYear, postsIMG, setUserPostsIMG)
         } else {
           setUserData('');
         }
@@ -88,7 +92,7 @@ function getSpecificData(query, setUserSpecificData) {
 }
 
 function writeUserData (direction, object, setUserSuccess) {
-  update(ref(db, direction), object )
+  update(ref(db, `${direction}`), object )
   .then(()=> setUserSuccess !== null? setUserSuccess('save'): '')
   .catch(()=>setUserSuccess('repeat'))
 }

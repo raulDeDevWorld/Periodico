@@ -3,20 +3,7 @@
 .video {
   width: 60%;
 }
-.header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.introBanner > :nth-child(1) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.header > :nth-child(2) {
-  width: 100%;
-  margin-bottom: 10px;
-}
+
 .containerLogout {
   width: 100%;
   background-color: brown;
@@ -33,21 +20,7 @@
   display: block;
   width: 200px;
 }
-.portada {
-  display: flex;
-  justify-content: space-around;
-}
-.bannerIntroContainer {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  margin: 0;
-}
-.bannerIntroIMG {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+
 .inputFile {
   display: none;
 }
@@ -69,26 +42,7 @@
   border: 1px solid brown;
   color: brown;
 }
-.socialMedia {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.socialMedia > :nth-child(1) {
-  font-weight: bold;
-  font-size: 24px;
-}
-.socialMediaIcons {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-}
-.socialMediaIcons > :nth-child(n) {
-  display: inline-block;
-  height: 35px;
-  width: auto;
-  margin: 5px;
-}
+
 .main {
   position: relative;
   background-color: rgb(255, 255, 255);
@@ -195,18 +149,6 @@
   height: 70vh;
   background-color: black;
 }
-
-
-
-.fecha {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: brown;
-  color: #ffffff;
-}
-
 
 .footer {
   height: 90vh;

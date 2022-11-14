@@ -5,7 +5,7 @@ function TemplateEight ({ topic, post1, post2, post3 }) {
     const { postsIMG } = useUser()
     return (
         <section className={styles.section} id={topic}>
-            {topic != "inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
+            {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
             {postsIMG[`${topic}-bannerTop`] && <div className={styles.banner}>
                 <img src={postsIMG[`${topic}-bannerTop`]} alt="Vercel Logo" />
             </div>}

@@ -1,0 +1,61 @@
+.container {
+    background: linear-gradient(0.25turn, #838383, #ffffff, #ffffff, #ffffff, #ffffff, #838383);
+}
+.main {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    margin: 0 15%;
+    min-height: 100vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }  
+  .textArea {
+    position: absolute;
+    height: 0;
+    width: 0;
+  }
+  .paragraph {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    color: white;
+    bottom: 0;
+    padding: 10px 15px;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: brown;
+    overflow: hidden;
+  }
+.containerItems {
+  width: 15%;
+  position: absolute;
+  left: 0;
+}
+
+  .items {
+    display: flex;
+  }
+.select {
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 1px;
+  text-align: center;
+  border: 1px solid brown;
+  color: brown;
+}
+
+.select option {
+  color: rgb(255, 255, 255);
+  background-color: brown;
+}
+
+
+  .button {
+    background-color: brown;
+    border: none;
+    color: white;
+  }

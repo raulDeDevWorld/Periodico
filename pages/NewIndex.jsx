@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Navbar from '../components/Navbar'
+import Header from '../components/Header'
 import Form from '../components/Form'
 import PostOne from '../components/PostOne'
 import PostTwo from '../components/PostTwo'
@@ -14,53 +14,13 @@ import { writeUserData, uploadIMG } from '../firebase/utils'
 function Home() {
   const { userDB, setUserData, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
 
-  function dateEvent(e) {
-    const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
-    console.log(e.target.value)
-    const format = e.target.value.split("-")
-    console.log(format)
-    setUserDate(`${parseInt(format[2])}-${months[format[1] - 1]}-${format[0]}`)
-
-  }
 
   return (
     <div className={styles.container}>
+      
       <main className={styles.main}>
-        <div className={styles.header}>
-          <div className={styles.bannerIntroContainer}>
-            {postsIMG.BannerIntro && <img className={styles.bannerIntroIMG} src={postsIMG.BannerIntro && postsIMG.BannerIntro} alt="Vercel Logo" />}
-          </div>
-          <div className={styles.fecha}>
-            <Date></Date>
-            <input type="date" id="start" name="trip" onChange={dateEvent}
-            />
-          </div>
-          <div className={styles.portada}>
-
-            <div className={styles.socialMedia}>
-              <span>Siguenos en:</span>
-              <div className={styles.socialMediaIcons}>
-                <img src="/SocialMedia/internet.png" alt="SocialMedia" />
-                <img src="/SocialMedia/facebook.png" alt="SocialMedia" />
-                <img src="/SocialMedia/instagram.png" alt="SocialMedia" />
-                <img src="/SocialMedia/twiter.png" alt="SocialMedia" />
-                <img src="/SocialMedia/youtube.png" alt="SocialMedia" />
-                <img src="/SocialMedia/tiktok.png" alt="SocialMedia" />
-              </div>
-            </div>
-            <video
-              muted
-              autoPlay={"autoplay"}
-              preload="auto"
-              loop
-              className={styles.video}>
-              <source src="/video.mp4" type="video/mp4" />
-            </video></div>
-
-
-        </div>
-        <Navbar navbar={userDB.navbar} />
+      <Header></Header>
         {showImg == true && <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index) => {
           return (
             <img src={i} key={index} alt="Vercel Logo" />
@@ -68,7 +28,8 @@ function Home() {
         })}</div>}
         <Section topic="Inicio" publicView={true} ></Section>
         <Section topic="Sociedad" publicView={true} ></Section>
-        <Section topic="Gestión De Gobierno" publicView={true} ></Section>
+        <Section topic="Seguridad" publicView={true} ></Section>
+        <Section topic="GestionDeGobierno" publicView={true} ></Section>
         <Section topic="Politica" publicView={true} ></Section>
         <Section topic="Salud" publicView={true} ></Section>
         <Section topic="Economia" publicView={true} ></Section>

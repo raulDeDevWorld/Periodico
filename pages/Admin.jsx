@@ -7,6 +7,7 @@ import Button from '../components/Button'
 import Success from '../components/Success'
 import Section from '../components/Section'
 import Date from '../components/Date'
+import Header from '../components/Header'
 
 import styles from '../styles/Home.module.css'
 import { handleSignOut } from '../firebase/utils'
@@ -19,7 +20,6 @@ function Admin() {
   const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, setUserDate } = useUser()
   const router = useRouter()
 
-  console.log(userDB)
 
   function handlerUploadFile(e, fileName) {
     const file = e.target.files[0]
@@ -55,49 +55,16 @@ function Admin() {
           <Button style="buttonPrimary" click={handlerLogout}>Logout</Button>
         </div>
 
-
-        <div className={styles.header}>
-          <label for="bannerIntro" className={styles.label} >Seleccionar Baner de Intro</label>
-          <input type="file" id="bannerIntro" className={styles.inputFile} onChange={(e) => handlerUploadFile(e, `BannerIntro`)} accept="images" />
-          <div className={styles.bannerIntroContainer}>
-            {postsIMG.BannerIntro && <img className={styles.bannerIntroIMG} src={postsIMG.BannerIntro && postsIMG.BannerIntro} alt="Vercel Logo" />}
-          </div>
-          <div className={styles.fecha}>
-            <Date></Date>
-            <input type="date" id="start" name="trip" onChange={dateEvent}
-            />
-          </div>
-          <div className={styles.portada}>
-            <div className={styles.socialMedia}>
-              <span>Siguenos en:</span>
-              <div className={styles.socialMediaIcons}>
-                <img src="/SocialMedia/internet.png" alt="SocialMedia" />
-                <img src="/SocialMedia/facebook.png" alt="SocialMedia" />
-                <img src="/SocialMedia/instagram.png" alt="SocialMedia" />
-                <img src="/SocialMedia/twiter.png" alt="SocialMedia" />
-                <img src="/SocialMedia/youtube.png" alt="SocialMedia" />
-                <img src="/SocialMedia/instagram.png" alt="SocialMedia" />
-              </div>
-            </div>
-            <video
-              muted
-              autoPlay={"autoplay"}
-              preload="auto"
-              loop
-              className={styles.video}>
-              <source src="/video.mp4" type="video/mp4" />
-            </video>
-            <div></div>
-          </div>
-        </div>
-        <Navbar navbar={userDB.navbar} />
+          <Header></Header>
+       
 
 
 
 
         <Section topic="Inicio" publicView={false} ></Section>
         <Section topic="Sociedad" publicView={false} ></Section>
-        <Section topic="Gestión De Gobierno" publicView={false} ></Section>
+        <Section topic="Seguridad" publicView={false} ></Section>
+        <Section topic="GestionDesGobierno" publicView={false} ></Section>
         <Section topic="Politica" publicView={false} ></Section>
         <Section topic="Salud" publicView={false} ></Section>
         <Section topic="Economia" publicView={false} ></Section>

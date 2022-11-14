@@ -39,16 +39,16 @@ color: brown
 .formInputs label {
     display: inline-block;
     width: 100%;
-    padding: 10px 0;
+    padding: 2px 0;
     margin-bottom: 5px;
 }
-.form > :nth-child(3) {
+.form > :nth-child(2) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
 .selectLebel {
-    padding: 5px 0;
+    padding: 0px 0;
     border-radius: 10px;
 }
 .select {

@@ -6,19 +6,16 @@ import style from '../styles/Navbar.module.css'
 
 export default function Navbar() {
     const { pathname } = useRouter()
-  const { setUserShowImg, showImg } = useUser()
-function handleClick () {
-    setUserShowImg(!showImg)
-}
-function handlerClick () {
-    setUserShowImg(false)
-}
+    const { setUserShowImg, showImg } = useUser()
+    function handleClick() {
+        setUserShowImg(!showImg)
+    }
+    function handlerClick() {
+        setUserShowImg(false)
+    }
     return (
-        <header className={style.header}>
+        <div className={style.container}>
             <nav className={style.nav}>
-               <Link href="#Inicio" legacyBehavior scroll={false}>
-                    <a className={`${style.link} ${pathname == "#Inicio" ? style.active : ''}`} onClick={handlerClick}>INICIO</a>
-                </Link>
                 <Link href="#Sociedad" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#Sociedad" ? style.active : ''}`} onClick={handlerClick}>SOCIEDAD</a>
                 </Link>
@@ -55,11 +52,9 @@ function handlerClick () {
                 <Link href="#Imagenes" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#imagenes" ? style.active : ''}`} onClick={handleClick}>IMAGENES</a>
                 </Link><Link href="#nosotros" legacyBehavior scroll={false}>
-                    <a className={`${style.link} ${pathname == "#nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS-CONTACTOS</a>
+                    <a className={`${style.link} ${pathname == "#nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS</a>
                 </Link>
-                
-              
             </nav>
-        </header>
+        </div>
     )
 }
