@@ -31,7 +31,7 @@ function TemplateFive({ topic, post1, post2, post3, post4, post5,
                 {postsIMG && postsIMG[topic] && Object.values(postsIMG[topic]).map((i, index) =>
                     <div key={index}>
                         <img src={i} style={{ objectPosition: `${objectPosition1}` }} />
-                        {description1 && <p className={styles.description}>{description1}</p>}
+                        {<p className={styles.description}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>}
                     </div>
                 )}
             </div>

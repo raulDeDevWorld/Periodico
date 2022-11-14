@@ -17,8 +17,8 @@ function TemplateFour({ topic, post1, post2, post3, post4, description1, descrip
         <section className={styles.section} id={topic}>
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
 
-            {postsIMG[`${topic}-bannerTop-${date}`] && <div className={styles.banner}>
-                <img src={postsIMG[`${topic}-bannerTop-${date}`]} style={{ objectPosition: userDB[`${topic}-objectPosition-bannerTop-${date}`] }} alt="Vercel Logo" />
+            {<div className={styles.banner}>
+                <img src="portada.jpg" style={{ objectPosition: userDB[`${topic}-objectPosition-bannerTop-${date}`] }} alt="Vercel Logo" />
             </div>}
 
 
@@ -33,7 +33,7 @@ function TemplateFour({ topic, post1, post2, post3, post4, description1, descrip
                 {postsIMG && postsIMG[topic] && Object.values(postsIMG[topic]).map((i, index) =>
                     <div key={index}>
                         <img src={i} style={{ objectPosition: `${objectPosition1}` }} />
-                        {description1 && <p className={styles.description}>{description1}</p>}
+                        {<p className={styles.description}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>}
                     </div>
                 )}
             </div>

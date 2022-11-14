@@ -68,7 +68,8 @@
     text-overflow: ellipsis;
     display: flex;
     flex-wrap: wrap;
-    background-color: brown;
+    background-color: rgba(0, 0, 0, 0.407);
+    text-align: left;
 }
 
 .gridOne,
@@ -217,6 +218,7 @@
 
 
 .gridSix> :nth-child(n) {
+    position: relative;
     width: 100%;
     height: 230px;
 }
