@@ -31,3 +31,16 @@
     background-color: #8FC2C9;
     border: 2px solid #ffffff3c;
 }
+.buttonMiniSecondary {
+    width: 100%;
+    padding: 2px;
+    color: white;
+    font-size: 12px;
+    background-color: brown;
+    border: 2px solid brown;
+}
+.buttonMiniSecondary:hover {
+    color: brown;
+    background-color: #ffffff;
+    border: 2px solid brown;
+}

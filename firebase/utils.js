@@ -65,13 +65,13 @@ function handleSignOut () {
 
 const dbRef = ref(getDatabase());
 
-function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG) {
+function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG, onlyData) {
   onValue(ref(db, '/'), (snapshot) => {
     if (snapshot.exists()) {
       setUserData(snapshot.val())
       console.log('getdata')
 
-      getList(snapshot.val(), monthAndYear, postsIMG, setUserPostsIMG)
+    onlyData ?  '' : getList( monthAndYear, postsIMG, setUserPostsIMG)
         } else {
           setUserData('');
         }
@@ -91,9 +91,12 @@ function getSpecificData(query, setUserSpecificData) {
   });
 }
 
-function writeUserData (direction, object, setUserSuccess) {
-  update(ref(db, `${direction}`), object )
-  .then(()=> setUserSuccess !== null? setUserSuccess('save'): '')
+function writeUserData (ruteDB, object, setUserSuccess) {
+  update(ref(db, `${ruteDB}`), object )
+  .then(()=> {
+    setUserSuccess !== null? setUserSuccess('save'): ''
+    getData(setUserData)
+  })
   .catch(()=>setUserSuccess('repeat'))
 }
 

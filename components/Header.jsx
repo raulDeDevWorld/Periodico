@@ -19,7 +19,6 @@ export default function Header(props) {
         const format = e.target.value.split("-")
         console.log(format)
         setUserDayMonthYear(`${parseInt(format[2])}-${months[format[1] - 1]}-${format[0]}`)
-
     }
     function handlerUploadFile(e, fileName) {
         const file = e.target.files[0]

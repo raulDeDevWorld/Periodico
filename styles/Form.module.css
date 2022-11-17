@@ -7,6 +7,14 @@
     margin-right: 10px;
     margin-bottom: 10px;
 }
+.formSelectPost {
+    text-align: center;
+}
+.previewIMG {
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
 .form > :nth-child(2) {
     margin: 10px 0;
 }

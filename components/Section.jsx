@@ -15,19 +15,20 @@ export default function Section({ topic, publicView }) {
 
     const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear, dayMonthYear} = useUser()
 
-
+    //console.log(userDB)
+    //console.log(userDB[monthAndYear] && userDB[monthAndYear][topic]  && userDB[monthAndYear][topic]['Templates'] && userDB[monthAndYear][topic]['Templates'][dayMonthYear])
 
     return (
         <>
             {userDB[monthAndYear] !== null && publicView == false && <Form topic={topic} value={userDB[`${topic}-${date}`]}></Form>}
-            {userDB[monthAndYear] && userDB[monthAndYear][topic] && userDB[monthAndYear][topic][`${topic}-Template-${dayMonthYear}`] == "TemplateOne" &&
+            {userDB[monthAndYear] && userDB[monthAndYear][topic]  && userDB[monthAndYear][topic]['Templates'] && userDB[monthAndYear][topic]['Templates'][dayMonthYear] == "TemplateOne" &&
                 <TemplateOne topic={topic}
-                    post1={`${postsIMG[`${topic}-Post1-${date}`] && postsIMG[`${topic}-Post1-${date}`]}`}
+                    post1={`${postsIMG[`${topic}-Post1-${date}`] && postsIMG[`${topic}-Post1-${date}`]}`} 
                     description1={userDB[`${topic}-Descripcion-Post1-${date}`]}
                     objectPosition1={userDB[`${topic}-objectPosition-Post1-${date}`]}
                     />}
          
-                  {userDB[monthAndYear] && userDB[monthAndYear][topic] && userDB[monthAndYear][topic][`${topic}-Template-${dayMonthYear}`]  == "TemplateThreeA" &&
+                  {userDB[monthAndYear] && userDB[monthAndYear][topic]  && userDB[monthAndYear][topic]['Templates'] && userDB[monthAndYear][topic]['Templates'][dayMonthYear]  == "TemplateThreeA" &&
                 <TemplateThreeA topic={topic}
                     post1={`${postsIMG[`${topic}-Post1-${date}`] && postsIMG[`${topic}-Post1-${date}`]}`}
                     post2={`${postsIMG[`${topic}-Post2-${date}`] && postsIMG[`${topic}-Post2-${date}`]}`}
@@ -39,7 +40,7 @@ export default function Section({ topic, publicView }) {
                     objectPosition2={userDB[`${topic}-objectPosition-Post2-${date}`]}
                     objectPosition3={userDB[`${topic}-objectPosition-Post3-${date}`]}
                     />}
-                 {userDB[monthAndYear] && userDB[monthAndYear][topic] && userDB[monthAndYear][topic][`${topic}-Template-${dayMonthYear}`]  == "TemplateThreeB" &&
+                 {userDB[monthAndYear] && userDB[monthAndYear][topic]  && userDB[monthAndYear][topic]['Templates'] && userDB[monthAndYear][topic]['Templates'][dayMonthYear]  == "TemplateThreeB" &&
                 <TemplateThreeB topic={topic}
                     post1={`${postsIMG[`${topic}-Post1-${date}`] && postsIMG[`${topic}-Post1-${date}`]}`}
                     post2={`${postsIMG[`${topic}-Post2-${date}`] && postsIMG[`${topic}-Post2-${date}`]}`}
@@ -51,7 +52,7 @@ export default function Section({ topic, publicView }) {
                     objectPosition2={userDB[`${topic}-objectPosition-Post2-${date}`]}
                     objectPosition3={userDB[`${topic}-objectPosition-Post3-${date}`]}
                     />}
-            {userDB[monthAndYear] && userDB[monthAndYear][topic] && userDB[monthAndYear][topic][`${topic}-Template-${dayMonthYear}`] == "TemplateFour" &&
+            {userDB[monthAndYear] && userDB[monthAndYear][topic]  && userDB[monthAndYear][topic]['Templates'] && userDB[monthAndYear][topic]['Templates'][dayMonthYear] == "TemplateFour" &&
                 <TemplateFour topic={topic}
                     post1={`${postsIMG[`${topic}-Post1-${date}`] && postsIMG[`${topic}-Post1-${date}`]}`}
                     post2={`${postsIMG[`${topic}-Post2-${date}`] && postsIMG[`${topic}-Post2-${date}`]}`}
@@ -67,7 +68,7 @@ export default function Section({ topic, publicView }) {
                     objectPosition3={userDB[`${topic}-objectPosition-Post3-${date}`]}
                     objectPosition4={userDB[`${topic}-objectPosition-Post4-${date}`]}
                 />}
-            {userDB[monthAndYear] && userDB[monthAndYear][topic] && userDB[monthAndYear][topic][`${topic}-Template-${dayMonthYear}`]  == "TemplateFive" &&
+            {userDB[monthAndYear] && userDB[monthAndYear][topic]  && userDB[monthAndYear][topic]['Templates'] && userDB[monthAndYear][topic]['Templates'][dayMonthYear]  == "TemplateFive" &&
                 <TemplateFive topic={topic}
                     post1={`${postsIMG[`${topic}-Post1-${date}`] && postsIMG[`${topic}-Post1-${date}`]}`}
                     post2={`${postsIMG[`${topic}-Post2-${date}`] && postsIMG[`${topic}-Post2-${date}`]}`}
@@ -86,7 +87,7 @@ export default function Section({ topic, publicView }) {
                     objectPosition5={userDB[`${topic}-objectPosition-Post5-${date}`]}
                 />}
 
-            {userDB[monthAndYear] && userDB[monthAndYear][topic] && userDB[monthAndYear][topic][`${topic}-Template-${dayMonthYear}`] == "TemplateSix" &&
+            {userDB[monthAndYear] && userDB[monthAndYear][topic]  && userDB[monthAndYear][topic]['Templates'] && userDB[monthAndYear][topic]['Templates'][dayMonthYear] == "TemplateSix" &&
                 <TemplateSix topic={topic}
                     post1={`${postsIMG[`${topic}-Post1-${date}`] && postsIMG[`${topic}-Post1-${date}`]}`}
                     post2={`${postsIMG[`${topic}-Post2-${date}`] && postsIMG[`${topic}-Post2-${date}`]}`}

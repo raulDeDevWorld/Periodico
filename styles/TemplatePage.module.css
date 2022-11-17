@@ -52,10 +52,115 @@
   color: rgb(255, 255, 255);
   background-color: brown;
 }
+.flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 
+.edit {
+  width: 20%;
+  margin-bottom: 5px;
+  padding: 0px;
+  border: none;
+  background-color:  brown;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+}
 
   .button {
     background-color: brown;
     border: none;
     color: white;
   }
+
+
+
+
+
+
+
+.editor {
+  width: 100%;
+  display: flex;
+}
+
+.viewer {
+  position: relative;
+  min-width: 50%;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+  padding: 10px 5px;
+}
+.title {
+  position: relative;
+  max-width: 100%;
+  color:#007483;
+  font-size: 25px;
+}
+.description {
+  color: black;
+  font-size: 24px;
+}
+
+.form {
+  position: relative;
+  min-width: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+}
+.form textarea {
+  width: 100%;
+  resize: vertical;
+}
+.formHide {
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+  top: 0;
+}
+.formViewer {
+  position: absolute;
+  font-size: 20px;
+  left: 5px;
+  top: 0;
+}
+.hideForm {
+  position: absolute;
+  visibility: hidden;
+}
+
+
+
+.bannerIntroContainer {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  margin: 0;
+}
+
+.bannerIntroIMG {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.flex {
+  display: flex;
+  height: 300px;
+}
+.image  {
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+}
+.publicidad {
+  width: 35%;
+  height: 100%;
+  object-fit: cover;
+}
+.paragraphText {
+  font-size: 14px;
+}
