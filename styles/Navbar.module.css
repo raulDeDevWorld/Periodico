@@ -2,13 +2,13 @@
     width: 100%;
     color: white;
     background-color: #007483;
-    border-bottom: 5px solid #007483;
+    border-bottom: 2.5px solid brown;
     font-size: 10px;
     margin-bottom: 5px;
 }
 
 .nav {
-    padding: 5px;
+    padding: 2.5px;
     display: flex;
     justify-content: space-between;
     border-bottom: 5px solid #ffffff;
@@ -16,7 +16,8 @@
 }
 
 .nav> :nth-child(n) {
-    margin: 0 3px;
+    padding:0 5px;
+    border-left: 1px solid brown;
 }
 
 @media (max-width: 750px) {
