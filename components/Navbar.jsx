@@ -38,7 +38,7 @@ export default function Navbar() {
                     <a className={`${style.link} ${pathname == "#Deportes" ? style.active : ''}`} onClick={handlerClick}>DEPORTES</a>
                 </Link>
                 <Link href="#Culturas" legacyBehavior scroll={false}>
-                    <a className={`${style.link} ${pathname == "#Culturas" ? style.active : ''}`} onClick={handlerClick}>CULTURAS</a>
+                    <a className={`${style.link} ${pathname == "#Culturas" ? style.active : ''}`} onClick={handlerClick}>CULTURA</a>
                 </Link>
                 <Link href="#Empresarial" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#Empresarial" ? style.active : ''}`} onClick={handlerClick}>EMPRESARIAL</a>
