@@ -51,7 +51,13 @@ export default function Navbar() {
                 </Link>
                 <Link href="#Imagenes" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#imagenes" ? style.active : ''}`} onClick={handleClick}>IMAGENES</a>
-                </Link><Link href="#nosotros" legacyBehavior scroll={false}>
+                </Link>
+                <Link href="#Imagenes" legacyBehavior scroll={false}>
+                    <a className={`${style.link} ${pathname == "#imagenes" ? style.active : ''}`} onClick={handleClick}>VIDEOS</a>
+                </Link>
+                
+                
+                <Link href="#nosotros" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS</a>
                 </Link>
             </nav>
