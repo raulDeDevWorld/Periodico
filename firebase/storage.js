@@ -8,10 +8,9 @@ const storage = getStorage(app)
 //--------------------------- Firebase Storage ---------------------------
 function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
     const imagesRef = ref(storage, `/${ruteDB}/${fileName}`);
-
     uploadBytes(imagesRef, file).then((snapshot) => {
         setUserSuccess("Cargando")
-        getList( monthAndYear, postsIMG, setUserPostsIMG,)
+getList( monthAndYear, postsIMG, setUserPostsIMG,)
     }).catch(e => setUserSuccess('error'));
 }
 
@@ -26,7 +25,7 @@ function downloadIMG(fileName, postsIMG, setUserPostsIMG) {
         .then((url) => {
             //console.log("download")
             object = { ...object, [fileName] :  url }
-            setUserPostsIMG(object)
+            setUserPostsIMG({...postsIMG, ...object})
         })
         .catch((error) => {
 
@@ -36,15 +35,17 @@ function downloadIMG(fileName, postsIMG, setUserPostsIMG) {
 
 
 function getList( monthAndYear, postsIMG, setUserPostsIMG, ) {
-    console.log(monthAndYear)
     //userDB && userDB[monthAndYear] && Object.keys(userDB[monthAndYear]).map((i, index)=>{
 
         const listRef = ref(storage, `/${monthAndYear}/`)
+      console.log(monthAndYear)
+
 
         listAll(listRef)
         .then((res) => {
              //console.log(res)
             res.items.forEach((itemRef) => {
+                //console.log(itemRef)
                 downloadIMG(itemRef["_location"]["path_"], postsIMG, setUserPostsIMG)
             });
         }).catch((error) => {

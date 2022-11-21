@@ -1,12 +1,14 @@
 import { useUser } from '../context/Context.js'
 import styles from '../styles/Template.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Banner from './Banner'
 
 
 function TemplateThreeA({ topic, post1, post2, post3, description1, description2, description3, objectPosition1, objectPosition2, objectPosition3 }) {
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date } = useUser()
     
     const [elements, setElements] = useState(false)
+    const [dataForDate, setDataForDate] = useState([])
 
     
     function setPostsElements() {
@@ -15,6 +17,9 @@ function TemplateThreeA({ topic, post1, post2, post3, description1, description2
     
     
     
+    useEffect(() => {
+        userDB[topic] && userDB[topic]["Posts"] && setDataForDate(Object.keys(userDB[topic]["Posts"]).map(i => { const newI = i.split('_'); return new Date(newI[1]) }).sort((a, b) => b - a))
+    }, [userDB, postsIMG]);
     
     
     return (
@@ -30,20 +35,15 @@ function TemplateThreeA({ topic, post1, post2, post3, description1, description2
             
 
             <div className={`${styles.gridThreeA} ${elements == true && styles.allVisible}`}>
-                {postsIMG && postsIMG[topic] && Object.values(postsIMG[topic]).map((i, index) =>
+            {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
                     <div key={index}>
-                        <img src={i} style={{ objectPosition: `${objectPosition1}` }} />
-                        {<p className={styles.description}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>}
+                        <img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${objectPosition1}` }} />
+                        {<p className={styles.description}>{userDB[topic]["Posts"][`PostImage_${i}`]['postDescription']}</p>}
                     </div>
-                )}
-            
-
-
-                         
+                )}         
             </div>
-            {postsIMG[`${topic}-bannerBottom-${date}`] && <div className={styles.banner}>
-                <img src={postsIMG[`${topic}-bannerBottom-${date}`]} style={{objectPosition: userDB[`${topic}-objectPosition-bannerBottom-${date}`]}} alt="Vercel Logo" />
-            </div>} 
+            {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom"></Banner>}        
+
         </section>
     )
 }

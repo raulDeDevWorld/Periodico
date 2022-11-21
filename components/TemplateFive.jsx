@@ -1,6 +1,7 @@
 import { useUser } from '../context/Context.js'
 import styles from '../styles/Template.module.css'
 import { useState } from 'react'
+import Banner from './Banner'
 
 
 function TemplateFive({ topic, post1, post2, post3, post4, post5,
@@ -35,9 +36,8 @@ function TemplateFive({ topic, post1, post2, post3, post4, post5,
                     </div>
                 )}
             </div>
-            {postsIMG[`${topic}-bannerBottom-${date}`] && <div className={styles.banner}>
-                <img src={postsIMG[`${topic}-bannerBottom-${date}`]} style={{ objectPosition: userDB[`${topic}-objectPosition-bannerBottom-${date}`] }} alt="Vercel Logo" />
-            </div>}
+            {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom"></Banner>}        
+
         </section>
     )
 }

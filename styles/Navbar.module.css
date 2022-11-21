@@ -1,8 +1,8 @@
 .container {
     width: 100%;
     color: white;
-    background-color: brown;
-    border-bottom: 5px solid #007484;
+    background-color: #007483;
+    border-bottom: 5px solid #007483;
     font-size: 12px;
     margin-bottom: 5px;
 }

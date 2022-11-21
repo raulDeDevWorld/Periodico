@@ -1,6 +1,7 @@
 import { useUser } from '../context/Context.js'
 import styles from '../styles/Template.module.css'
 import { useState } from 'react'
+import Banner from './Banner'
 
 
 function TemplateFour({ topic, post1, post2, post3, post4, description1, description2, description3, description4,
@@ -24,11 +25,6 @@ function TemplateFour({ topic, post1, post2, post3, post4, description1, descrip
 
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button> }
 
-
-
-            
-
-            
             <div className={`${styles.gridFour} ${elements == true && styles.allVisible}`}>
                 {postsIMG && postsIMG[topic] && Object.values(postsIMG[topic]).map((i, index) =>
                     <div key={index}>
@@ -38,10 +34,8 @@ function TemplateFour({ topic, post1, post2, post3, post4, description1, descrip
                 )}
             </div>
 
-            
-            {postsIMG[`${topic}-bannerBottom-${date}`] && <div className={styles.banner}>
-                <img src={postsIMG[`${topic}-bannerBottom-${date}`]} style={{ objectPosition: userDB[`${topic}-objectPosition-bannerBottom-${date}`] }} alt="Vercel Logo" />
-            </div>}
+            {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom"></Banner>}        
+
         </section>
     )
 }

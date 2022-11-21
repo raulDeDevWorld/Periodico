@@ -72,6 +72,21 @@ function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG, onlyData)
       console.log('getdata')
 
     onlyData ?  '' : getList( monthAndYear, postsIMG, setUserPostsIMG)
+    getList( 'Inicio/', postsIMG, setUserPostsIMG)
+    getList( 'Publicidades/HeaderBanners', postsIMG, setUserPostsIMG)
+    getList( 'Seguridad/', postsIMG, setUserPostsIMG)
+    getList( 'Sociedad/', postsIMG, setUserPostsIMG)
+    getList( 'GestionDeGobierno/', postsIMG, setUserPostsIMG)
+    getList( 'Politica/', postsIMG, setUserPostsIMG)
+    getList( 'Salud/', postsIMG, setUserPostsIMG)
+    getList( 'Economia', postsIMG, setUserPostsIMG)
+    getList( 'Deportes/', postsIMG, setUserPostsIMG)
+    getList( 'Culturas/', postsIMG, setUserPostsIMG)
+    getList( 'Empresarial/', postsIMG, setUserPostsIMG)
+    getList( 'Internacional/', postsIMG, setUserPostsIMG)
+    getList( 'Opinion/', postsIMG, setUserPostsIMG)
+
+
         } else {
           setUserData('');
         }

@@ -4,7 +4,7 @@ function getDayMonthYear (setUserDayMonthYear) {
     const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
     const date = new Date();
     
-    return setUserDayMonthYear(`${date.getDate()}-${months[date.getMonth()]}-${date.getUTCFullYear()}`)
+    return setUserDayMonthYear ? setUserDayMonthYear(`${date.getDate()}-${months[date.getMonth()]}-${date.getUTCFullYear()}`) : `${date.getDate()}-${months[date.getMonth()]}-${date.getUTCFullYear()}`
     
 }
 

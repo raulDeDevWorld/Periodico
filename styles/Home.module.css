@@ -11,6 +11,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  margin-bottom: 5px;
   border-bottom: 10px solid #007484;
 }
 .containerLogout :nth-child(1) {

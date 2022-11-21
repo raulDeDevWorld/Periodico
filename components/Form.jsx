@@ -43,14 +43,12 @@ export default function Form({ topic, value }) {
   }
 
 function manageTemplate (e) {
-  const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
-  const ruteDB = `${monthYear}/${topic}/Templates` // Nov-2022/Inicio
+  //const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
+  const ruteDB = `/${topic}/Templates` // /Inicio
   const value = e.target.value
   
   const object = { [dayMonthYear] : value }
 
-
-  
   writeUserData(ruteDB, object, setUserSuccess)
 
 }
@@ -67,12 +65,13 @@ function manageTemplate (e) {
     const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
     const newDate = new Date()
     if (key == "SavePost") {
-      const ruteDB = `${monthYear}/${topic}/Posts` // Nov-2022/Inicio
-      const ruteSTG = `${monthYear}` // Nov-2022/
+      const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
+      const ruteSTG = `${topic}` // Nov-2022/
       const fileName = `PostImage_${newDate}` // PostImage_Tue Nov 15 2022 
       const object = { [fileName] : {postDescription: data.PostDescription, PostEnlace: data.PostEnlace, objectFitPost: data.objectPositionPost }}
+      writeUserData(ruteDB, object, setUserSuccess, setUserData)
       uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
-      writeUserData(ruteDB, object, setUserSuccess)
+
     }
     if (key == "SaveBannerTop") {
       const ruteDB = `${monthYear}/${topic}/BannersTop` // Nov-2022/Inicio
@@ -82,11 +81,12 @@ function manageTemplate (e) {
       writeUserData(ruteDB, object, setUserSuccess)
     }
     if (key == "SaveBannerBottom") {
-      const ruteDB = `${monthYear}/${topic}/BannersBottom` // Nov-2022/Inicio
+      const ruteDB = `/${topic}/BannerBottom` // Nov-2022/Inicio
+      const ruteSTG = `${topic}` // Nov-2022/
       const fileName = `BannerBottomImage_${newDate}` // PostImage_Tue Nov 15 2022 
-      const object = { [fileName] : {bannerBottomWhatsApp: data.bannerBottomWhatsapp, PostEnlace: data.bannerBottomEnlace, objectFitPost: data.objectPositionBannerBottom }}
-      //uploadIMG(userDB, postImage, postName, `${monthYear}/${topic}`, setUserSuccess, postsIMG, setUserPostsIMG, monthAndYear)
-      writeUserData(ruteDB, object, setUserSuccess)
+      const object = { [fileName] : {bannerWhatsapp: data.bannerBottomWhatsapp, bannerEnlace: data.bannerBottomEnlace, objectFitPost: data.objectPositionBannerBottom }}
+      writeUserData(ruteDB, object, setUserSuccess, setUserData)
+      uploadIMG(ruteSTG, fileName, bannerBottomImage, setUserSuccess, monthYear)
     }
   }
 

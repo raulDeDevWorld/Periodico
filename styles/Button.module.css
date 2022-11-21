@@ -21,6 +21,30 @@
     background-color: brown;
     border: 2px solid white;
 }
+.miniButtonPrimary {
+    height: 25px;
+    padding: 0;
+    color: white;
+    background-color: #007483;
+    border: 2px solid #8FC2C9;
+}
+.miniButtonPrimary:hover {
+    color: white;
+    background-color: brown;
+    border: 2px solid white;
+}
+.miniButtonLight {
+    height: 25px;
+    padding: 0;
+    color: #007483;
+    background-color: #ffffff;
+    border: 2px solid #8FC2C9;
+}
+.miniButtonLight:hover {
+    color: white;
+    background-color: brown;
+    border: 2px solid white;
+}
 .buttonSecondary {
     color: white;
     background-color: #007483;
