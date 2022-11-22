@@ -27,9 +27,9 @@ function TemplateThreeB({ topic, post1, post2, post3, description1, description2
         <section className={styles.section} id={topic}>
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
 
-            {postsIMG[`${topic}-bannerTop-${date}`] && <div className={styles.banner}>
-                <img src={postsIMG[`${topic}-bannerTop-${date}`]} style={{ objectPosition: userDB[`${topic}-objectPosition-bannerTop-${date}`] }} alt="Vercel Logo" />
-            </div>}
+            {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop"></Banner>}        
+
+
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>}
             <div className={`${styles.gridThreeB} ${elements == true && styles.allVisible}`}>
             {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
@@ -39,8 +39,6 @@ function TemplateThreeB({ topic, post1, post2, post3, description1, description2
                     </div>
                 )}
             </div>
-
-
 
             {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom"></Banner>}        
 

@@ -26,9 +26,12 @@ function TemplateThreeA({ topic, post1, post2, post3, description1, description2
         <section className={styles.section} id={topic}>
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
            
-            {postsIMG[`${topic}-bannerTop-${date}`] && <div className={styles.banner}>
-                <img src={postsIMG[`${topic}-bannerTop-${date}`]} style={{objectPosition: userDB[`${topic}-objectPosition-bannerTop-${date}`]}}  alt="Vercel Logo" />
-            </div>} 
+            {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop"></Banner>}        
+
+
+
+
+
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button> }
 
             

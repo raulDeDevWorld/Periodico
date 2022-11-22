@@ -15,6 +15,11 @@
     height: 100px;
     width: 100px;
 }
+.previewIMGBanner {
+    object-fit: cover;
+    height: 33px;
+    width: 150px;
+}
 .form > :nth-child(2) {
     margin: 10px 0;
 }

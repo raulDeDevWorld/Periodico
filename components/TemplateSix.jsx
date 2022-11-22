@@ -23,6 +23,8 @@ function TemplateSix({ topic, post1, post2, post3, post4, post5, post6,
         <section className={styles.section} id={topic}>
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
 
+            {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop"></Banner>}        
+
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>
             }
             <div className={`${styles.gridSix} ${elements == true && styles.allVisible}`}>

@@ -18,9 +18,9 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      
+
       <main className={styles.main}>
-      <Header></Header>
+        <Header></Header>
         {showImg == true && <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index) => {
           return (
             <img src={i} key={index} alt="Vercel Logo" />
@@ -45,21 +45,33 @@ function Home() {
         <footer className={styles.footer} id="nosotros">
           <div>
             <h5>MISIÓN</h5>
-            <p>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacionale internacional.</p>
+            <div className={styles.footerItemsContainer}>
+              <img src="/vision.svg" alt="" />
+              <p>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacionale internacional.</p>
+
+            </div>
           </div>
           <div>
             <h5>PUBLICIDAD ONLINE</h5>
-            <span>(519-2) 2488973</span>
-            <span>73002076</span>
-            <span>60101760</span>
+            <div className={styles.footerItemsContainer}>
+              <img src="/contact.svg" alt="" />
+              <p>(519-2) 2488973 <br /> 73002076 <br />60101760</p>
+            </div>
           </div>
           <div>
             <h5>VISIÓN</h5>
-            <p>Ser el medio impreso y digital de mayor influencia en la construccion de un cultura ciudadana en torno a la realidad nacional e internacional</p>
+            <div className={styles.footerItemsContainer}>
+              <img src="/mision.svg" alt="" />
+              <p>Ser el medio impreso y digital de mayor influencia en la construccion de un cultura ciudadana en torno a la realidad nacional e internacional</p>
+            </div>
           </div>
           <div>
             <h5>DIRECCIÓN</h5>
-            <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
+            <div className={styles.footerItemsContainer}>
+              <img src="/ubication.svg" alt="" />
+              <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
+            </div>
+
           </div>
           <div>
             <h5>SIGUENOS EN</h5>
@@ -69,6 +81,7 @@ function Home() {
             <h5>ESCRIBENOS A</h5>
 
           </div>
+          <span>hoy.bo <br /> Desarrollado por Swoou.com <br /> ©copyright 2022</span>
         </footer>
       </main>
     </div>

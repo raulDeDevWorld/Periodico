@@ -2,6 +2,7 @@ import { writeUserData, getData } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
 import { useUser } from '../context/Context.js'
 import Button from '../components/Button'
+import Error from '../components/Error'
 import style from '../styles/Form.module.css'
 import { useState } from 'react'
 import { getDate, getDayMonthYear, getMonthAndYear } from '../utils/Utils'
@@ -42,22 +43,24 @@ export default function Form({ topic, value }) {
     }
   }
 
-function manageTemplate (e) {
-  //const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
-  const ruteDB = `/${topic}/Templates` // /Inicio
-  const value = e.target.value
-  
-  const object = { [dayMonthYear] : value }
+  console.log(data)
 
-  writeUserData(ruteDB, object, setUserSuccess)
+  function manageTemplate(e) {
+    //const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
+    const ruteDB = `/${topic}/Templates` // /Inicio
+    const value = e.target.value
 
-}
+    const object = { [dayMonthYear]: value }
 
-  function handlerEventChange (e) {
+    writeUserData(ruteDB, object, setUserSuccess)
+
+  }
+
+  function handlerEventChange(e) {
     const name = e.target.name
     const value = e.target.value
-    const object = {[name]: value}
-    setData({...data, ...object})
+    const object = { [name]: value }
+    setData({ ...data, ...object })
   }
   function save(e, key) {
     e.preventDefault()
@@ -65,35 +68,74 @@ function manageTemplate (e) {
     const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
     const newDate = new Date()
     if (key == "SavePost") {
-      const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
-      const ruteSTG = `${topic}` // Nov-2022/
-      const fileName = `PostImage_${newDate}` // PostImage_Tue Nov 15 2022 
-      const object = { [fileName] : {postDescription: data.PostDescription, PostEnlace: data.PostEnlace, objectFitPost: data.objectPositionPost }}
-      writeUserData(ruteDB, object, setUserSuccess, setUserData)
-      uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
+      if (postImage) {
+        const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
+        const ruteSTG = `${topic}` // Nov-2022/
+        const fileName = `PostImage_${newDate}` // PostImage_Tue Nov 15 2022 
+        const object = { [fileName]: { description: data.descriptionPost ? data.descriptionPost : "", enlace: data.enlacePost ? data.enlacePost : `${newDate}`, objectFit: data.objectPositionPost ? data.objectPositionPost: null } }
+        writeUserData(ruteDB, object, setUserSuccess, setUserData)
+        uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
+      } else {
+        setUserSuccess("CompleteIMG")
+      }
+
+
 
     }
     if (key == "SaveBannerTop") {
-      const ruteDB = `${monthYear}/${topic}/BannersTop` // Nov-2022/Inicio
-      const fileName = `BannerTopImage_${newDate}` // PostImage_Tue Nov 15 2022 
-      const object = { [fileName] : {bannerTopWhatsapp: data.bannerTopWhatsapp, PostEnlace: data.bannerTopEnlace, objectFitPost: data.objectPositionBannerTop }}
-      //uploadIMG(userDB, postImage, postName, `${monthYear}/${topic}`, setUserSuccess, postsIMG, setUserPostsIMG, monthAndYear)
-      writeUserData(ruteDB, object, setUserSuccess)
+      if (bannerTopImage && data.dateInitBannerTop && data.dateFinishBannerTop) {
+
+        const ruteDB = `/${topic}/BannerTop` // Nov-2022/Inicio
+        const ruteSTG = `${topic}` // Nov-2022/
+        const fileName = `BannerTopImage_${newDate}` // PostImage_Tue Nov 15 2022 
+        const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerTop : null , enlace: data.enlaceBannerTop ? data.enlaceBannerTop : null, objectFit: data.objectPositionBannerTop ? data.objectPositionBannerTop : null, dateInit: data.dateInitBannerTop, dateFinish: data.dateFinishBannerTop } }
+        writeUserData(ruteDB, object, setUserSuccess, setUserData)
+        uploadIMG(ruteSTG, fileName, bannerTopImage, setUserSuccess, monthYear)
+      } else {
+        setUserSuccess("CompleteFORM")
+        data.dateInitBannerTop && data.dateFinishBannerTop && bannerTopImage == undefined && setUserSuccess("CompleteIMG")
+
+      }
     }
     if (key == "SaveBannerBottom") {
-      const ruteDB = `/${topic}/BannerBottom` // Nov-2022/Inicio
-      const ruteSTG = `${topic}` // Nov-2022/
-      const fileName = `BannerBottomImage_${newDate}` // PostImage_Tue Nov 15 2022 
-      const object = { [fileName] : {bannerWhatsapp: data.bannerBottomWhatsapp, bannerEnlace: data.bannerBottomEnlace, objectFitPost: data.objectPositionBannerBottom }}
-      writeUserData(ruteDB, object, setUserSuccess, setUserData)
-      uploadIMG(ruteSTG, fileName, bannerBottomImage, setUserSuccess, monthYear)
+      if (bannerBottomImage && data.dateInitBannerBottom && data.dateFinishBannerBottom) {
+        const ruteDB = `/${topic}/BannerBottom` // Nov-2022/Inicio
+        const ruteSTG = `${topic}` // Nov-2022/
+        const fileName = `BannerBottomImage_${newDate}` // PostImage_Tue Nov 15 2022 
+        const object = { [fileName]: { whatsapp: data.whatsappBannerBottom ? data.whatsappBannerBottom : null, enlace: data.enlaceBannerBottom ? data.enlaceBannerBottom : null, objectFit: data.objectPositionBannerBottom ? data.objectPositionBannerBottom : null , dateInit: data.dateInitBannerBottom, dateFinish: data.dateFinishBannerBottom } }
+        writeUserData(ruteDB, object, setUserSuccess, setUserData)
+        uploadIMG(ruteSTG, fileName, bannerBottomImage, setUserSuccess, monthYear)
+      } else {
+        setUserSuccess("CompleteFORM")
+        data.dateInitBannerBottom && data.dateFinishBannerBottom && bannerBottomImage == undefined && setUserSuccess("CompleteIMG")
+
+
+
+
+
+        //setUserSuccess("CompleteIMG")
+        //data.dateInitBannerTop && data.dateFinishBannerTop && bannerTopImage == undefined && setUserSuccess("CompleteIMG")
+        //bannerTopImage && data.dateInitBannerTop == undefined && setUserSuccess("CompleteFechaInit")
+        //bannerTopImage && data.dateFinishBannerTop && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFechaFinish")
+        ///bannerTopImage == undefined && data.dateInitBannerTop == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
+
+        ///bannerTopImage == undefined && data.dateInitBannerTop == undefined && setUserSuccess("CompleteFORM")
+        ///bannerTopImage == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
+        ///data.dateInitBannerTop == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
+
+        //data.dateInitBannerTop == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
+        //bannerTopImage == undefined && data.dateInitBannerTop == undefined && setUserSuccess("CompleteFORM")
+
+
+
+      }
     }
   }
 
 
 
 
- 
+
   function handlerUploadFile(e) {
     const monthYear = getMonthAndYear()
     //  uploadIMG(userDB, file, fileName, `${monthYear}/${topic}`, setUserSuccess, postsIMG, setUserPostsIMG, monthAndYear)
@@ -113,8 +155,8 @@ function manageTemplate (e) {
           <label htmlFor={`${topic}-Post`} className={style.label} >Seleccionar Post </label>
           <img className={style.previewIMG} src={urlPostImage} alt="" />
           <input type="file" id={`${topic}-Post`} className={style.inputFile} name={`PostImage`} onChange={manageInputIMG} accept="images" />
-          <input type="text" placeholder='Descripción' name="PostDescription" onChange={handlerEventChange} />
-          <input type="text" placeholder='Enlace' name="PostEnlace" onChange={handlerEventChange} />
+          <input type="text" placeholder='Descripción' name="descriptionPost" onChange={handlerEventChange} />
+          <input type="text" placeholder='Enlace' name="enlacePost" onChange={handlerEventChange} />
           <div className={style.radioInputs}>
             <input type="radio" value="left" name="objectPositionPost" onChange={handlerEventChange} /> ⇦
             <input type="radio" value="top" name="objectPositionPost" onChange={handlerEventChange} /> ⇧
@@ -126,10 +168,12 @@ function manageTemplate (e) {
         </form>
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner Top</label>
-          <img className={style.previewIMG} src={urlBannerTopImage} alt="" />
+          <img className={style.previewIMGBanner} src={urlBannerTopImage} alt="" />
           <input type="file" id={`${topic}-bannerTop`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMG} accept="images" />
-          <input type="text" placeholder='Enlace' name="bannerTopEnlace" onChange={handlerEventChange} />
-          <input type="text" placeholder='Whatsapp' name="bannerTopWhatsapp" onChange={handlerEventChange} />
+          <input type="text" placeholder='Enlace' name="enlaceBannerTop" onChange={handlerEventChange} />
+          <input type="text" placeholder='Whatsapp' name="whatsappBannerTop" onChange={handlerEventChange} />
+          <input className={style.calendario} type="date" id="start" name="dateInitBannerTop" onChange={handlerEventChange} />
+          <input className={style.calendario} type="date" id="start" name="dateFinishBannerTop" onChange={handlerEventChange} />
           <div className={style.radioInputs}>
             <input type="radio" value="left" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇦
             <input type="radio" value="top" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇧
@@ -141,10 +185,12 @@ function manageTemplate (e) {
         </form>
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerBottom`} className={style.label} >Seleccionar Banner Bottom </label>
-          <img className={style.previewIMG} src={urlBannerBottomImage} alt="" />
+          <img className={style.previewIMGBanner} src={urlBannerBottomImage} alt="" />
           <input type="file" id={`${topic}-bannerBottom`} className={style.inputFile} name={`BannerBottomImage`} onChange={manageInputIMG} accept="images" />
-          <input type="text" placeholder='Enlace' name="bannerBottomEnlace" onChange={handlerEventChange} />
-          <input type="text" placeholder='Whatsapp' name="bannerBottomWhatsapp" onChange={handlerEventChange} />
+          <input type="text" placeholder='Enlace' name="enlaceBannerBottom" onChange={handlerEventChange} />
+          <input type="text" placeholder='Whatsapp' name="whatsappBannerBottom" onChange={handlerEventChange} />
+          <input className={style.calendario} type="date" id="start" name="dateInitBannerBottom" onChange={handlerEventChange} />
+          <input className={style.calendario} type="date" id="start" name="dateFinishBannerBottom" onChange={handlerEventChange} />
           <div className={style.radioInputs}>
             <input type="radio" value="lrft" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇦
             <input type="radio" value="top" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇧

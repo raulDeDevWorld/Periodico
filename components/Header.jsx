@@ -96,12 +96,12 @@ export default function Header(props) {
                             <div className="each-slide" key={index}>
                                 <div>
                                     <Link href={userDB.Publicidades.HeaderBanners[i].enlace} legacyBehavior>
-                                        <a target="_blank"><img className={styles.sliderIMG} src={postsIMG[`Publicidades/HeaderBanners/${i}`]}  /></a>
+                                        <a target="_blank"><img className={styles.sliderIMG} src={postsIMG[`Publicidades/HeaderBanners/${i}`]} /></a>
                                     </Link>
                                     <Link href={`https://api.whatsapp.com/send?phone=${userDB.Publicidades.HeaderBanners[i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
                                         <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
                                     </Link>
-                                    
+
                                 </div>
                             </div>
                         )}
@@ -146,12 +146,27 @@ export default function Header(props) {
                 <div className={styles.socialMedia}>
                     <span>Siguenos en:</span>
                     <div className={styles.socialMediaIcons}>
-                        <img src="/SocialMedia/internet.png" alt="SocialMedia" />
-                        <img src="/SocialMedia/facebook.png" alt="SocialMedia" />
-                        <img src="/SocialMedia/instagram.png" alt="SocialMedia" />
-                        <img src="/SocialMedia/twiter.png" alt="SocialMedia" />
-                        <img src="/SocialMedia/youtube.png" alt="SocialMedia" />
-                        <img src="/SocialMedia/tiktok.png" alt="SocialMedia" />
+                        <Link href="https://www.hoy.bo/" legacyBehavior scroll={false}>
+                            <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/internet.png" alt="SocialMedia" /></a>
+                        </Link>
+                        <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
+                            <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
+                        </Link>
+                        <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
+                            <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
+                        </Link>
+                        <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
+                            <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
+                        </Link>
+                        <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                            <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
+                        </Link>
+                        <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
+                            <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
+                        </Link>
+                        <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                            <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
+                        </Link>
                     </div>
                 </div>
                 <video

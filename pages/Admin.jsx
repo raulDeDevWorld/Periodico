@@ -5,6 +5,8 @@ import { useUser } from '../context/Context.js'
 import { WithAuth } from '../HOCs/WithAuth'
 import Button from '../components/Button'
 import Success from '../components/Success'
+import Error from '../components/Error'
+
 import Section from '../components/Section'
 import Date from '../components/Date'
 import Header from '../components/Header'
@@ -48,6 +50,11 @@ function Admin() {
 
   return (
     <div className={styles.container}>
+      {success === "CompleteFORM" && <Error>Complete el formulario...</Error>} 
+
+      {success === "CompleteFechaInit" && <Error>Complete la fecha de inicio...</Error>}       
+      {success === "CompleteFechaFinish" && <Error>Complete la fecha final...</Error>}       
+      {success === "CompleteIMG" && <Error>Añade una imagen...</Error>}     
       {success == "Cargando" && <Success>Cargando...</Success>}
       <main className={styles.main}>
         <div className={styles.containerLogout}>
@@ -74,7 +81,7 @@ function Admin() {
         <Section topic="Internacional" publicView={false} ></Section>
         <Section topic="Opinion" publicView={false} ></Section>
 
-
+ 
 
 
 
