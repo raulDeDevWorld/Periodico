@@ -177,7 +177,7 @@
 
 .footerItemsContainer {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .footerItemsContainer :nth-child(1) {
