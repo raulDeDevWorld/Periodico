@@ -6,17 +6,35 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    
+}
+.require {
+    position: relative;
+    height: 15px;
+    top: -5px;
+    color: brown;
+margin: 0;
+padding: 0;
+}
+.green {
+    color: green
 }
 .formSelectPost {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 .previewIMG {
     object-fit: cover;
     height: 100px;
     width: 100px;
+
 }
 .previewIMGBanner {
     object-fit: cover;
+    margin-bottom: 2px;
     height: 33px;
     width: 150px;
 }
@@ -24,7 +42,10 @@
     margin: 10px 0;
 }
 .formInputs {
+    display: flex;
+    
 }
+
 .formInputs :nth-child(n) {
 }
 .formInputs input  {

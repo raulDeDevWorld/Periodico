@@ -72,7 +72,7 @@ export default function Form({ topic, value }) {
         const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
         const ruteSTG = `${topic}` // Nov-2022/
         const fileName = `PostImage_${newDate}` // PostImage_Tue Nov 15 2022 
-        const object = { [fileName]: { description: data.descriptionPost ? data.descriptionPost : "", enlace: data.enlacePost ? data.enlacePost : `${newDate}`, objectFit: data.objectPositionPost ? data.objectPositionPost: null } }
+        const object = { [fileName]: { description: data.descriptionPost ? data.descriptionPost : "", enlace: data.enlacePost ? data.enlacePost : `${newDate}`, objectFit: data.objectPositionPost ? data.objectPositionPost: 'center' } }
         writeUserData(ruteDB, object, setUserSuccess, setUserData)
         uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
       } else {
@@ -88,7 +88,7 @@ export default function Form({ topic, value }) {
         const ruteDB = `/${topic}/BannerTop` // Nov-2022/Inicio
         const ruteSTG = `${topic}` // Nov-2022/
         const fileName = `BannerTopImage_${newDate}` // PostImage_Tue Nov 15 2022 
-        const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerTop : null , enlace: data.enlaceBannerTop ? data.enlaceBannerTop : null, objectFit: data.objectPositionBannerTop ? data.objectPositionBannerTop : null, dateInit: data.dateInitBannerTop, dateFinish: data.dateFinishBannerTop } }
+        const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerTop : null , enlace: data.enlaceBannerTop ? data.enlaceBannerTop : null, objectFit: data.objectPositionBannerTop ? data.objectPositionBannerTop : 'center', dateInit: data.dateInitBannerTop, dateFinish: data.dateFinishBannerTop } }
         writeUserData(ruteDB, object, setUserSuccess, setUserData)
         uploadIMG(ruteSTG, fileName, bannerTopImage, setUserSuccess, monthYear)
       } else {
@@ -102,7 +102,7 @@ export default function Form({ topic, value }) {
         const ruteDB = `/${topic}/BannerBottom` // Nov-2022/Inicio
         const ruteSTG = `${topic}` // Nov-2022/
         const fileName = `BannerBottomImage_${newDate}` // PostImage_Tue Nov 15 2022 
-        const object = { [fileName]: { whatsapp: data.whatsappBannerBottom ? data.whatsappBannerBottom : null, enlace: data.enlaceBannerBottom ? data.enlaceBannerBottom : null, objectFit: data.objectPositionBannerBottom ? data.objectPositionBannerBottom : null , dateInit: data.dateInitBannerBottom, dateFinish: data.dateFinishBannerBottom } }
+        const object = { [fileName]: { whatsapp: data.whatsappBannerBottom ? data.whatsappBannerBottom : null, enlace: data.enlaceBannerBottom ? data.enlaceBannerBottom : null, objectFit: data.objectPositionBannerBottom ? data.objectPositionBannerBottom : 'center' , dateInit: data.dateInitBannerBottom, dateFinish: data.dateFinishBannerBottom } }
         writeUserData(ruteDB, object, setUserSuccess, setUserData)
         uploadIMG(ruteSTG, fileName, bannerBottomImage, setUserSuccess, monthYear)
       } else {
@@ -154,6 +154,7 @@ export default function Form({ topic, value }) {
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-Post`} className={style.label} >Seleccionar Post </label>
           <img className={style.previewIMG} src={urlPostImage} alt="" />
+          <p className={`${style.require} ${ postImage?  style.green : ''}` }>{ postImage? 'Correcto' : '*Requerido'}</p>
           <input type="file" id={`${topic}-Post`} className={style.inputFile} name={`PostImage`} onChange={manageInputIMG} accept="images" />
           <input type="text" placeholder='Descripción' name="descriptionPost" onChange={handlerEventChange} />
           <input type="text" placeholder='Enlace' name="enlacePost" onChange={handlerEventChange} />
@@ -169,11 +170,14 @@ export default function Form({ topic, value }) {
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner Top</label>
           <img className={style.previewIMGBanner} src={urlBannerTopImage} alt="" />
+          <p className={`${style.require} ${ bannerTopImage?  style.green : ''}` }>{ bannerTopImage? 'Correcto' : '*Requerido'}</p>
           <input type="file" id={`${topic}-bannerTop`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMG} accept="images" />
           <input type="text" placeholder='Enlace' name="enlaceBannerTop" onChange={handlerEventChange} />
           <input type="text" placeholder='Whatsapp' name="whatsappBannerTop" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerTop" onChange={handlerEventChange} />
+          <p className={`${style.require} ${ data.dateInitBannerTop?  style.green : ''}` }>{ data.dateInitBannerTop? 'Correcto' : '*Requerido'}</p>
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerTop" onChange={handlerEventChange} />
+          <p className={`${style.require} ${ data.dateFinishBannerTop?  style.green : ''}` }>{ data.dateFinishBannerTop? 'Correcto' : '*Requerido'}</p>
           <div className={style.radioInputs}>
             <input type="radio" value="left" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇦
             <input type="radio" value="top" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇧
@@ -186,11 +190,14 @@ export default function Form({ topic, value }) {
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerBottom`} className={style.label} >Seleccionar Banner Bottom </label>
           <img className={style.previewIMGBanner} src={urlBannerBottomImage} alt="" />
+          <p className={`${style.require} ${ bannerBottomImage?  style.green : ''}` }>{ bannerBottomImage? 'Correcto' : '*Requerido'}</p>
           <input type="file" id={`${topic}-bannerBottom`} className={style.inputFile} name={`BannerBottomImage`} onChange={manageInputIMG} accept="images" />
           <input type="text" placeholder='Enlace' name="enlaceBannerBottom" onChange={handlerEventChange} />
           <input type="text" placeholder='Whatsapp' name="whatsappBannerBottom" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerBottom" onChange={handlerEventChange} />
+          <p className={`${style.require} ${ data.dateInitBannerBottom?  style.green : ''}` }>{ data.dateInitBannerBottom? 'Correcto' : '*Requerido'}</p>
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerBottom" onChange={handlerEventChange} />
+          <p className={`${style.require} ${ data.dateFinishBannerBottom?  style.green : ''}` }>{ data.dateFinishBannerBottom? 'Correcto' : '*Requerido'}</p>
           <div className={style.radioInputs}>
             <input type="radio" value="lrft" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇦
             <input type="radio" value="top" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇧
