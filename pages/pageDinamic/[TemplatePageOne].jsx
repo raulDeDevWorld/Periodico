@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
 
 
-import styles from '../styles/TemplatePage.module.css'
+import styles from '../../styles/TemplatePage.module.css'
 
 function TemplateOne() {
     const [textArea, setTextArea] = useState("");
