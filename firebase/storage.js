@@ -9,9 +9,10 @@ const storage = getStorage(app)
 function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
     const imagesRef = ref(storage, `/${ruteDB}/${fileName}`);
     uploadBytes(imagesRef, file).then((snapshot) => {
+        console.log('carg')
         setUserSuccess("Cargando")
-getList( monthAndYear, postsIMG, setUserPostsIMG,)
-    }).catch(e => setUserSuccess('error'));
+        getList( monthAndYear, postsIMG, setUserPostsIMG,)
+    }).catch(e => '');
 }
 
 
@@ -38,7 +39,7 @@ function getList( monthAndYear, postsIMG, setUserPostsIMG, ) {
     //userDB && userDB[monthAndYear] && Object.keys(userDB[monthAndYear]).map((i, index)=>{
 
         const listRef = ref(storage, `/${monthAndYear}/`)
-      console.log(monthAndYear)
+    //  console.log(monthAndYear)
 
 
         listAll(listRef)

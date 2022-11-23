@@ -112,7 +112,7 @@ function writeUserData (ruteDB, object, setUserSuccess) {
     setUserSuccess !== null? setUserSuccess('save'): ''
     getData(setUserData)
   })
-  .catch(()=>setUserSuccess('repeat'))
+  .catch(()=>'')
 }
 
 async function removeData (data, setUserData, setUserSuccess) {

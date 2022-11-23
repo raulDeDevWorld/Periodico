@@ -46,7 +46,15 @@
     clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
     background: #007483;
 }
-
+.sliderWhatsapp {
+    right: 10px;
+    bottom: 10px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  position: absolute;
+  z-index: 10000;
+  }
 .description {
     width: 100%;
     margin: 0;
@@ -60,7 +68,13 @@
     background-color: rgba(0, 0, 0, 0.407);
     text-align: left;
 }
-
+.inDevelop {
+    position: absolute;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.727);
+    z-index: 1000;
+    color: beige;
+}
 .gridOne,
 .gridThreeA,
 .gridThreeB,

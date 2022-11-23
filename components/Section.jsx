@@ -15,7 +15,7 @@ export default function Section({ topic, publicView }) {
 
     const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear, dayMonthYear } = useUser()
  
-    console.log(postsIMG)
+    //console.log(postsIMG)
     return (
         <>
             {userDB[topic] !== null && publicView == false && <Form topic={topic} value={userDB[`${topic}-${date}`]}></Form>}

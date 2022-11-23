@@ -43,7 +43,7 @@ export default function Form({ topic, value }) {
     }
   }
 
-  console.log(data)
+//  console.log(data)
 
   function manageTemplate(e) {
     //const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
@@ -62,6 +62,9 @@ export default function Form({ topic, value }) {
     const object = { [name]: value }
     setData({ ...data, ...object })
   }
+
+
+  
   function save(e, key) {
     e.preventDefault()
 
@@ -72,7 +75,7 @@ export default function Form({ topic, value }) {
         const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
         const ruteSTG = `${topic}` // Nov-2022/
         const fileName = `PostImage_${newDate}` // PostImage_Tue Nov 15 2022 
-        const object = { [fileName]: { description: data.descriptionPost ? data.descriptionPost : "", enlace: data.enlacePost ? data.enlacePost : `${newDate}`, objectFit: data.objectPositionPost ? data.objectPositionPost: 'center' } }
+        const object = { [fileName]: { description: data.descriptionPost ? data.descriptionPost : null, enlace: data.enlacePost ? data.enlacePost : `${newDate}`, objectFit: data.objectPositionPost ? data.objectPositionPost: 'center' } }
         writeUserData(ruteDB, object, setUserSuccess, setUserData)
         uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
       } else {
@@ -153,9 +156,9 @@ export default function Form({ topic, value }) {
       <div className={style.formInputs}>
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-Post`} className={style.label} >Seleccionar Post </label>
-          <img className={style.previewIMG} src={urlPostImage} alt="" />
+          <img className={style.previewIMG} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionPost : 'center'} `}} src={urlPostImage} alt="" />
           <p className={`${style.require} ${ postImage?  style.green : ''}` }>{ postImage? 'Correcto' : '*Requerido'}</p>
-          <input type="file" id={`${topic}-Post`} className={style.inputFile} name={`PostImage`} onChange={manageInputIMG} accept="images" />
+          <input type="file" id={`${topic}-Post`} className={style.inputFile} name={`PostImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
           <input type="text" placeholder='Descripción' name="descriptionPost" onChange={handlerEventChange} />
           <input type="text" placeholder='Enlace' name="enlacePost" onChange={handlerEventChange} />
           <div className={style.radioInputs}>
@@ -169,9 +172,9 @@ export default function Form({ topic, value }) {
         </form>
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner Top</label>
-          <img className={style.previewIMGBanner} src={urlBannerTopImage} alt="" />
+          <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerTop : 'center'} `}} src={urlBannerTopImage} alt="" />
           <p className={`${style.require} ${ bannerTopImage?  style.green : ''}` }>{ bannerTopImage? 'Correcto' : '*Requerido'}</p>
-          <input type="file" id={`${topic}-bannerTop`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMG} accept="images" />
+          <input type="file" id={`${topic}-bannerTop`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
           <input type="text" placeholder='Enlace' name="enlaceBannerTop" onChange={handlerEventChange} />
           <input type="text" placeholder='Whatsapp' name="whatsappBannerTop" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerTop" onChange={handlerEventChange} />
@@ -189,9 +192,9 @@ export default function Form({ topic, value }) {
         </form>
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerBottom`} className={style.label} >Seleccionar Banner Bottom </label>
-          <img className={style.previewIMGBanner} src={urlBannerBottomImage} alt="" />
+          <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerBottom : 'center'} `}} src={urlBannerBottomImage} alt="" />
           <p className={`${style.require} ${ bannerBottomImage?  style.green : ''}` }>{ bannerBottomImage? 'Correcto' : '*Requerido'}</p>
-          <input type="file" id={`${topic}-bannerBottom`} className={style.inputFile} name={`BannerBottomImage`} onChange={manageInputIMG} accept="images" />
+          <input type="file" id={`${topic}-bannerBottom`} className={style.inputFile} name={`BannerBottomImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
           <input type="text" placeholder='Enlace' name="enlaceBannerBottom" onChange={handlerEventChange} />
           <input type="text" placeholder='Whatsapp' name="whatsappBannerBottom" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerBottom" onChange={handlerEventChange} />
@@ -199,7 +202,7 @@ export default function Form({ topic, value }) {
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerBottom" onChange={handlerEventChange} />
           <p className={`${style.require} ${ data.dateFinishBannerBottom?  style.green : ''}` }>{ data.dateFinishBannerBottom? 'Correcto' : '*Requerido'}</p>
           <div className={style.radioInputs}>
-            <input type="radio" value="lrft" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇦
+            <input type="radio" value="left" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇦
             <input type="radio" value="top" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇧
             <input type="radio" value="center" name="objectPositionBannerBottom" onChange={handlerEventChange} /> c
             <input type="radio" value="bottom" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇩
@@ -214,75 +217,3 @@ export default function Form({ topic, value }) {
   )
 }
 
-
-
-
-{ /* <div>
-          <label htmlFor={`${topic}-Post2`} className={style.label} >Seleccionar Post 2</label>
-          <input type="file" id={`${topic}-Post2`} className={style.inputFile} name={`Post2`} onChange={handlerUploadFile} accept="images" />
-          <input type="text" placeholder='Descripción' name="Descripcion-Post2" defaultValue={userDB[`${topic}-Descripcion-Post2-${date}`]} onChange={handlerEventChange}/>
-          <input type="text" placeholder='Enlace' name="Enlace-Post2" onChange={handlerEventChange}/>
-          <div className={style.radioInputs}>
-            <input type="radio" value="left" name="objectPosition-Post2" onChange={handlerEventChange}/> L
-            <input type="radio" value="top" name="objectPosition-Post2" onChange={handlerEventChange}/> T
-            <input type="radio" value="center" name="objectPosition-Post2" onChange={handlerEventChange}/> C
-            <input type="radio" value="bottom" name="objectPosition-Post2" onChange={handlerEventChange}/> B
-            <input type="radio" value="right" name="objectPosition-Post2" onChange={handlerEventChange}/> R
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor={`${topic}-Post3`} className={style.label} >Seleccionar Post 3</label>
-          <input type="file" id={`${topic}-Post3`} className={style.inputFile} name={`Post3`} onChange={handlerUploadFile} accept="images" />
-          <input type="text" placeholder='Descripción' name="Descripcion-Post3" defaultValue={userDB[`${topic}-Descripcion-Post3-${date}`]} onChange={handlerEventChange}/>
-          <input type="text" placeholder='Enlace' name="Enlace-Post3" onChange={handlerEventChange}/>
-          <div className={style.radioInputs}>
-            <input type="radio" value="left" name="objectPosition-Post3" onChange={handlerEventChange}/> L
-            <input type="radio" value="top" name="objectPosition-Post3" onChange={handlerEventChange}/> T
-            <input type="radio" value="center" name="objectPosition-Post3" onChange={handlerEventChange}/> C
-            <input type="radio" value="bottom" name="objectPosition-Post3" onChange={handlerEventChange}/> B
-            <input type="radio" value="rigth" name="objectPosition-Post3" onChange={handlerEventChange}/> R
-          </div>
-        </div>
-        <div>
-
-          <label htmlFor={`${topic}-Post4`} className={style.label} >Seleccionar Post 4</label>
-          <input type="file" id={`${topic}-Post4`} className={style.inputFile} name={`Post4`} onChange={handlerUploadFile} accept="images" />
-          <input type="text" placeholder='Descripción' name="Descripcion-Post4" defaultValue={userDB[`${topic}-Descripcion-Post4-${date}`]} onChange={handlerEventChange}/>
-          <input type="text" placeholder='Enlace' name="Enlace-Post4" onChange={handlerEventChange}/>
-          <div className={style.radioInputs}>
-            <input type="radio" value="left" name="objectPosition-Post4" onChange={handlerEventChange}/> L
-            <input type="radio" value="top" name="objectPosition-Post4" onChange={handlerEventChange}/> T
-            <input type="radio" value="center" name="objectPosition-Post4" onChange={handlerEventChange}/> C
-            <input type="radio" value="bottom" name="objectPosition-Post4" onChange={handlerEventChange}/> B
-            <input type="radio" value="right" name="objectPosition-Post4" onChange={handlerEventChange}/> R
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor={`${topic}-Post5`} className={style.label} >Seleccionar Post 5</label>
-          <input type="file" id={`${topic}-Post5`} className={style.inputFile} name={`Post5`} onChange={handlerUploadFile} accept="images" />
-          <input type="text" placeholder='Descripción' name="Descripcion-Post5" defaultValue={userDB[`${topic}-Descripcion-Post5-${date}`]} onChange={handlerEventChange}/>
-          <input type="text" placeholder='Enlace' name="Enlace-Post5" onChange={handlerEventChange}/>
-          <div className={style.radioInputs}>
-            <input type="radio" value="lrft" name="objectPosition-Post5" onChange={handlerEventChange}/> L
-            <input type="radio" value="top" name="objectPosition-Post5" onChange={handlerEventChange}/> T
-            <input type="radio" value="center" name="objectPosition-Post5" onChange={handlerEventChange}/> C
-            <input type="radio" value="bottom" name="objectPosition-Post5" onChange={handlerEventChange}/> B
-            <input type="radio" value="right" name="objectPosition-Post5" onChange={handlerEventChange}/> R
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor={`${topic}-Post6`} className={style.label} >Seleccionar Post 6</label>
-          <input type="file" id={`${topic}-Post6`} className={style.inputFile} name={`Post6`} onChange={handlerUploadFile} accept="images" />
-          <input type="text" placeholder='Descripción' name="Descripcion-Post6" defaultValue={userDB[`${topic}-Descripcion-Post6-${date}`]} onChange={handlerEventChange}/>
-          <input type="text" placeholder='Enlace' name="Enlace-Post6" onChange={handlerEventChange}/>
-          <div className={style.radioInputs}>
-            <input type="radio" value="lrft" name="objectPosition-Post6" onChange={handlerEventChange}/> L
-            <input type="radio" value="top" name="objectPosition-Post6" onChange={handlerEventChange}/> T
-            <input type="radio" value="center" name="objectPosition-Post6" onChange={handlerEventChange}/> C
-            <input type="radio" value="bottom" name="objectPosition-Post6" onChange={handlerEventChange}/> B
-            <input type="radio" value="right" name="objectPosition-Post6" onChange={handlerEventChange}/> R
-          </div>
-  </div>*/}
