@@ -48,7 +48,7 @@ function TemplateThreeB({ topic, post1, post2, post3, description1, description2
                 </div>
                 )}
             </div>
-            {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom"></Banner>}
+            {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}
             {dataEditor && <Modal post={dataEditor.key} topic={topic} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
 
         </section>

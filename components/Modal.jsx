@@ -91,46 +91,25 @@ export default function Error({ post, i, topic, close }) {
         }
         if (key == "SaveBannerTop") {
 
-                const ruteDB = `/${topic}/BannerTop` // Nov-2022/Inicio
-                const ruteSTG = `${topic}` // Nov-2022/
-                const fileName = i // PostImage_Tue Nov 15 2022 
-                const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerTop : null, enlace: data.enlaceBannerTop ? data.enlaceBannerTop : null, objectFit: data.objectPositionBannerTop ? data.objectPositionBannerTop : userDB[topic]["BannerTop"][i].objectFit, dateInit: data.dateInitBannerTop ? data.dateInitBannerTop : userDB[topic]["BannerTop"][i].dateInit, dateFinish: data.dateFinishBannerTop ? data.dateFinishBannerTop : userDB[topic]["BannerTop"][i].dateFinish } }
-                writeUserData(ruteDB, object, setUserSuccess, setUserData)
-                postImage && uploadIMG(ruteSTG, fileName, bannerTopImage, setUserSuccess, monthYear)
-           
+            const ruteDB = `/${topic}/BannerTop` // Nov-2022/Inicio
+            const ruteSTG = `${topic}` // Nov-2022/
+            const fileName = i // PostImage_Tue Nov 15 2022 
+            const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerTop : null, enlace: data.enlaceBannerTop ? data.enlaceBannerTop : null, objectFit: data.objectPositionBannerTop ? data.objectPositionBannerTop : userDB[topic]["BannerTop"][i].objectFit, dateInit: data.dateInitBannerTop ? data.dateInitBannerTop : userDB[topic]["BannerTop"][i].dateInit, dateFinish: data.dateFinishBannerTop ? data.dateFinishBannerTop : userDB[topic]["BannerTop"][i].dateFinish } }
+            writeUserData(ruteDB, object, setUserSuccess, setUserData)
+            bannerTopImage && postImage && uploadIMG(ruteSTG, fileName, bannerTopImage, setUserSuccess, monthYear)
+
         }
         if (key == "SaveBannerBottom") {
-            if (bannerBottomImage && data.dateInitBannerBottom && data.dateFinishBannerBottom) {
-                const ruteDB = `/${topic}/BannerBottom` // Nov-2022/Inicio
-                const ruteSTG = `${topic}` // Nov-2022/
-                const fileName = `BannerBottomImage_${newDate}` // PostImage_Tue Nov 15 2022 
-                const object = { [fileName]: { whatsapp: data.whatsappBannerBottom ? data.whatsappBannerBottom : null, enlace: data.enlaceBannerBottom ? data.enlaceBannerBottom : null, objectFit: data.objectPositionBannerBottom ? data.objectPositionBannerBottom : userDB[topic]["BannerTop"][i].objectFit, dateInit: data.dateInitBannerBottom ? data.dateInitBannerBottom : userDB[topic]["BannerTop"][i].data.dateInit, dateFinish: data.dateFinishBannerBottom ? data.dateFinishBannerBottom : userDB[topic]["BannerTop"][i].dateFinish } }
-                //writeUserData(ruteDB, object, setUserSuccess, setUserData)
-                uploadIMG(ruteSTG, fileName, bannerBottomImage, setUserSuccess, monthYear)
-            } else {
-                setUserSuccess("CompleteFORM")
-                data.dateInitBannerBottom && data.dateFinishBannerBottom && bannerBottomImage == undefined && setUserSuccess("CompleteIMG")
 
 
+            const ruteDB = `/${topic}/BannerBottom` // Nov-2022/Inicio
+            const ruteSTG = `${topic}` // Nov-2022/
+            const fileName = i // PostImage_Tue Nov 15 2022 
+            const object = { [fileName]: { whatsapp: data.whatsappBannerBottom ? data.whatsappBannerBottom : null, enlace: data.enlaceBannerBottom ? data.enlaceBannerBottom : null, objectFit: data.objectPositionBannerBottom ? data.objectPositionBannerBottom : userDB[topic]["BannerBottom"][i].objectFit, dateInit: data.dateInitBannerBottom ? data.dateInitBannerBottom : userDB[topic]["BannerBottom"][i].dateInit, dateFinish: data.dateFinishBannerBottom ? data.dateFinishBannerBottom : userDB[topic]["BannerBottom"][i].dateFinish } }
+            writeUserData(ruteDB, object, setUserSuccess, setUserData)
+            bannerBottomImage && uploadIMG(ruteSTG, fileName, bannerBottomImage, setUserSuccess, monthYear)
 
 
-
-                //setUserSuccess("CompleteIMG")
-                //data.dateInitBannerTop && data.dateFinishBannerTop && bannerTopImage == undefined && setUserSuccess("CompleteIMG")
-                //bannerTopImage && data.dateInitBannerTop == undefined && setUserSuccess("CompleteFechaInit")
-                //bannerTopImage && data.dateFinishBannerTop && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFechaFinish")
-                ///bannerTopImage == undefined && data.dateInitBannerTop == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
-
-                ///bannerTopImage == undefined && data.dateInitBannerTop == undefined && setUserSuccess("CompleteFORM")
-                ///bannerTopImage == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
-                ///data.dateInitBannerTop == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
-
-                //data.dateInitBannerTop == undefined && data.dateFinishBannerTop  == undefined && setUserSuccess("CompleteFORM")
-                //bannerTopImage == undefined && data.dateInitBannerTop == undefined && setUserSuccess("CompleteFORM")
-
-
-
-            }
         }
     }
 
@@ -162,7 +141,7 @@ export default function Error({ post, i, topic, close }) {
 
                 {post === "BannerTop" && <form className={style.formSelectPost}>
                     <label htmlFor={`${topic}-bannerTopConfig`} className={style.label} >Seleccionar Banner Top</label>
-                    <img className={style.previewIMGBanner} style={{ objectPosition: `${data.objectPositionBannerTop ? data.objectPositionBannerTop :  userDB[topic]["BannerTop"][i].objectFit} ` }} src={urlBannerTopImage == null ? postsIMG[`${topic}/${i}`] : urlBannerTopImage} alt="" />
+                    <img className={style.previewIMGBanner} style={{ objectPosition: `${data.objectPositionBannerTop ? data.objectPositionBannerTop : userDB[topic]["BannerTop"][i].objectFit} ` }} src={urlBannerTopImage == null ? postsIMG[`${topic}/${i}`] : urlBannerTopImage} alt="" />
                     <p className={`${style.require} ${bannerTopImage ? style.green : ''}`}>{bannerTopImage ? 'Correcto' : '*Requerido'}</p>
                     <input type="file" id={`${topic}-bannerTopConfig`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMGSetting} accept=".jpg, .jpeg, .png, .mp4, webm" />
                     <input type="text" placeholder='Enlace' name="enlaceBannerTop" onChange={handlerEventChange} />
@@ -179,6 +158,27 @@ export default function Error({ post, i, topic, close }) {
                         <input type="radio" value="right" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇨
                     </div>
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerTop")}>Guardar</Button>
+                </form>}
+
+                {post === "BannerBottom" && <form className={style.formSelectPost}>
+                    <label htmlFor={`${topic}-bannerBottomConfig`} className={style.label} >Seleccionar Banner Bottom</label>
+                    <img className={style.previewIMGBanner} style={{ objectPosition: `${data.objectPositionBannerBottom ? data.objectPositionBannerBottom : userDB[topic]["BannerBottom"][i].objectFit} ` }} src={urlBannerBottomImage == null ? postsIMG[`${topic}/${i}`] : urlBannerBottomImage} alt="" />
+                    <p className={`${style.require} ${bannerTopImage ? style.green : ''}`}>{bannerTopImage ? 'Correcto' : '*Requerido'}</p>
+                    <input type="file" id={`${topic}-bannerBottomConfig`} className={style.inputFile} name={`BannerBottomImage`} onChange={manageInputIMGSetting} accept=".jpg, .jpeg, .png, .mp4, webm" />
+                    <input type="text" placeholder='Enlace' name="enlaceBannerBottom" onChange={handlerEventChange} />
+                    <input type="text" placeholder='Whatsapp' name="whatsappBannerBottom" onChange={handlerEventChange} />
+                    <input className={style.calendario} type="date" id="start" name="dateInitBannerBottom" onChange={handlerEventChange} />
+                    <p className={`${style.require} ${data.dateInitBannerTop ? style.green : ''}`}>{data.dateInitBannerTop ? 'Correcto' : '*Requerido'}</p>
+                    <input className={style.calendario} type="date" id="start" name="dateFinishBannerBottom" onChange={handlerEventChange} />
+                    <p className={`${style.require} ${data.dateFinishBannerTop ? style.green : ''}`}>{data.dateFinishBannerTop ? 'Correcto' : '*Requerido'}</p>
+                    <div className={style.radioInputs}>
+                        <input type="radio" value="left" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇦
+                        <input type="radio" value="top" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇧
+                        <input type="radio" value="center" name="objectPositionBannerBottom" onChange={handlerEventChange} /> c
+                        <input type="radio" value="bottom" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇩
+                        <input type="radio" value="right" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇨
+                    </div>
+                    <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerBottom")}>Guardar</Button>
                 </form>}
             </div>
         </div>
