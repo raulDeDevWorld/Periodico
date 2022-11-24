@@ -17,7 +17,7 @@
 
 .nav > :nth-child(n) {
     width: auto;
-    padding:2px 3px;
+    padding:2px 6px;
     background: linear-gradient(to right, #00353d, #007483, #007483, #007483, #007483, #00353d)  ;
 }
 
