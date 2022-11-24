@@ -125,8 +125,9 @@ export default function Header(props) {
                         className={styles.video}>
                         <source src="/video.webm" type="video/webm" />
                     </video></div>
-                <Navbar />
+                
             </header>
+            <Navbar />
             {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
 
         </>

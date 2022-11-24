@@ -1,4 +1,5 @@
 .container {
+
 }
 
 .video {
@@ -58,6 +59,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 0px 15px black;
+  
 }
 
 .banner {
@@ -182,7 +185,9 @@
 .footerItemsContainer :nth-child(1) {
   padding-right: 15px;
 }
-
+.footerItemsContainer :nth-child(3) {
+  padding-right: 15px;
+}
 .footer h5 {
   padding: 0;
   margin: 0;
@@ -191,7 +196,7 @@
   padding: 3px 10px;
 }
 
-.footer> :nth-child(n) {
+.footer > :nth-child(n) {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -219,8 +224,14 @@
   width: auto;
   height: 40px;
 }
+.socialMediaIcons {
+padding: 15px 0;
+}
 
-
+.socialMediaIcons :nth-child(n) {
+  width: 35px;
+  padding-right: 10px;
+}
 @media (max-width: 750px) {
   .main {
     margin: 0;

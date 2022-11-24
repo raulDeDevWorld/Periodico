@@ -24,13 +24,13 @@ export default function Banner({ ruta, carpeta, click }) {
                             <div>
                                 {
                                     router.pathname == "/Admin" ?
-                                        <span><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} /></span>
+                                        <span><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} />                                                <span className={styles.capa}></span>
+                                        </span>
                                         : <Link href={i} legacyBehavior>
                                             <a target="_blank">
                                                 <span>
 
                                                 <img className={styles.sliderIMGLeft} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} src={postsIMG[`${carpeta}/${i}`]} />
-
                                                 </span>
                                                 </a>
                                         </Link>

@@ -6,6 +6,7 @@ import { WithoutAuth } from '../HOCs/WithoutAuth'
 import Button from '../components/Button'
 import Success from '../components/Success'
 import Error from '../components/Error'
+import Link from 'next/link'
 
 import BannerLeft from '../components/BannerLeft'
 import BannerRight from '../components/BannerRight'
@@ -28,6 +29,10 @@ function Home() {
   function handlerClickEnlace(i) {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
     router.pathname == "/Admin" && setDataEditor(i)
+}
+
+function handlerClick(url) {
+  router.push(url)
 }
 function whatsappClickHandler () {
   router.push("https://api.whatsapp.com/send?phone=+59160589090&text=Buenas%20Hoy...")
@@ -70,11 +75,14 @@ function whatsappClickHandler () {
             </div>
           </div>
           <div>
-            <h5>PUBLICIDAD ONLINE</h5>
+            <h5>DIRECCION Y PUBLICIDAD ONLINE</h5>
             <div className={styles.footerItemsContainer}>
               <img src="/contact.svg" alt="" />
               <p>(519-2) 2488973 <br /> 73002076 <br />60101760</p>
+              <img src="/ubication.svg" alt="" />
+              <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
             </div>
+            
           </div>
           <div>
             <h5>VISIÓN</h5>
@@ -85,10 +93,23 @@ function whatsappClickHandler () {
           </div>
           <div>
             <h5>DIRECCIÓN</h5>
-            <div className={styles.footerItemsContainer}>
-              <img src="/ubication.svg" alt="" />
-              <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
-            </div>
+            <div className={styles.socialMediaIcons}>
+                                <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
+                                </Link>
+                            </div>
 
           </div>
          
