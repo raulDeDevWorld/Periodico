@@ -37,7 +37,8 @@
     width: 100%;
     height: 70vh;
     object-fit: cover;
-    padding: 7px;
+    padding: 0px;
+    padding-right: 15px;
   }
   .containerFadeRight span img {
     display: block;
@@ -46,7 +47,8 @@
     width: 100%;
     height: 70vh;
     object-fit: cover;
-    padding: 7px;
+    padding: 0px;
+    padding-left: 15px;
   }
   .containerFade .sliderWhatsapp {
     right: 5px;

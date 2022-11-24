@@ -84,26 +84,36 @@ export default function Header(props) {
                     <input className={styles.calendario} type="date" id="start" name="trip" onChange={dateEvent} />
                 </div>
                 <div className={styles.portada}>
+
+                <RelojDigital></RelojDigital>
+
+
+
+                    
                     <div className={styles.socialMedia}>
-                        <span>Siguenos en:</span>
-                        <div className={styles.socialMediaIcons}>
-                            <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
-                            </Link>
+
+                        <div className={styles.containerSocialMediaIcons}>
+                            <span>Siguenos en:</span>
+                            <div className={styles.socialMediaIcons}>
+                                <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
+                                </Link>
+                            </div>
                         </div>
-                        <RelojDigital></RelojDigital>
+
+
 
                     </div>
                     <video

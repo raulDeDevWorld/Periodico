@@ -5,16 +5,18 @@
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 
 .time {
- 
-    padding: 10px 30px;
+    position: absolute;
+    width: 110px;
+    padding: 3px 10px;
+    margin-top: 2px;
     background: linear-gradient(to right, #00353d, #007483, #00353d)  ;
     border: 1px solid #007483;
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 500;
     color: white;
     letter-spacing: 3px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 3px;
     font-family: 'ZCOOL QingKe HuangYou', sans-serif;
 }
 

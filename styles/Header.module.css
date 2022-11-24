@@ -62,8 +62,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 5px;
-  background-color: #007483;
+  padding: 2px;
+  background: linear-gradient(to right, #00353d,#00353d, #007483,#00353d, #00353d)  ;
   color: #ffffff;
 }
 
@@ -92,22 +92,27 @@
   justify-content: space-around;
 }
 
-.socialMedia> :nth-child(1) {
+.containerSocialMediaIcons> :nth-child(1) {
   font-weight: bold;
   font-size: 24px;
 }
 
+
+.containerSocialMediaIcons {
+  position: relative;
+  width: 150px
+}
 .socialMediaIcons {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-content: center;
 }
-
 .socialMediaIcons img {
   display: inline-block;
   height: 25px;
   width: auto;
-  margin: 5px;
+  margin: 2px;
 }
 
 .video {
