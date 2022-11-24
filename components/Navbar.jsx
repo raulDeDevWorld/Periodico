@@ -41,7 +41,7 @@ export default function Navbar() {
                     <a className={`${style.link} ${pathname == "#Culturas" ? style.active : ''}`} onClick={handlerClick}>CULTURA</a>
                 </Link>
                 <Link href="#Empresarial" legacyBehavior scroll={false}>
-                    <a className={`${style.link} ${pathname == "#Empresarial" ? style.active : ''}`} onClick={handlerClick}>iNTERNACIONAL</a>
+                    <a className={`${style.link} ${pathname == "#Empresarial" ? style.active : ''}`} onClick={handlerClick}>INTERNACIONAL</a>
                 </Link>
                 <Link href="#Internacional" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#Internacional" ? style.active : ''}`} onClick={handlerClick}>OPINION</a>
@@ -55,9 +55,7 @@ export default function Navbar() {
                 <Link href="#Imagenes" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#imagenes" ? style.active : ''}`} onClick={handleClick}>NOSOTROS</a>
                 </Link>
-                <Link href="#nosotros" legacyBehavior scroll={false}>
-                    <a className={`${style.link} ${pathname == "#nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS</a>
-                </Link>
+                
             </nav>
         </div>
     )
