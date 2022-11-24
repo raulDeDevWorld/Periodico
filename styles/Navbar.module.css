@@ -31,9 +31,9 @@
 
     .nav {
     
-    
+        font-size: 10px;
         display: flex;
-    
+        justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
     }

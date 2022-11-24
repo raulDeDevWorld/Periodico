@@ -212,7 +212,14 @@
   align-items: top;
   padding: 0px 40px;
 }
-
+.whatsapp {
+  cursor: pointer;
+  position: fixed;
+  bottom: 25px;
+  right: 18%;
+  width: auto;
+  height: 40px;
+}
 
 
 @media (max-width: 750px) {
@@ -271,5 +278,13 @@
 
   .footer > :nth-child(n) {
     width: 100%;
+  }
+  .whatsapp {
+    cursor: pointer;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: auto;
+    height: 35px;
   }
 }

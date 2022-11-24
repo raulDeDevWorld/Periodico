@@ -22,11 +22,15 @@ import { useEffect } from 'react'
 
 function Home() {
   const { userDB, setUserData, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
+  const router = useRouter()
 
 
   function handlerClickEnlace(i) {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
     router.pathname == "/Admin" && setDataEditor(i)
+}
+function whatsappClickHandler () {
+  router.push("https://api.whatsapp.com/send?phone=+59160589090&text=Buenas%20Hoy...")
 }
   return (
     <div className={styles.container}>
@@ -91,6 +95,8 @@ function Home() {
           <span>hoy.bo <br /> Desarrollado por Swoou.com <br /> ©copyright 2022</span>
         </footer>
       </main>
+      <img className={styles.whatsapp} src="/SocialMedia/whatsapp.svg" onClick={whatsappClickHandler} alt="Whatsapp Logo" />
+   
     </div>
   )
 }
