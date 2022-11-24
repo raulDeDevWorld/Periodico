@@ -10,14 +10,16 @@
 .nav {
     font-size: 10px;
     padding: 0px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(13, auto);
+    grid-column-gap: 2px;
     border-bottom: 5px solid #ffffff;
 }
 
 .nav > :nth-child(n) {
-    width: auto;
-    padding:2px 6px;
+    display: flex;
+    justify-content: center;
+    padding:2px px;
     background: linear-gradient(to right, #00353d, #007483, #007483, #007483, #007483, #00353d)  ;
 }
 
