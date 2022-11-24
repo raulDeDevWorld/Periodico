@@ -70,10 +70,16 @@
 }
 .inDevelop {
     position: absolute;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.727);
+    right: 0px;
+    bottom: 0px;
+    height: 5px;
+    width: 5px;
+    font-weight: bold;
+    background-color: brown;
+    border: 1px solid brown;
+    border-radius: 20px;
+    color: brown;
     z-index: 1000;
-    color: beige;
 }
 .gridOne,
 .gridThreeA,
