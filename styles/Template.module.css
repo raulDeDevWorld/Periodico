@@ -67,6 +67,7 @@
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.407);
     text-align: left;
+    font-size: 13px;
 }
 .inDevelop {
     position: absolute;
