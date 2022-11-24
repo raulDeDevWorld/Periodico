@@ -102,14 +102,13 @@ function Admin() {
 
         <Section topic="Inicio" publicView={false} ></Section>
         <Section topic="Sociedad" publicView={false} ></Section>
-        <Section topic="Seguridad" publicView={false} ></Section>
-        <Section topic="GestionDeGobierno" publicView={false} ></Section>
-        <Section topic="Politica" publicView={false} ></Section>
         <Section topic="Salud" publicView={false} ></Section>
+        <Section topic="Seguridad" publicView={false} ></Section>
+        <Section topic="Politica" publicView={false} ></Section>
         <Section topic="Economia" publicView={false} ></Section>
         <Section topic="Deportes" publicView={false} ></Section>
-        <Section topic="Culturas" publicView={false} ></Section>
-        <Section topic="Empresarial" publicView={false} ></Section>
+        <Section topic="GestionDeGobierno" publicView={false} ></Section>
+        <Section topic="Cultura" publicView={false} ></Section>
         <Section topic="Internacional" publicView={false} ></Section>
         <Section topic="Opinion" publicView={false} ></Section>
 

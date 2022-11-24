@@ -49,16 +49,15 @@ function whatsappClickHandler () {
             <img src={i} key={index} alt="Vercel Logo" />
           )
         })}</div>}
-        <Section topic="Inicio" publicView={true} ></Section>
+       <Section topic="Inicio" publicView={true} ></Section>
         <Section topic="Sociedad" publicView={true} ></Section>
-        <Section topic="Seguridad" publicView={true} ></Section>
-        <Section topic="GestionDeGobierno" publicView={true} ></Section>
-        <Section topic="Politica" publicView={true} ></Section>
         <Section topic="Salud" publicView={true} ></Section>
+        <Section topic="Seguridad" publicView={true} ></Section>
+        <Section topic="Politica" publicView={true} ></Section>
         <Section topic="Economia" publicView={true} ></Section>
         <Section topic="Deportes" publicView={true} ></Section>
-        <Section topic="Culturas" publicView={true} ></Section>
-        <Section topic="Empresarial" publicView={true} ></Section>
+        <Section topic="GestionDeGobierno" publicView={true} ></Section>
+        <Section topic="Cultura" publicView={true} ></Section>
         <Section topic="Internacional" publicView={true} ></Section>
         <Section topic="Opinion" publicView={true} ></Section>
 
