@@ -250,12 +250,26 @@
   }
 
   .footer {
-    min-height: 100vh;
+    min-height: auto;
     background-color: black;
   }
 
   .introBanner> :nth-child(1) {
     max-width: 100%;
     object-fit: cover;
+  }
+  .footer {
+    width: 100%;
+    height: auto;
+    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .footer > :nth-child(n) {
+    width: 100%;
   }
 }

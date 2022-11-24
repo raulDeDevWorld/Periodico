@@ -76,4 +76,19 @@
   position: absolute;
   z-index: 10000;
   }
-  
+
+
+
+
+
+
+  @media (max-width: 750px) {
+  .containerFade img {
+    display: block;
+    cursor: pointer;
+    margin: 0;
+    width: 101%;
+    height: 40px;
+    object-fit: cover;
+  }
+}

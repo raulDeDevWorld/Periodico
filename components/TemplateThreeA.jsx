@@ -5,6 +5,7 @@ import Modal from './Modal'
 import { downloadIMG } from '../firebase/storage'
 import styles from '../styles/Template.module.css'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 
 
@@ -37,13 +38,19 @@ function TemplateThreeA({ topic, post1, post2, post3, description1, description2
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>}
             <div className={`${styles.gridThreeA} ${elements == true && styles.allVisible}`}>
-                {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
-                   userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>
-                   {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '':<span className={styles.inDevelop}>{router.pathname !== "/Admin" && 'En desarrollo...'}</span>}
-                   {router.pathname == "/Admin" && <span className={styles.datePost}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
-                   <img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${userDB[topic]["Posts"][`PostImage_${i}`]['objectFit']}` }} />
-                   {userDB[topic]["Posts"][`PostImage_${i}`]['description'] && <p className={styles.description}>{userDB[topic]["Posts"][`PostImage_${i}`]['description']}</p>}
-               </div>
+            {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
+                    userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
+
+                        {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && 'En desarrollo...'}</span>}
+                        {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
+
+                        <Link href={userDB[topic]["Posts"][`PostImage_${i}`]['enlace']} legacyBehavior>
+                            <a target={userDB[topic]["Posts"][`PostImage_${i}`]['enlace'].includes('http') ? '_blanck' : ''}><img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${userDB[topic]["Posts"][`PostImage_${i}`]['objectFit']}` }} /></a>
+                        </Link>
+
+                        {userDB[topic]["Posts"][`PostImage_${i}`]['description'] && <p className={styles.description}>{userDB[topic]["Posts"][`PostImage_${i}`]['description']}</p>}
+                    </div>
+
                 )}
             </div>
             {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}

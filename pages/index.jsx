@@ -87,14 +87,7 @@ function Home() {
             </div>
 
           </div>
-          <div>
-            <h5>SIGUENOS EN</h5>
-
-          </div>
-          <div>
-            <h5>ESCRIBENOS A</h5>
-
-          </div>
+         
           <span>hoy.bo <br /> Desarrollado por Swoou.com <br /> ©copyright 2022</span>
         </footer>
       </main>

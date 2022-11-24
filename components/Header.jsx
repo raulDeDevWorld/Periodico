@@ -10,7 +10,6 @@ import { useState } from 'react'
 import Button from '../components/Button'
 import BannerPortada from '../components/BannerPortada'
 import BannerLeft from '../components/BannerLeft'
-import Clock from '../components/Clock'
 import RelojDigital from './RelojDigital'
 
 import FormAdds from '../components/FormAdds'
@@ -47,7 +46,7 @@ export default function Header(props) {
         const object = { [name]: value }
         setData({ ...data, ...object })
     }
-   
+
     function dateEvent(e) {
         const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
         const format = e.target.value.split("-")
@@ -72,7 +71,7 @@ export default function Header(props) {
 
                 {router.pathname === "/Admin" && <FormAdds></FormAdds>}
 
-         
+
 
                 <div className={styles.containerFade} >
                     {userDB["BannerTop"] && <BannerPortada ruta={'/BannerTop'} carpeta="BannerTop" click={handlerClickEnlace}></BannerPortada>}            </div>

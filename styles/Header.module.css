@@ -146,3 +146,15 @@ position: absolute;
 z-index: 10000;
 }
 
+@media (max-width: 750px) {
+  .socialMediaIcons img {
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    margin: 5px;
+  }
+  .socialMedia> :nth-child(1) {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}

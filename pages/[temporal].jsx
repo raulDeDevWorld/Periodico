@@ -17,6 +17,11 @@ import parse from 'html-react-parser';
 
 import styles from '../styles/TemplatePage.module.css'
 
+
+
+
+
+
 function TemplateOne() {
     const [textArea, setTextArea] = useState("");
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date } = useUser()
@@ -122,6 +127,7 @@ console.log(selection)
                             <Button style="miniButtonPrimary"> Guardar</Button>
                             <Button style="miniButtonPrimary"> Publicar</Button>
                         </div>
+
                     </form>
 
                     <div className={styles.viewer}>
