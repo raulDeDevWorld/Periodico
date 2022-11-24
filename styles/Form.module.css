@@ -6,7 +6,6 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    
 }
 .require {
     position: relative;
@@ -19,7 +18,17 @@ padding: 0;
 .green {
     color: green
 }
+.formSelectAdds {
+    width: 32.5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .formSelectPost {
+    
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -43,6 +52,7 @@ padding: 0;
 }
 .formInputs {
     display: flex;
+    justify-content: space-between;
     
 }
 

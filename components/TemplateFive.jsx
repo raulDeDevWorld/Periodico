@@ -43,8 +43,8 @@ function TemplateFive({ topic, post1, post2, post3, post4, post5,
 
             <div className={`${styles.gridFive} ${elements == true && styles.allVisible}`}>
                 {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
-                    <div key={index} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>
-                        {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>En desarrollo...</span>}
+                    userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>
+                        {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && 'En desarrollo...'}</span>}
                         {router.pathname == "/Admin" && <span className={styles.datePost}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
                         <img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${userDB[topic]["Posts"][`PostImage_${i}`]['objectFit']}` }} />
                         {userDB[topic]["Posts"][`PostImage_${i}`]['description'] && <p className={styles.description}>{userDB[topic]["Posts"][`PostImage_${i}`]['description']}</p>}

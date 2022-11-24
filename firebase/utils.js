@@ -85,7 +85,9 @@ function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG, onlyData)
     getList( 'Empresarial/', postsIMG, setUserPostsIMG)
     getList( 'Internacional/', postsIMG, setUserPostsIMG)
     getList( 'Opinion/', postsIMG, setUserPostsIMG)
-
+    getList( 'BannerTop/', postsIMG, setUserPostsIMG)
+    getList( 'BannerLeft/', postsIMG, setUserPostsIMG)    
+    getList( 'BannerRight/', postsIMG, setUserPostsIMG)
 
         } else {
           setUserData('');
@@ -115,8 +117,8 @@ function writeUserData (ruteDB, object, setUserSuccess) {
   .catch(()=>'')
 }
 
-async function removeData (data, setUserData, setUserSuccess) {
-  await remove(ref(db, 'users/' + data)).then(()=>setUserSuccess('save')).catch(()=>setUserSuccess('repeat'));
+async function removeData (ruteDB, setUserData, setUserSuccess) {
+  await remove(ref(db, ruteDB)).then(()=>setUserSuccess('save')).catch(()=>setUserSuccess('repeat'));
   getData(setUserData)
 
 }

@@ -1,23 +1,37 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Header from '../components/Header'
-import Form from '../components/Form'
-import PostOne from '../components/PostOne'
-import PostTwo from '../components/PostTwo'
-import Mantenimiento from '../components/Mantenimiento'
-import Section from '../components/Section'
-import Date from '../components/Date'
+import Navbar from '../components/Navbar'
 import { useUser } from '../context/Context.js'
 import { WithoutAuth } from '../HOCs/WithoutAuth'
+import Button from '../components/Button'
+import Success from '../components/Success'
+import Error from '../components/Error'
+
+import BannerLeft from '../components/BannerLeft'
+import BannerRight from '../components/BannerRight'
+
+import Section from '../components/Section'
+import Date from '../components/Date'
+import Header from '../components/Header'
+
 import styles from '../styles/Home.module.css'
-import { writeUserData, uploadIMG } from '../firebase/utils'
+import { handleSignOut } from '../firebase/utils'
+import { uploadIMG } from '../firebase/storage'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+
 function Home() {
   const { userDB, setUserData, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
 
 
-
+  function handlerClickEnlace(i) {
+    router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
+    router.pathname == "/Admin" && setDataEditor(i)
+}
   return (
     <div className={styles.container}>
+    {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}            
+    {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}            
 
       <main className={styles.main}>
         <Header></Header>

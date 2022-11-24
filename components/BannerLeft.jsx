@@ -15,21 +15,27 @@ export default function Banner({ ruta, carpeta, click }) {
     const router = useRouter()
 
     return (
-        <div className={styles.containerFade} >
-            {userDB[ruta] && postsIMG && <Fade transitionDuration={800} duration={2000}>
+        <div className={styles.containerFadeLeft} >
+            {userDB[carpeta] && postsIMG && <Fade transitionDuration={800} duration={2000}>
                 {
-                    Object.keys(userDB[ruta][carpeta]).map((i, index) =>
+                    Object.keys(userDB[carpeta]).map((i, index) =>
                         <div className="each-slide" key={index} onClick={() => click({ i, key: carpeta })}>
                             
                             <div>
                                 {
                                     router.pathname == "/Admin" ?
-                                        <span><img className={styles.sliderIMG} src={postsIMG[`${ruta}/${i}`]} style={{ objectPosition: `${userDB[ruta][carpeta][i].objectFit}` }} /></span>
+                                        <span><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} /></span>
                                         : <Link href={i} legacyBehavior>
-                                            <a target="_blank"><img className={styles.sliderIMG} style={{ objectPosition: `${userDB[ruta][carpeta][i].objectFit}` }} src={postsIMG[`${ruta}/${i}`]} /></a>
+                                            <a target="_blank">
+                                                <span>
+
+                                                <img className={styles.sliderIMGLeft} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} src={postsIMG[`${carpeta}/${i}`]} />
+
+                                                </span>
+                                                </a>
                                         </Link>
                                 }
-                                <Link href={`https://api.whatsapp.com/send?phone=${userDB[ruta][carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
+                                <Link href={`https://api.whatsapp.com/send?phone=${userDB[carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
                                     <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
                                 </Link>
 
@@ -40,3 +46,5 @@ export default function Banner({ ruta, carpeta, click }) {
             }
         </div>)
 }
+
+
