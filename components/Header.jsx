@@ -117,6 +117,7 @@ export default function Header(props) {
 
                     </div>
                     <video
+                    
                         muted
                         autoPlay={"autoplay"}
                         preload="auto"

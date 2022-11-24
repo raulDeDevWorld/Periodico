@@ -89,7 +89,8 @@
 .socialMedia {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-end;
+
 }
 
 .containerSocialMediaIcons> :nth-child(1) {
@@ -100,7 +101,8 @@
 
 .containerSocialMediaIcons {
   position: relative;
-  width: 150px
+  width: 150px;
+  padding-bottom: 5px;
 }
 .socialMediaIcons {
   width: 100%;
@@ -117,7 +119,7 @@
 
 .video {
   width: 60%;
-  border-radius: 35px;
+  border-radius: 0px;
 }
 
 .containerFade {
