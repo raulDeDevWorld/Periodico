@@ -11,7 +11,7 @@ import Link from 'next/link'
 export default function Banner({ ruta, carpeta, click }) {
 
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
-    console.log(userDB[ruta])
+    console.log(userDB[ruta]['Posts'])
     const router = useRouter()
 
     return (
@@ -23,9 +23,9 @@ export default function Banner({ ruta, carpeta, click }) {
                             
                             <div>
                                 {
-                                    router.pathname == "/Admin" ?
+                                    router.pathname === "/Admin" ?
                                         <span><img className={styles.sliderIMG} src={postsIMG[`${ruta}/${i}`]} style={{ objectPosition: `${userDB[ruta][carpeta][i].objectFit}` }} /></span>
-                                        : <Link href={i} legacyBehavior>
+                                        : <Link href={userDB[ruta]['BannerBottom'][i].enlace} legacyBehavior>
                                             <a target="_blank"><img className={styles.sliderIMG} style={{ objectPosition: `${userDB[ruta][carpeta][i].objectFit}` }} src={postsIMG[`${ruta}/${i}`]} /></a>
                                         </Link>
                                 }

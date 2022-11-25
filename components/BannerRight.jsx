@@ -19,15 +19,15 @@ export default function Banner({ ruta, carpeta, click }) {
             {userDB[carpeta] && postsIMG && <Fade transitionDuration={800} duration={2000}>
                 {
                     Object.keys(userDB[carpeta]).map((i, index) =>
-                        <div className="each-slide" key={index} onClick={() => click({ i, key: carpeta })}>
+                        <div className="each-slide" key={index} >
                             
                             <div>
                                 {
                                     router.pathname == "/Admin" ?
                                         <span><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} />                                                <span className={styles.capa}></span>
                                         </span>
-                                        : <Link href={i} legacyBehavior>
-                                            <a target="_blank">
+                                        : <Link href={userDB['BannerRight'][i].enlace ? userDB['BannerRight'][i].enlace : '#'}legacyBehavior>
+                                            <a target={userDB['BannerRight'][i].enlace ? "_blank": ''}>
                                                 <span>
 
                                                 <img className={styles.sliderIMGLeft} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} src={postsIMG[`${carpeta}/${i}`]} />
