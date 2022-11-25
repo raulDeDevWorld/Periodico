@@ -1,15 +1,14 @@
 .header {
   width: 100%;
-  position: relative;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
- 
+  position: relative;
+  top: 0;
 
 }
-
 .bannerIntroContainer {
-  position: relative;
   width: 100%;
   min-height: 100px;
   margin: 0;
@@ -79,6 +78,7 @@
   font-size: 10px;
   width: 120px;
   height: 16px;
+
 }
 
 
@@ -86,31 +86,41 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+  position: relative;
 }
 
 .socialMedia {
+  position: sticky;
+  z-index: 1000000000;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
 }
 
-.containerSocialMediaIcons> :nth-child(1) {
+
+
+
+.containerSocialMediaIcons  {
+  width: 150px;
+  padding-bottom: 5px;
+
+
+}
+.containerSocialMediaIcons > :nth-child(n) {
+  position: sticky;
+  top: 0px;
   font-weight: bold;
   font-size: 24px;
 }
-
-
-.containerSocialMediaIcons {
-  position: relative;
-  width: 150px;
-  padding-bottom: 5px;
-}
 .socialMediaIcons {
+  position: fixed;
+  bottom: -20px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-content: center;
+  z-index: 1;
 }
 .socialMediaIcons img {
   display: inline-block;

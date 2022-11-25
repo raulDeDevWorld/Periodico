@@ -15,6 +15,11 @@ export default function Navbar() {
     }
     return (
         <div className={style.container}>
+
+
+
+
+            
             <nav className={style.nav}>
                 <Link href="#Sociedad" legacyBehavior scroll={false}>
                     <a className={`${style.link} ${pathname == "#Sociedad" ? style.active : ''}`} onClick={handlerClick}>SOCIEDAD</a>

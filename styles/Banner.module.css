@@ -5,6 +5,10 @@
     margin: 0;
     overflow: hidden;
   }
+
+  .containerFade button { 
+    background-color: red;
+  }
   .containerFadeLeft {
     position: fixed;
     left: 0;
@@ -42,7 +46,7 @@
     cursor: pointer;
     margin: 0;
     width: 100%;
-    height: 70vh;
+    height: 61vh;
     object-fit: cover;
     padding: 0px;
     padding-right: 15px;
@@ -52,7 +56,7 @@
     cursor: pointer;
     margin: 0;
     width: 100%;
-    height: 70vh;
+    height: 61vh;
     object-fit: cover;
     padding: 0px;
     padding-left: 15px;

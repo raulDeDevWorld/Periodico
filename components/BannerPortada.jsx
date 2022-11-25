@@ -16,8 +16,8 @@ export default function Banner({ ruta, carpeta, click }) {
 
     return (
         <div className={styles.containerFade} >
-            {userDB[carpeta] && postsIMG && <Fade transitionDuration={800} duration={2000}>
-                {
+            {userDB[carpeta] && postsIMG && <Fade transitionDuration={800} duration={2000} canSwipe={false}>
+                { 
                     Object.keys(userDB[carpeta]).map((i, index) =>
                         <div className="each-slide" key={index} onClick={() => click({ i, key: carpeta })}>
                             

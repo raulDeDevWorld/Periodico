@@ -26,6 +26,7 @@ function Home() {
   const router = useRouter()
 
   const [periodicoPDF, setPeriodicoPDF] = useState(false);
+  const [periodicoPDFEffect, setPeriodicoPDFEffect] = useState(false);
 
   function handlerClickEnlace(i) {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
@@ -39,17 +40,21 @@ function Home() {
     router.push("https://api.whatsapp.com/send?phone=+59160589090&text=Buenas%20Hoy...")
   }
 
-  function handlerPDFView() {
-setPeriodicoPDF(!periodicoPDF)
+  function handlerPDFView(parametro) {
+    parametro && setPeriodicoPDFEffect(true)
+    setPeriodicoPDF(!periodicoPDF)
   }
-console.log(periodicoPDF)
+  console.log(periodicoPDF)
 
-useEffect(() => {
-  setTimeout(()=> {
-    setPeriodicoPDF(true)
-  },15000)
- 
-}, [])
+  useEffect(() => {
+    if (periodicoPDFEffect == true) {
+      return
+    }
+    setTimeout(() => {
+      setPeriodicoPDF(!periodicoPDF)
+    }, 2000)
+
+  }, [periodicoPDF == "User" ? '' : periodicoPDF])
 
   return (
     <div className={styles.container}>
@@ -108,19 +113,22 @@ useEffect(() => {
             <h5>DIRECCIÓN</h5>
             <div className={styles.socialMediaIcons}>
               <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
+                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook-fotter.png" alt="SocialMedia" /></a>
               </Link>
               <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
+                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram-fotter.png" alt="SocialMedia" /></a>
               </Link>
               <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
+                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter-fotter.png" alt="SocialMedia" /></a>
               </Link>
               <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
+                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube-fotter.png" alt="SocialMedia" /></a>
               </Link>
               <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
+                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok-fotter.png" alt="SocialMedia" /></a>
+              </Link>
+              <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
+                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/whatsapp.png" alt="SocialMedia" /></a>
               </Link>
             </div>
 
@@ -132,15 +140,25 @@ useEffect(() => {
 
 
       <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
-      {        periodicoPDF === true && <span className={styles.close} onClick={handlerPDFView}>X</span>}   
-        <Link href="https://www.google.com/" legacyBehavior>
-        <a target='_blanck'><img src="/periodico.jpg" className={styles.periodicoPDFImg} alt="" /></a>
+        <Link href="https://drive.google.com/file/d/1o426ZM1jNIbGixWT5Lqs5PYo4Jz4k0_c/view?usp=share_link" legacyBehavior>
+          <a target='_blanck'>{periodicoPDF === true && <img src="/periodico.jpg" className={styles.periodicoPDFImg} alt="" />}
+          </a>
         </Link>
-{        periodicoPDF === false && <span className={styles.periodicoPDF} onClick={handlerPDFView}>PDF</span>}
       </div>
 
-      <img className={styles.whatsapp} src="/SocialMedia/whatsapp.svg" onClick={whatsappClickHandler} alt="Whatsapp Logo" />
+      <div className={`${styles.periodicoPDFContainer2} `}>
+        <Link href="https://drive.google.com/file/d/1o426ZM1jNIbGixWT5Lqs5PYo4Jz4k0_c/view?usp=share_link" legacyBehavior>
+          <a target='_blanck'><img src="/gobierno.jpg" className={styles.periodicoPDFImg} alt="" />
+          </a>
+        </Link>
+      </div>
 
+
+      <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
+        <a onClick={handlerClick} target="_blank">
+          <img className={styles.whatsapp} src="/SocialMedia/whatsapp.svg" alt="Whatsapp Logo" />
+        </a>
+      </Link>
     </div>
   )
 }
