@@ -19,28 +19,42 @@ import styles from '../styles/Home.module.css'
 import { handleSignOut } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function Home() {
-  const { userDB, setUserData, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
+  const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
   const router = useRouter()
 
+  const [periodicoPDF, setPeriodicoPDF] = useState(false);
 
   function handlerClickEnlace(i) {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
     router.pathname == "/Admin" && setDataEditor(i)
-}
+  }
 
-function handlerClick(url) {
-  router.push(url)
-}
-function whatsappClickHandler () {
-  router.push("https://api.whatsapp.com/send?phone=+59160589090&text=Buenas%20Hoy...")
-}
+  function handlerClick(url) {
+    router.push(url)
+  }
+  function whatsappClickHandler() {
+    router.push("https://api.whatsapp.com/send?phone=+59160589090&text=Buenas%20Hoy...")
+  }
+
+  function handlerPDFView() {
+setPeriodicoPDF(!periodicoPDF)
+  }
+console.log(periodicoPDF)
+
+useEffect(() => {
+  setTimeout(()=> {
+    setPeriodicoPDF(true)
+  },15000)
+ 
+}, [])
+
   return (
     <div className={styles.container}>
-    {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}            
-    {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}            
+      {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
+      {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
 
       <main className={styles.main}>
         <Header></Header>
@@ -49,7 +63,7 @@ function whatsappClickHandler () {
             <img src={i} key={index} alt="Vercel Logo" />
           )
         })}</div>}
-       <Section topic="Inicio" publicView={true} ></Section>
+        <Section topic="Inicio" publicView={true} ></Section>
         <Section topic="Sociedad" publicView={true} ></Section>
         <Section topic="Salud" publicView={true} ></Section>
         <Section topic="Seguridad" publicView={true} ></Section>
@@ -81,7 +95,7 @@ function whatsappClickHandler () {
               <img src="/ubication.svg" alt="" />
               <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
             </div>
-            
+
           </div>
           <div>
             <h5>VISIÓN</h5>
@@ -93,30 +107,40 @@ function whatsappClickHandler () {
           <div>
             <h5>DIRECCIÓN</h5>
             <div className={styles.socialMediaIcons}>
-                                <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
-                                </Link>
-                                <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
-                                </Link>
-                                <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
-                                </Link>
-                                <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
-                                </Link>
-                                <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
-                                </Link>
-                            </div>
+              <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
+                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
+              </Link>
+              <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
+                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
+              </Link>
+              <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
+                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
+              </Link>
+              <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
+              </Link>
+              <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
+                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
+              </Link>
+            </div>
 
           </div>
-         
-          <span>hoy.bo <br /> Desarrollado por Swoou.com <br /> ©copyright 2022</span>
+
+          <span> ©TARKAN Ltda. {monthAndYear.split('-')[1]}</span>
         </footer>
       </main>
+
+
+      <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
+      {        periodicoPDF === true && <span className={styles.close} onClick={handlerPDFView}>X</span>}   
+        <Link href="https://www.google.com/" legacyBehavior>
+        <a target='_blanck'><img src="/periodico.jpg" className={styles.periodicoPDFImg} alt="" /></a>
+        </Link>
+{        periodicoPDF === false && <span className={styles.periodicoPDF} onClick={handlerPDFView}>PDF</span>}
+      </div>
+
       <img className={styles.whatsapp} src="/SocialMedia/whatsapp.svg" onClick={whatsappClickHandler} alt="Whatsapp Logo" />
-   
+
     </div>
   )
 }
