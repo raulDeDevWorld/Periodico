@@ -210,11 +210,11 @@ position: relative;
   align-items: center;
   text-align: center;
   grid-column: 1/3;
-  height: 100%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   align-items: top;
-  padding: 0px 40px;
+  padding: 0px 15px;
 }
 .whatsapp {
   cursor: pointer;
