@@ -43,9 +43,9 @@ export default function Banner({ ruta, carpeta, click }) {
                             <div>
                                 {
                                     router.pathname === "/Admin" ?
-                                        <span><img className={styles.sliderIMG} src={postsIMG[`${ruta}/${i}`]} style={{ objectPosition: `${userDB[ruta][carpeta][i].objectFit}` }} /></span>
+                                        <span><img className={styles.sliderIMG} src={postsIMG[`${ruta}/${i}`]} style={{ objectPosition: `center` }} /></span>
                                         : <Link href={userDB[ruta]['BannerBottom'][i].enlace ? userDB[ruta]['BannerBottom'][i].enlace : '#'} legacyBehavior>
-                                            <a target="_blank"><img className={styles.sliderIMG} style={{ objectPosition: `${userDB[ruta][carpeta][i].objectFit}` }} src={postsIMG[`${ruta}/${i}`]} /></a>
+                                            <a target="_blank"><img className={styles.sliderIMG} style={{ objectPosition: `center`}} /></a>
                                         </Link>
                                 }
                                 <Link href={`https://api.whatsapp.com/send?phone=${userDB[ruta][carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>

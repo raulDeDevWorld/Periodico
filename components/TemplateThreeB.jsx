@@ -41,7 +41,7 @@ function TemplateThreeB({ topic, post1, post2, post3, description1, description2
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>}
             <div className={`${styles.gridThreeB} ${elements == true && styles.allVisible}`}>
             {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
-                    userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
+                    userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
 
                         {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
                         {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}

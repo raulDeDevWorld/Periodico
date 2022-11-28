@@ -271,7 +271,7 @@
         object-fit: cover;
         margin: 0;
         transition-duration: .5s;
-        filter: brightness(0.6);
+        filter: brightness(0.8);
     
     }
     

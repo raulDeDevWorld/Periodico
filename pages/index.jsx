@@ -154,11 +154,7 @@ function Home() {
       </div>
 
 
-      <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
-        <a onClick={handlerClick} target="_blank">
-          <img className={styles.whatsapp} src="/SocialMedia/whatsapp.svg" alt="Whatsapp Logo" />
-        </a>
-      </Link>
+      
     </div>
   )
 }
