@@ -364,9 +364,10 @@ padding: 15px 0;
 
 
 
-@media (max-width: 750px) {
+@media (max-width: 1050px) and (orientation: portrait) {
   .main {
     margin: 0;
+    margin-right: 15%;
   }
 
   .grid {
@@ -429,4 +430,6 @@ padding: 15px 0;
     width: auto;
     height: 35px;
   }
+
+
 }

@@ -35,7 +35,7 @@ function TemplateFive({ topic, post1, post2, post3, post4, post5,
     }, [userDB, postsIMG]);
     return (
         <section className={styles.section} id={topic}>
-            {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
+            {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO':topic.toUpperCase()}</h4></div>}
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
 
@@ -44,7 +44,7 @@ function TemplateFive({ topic, post1, post2, post3, post4, post5,
 
             <div className={`${styles.gridFive} ${elements == true && styles.allVisible}`}>
             {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
-                    userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
+                    userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
 
                         {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
                         {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}

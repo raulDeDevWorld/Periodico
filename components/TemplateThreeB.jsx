@@ -34,7 +34,7 @@ function TemplateThreeB({ topic, post1, post2, post3, description1, description2
     }, [userDB, postsIMG]);
     return (
         <section className={styles.section} id={topic}>
-            {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic.toUpperCase()}</h4></div>}
+            {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO':topic.toUpperCase()}</h4></div>}
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
 
