@@ -271,12 +271,12 @@
         object-fit: cover;
         margin: 0;
         transition-duration: .5s;
-        filter: brightness(0.8);
+        filter: brightness(0.9);
     
     }
     
     .section div div img:hover {
-        filter: brightness(.9);
+        filter: brightness(1);
     
     }
     
