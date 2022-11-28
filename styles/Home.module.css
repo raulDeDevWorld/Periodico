@@ -254,7 +254,7 @@ padding: 15px 0;
 
 
   border-radius: 5px;
-  height: 237px;
+  max-height: 237px;
   width: 13%;
   z-index: 10000000;
   transition: all;
@@ -277,7 +277,7 @@ padding: 15px 0;
 
 
   border-radius: 5px;
-  height: 237px;
+  max-height: 237px;
   width: 13%;
   z-index: 10000000;
   transition: all;
@@ -302,8 +302,8 @@ padding: 15px 0;
   background-image: url("../public/SocialMedia/ninoPDF.png");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 180px;
-  width: 170px;
+  height: 100%;
+  width: 13%;
   z-index: 100000;
   transition: all;
   transition-duration: .3s;
