@@ -14,9 +14,19 @@ export default function Banner({ ruta, carpeta, click }) {
     console.log(userDB[ruta])
     const router = useRouter()
 
+    const buttonStyle = {
+        width: "30px",
+        background: 'none',
+        border: '0px'
+    };
+
+    const properties = {
+        prevArrow: <button style={{ ...buttonStyle }}></button>,
+        nextArrow: <button style={{ ...buttonStyle }}></button>
+    }
     return (
         <div className={styles.containerFadeLeft} >
-            {userDB[carpeta] && postsIMG && <Fade transitionDuration={800} duration={2000}>
+            {userDB[carpeta] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4}{...properties} indicators={true}>
                 {
                     Object.keys(userDB[carpeta]).map((i, index) =>
                         <div className="each-slide" key={index} >
