@@ -110,6 +110,9 @@
     }
     .nav :nth-child(n) {
     
-      padding: 0 12px;
+      padding: 0px 12px;
+      margin: 2px 2px;
+      background: radial-gradient( #007483, #00404a)  ;
+
   }
 }
