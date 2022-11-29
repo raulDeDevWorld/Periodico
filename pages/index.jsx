@@ -139,15 +139,17 @@ function Home() {
       </main>
 
 
+
       <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
-        <Link href="https://drive.google.com/file/d/1o426ZM1jNIbGixWT5Lqs5PYo4Jz4k0_c/view?usp=share_link" legacyBehavior>
-          <a target='_blanck'>{periodicoPDF === true && <img src="/periodico.jpg" className={styles.periodicoPDFImg} alt="" />}
+        <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
+          <a target='_blanck'>{periodicoPDF === true && 
+          <img src="/periodico.jpeg" className={styles.periodicoPDFImg} alt="" />}
           </a>
         </Link>
       </div>
 
       <div className={`${styles.periodicoPDFContainer2} `}>
-        <Link href="https://drive.google.com/file/d/1o426ZM1jNIbGixWT5Lqs5PYo4Jz4k0_c/view?usp=share_link" legacyBehavior>
+        <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
           <a target='_blanck'><img src="/gobierno.jpg" className={styles.periodicoPDFImg} alt="" />
           </a>
         </Link>
