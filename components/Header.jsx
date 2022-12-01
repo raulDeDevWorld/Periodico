@@ -88,9 +88,13 @@ export default function Header(props) {
                 <div className={styles.portada}>
 
                     <RelojDigital></RelojDigital>
+                    
 
-                    <div className={styles.socialMedia}>
-                    </div>
+                    
+                    <img className={styles.navidad} src="/navidad-hoy.svg" alt="navidad" />
+
+                    
+
                     <video
 
                         muted

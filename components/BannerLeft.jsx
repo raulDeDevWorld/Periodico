@@ -4,7 +4,7 @@ import 'react-slideshow-image/dist/styles.css';
 import styles from '../styles/Banner.module.css'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-
+import Image from 'next/image'
 import Link from 'next/link'
 
 
@@ -37,9 +37,9 @@ export default function Banner({ ruta, carpeta, click }) {
                                         <span><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /></span>
                                         : <Link href={userDB['BannerLeft'][i].enlace ? userDB['BannerLeft'][i].enlace : '#'}  legacyBehavior>
                                             <a target={userDB['BannerLeft'][i].enlace ? "_blank": ''}>
-                                                <span>
-
-                                                <img className={styles.sliderIMGLeft}  src={postsIMG[`${carpeta}/${i}`]} />
+                                                <span >
+                                                {/* <Image src={postsIMG[`${carpeta}/${i}`]} fill quality={1}></Image> */}
+                                            <img className={styles.sliderIMGLeft}  src={postsIMG[`${carpeta}/${i}`]} />
 
                                                 </span>
                                                 </a>

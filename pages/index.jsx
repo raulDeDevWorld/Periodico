@@ -46,6 +46,21 @@ function Home() {
   }
   console.log(periodicoPDF)
 
+
+  const periodicoPDFImg = {
+    height: '100%',
+    width: '100%',
+    objectFit: 'contain',
+    objectPosition: 'center',
+    borderRadius: '5px',
+    boxShadow: '0 0 15px black',
+    transition: 'all',
+    transitionDuration: '.3s',
+  
+  }
+
+
+
   useEffect(() => {
     if (periodicoPDFEffect == true) {
       return
@@ -143,7 +158,9 @@ function Home() {
       <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
         <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
           <a target='_blanck'>{periodicoPDF === true && 
-          <img src="/periodico.jpeg" className={styles.periodicoPDFImg} alt="" />}
+          <Image src="/periodico.jpeg" width={100} height={100} style={periodicoPDFImg} quality={1}></Image>
+          // <img src="/periodico.jpeg" className={styles.periodicoPDFImg} alt="" />
+          }
           </a>
         </Link>
       </div>
