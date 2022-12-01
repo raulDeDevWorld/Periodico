@@ -34,7 +34,7 @@ export default function Banner({ ruta, carpeta, click }) {
                             <div>
                                 {
                                     router.pathname == "/Admin" ?
-                                        <span><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                        <span onClick={() => click({ key: 'BannerLeft', i })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /></span>
                                         : <Link href={userDB['BannerLeft'][i].enlace ? userDB['BannerLeft'][i].enlace : '#'}  legacyBehavior>
                                             <a target={userDB['BannerLeft'][i].enlace ? "_blank": ''}>
                                                 <span >

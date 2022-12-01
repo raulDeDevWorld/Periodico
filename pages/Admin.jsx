@@ -9,6 +9,7 @@ import Error from '../components/Error'
 
 import BannerLeft from '../components/BannerLeft'
 import BannerRight from '../components/BannerRight'
+import Modal from '../components/Modal'
 
 import Section from '../components/Section'
 import Date from '../components/Date'
@@ -74,6 +75,7 @@ function Admin() {
     <div className={styles.container}>
       {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
       {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
+      {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
 
       {success === "CompleteFORM" && <Error>Complete el formulario...</Error>}
 
