@@ -98,7 +98,7 @@ export default function Header(props) {
                         preload="auto"
                         loop
                         className={styles.video}>
-                        <source src="/video.mp4" type="video/mp4" />
+                        <source src="/video-optimizado.webm" type="video/webm" />
                     </video>
                 </div>
             </header>
