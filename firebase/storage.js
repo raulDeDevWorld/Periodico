@@ -11,18 +11,17 @@ async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
     const imagesRef = ref(storage, `/${ruteDB}/${fileName}`);
 
     const options = {
-        maxWidthOrHeight : undefined,
-        maxSizeMB: 0.02,
+        maxWidthOrHeight: undefined,
+        maxSizeMB: 0.015,
         useWebWorker: true,
         alwaysKeepResolution: true
-      }
+    }
 
     const compressedFile = await imageCompression(file, options);
 
     uploadBytes(imagesRef, compressedFile).then((snapshot) => {
-        console.log('carg')
         setUserSuccess("Cargando")
-        getList( monthAndYear, postsIMG, setUserPostsIMG,)
+        getList(monthAndYear, postsIMG, setUserPostsIMG,)
     }).catch(e => '');
 }
 
@@ -36,8 +35,8 @@ function downloadIMG(fileName, postsIMG, setUserPostsIMG) {
     getDownloadURL(imagesRef)
         .then((url) => {
             //console.log("download")
-            object = { ...object, [fileName] :  url }
-            setUserPostsIMG({...postsIMG, ...object})
+            object = { ...object, [fileName]: url }
+            setUserPostsIMG({ ...postsIMG, ...object })
         })
         .catch((error) => {
 
@@ -46,16 +45,16 @@ function downloadIMG(fileName, postsIMG, setUserPostsIMG) {
 
 
 
-function getList( monthAndYear, postsIMG, setUserPostsIMG, ) {
+function getList(monthAndYear, postsIMG, setUserPostsIMG,) {
     //userDB && userDB[monthAndYear] && Object.keys(userDB[monthAndYear]).map((i, index)=>{
 
-        const listRef = ref(storage, `/${monthAndYear}/`)
+    const listRef = ref(storage, `/${monthAndYear}/`)
     //  console.log(monthAndYear)
 
 
-        listAll(listRef)
+    listAll(listRef)
         .then((res) => {
-             //console.log(res)
+            //console.log(res)
             res.items.forEach((itemRef) => {
                 //console.log(itemRef)
                 downloadIMG(itemRef["_location"]["path_"], postsIMG, setUserPostsIMG)
