@@ -1,14 +1,25 @@
 import { app } from './config'
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { getDate, getMonthAndYear } from '../utils/Utils'
+import imageCompression from 'browser-image-compression';
 
 
 const storage = getStorage(app)
 
 //--------------------------- Firebase Storage ---------------------------
-function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
+async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
     const imagesRef = ref(storage, `/${ruteDB}/${fileName}`);
-    uploadBytes(imagesRef, file).then((snapshot) => {
+
+    const options = {
+        maxWidthOrHeight : undefined,
+        maxSizeMB: 0.02,
+        useWebWorker: true,
+        alwaysKeepResolution: true
+      }
+
+    const compressedFile = await imageCompression(file, options);
+
+    uploadBytes(imagesRef, compressedFile).then((snapshot) => {
         console.log('carg')
         setUserSuccess("Cargando")
         getList( monthAndYear, postsIMG, setUserPostsIMG,)

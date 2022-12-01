@@ -36,7 +36,7 @@
 .miniButtonLight {
     height: 25px;
     padding: 0;
-    color: #007483;
+    color: rgb(0, 116, 131);
     background-color: #ffffff;
     border: 2px solid #8FC2C9;
 }

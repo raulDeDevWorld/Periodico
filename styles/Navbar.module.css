@@ -1,39 +1,39 @@
 .container {
-    width: 100%;
-    color: white;
-    background: #00404a  ;
-    border-bottom: 2.5px solid brown;
-    font-size: 10px;
-    margin-bottom: 5px;
-    position: sticky;
-    top: 0px;
-    z-index: 10000000000000;
+  width: 100%;
+  color: white;
+  background: #00404a;
+  border-bottom: 2.5px solid brown;
+  font-size: 10px;
+  margin-bottom: 5px;
+  position: sticky;
+  top: 0px;
+  z-index: 10000000000000;
 }
 
 .nav {
-    font-size: 10px;
-    padding: 0px;
-    display: grid;
-    grid-template-columns: repeat(13, auto);
-    grid-column-gap: 2px;
-    border-bottom: 5px solid #ffffff;
-    position: sticky;
-    top: 0;
+  font-size: 10px;
+  padding: 0px;
+  display: grid;
+  grid-template-columns: repeat(13, auto);
+  grid-column-gap: 2px;
+  border-bottom: 5px solid #ffffff;
+  position: sticky;
+  top: 0;
 }
 
-.nav > :nth-child(n) {
-    display: flex;  
-    justify-content: center;
-    padding:2px 0px;
-    background: linear-gradient(to right, #00404a,#007483, #007483, #007483, #007483, #007483,#007483, #00404a)  ;
+.nav> :nth-child(n) {
+  display: flex;
+  justify-content: center;
+  padding: 2px 0px;
+  background: linear-gradient(to right, rgb(0, 64, 74), rgb(0, 116, 131), rgb(0, 116, 131), #007483, #007483, #007483, #007483, #00404a);
 }
 
 
-.nav > :nth-child(7) {
-    display: flex;  
-    justify-content: center;
-    padding:2px 0px;
-    background: linear-gradient(to right, #00404a,#007483,#007483, #007483, #007483, #007483, #007483,#007483,#007483, #00404a)  ;
+.nav> :nth-child(7) {
+  display: flex;
+  justify-content: center;
+  padding: 2px 0px;
+  background: linear-gradient(to right, #00404a, #007483, #007483, #007483, #007483, #007483, #007483, #007483, #007483, #00404a);
 
 }
 
@@ -41,78 +41,87 @@
 
 
 .socialMedia {
-    color: black;
+  color: black;
 
-    z-index: 1000000000;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-color: rgba(255, 255, 255, 0);
-    position: sticky;
-    top: -7px;
-    width: 100%;
-    height: 5vw;
-    padding-left: 20px;
+  z-index: 1000000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background-color: transparent;
+  position: sticky;
+  top: -5px;
+  width: 100%;
+  height: 5vw;
+  padding-left: 3px;
 
-  
-  }
-  
-  
-  
-  
-  .containerSocialMediaIcons  {
-    width: 150px;
-    padding-bottom: 5px;
 
-  
-  
-  }
-  .containerSocialMediaIcons > :nth-child(n) {
+}
 
-    font-weight: bold;
-    font-size: 24px;
-  }
-  .socialMediaIcons {
- 
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    z-index: 1;
-  }
-  .socialMediaIcons img {
-    display: inline-block;
-    height: 25px;
-    width: auto;
-    margin: 2px;
-    background-color: rgba(255, 0, 0, 0);
 
-  }
-  
+
+
+.containerSocialMediaIcons {
+  display: inline;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: center;
+  padding-bottom: 5px;
+  background-color: #fcfcfc;
+}
+
+.containerSocialMediaIcons> :nth-child(n) {
+
+  font-weight: bold;
+  font-size: 24px;
+  padding-top: 5px;
+}
+
+.socialMediaIcons {
+
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  z-index: 1;
+  background-color: transparent;
+
+}
+
+.socialMediaIcons img {
+  display: inline-block;
+  height: 25px;
+  width: auto;
+  margin: 2px;
+  background-color: transparent;
+
+}
+
 
 @media (max-width: 1050px) {
-    .header {
-        background-color: rgb(187, 187, 187);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .header {
+    background-color: rgb(187, 187, 187);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .nav {
-    
-        font-size: 10px;
-       
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
-    .nav :nth-child(n) {
-    
-      padding: 0px 12px;
-      margin: 2px 2px;
-      background: radial-gradient(  #00404a, #007483,)  ;
+  .nav {
+
+    font-size: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav :nth-child(n) {
+
+    padding: 0px 12px;
+    margin: 2px 2px;
+    background: radial-gradient(#00404a, #007483, );
 
   }
 }

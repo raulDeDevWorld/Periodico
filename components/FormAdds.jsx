@@ -6,6 +6,7 @@ import Error from './Error'
 import style from '../styles/Form.module.css'
 import { useState } from 'react'
 import { getDate, getDayMonthYear, getMonthAndYear } from '../utils/Utils'
+import imageCompression from 'browser-image-compression';
 
 
 export default function Form({ topic, value }) {
@@ -21,7 +22,6 @@ export default function Form({ topic, value }) {
 
   const [bannerRightImage, setBannerRightImage] = useState(null)
   const [urlBannerRightImage, setUrlBannerRightImage] = useState(null)
-
 
   function manageInputIMG(e) {
     const fileName = `${e.target.name}`

@@ -18,6 +18,7 @@ export default function Navbar() {
             <div className={style.socialMedia}>
 
                 <div className={style.containerSocialMediaIcons}>
+                    
                     <span>Siguenos en:</span>
                     <div className={style.socialMediaIcons}>
 
