@@ -15,14 +15,21 @@
 
   width: 15%;
   padding-right: 15px;
-  height: 100vh;
+  height: auto;
   z-index: 10000;
   box-shadow: 0px 0px 1px black;
+
 
 }
 
 .containerFadeLeft > :nth-child(1), .containerFadeRight > :nth-child(1) {
   position: relative;
+  height: auto;
+
+}
+.containerFadeLeft > :nth-child(1) > :nth-child(1) {
+  position: relative;
+  height: auto;
 
 }
 
@@ -70,18 +77,23 @@
   object-fit: contain;
 }
 
+.containerFadeLeft span {
+  display: flex;
+
+}
+
+
+
 .containerFadeLeft span img {
   display: block;
   cursor: pointer;
   margin: 0;
   width: 100%;
-  height: 100%;
-  max-height: 61vh;
+  height: auto;
   object-fit: contain;
   object-position: center;
 
   padding: 0px;
-  background-color: red;
 
 }
 

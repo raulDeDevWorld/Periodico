@@ -26,6 +26,7 @@ export default function Form({ topic, value }) {
   function manageInputIMG(e) {
     const fileName = `${e.target.name}`
     const file = e.target.files[0]
+    console.log(e.target.files[0].type)
 
     if (fileName === 'BannerLeftImage') {
       setBannerLeftImage(file)
@@ -67,10 +68,12 @@ export default function Form({ topic, value }) {
   
   function save(e, key) {
     e.preventDefault()
-
+     
     const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
     const newDate = new Date()
     if (key == "SaveBannerLeft") {
+
+
       if (bannerLeftImage && data.dateInitBannerLeft && data.dateFinishBannerLeft) {
 
         const ruteDB = `/BannerLeft` // Nov-2022/Inicio
@@ -123,7 +126,7 @@ export default function Form({ topic, value }) {
           <label htmlFor={`${topic}-bannerLeft`} className={style.label} >Seleccionar Banner Izquierdo</label>
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerLeft : 'center'} `}} src={urlBannerLeftImage} alt="" />
           <p className={`${style.require} ${ bannerLeftImage?  style.green : ''}` }>{ bannerLeftImage? 'Correcto' : '*Requerido'}</p>
-          <input type="file" id={`${topic}-bannerLeft`} className={style.inputFile} name={`BannerLeftImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
+          <input type="file" id={`${topic}-bannerLeft`} className={style.inputFile} name={`BannerLeftImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm, .gif" />
           <input type="text" placeholder='Enlace' name="enlaceBannerLeft" onChange={handlerEventChange} />
           <input type="text" placeholder='Whatsapp' name="whatsappBannerLeft" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerLeft" onChange={handlerEventChange} />
@@ -154,7 +157,7 @@ export default function Form({ topic, value }) {
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner de Cabecera</label>
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerTop : 'center'} `}} src={urlBannerTopImage} alt="" />
           <p className={`${style.require} ${ bannerTopImage?  style.green : ''}` }>{ bannerTopImage? 'Correcto' : '*Requerido'}</p>
-          <input type="file" id={`${topic}-bannerTop`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
+          <input type="file" id={`${topic}-bannerTop`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm, .gif" />
           <input type="text" placeholder='Enlace' name="enlaceBannerTop" onChange={handlerEventChange} />
           <input type="text" placeholder='Whatsapp' name="whatsappBannerTop" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerTop" onChange={handlerEventChange} />
@@ -187,7 +190,7 @@ export default function Form({ topic, value }) {
           <label htmlFor={`${topic}-bannerRight`} className={style.label} >Seleccionar Banner Derecho </label>
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerRight : 'center'} `}} src={urlBannerRightImage} alt="" />
           <p className={`${style.require} ${ bannerRightImage?  style.green : ''}` }>{ bannerRightImage? 'Correcto' : '*Requerido'}</p>
-          <input type="file" id={`${topic}-bannerRight`} className={style.inputFile} name={`BannerRightImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
+          <input type="file" id={`${topic}-bannerRight`} className={style.inputFile} name={`BannerRightImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm, .gif" />
           <input type="text" placeholder='Enlace' name="enlaceRight" onChange={handlerEventChange} />
           <input type="text" placeholder='Whatsapp' name="whatsappRight" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerRight" onChange={handlerEventChange} />

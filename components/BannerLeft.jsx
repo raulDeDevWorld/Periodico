@@ -54,6 +54,36 @@ export default function Banner({ ruta, carpeta, click }) {
                     )}
             </Fade>
             }
+
+
+{userDB[carpeta] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4}{...properties} indicators={true}>
+                {
+                    Object.keys(userDB[carpeta]).map((i, index) =>
+                        <div className="each-slide" key={index} >
+                            
+                            <div>
+                                {
+                                    router.pathname == "/Admin" ?
+                                        <span onClick={() => click({ key: 'BannerLeft', i })}><img className={styles.sliderIMGLeft} src={'/gobierno.jpg'} /><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                        : <Link href={userDB['BannerLeft'][i].enlace ? userDB['BannerLeft'][i].enlace : '#'}  legacyBehavior>
+                                            <a target={userDB['BannerLeft'][i].enlace ? "_blank": ''}>
+                                                <span >
+                                                {/* <Image src={postsIMG[`${carpeta}/${i}`]} fill quality={1}></Image> */}
+                                            <img className={styles.sliderIMGLeft}  src={postsIMG[`${carpeta}/${i}`]} />
+
+                                                </span>
+                                                </a>
+                                        </Link>
+                                }
+                                {/*<Link href={`https://api.whatsapp.com/send?phone=${userDB[carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
+                                    <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
+                            </Link>*/}
+
+                            </div>
+                        </div>
+                    )}
+            </Fade>
+            }
         </div>)
 }
 

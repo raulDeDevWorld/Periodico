@@ -74,6 +74,7 @@ function Home() {
   return (
     <div className={styles.container}>
       {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
+
       {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
 
       <main className={styles.main}>
@@ -165,12 +166,12 @@ function Home() {
         </Link>
       </div>
 
-      <div className={`${styles.periodicoPDFContainer2} `}>
+      {/* <div className={`${styles.periodicoPDFContainer2} `}>
         <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
           <a target='_blanck'><img src="/gobierno.jpg" className={styles.periodicoPDFImg} alt="" />
           </a>
         </Link>
-      </div>
+      </div> */}
 
 
       

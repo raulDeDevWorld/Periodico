@@ -16,8 +16,8 @@ async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
         useWebWorker: true,
         alwaysKeepResolution: true
     }
-
-    const compressedFile = await imageCompression(file, options);
+    
+    const compressedFile = file.type == 'image/gif'? file : await imageCompression(file, options);
 
     uploadBytes(imagesRef, compressedFile).then((snapshot) => {
         setUserSuccess("Cargando")

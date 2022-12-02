@@ -138,7 +138,6 @@ export default function Error({ post, i, topic, close }) {
 
 
         if (key == "SaveBannerLeft") {
-            if (bannerLeftImage && data.dateInitBannerLeft && data.dateFinishBannerLeft) {
       
               const ruteDB = `/BannerLeft` // Nov-2022/Inicio
               const ruteSTG = `BannerLeft` // Nov-2022/
@@ -146,13 +145,9 @@ export default function Error({ post, i, topic, close }) {
               const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null , enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, dateInit: data.dateInitBannerLeft, dateFinish: data.dateFinishBannerLeft } }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
               uploadIMG(ruteSTG, fileName, bannerLeftImage, setUserSuccess, monthYear)
-            } else {
-              setUserSuccess("CompleteFORM")
-              data.dateInitBannerTop && data.dateFinishBannerLeft && bannerLeftImage == undefined && setUserSuccess("CompleteIMG")
-            }
+          
           }
           if (key == "SaveBannerPortada") {
-            if (bannerTopImage && data.dateInitBannerTop && data.dateFinishBannerTop) {
       
               const ruteDB = `/BannerTop` // Nov-2022/Inicio
               const ruteSTG = `BannerTop` // Nov-2022/
@@ -160,24 +155,16 @@ export default function Error({ post, i, topic, close }) {
               const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerPortada ? data.enlaceBannerPortada : null, dateInit: data.dateInitBannerPortada, dateFinish: data.dateFinishBannerPortada } }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
               uploadIMG(ruteSTG, fileName, bannerPortadaImage, setUserSuccess, monthYear)
-            } else {
-              setUserSuccess("CompleteFORM")
-              data.dateInitBannerPortada && data.dateFinishBannerPortada && bannerPortadaImage == undefined && setUserSuccess("CompleteIMG")
-      
-            }
+          
           }
           if (key == "SaveBannerRight") {
-            if (bannerRightImage && data.dateInitBannerRight && data.dateFinishBannerRight) {
               const ruteDB = `/BannerRight` // Nov-2022/Inicio
               const ruteSTG = `BannerRight` // Nov-2022/
               const fileName = `BannerRightImage_${newDate}` // PostImage_Tue Nov 15 2022 
               const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerRight, dateFinish: data.dateFinishBannerRight } }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
               uploadIMG(ruteSTG, fileName, bannerRightImage, setUserSuccess, monthYear)
-            } else {
-              setUserSuccess("CompleteFORM")
-              data.dateInitBannerRight && data.dateFinishBannerRight && bannerRightImage == undefined && setUserSuccess("CompleteIMG")
-            }
+           
           }
 
 
