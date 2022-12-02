@@ -141,29 +141,29 @@ export default function Error({ post, i, topic, close }) {
       
               const ruteDB = `/BannerLeft` // Nov-2022/Inicio
               const ruteSTG = `BannerLeft` // Nov-2022/
-              const fileName = `BannerLeftImage_${newDate}` // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null , enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, dateInit: data.dateInitBannerLeft, dateFinish: data.dateFinishBannerLeft } }
+              const fileName = i // PostImage_Tue Nov 15 2022 
+              const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null , enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, dateInit: data.dateInitBannerLeft ? data.dateInitBannerLeft : userDB["BannerLeft"][i].dateInit, dateFinish: data.dateFinishBannerLeft ? data.dateFinishBannerLeft : userDB["BannerLeft"][i].dateFinish } }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
-              uploadIMG(ruteSTG, fileName, bannerLeftImage, setUserSuccess, monthYear)
+              bannerPortadaImage && uploadIMG(ruteSTG, fileName, bannerLeftImage, setUserSuccess, monthYear)
           
           }
           if (key == "SaveBannerPortada") {
       
               const ruteDB = `/BannerTop` // Nov-2022/Inicio
               const ruteSTG = `BannerTop` // Nov-2022/
-              const fileName = `BannerTopImage_${newDate}` // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerPortada ? data.enlaceBannerPortada : null, dateInit: data.dateInitBannerPortada, dateFinish: data.dateFinishBannerPortada } }
+              const fileName = i // PostImage_Tue Nov 15 2022 
+              const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerPortada ? data.dateInitBannerPortada : userDB["BannerPortada"][i].dateInit , dateFinish: data.dateFinishBannerPortada ? data.dateFinishBannerPortada : userDB["BannerPortada"][i].dateFinish} }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
-              uploadIMG(ruteSTG, fileName, bannerPortadaImage, setUserSuccess, monthYear)
+              bannerLeftImage && uploadIMG(ruteSTG, fileName, bannerPortadaImage, setUserSuccess, monthYear)
           
           }
           if (key == "SaveBannerRight") {
               const ruteDB = `/BannerRight` // Nov-2022/Inicio
               const ruteSTG = `BannerRight` // Nov-2022/
-              const fileName = `BannerRightImage_${newDate}` // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerRight, dateFinish: data.dateFinishBannerRight } }
+              const fileName = i // PostImage_Tue Nov 15 2022 
+              const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerRight ? data.dateInitBannerRight : userDB["BannerRight"][i].dateInit, dateFinish: data.dateFinishBannerRight ? data.dateFinishBannerRight : userDB["BannerRight"][i].dateFinish}  }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
-              uploadIMG(ruteSTG, fileName, bannerRightImage, setUserSuccess, monthYear)
+              bannerRightImage && uploadIMG(ruteSTG, fileName, bannerRightImage, setUserSuccess, monthYear)
            
           }
 

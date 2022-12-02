@@ -28,9 +28,11 @@ function Home() {
   const [periodicoPDF, setPeriodicoPDF] = useState(false);
   const [periodicoPDFEffect, setPeriodicoPDFEffect] = useState(false);
 
-  function handlerClickEnlace(i) {
-    router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
+  function handlerClickEnlace(data) {
+    router.pathname != "/Admin" && window.open(data.href, data.target)
     router.pathname == "/Admin" && setDataEditor(i)
+   // console.log(data.href, data.target)
+   
   }
 
   function handlerClick(url) {
@@ -44,7 +46,7 @@ function Home() {
     parametro && setPeriodicoPDFEffect(true)
     setPeriodicoPDF(!periodicoPDF)
   }
-  console.log(periodicoPDF)
+  
 
 
   const periodicoPDFImg = {
@@ -166,12 +168,12 @@ function Home() {
         </Link>
       </div>
 
-      {/* <div className={`${styles.periodicoPDFContainer2} `}>
+      <div className={`${styles.periodicoPDFContainer2} `}>
         <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
           <a target='_blanck'><img src="/gobierno.jpg" className={styles.periodicoPDFImg} alt="" />
           </a>
         </Link>
-      </div> */}
+      </div>
 
 
       
