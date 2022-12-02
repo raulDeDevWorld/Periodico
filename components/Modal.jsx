@@ -278,9 +278,9 @@ function remove (e, key) {
                     <input type="text" placeholder='Enlace' name="enlaceBannerBottom" onChange={handlerEventChange} />
                     <input type="text" placeholder='Whatsapp' name="whatsappBannerBottom" onChange={handlerEventChange} />
                     <input className={style.calendario} type="date" id="start" name="dateInitBannerBottom" onChange={handlerEventChange} />
-                    <p className={`${style.require} ${data.dateInitBannerTop ? style.green : ''}`}>{data.dateInitBannerTop ? 'Correcto' : '*Requerido'}</p>
+                    <p className={`${style.require} ${data.dateInitBannerBottom ? style.green : ''}`}>{data.dateInitBannerBottom ? 'Correcto' : '*Requerido'}</p>
                     <input className={style.calendario} type="date" id="start" name="dateFinishBannerBottom" onChange={handlerEventChange} />
-                    <p className={`${style.require} ${data.dateFinishBannerTop ? style.green : ''}`}>{data.dateFinishBannerTop ? 'Correcto' : '*Requerido'}</p>
+                    <p className={`${style.require} ${data.dateFinishBannerBottom ? style.green : ''}`}>{data.dateFinishBannerBottom ? 'Correcto' : '*Requerido'}</p>
                     <div className={style.radioInputs}>
                         <input type="radio" value="left" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇦
                         <input type="radio" value="top" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇧
