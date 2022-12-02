@@ -30,8 +30,8 @@ export default function Banner({ ruta, carpeta, click }) {
                 {
                     Object.keys(userDB[carpeta]).map((i, index) =>
                         <div className="each-slide" key={index} >
-                            
-                            <div>
+                            g
+                            <div> 
                                 {
                                     router.pathname == "/Admin" ?
                                         <span onClick={() => click({ key: 'BannerLeft', i })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /></span>
