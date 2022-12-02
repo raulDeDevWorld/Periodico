@@ -38,7 +38,6 @@ export default function Banner({ ruta, carpeta, click }) {
                                         : <Link href={userDB['BannerLeft'][i].enlace ? userDB['BannerLeft'][i].enlace : '#'}  legacyBehavior>
                                             <a target={userDB['BannerLeft'][i].enlace ? "_blank": ''}>
                                                 <span >
-                                                {/* <Image src={postsIMG[`${carpeta}/${i}`]} fill quality={1}></Image> */}
                                             <img className={styles.sliderIMGLeft}  src={postsIMG[`${carpeta}/${i}`]} />
 
                                                 </span>
