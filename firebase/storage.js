@@ -12,7 +12,7 @@ async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
 
     const options = {
         maxWidthOrHeight: undefined,
-        maxSizeMB: 0.1,
+        maxSizeMB: 0.08,
         alwaysKeepResolution: false,
         useWebWorker: true
     }
@@ -22,6 +22,8 @@ async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
     const compressedFile2 = await imageCompression(compressedFile, options);
 
     const compressedFile3 = await imageCompression(compressedFile2, options);
+
+    const compressedFile4 = await imageCompression(compressedFile3, options);
 
     uploadBytes(imagesRef, compressedFile3).then((snapshot) => {
         setUserSuccess("Cargando")
