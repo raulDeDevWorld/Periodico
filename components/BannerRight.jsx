@@ -38,7 +38,7 @@ export default function Banner({ ruta, carpeta, click }) {
                                     router.pathname == "/Admin" ?
                                         <span onClick={() => click({ key: 'BannerRight', i })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
                                         </span>
-                                        : <span onClick={() => click({ href: userDB['BannerRight'][i].enlace ? userDB['BannerRight'][i].enlace : '#', target: userDB['BannerLeft'][i].enlace ? "_blank" : '' })}>
+                                        : <span onClick={() => click({ href: userDB['BannerRight'][i].enlace ? userDB['BannerRight'][i].enlace : '#', target: userDB['BannerRight'][i].enlace ? "_blank" : '' })}>
                                         <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
                                     </span>
                                 }

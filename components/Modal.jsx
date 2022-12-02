@@ -288,9 +288,9 @@ function remove (e, key) {
                         <input type="radio" value="bottom" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇩
                         <input type="radio" value="right" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇨
                     </div>
-                    <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerRight")}>Guardar</Button>
+                    <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerBottom")}>Guardar</Button>
                     <br />
-                    <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerRight")}>Eliminar</Button>
+                    <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerBottom")}>Eliminar</Button>
                 </form>}
 
 
@@ -363,19 +363,13 @@ function remove (e, key) {
                     <label htmlFor={`bannerConfig`} className={style.label} >Seleccionar Banner Right</label>
                     <img className={style.previewIMGBanner} src={urlBannerRightImage == null ? postsIMG[`BannerRight/${i}`] : urlBannerRightImage} alt="" />
                     <input type="file" id={`bannerConfig`} className={style.inputFile} name={`BannerRightImage`} onChange={manageInputIMGSetting} accept=".jpg, .jpeg, .png, .mp4, webm" />
-                    <input type="text" placeholder='Enlace' name="enlaceBanner" onChange={handlerEventChange} />
-                    <input type="text" placeholder='Whatsapp' name="whatsappBanner" onChange={handlerEventChange} />
+                    <input type="text" placeholder='Enlace' name="enlaceBannerRight" onChange={handlerEventChange} />
+                    <input type="text" placeholder='Whatsapp' name="whatsappBannerRight" onChange={handlerEventChange} />
                     <input className={style.calendario} type="date" id="start" name="dateInitBannerRight" onChange={handlerEventChange} />
                     <p className={`${style.require} ${data.dateInitBannerRight ? style.green : ''}`}>{data.dateInitBannerRight ? 'Correcto' : '*Requerido'}</p>
                     <input className={style.calendario} type="date" id="start" name="dateFinishBannerRight" onChange={handlerEventChange} />
                     <p className={`${style.require} ${data.dateFinishBannerRight ? style.green : ''}`}>{data.dateFinishBannerRight ? 'Correcto' : '*Requerido'}</p>
-                    <div className={style.radioInputs}>
-                        <input type="radio" value="left" name="objectPositionBanner" onChange={handlerEventChange} /> ⇦
-                        <input type="radio" value="top" name="objectPositionBanner" onChange={handlerEventChange} /> ⇧
-                        <input type="radio" value="center" name="objectPositionBanner" onChange={handlerEventChange} /> c
-                        <input type="radio" value="bottom" name="objectPositionBanner" onChange={handlerEventChange} /> ⇩
-                        <input type="radio" value="right" name="objectPositionBanner" onChange={handlerEventChange} /> ⇨
-                    </div>
+                    
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerRight")}>Guardar</Button>
                 <br />
                 <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerRight")}>Eliminar</Button>

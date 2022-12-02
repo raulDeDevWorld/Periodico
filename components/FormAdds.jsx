@@ -172,8 +172,8 @@ export default function Form({ topic, value }) {
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerRight : 'center'} `}} src={urlBannerRightImage} alt="" />
           <p className={`${style.require} ${ bannerRightImage?  style.green : ''}` }>{ bannerRightImage? 'Correcto' : '*Requerido'}</p>
           <input type="file" id={`${topic}-bannerRight`} className={style.inputFile} name={`BannerRightImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm, .gif" />
-          <input type="text" placeholder='Enlace' name="enlaceRight" onChange={handlerEventChange} />
-          <input type="text" placeholder='Whatsapp' name="whatsappRight" onChange={handlerEventChange} />
+          <input type="text" placeholder='Enlace' name="enlaceBannerRight" onChange={handlerEventChange} />
+          <input type="text" placeholder='Whatsapp' name="whatsappBannerRight" onChange={handlerEventChange} />
           <input className={style.calendario} type="date" id="start" name="dateInitBannerRight" onChange={handlerEventChange} />
           <p className={`${style.require} ${ data.dateInitBannerRight?  style.green : ''}` }>{ data.dateInitBannerRight? 'Correcto' : '*Requerido'}</p>
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerRight" onChange={handlerEventChange} />
