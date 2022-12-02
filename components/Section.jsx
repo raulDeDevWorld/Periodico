@@ -11,45 +11,45 @@ import Form from './Form'
 import { getDate, getDayMonthYear } from "../utils/Utils";
 
 
-export default function Section({ topic, publicView }) {
+export default function Section({ topic, publicView, color }) {
 
     const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear, dayMonthYear } = useUser()
  
     //console.log(postsIMG)
     return (
         <>
-            {userDB[topic] !== null && publicView == false && <Form topic={topic} value={userDB[`${topic}-${date}`]}></Form>}
+            {userDB[topic] !== null && publicView == false && <Form topic={topic} value={userDB[`${topic}-${date}`]} color={color}></Form>}
             {userDB
                 && userDB[topic]
                 && userDB[topic]['Templates']
                 && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == "TemplateOne" &&
-                <TemplateOne topic={topic}/>}
+                <TemplateOne topic={topic} color={color}/>}
             {userDB
                 && userDB[topic]
                 && userDB[topic]['Templates']
                 && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == "TemplateThreeA" &&
-                <TemplateThreeA topic={topic}/>}
+                <TemplateThreeA topic={topic} color={color}/>}
             {userDB
                 && userDB[topic]
                 && userDB[topic]['Templates']
                 && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == "TemplateThreeB" &&
-                <TemplateThreeB topic={topic}/>}
+                <TemplateThreeB topic={topic} color={color}/>}
             {userDB
                 && userDB[topic]
                 && userDB[topic]['Templates']
                 && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == "TemplateFour" &&
-                <TemplateFour topic={topic} />}
+                <TemplateFour topic={topic} color={color}/>}
             {userDB
                 && userDB[topic]
                 && userDB[topic]['Templates']
                 && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == "TemplateFive" &&
-                <TemplateFive topic={topic}/>}
+                <TemplateFive topic={topic} color={color}/>}
             {userDB
                 && userDB[topic]
                 && userDB[topic]['Templates']
                 && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == "TemplateSix"
                 &&
-                <TemplateSix topic={topic}/>}
+                <TemplateSix topic={topic} color={color}/>}
         </>
     )
 }

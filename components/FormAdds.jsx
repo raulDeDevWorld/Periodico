@@ -133,13 +133,7 @@ export default function Form({ topic, value }) {
           <p className={`${style.require} ${ data.dateInitBannerLeft?  style.green : ''}` }>{ data.dateInitBannerLeft? 'Correcto' : '*Requerido'}</p>
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerLeft" onChange={handlerEventChange} />
           <p className={`${style.require} ${ data.dateFinishBannerLeft?  style.green : ''}` }>{ data.dateFinishBannerLeft? 'Correcto' : '*Requerido'}</p>
-          <div className={style.radioInputs}>
-            <input type="radio" value="left" name="objectPositionBannerLeft" onChange={handlerEventChange} /> ⇦
-            <input type="radio" value="top" name="objectPositionBannerLeft" onChange={handlerEventChange} /> ⇧
-            <input type="radio" value="center" name="objectPositionBannerLeft" onChange={handlerEventChange} /> c
-            <input type="radio" value="bottom" name="objectPositionBannerLeft" onChange={handlerEventChange} /> ⇩
-            <input type="radio" value="right" name="objectPositionBannerLeft" onChange={handlerEventChange} /> ⇨
-          </div>
+          
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerLeft")}>Guardar</Button>
         </form>
         
@@ -164,23 +158,10 @@ export default function Form({ topic, value }) {
           <p className={`${style.require} ${ data.dateInitBannerTop?  style.green : ''}` }>{ data.dateInitBannerTop? 'Correcto' : '*Requerido'}</p>
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerTop" onChange={handlerEventChange} />
           <p className={`${style.require} ${ data.dateFinishBannerTop?  style.green : ''}` }>{ data.dateFinishBannerTop? 'Correcto' : '*Requerido'}</p>
-          <div className={style.radioInputs}>
-            <input type="radio" value="left" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇦
-            <input type="radio" value="top" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇧
-            <input type="radio" value="center" name="objectPositionBannerTop" onChange={handlerEventChange} /> c
-            <input type="radio" value="bottom" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇩
-            <input type="radio" value="right" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇨
-          </div>
+          
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerTop")}>Guardar</Button>
         </form>
         
-
-
-
-
-
-
-
 
 
 
@@ -197,13 +178,7 @@ export default function Form({ topic, value }) {
           <p className={`${style.require} ${ data.dateInitBannerRight?  style.green : ''}` }>{ data.dateInitBannerRight? 'Correcto' : '*Requerido'}</p>
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerRight" onChange={handlerEventChange} />
           <p className={`${style.require} ${ data.dateFinishBannerRight?  style.green : ''}` }>{ data.dateFinishBannerRight? 'Correcto' : '*Requerido'}</p>
-          <div className={style.radioInputs}>
-            <input type="radio" value="left" name="objectPositionRight" onChange={handlerEventChange} /> ⇦
-            <input type="radio" value="top" name="objectPositionRight" onChange={handlerEventChange} /> ⇧
-            <input type="radio" value="center" name="objectPositionRight" onChange={handlerEventChange} /> c
-            <input type="radio" value="bottom" name="objectPositionRight" onChange={handlerEventChange} /> ⇩
-            <input type="radio" value="right" name="objectPositionRight" onChange={handlerEventChange} /> ⇨
-          </div>
+          
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerRight")}>Guardar</Button>
         </form>
       </div>

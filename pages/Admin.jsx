@@ -102,17 +102,17 @@ function Admin() {
           <img src="" alt="" />
         </div>
 
-        <Section topic="Inicio" publicView={false} ></Section>
-        <Section topic="Sociedad" publicView={false} ></Section>
-        <Section topic="Salud" publicView={false} ></Section>
-        <Section topic="Seguridad" publicView={false} ></Section>
-        <Section topic="Politica" publicView={false} ></Section>
-        <Section topic="Economia" publicView={false} ></Section>
-        <Section topic="Deportes" publicView={false} ></Section>
-        <Section topic="GestionDeGobierno" publicView={false} ></Section>
-        <Section topic="Cultura" publicView={false} ></Section>
-        <Section topic="Internacional" publicView={false} ></Section>
-        <Section topic="Opinion" publicView={false} ></Section>
+        <Section topic="Inicio" publicView={false} color='#8FC2C9'></Section>
+        <Section topic="Sociedad" publicView={false} color='#c98f8f'></Section>
+        <Section topic="Salud" publicView={false} color='#8FC2C9'></Section>
+        <Section topic="Seguridad" publicView={false} color='#c98f8f'></Section>
+        <Section topic="Politica" publicView={false} color='#8FC2C9'></Section>
+        <Section topic="Economia" publicView={false} color='#c98f8f'></Section>
+        <Section topic="Deportes" publicView={false} color='#8FC2C9'></Section>
+        <Section topic="GestionDeGobierno" publicView={false} color='#c98f8f'></Section>
+        <Section topic="Cultura" publicView={false} color='#8FC2C9'></Section>
+        <Section topic="Internacional" publicView={false} color='#c98f8f'></Section>
+        <Section topic="Opinion" publicView={false} color='#8FC2C9'></Section>
 
 
 

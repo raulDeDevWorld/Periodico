@@ -140,6 +140,13 @@
     z-index: 100000;
 }
 
+/* 
+.gridOne> :nth-child(2n+1) {
+background-color: red;
+
+} */
+
+
 .gridOne> :nth-child(n) {
     width: 100%;
     height: 230px;
@@ -205,6 +212,8 @@
     height: 100%;
     grid-column: 1/2;
     grid-row: 1/3;
+
+
 }
 
 .gridFour> :nth-child(3) {

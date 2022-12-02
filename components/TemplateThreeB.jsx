@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 
 
-function TemplateThreeB({ topic, post1, post2, post3, description1, description2, description3, objectPosition1, objectPosition2, objectPosition3 }) {
+function TemplateThreeB({ color, topic, post1, post2, post3, description1, description2, description3, objectPosition1, objectPosition2, objectPosition3 }) {
     
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
     const router = useRouter()
@@ -33,7 +33,7 @@ function TemplateThreeB({ topic, post1, post2, post3, description1, description2
         userDB[topic] && userDB[topic]["Posts"] && setDataForDate(Object.keys(userDB[topic]["Posts"]).map(i => { const newI = i.split('_'); return new Date(newI[1]) }).sort((a, b) => b - a))
     }, [userDB, postsIMG]);
     return (
-        <section className={styles.section} id={topic}>
+        <section className={styles.section} id={topic} style={{backgroundColor: color}}>
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO':topic.toUpperCase()}</h4></div>}
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}

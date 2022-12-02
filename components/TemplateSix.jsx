@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 
-function TemplateSix({ topic, post1, post2, post3, post4, post5, post6,
+function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
     description1, description2, description3, description4, description5, description6,
     objectPosition1, objectPosition2, objectPosition3, objectPosition4, objectPosition5, objectPosition6 }) {
 
@@ -34,7 +34,7 @@ function TemplateSix({ topic, post1, post2, post3, post4, post5, post6,
         userDB[topic] && userDB[topic]["Posts"] && setDataForDate(Object.keys(userDB[topic]["Posts"]).map(i => { const newI = i.split('_'); return new Date(newI[1]) }).sort((a, b) => b - a))
     }, [userDB, postsIMG]);
     return (
-        <section className={styles.section} id={topic}>
+        <section className={styles.section} id={topic} style={{backgroundColor: color}}>
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO':topic.toUpperCase()}</h4></div>}
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
@@ -42,7 +42,7 @@ function TemplateSix({ topic, post1, post2, post3, post4, post5, post6,
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>
             }
 
-            <div className={`${styles.gridSix} ${elements == true && styles.allVisible}`}>
+            <div className={`${styles.gridSix} ${elements == true && styles.allVisible}`} style={{backgroundColor: color}}>
 
                 {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
                     userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >

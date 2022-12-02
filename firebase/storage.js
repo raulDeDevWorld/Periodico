@@ -21,7 +21,7 @@ async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
 
 
 
-    const compressedFile = await imageCompression(file, options);
+    const compressedFile = file.type != 'image/gif' ? await imageCompression(file, options): file
 
   
     uploadBytes(imagesRef, compressedFile).then((snapshot) => {

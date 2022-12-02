@@ -84,17 +84,17 @@ function Home() {
             <img src={i} key={index} alt="Vercel Logo" />
           )
         })}</div>}
-        <Section topic="Inicio" publicView={true} ></Section>
-        <Section topic="Sociedad" publicView={true} ></Section>
-        <Section topic="Salud" publicView={true} ></Section>
-        <Section topic="Seguridad" publicView={true} ></Section>
-        <Section topic="Politica" publicView={true} ></Section>
-        <Section topic="Economia" publicView={true} ></Section>
-        <Section topic="Deportes" publicView={true} ></Section>
-        <Section topic="GestionDeGobierno" publicView={true} ></Section>
-        <Section topic="Cultura" publicView={true} ></Section>
-        <Section topic="Internacional" publicView={true} ></Section>
-        <Section topic="Opinion" publicView={true} ></Section>
+        <Section topic="Inicio" publicView={true} color=''></Section>
+        <Section topic="Sociedad" publicView={true} color=''></Section>
+        <Section topic="Salud" publicView={true} color=''></Section>
+        <Section topic="Seguridad" publicView={true} color=''></Section>
+        <Section topic="Politica" publicView={true} color=''></Section>
+        <Section topic="Economia" publicView={true} color=''></Section>
+        <Section topic="Deportes" publicView={true} color=''></Section>
+        <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
+        <Section topic="Cultura" publicView={true} color=''></Section>
+        <Section topic="Internacional" publicView={true} color=''></Section>
+        <Section topic="Opinion" publicView={true} color=''></Section>
 
 
 

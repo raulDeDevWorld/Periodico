@@ -6,6 +6,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    background-color: transparent;
 }
 
 .require {
@@ -68,9 +69,11 @@
 .formInputs input {
     width: 100%;
     margin-bottom: 5px;
-    padding: 5px;
+    padding: 5px 5px;
+    font-size: 14px;
     border: none;
     border-bottom: 1px solid brown;
+
 }
 
 .radioInputs {
