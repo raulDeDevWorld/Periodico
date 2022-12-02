@@ -54,11 +54,10 @@
   position: fixed;
   right: 0;
   width: 15%;
-  height: 100vh;
+  height: auto;
   z-index: 10000;
- padding-left: 15px;
-  box-shadow: 0px 0px 1px black;
 
+  box-shadow: 0px 0px 1px black;
 
 
 }
@@ -102,7 +101,7 @@
   cursor: pointer;
   margin: 0;
   width: 100%;
-  max-height: 61vh;
+  max-height: 70vh;
   object-fit: contain;
   object-position: top;
   padding: 0px;
