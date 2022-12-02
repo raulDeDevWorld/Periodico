@@ -9,18 +9,7 @@
   background-color: red;
 }
 
-.containerFadeLeft {
-  position: fixed;
-  left: 0;
 
-  width: 15%;
-  padding-right: 15px;
-  height: auto;
-  z-index: 10000;
-  box-shadow: 0px 0px 1px black;
-
-
-}
 
 .containerFadeLeft > :nth-child(1), .containerFadeRight > :nth-child(1) {
   position: relative;
@@ -32,10 +21,12 @@
   height: auto;
 
 }
-
-.containerFade :nth-child(1) {
+.containerFadeRight > :nth-child(1) > :nth-child(1) {
+  position: relative;
+  height: auto;
 
 }
+
  .containerFadeLeft :nth-child(n), .containerFadeRight :nth-child(n)  {
   margin: 0;
 }
@@ -50,15 +41,6 @@
 
 
 
-.containerFadeRight {
-  position: fixed;
-  right: 0;
-  width: 15%;
-  height: auto;
-  z-index: 10000;
-  box-shadow: 0px 0px 1px black;
-
-}
 
 .containerFade> :nth-child(n) {
   padding: 0;
@@ -74,43 +56,65 @@
   object-fit: contain;
 }
 
-.containerFadeLeft span {
-  display: flex;
 
+
+.containerFadeLeft {
+  position: fixed;
+  padding-top: 2px;
+  left: 0;
+  width: 15%;
+  height: auto;
+  z-index: 10000;
+  box-shadow: 0px 0px 1px black;
 }
 
-
-
+.containerFadeLeft span {
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+}
 .containerFadeLeft span img {
   display: block;
-  cursor: pointer;
-  margin: 0;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-  padding: 0px;
-
-}
-
-.containerFadeRight span img {
-  display: block;
-  
   cursor: pointer;
   margin: 0;
   width: 80%;
   max-height: 70vh;
   object-fit: contain;
   object-position: top;
-
-
+  background-color: red;
 
 }
+
+
+
+
+
+.containerFadeRight {
+  position: fixed;
+  padding-top: 2px;
+  right: 0;
+  width: 15%;
+  height: auto;
+  z-index: 10000;
+  box-shadow: 0px 0px 1px black;
+
+}
+
 .containerFadeRight span  {
   width: 15vw;
   display: flex;
   justify-content: center;
 }
+.containerFadeRight span img {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+  width: 80%;
+  max-height: 70vh;
+  object-fit: contain;
+  object-position: top;
+}
+
 
 
 
@@ -133,11 +137,6 @@
   width: 101%;
   object-fit: contain;
 }
-
-
-
-
-
 
 
 

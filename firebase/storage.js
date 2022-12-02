@@ -13,7 +13,7 @@ async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
     const options = {
         maxWidthOrHeight: undefined,
         maxSizeMB: 0.05,
-        alwaysKeepResolution: false,
+        alwaysKeepResolution: true,
         useWebWorker: true,
         maxIteration: 300
     }

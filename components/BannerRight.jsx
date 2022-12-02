@@ -36,16 +36,11 @@ export default function Banner({ ruta, carpeta, click }) {
                             <div>
                                 {
                                     router.pathname == "/Admin" ?
-                                        <span onClick={() => click({ key: 'BannerRight', i })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />                                                <span className={styles.capa}></span>
+                                        <span onClick={() => click({ key: 'BannerRight', i })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
                                         </span>
-                                        : <Link href={userDB['BannerRight'][i].enlace ? userDB['BannerRight'][i].enlace : '#'}legacyBehavior>
-                                            <a target={userDB['BannerRight'][i].enlace ? "_blank": ''}>
-                                                <span>
-
-                                                <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
-                                                </span>
-                                                </a>
-                                        </Link>
+                                        : <span onClick={() => click({ href: userDB['BannerRight'][i].enlace ? userDB['BannerRight'][i].enlace : '#', target: userDB['BannerLeft'][i].enlace ? "_blank" : '' })}>
+                                        <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
+                                    </span>
                                 }
                              { /*  <Link href={`https://api.whatsapp.com/send?phone=${userDB[carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
                                     <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
