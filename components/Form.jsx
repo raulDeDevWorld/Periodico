@@ -146,12 +146,15 @@ export default function Form({ topic, value, color}) {
   return (
     <div className={style.form} style={{backgroundColor: color}}>
       <select className={style.select} name={`${topic}-Template-${dayMonthYear}`} onChange={manageTemplate} style={{backgroundColor: color, fontWeight: 'bold', border: '2px solid brown'}}>
-        <option value="TemplateOne" selected={value == "TemplateOne" ? true : false}>Plantilla 1</option>
-        <option value="TemplateThreeA" selected={value == "TemplateThreeA" ? true : false}>Plantilla 2</option>
-        <option value="TemplateThreeB" selected={value == "TemplateThreeB" ? true : false}>Plantilla 3</option>
-        <option value="TemplateFour" selected={value == "TemplateFour" ? true : false}>Plantilla 4</option>
-        <option value="TemplateFive" selected={value == "TemplateFive" ? true : false}>Plantilla 5</option>
-        <option value="TemplateSix" selected={value == "TemplateSix" ? true : false}>Plantilla 6</option>
+      <option value="#" selected={value == "TemplateOne" ? true : false}>Ninguno-{topic}</option>
+        <option value="TemplateOne" selected={value == "TemplateOne" ? true : false}>Plantilla 1-{topic}</option>
+        <option value="TemplateThreeA" selected={value == "TemplateThreeA" ? true : false}>Plantilla 2-{topic}</option>
+        <option value="TemplateThreeB" selected={value == "TemplateThreeB" ? true : false}>Plantilla 3-{topic}</option>
+        <option value="TemplateFour" selected={value == "TemplateFour" ? true : false}>Plantilla 4-{topic}</option>
+        <option value="TemplateFive" selected={value == "TemplateFive" ? true : false}>Plantilla 5-{topic}</option>
+        <option value="TemplateSix" selected={value == "TemplateSix" ? true : false}>Plantilla 6-{topic}</option>
+        <option value="TemplateSeven" selected={value == "TemplateSeven" ? true : false}>Plantilla 7-{topic}</option>
+        <option value="TemplateEight" selected={value == "TemplateEight" ? true : false}>Plantilla 8-{topic}</option>
       </select>
       <div className={style.formInputs}>
         <form className={style.formSelectPost}>

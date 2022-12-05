@@ -23,9 +23,15 @@
 }
 
 
-@media (max-width: 750px) {
+
+
+  @media (max-width: 850px) and (orientation: portrait) {
     .time {
-    font-size: 12px;
-    padding: 10px 15px;
-    }
+        margin-left: 5px;
+
+        font-size: 10px;
+        padding: 10px 15px;
+        width: 250px;
+
+        }
   }

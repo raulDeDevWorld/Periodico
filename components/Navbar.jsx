@@ -43,11 +43,8 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+            
             <div className={style.container}>
-
-
-
-
                 <nav className={style.nav}>
                     <Link href="#Sociedad" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Sociedad" ? style.active : ''}`} onClick={handlerClick}>SOCIEDAD</a>

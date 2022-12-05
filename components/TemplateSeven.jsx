@@ -42,7 +42,7 @@ function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>
             }
 
-            <div className={`${styles.gridEight} ${elements == true && styles.allVisible}`} style={{backgroundColor: color}}>
+            <div className={`${styles.gridSeven} ${elements == true && styles.allVisible}`} style={{backgroundColor: color}}>
 
                 {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
                     userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >

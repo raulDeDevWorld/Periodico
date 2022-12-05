@@ -19,6 +19,7 @@
   border-bottom: 5px solid #ffffff;
   position: sticky;
   top: 0;
+  z-index: 1000000;
 }
 
 .nav> :nth-child(n) {
@@ -43,7 +44,7 @@
 .socialMedia {
   color: black;
 
-  z-index: 1000000000;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -67,7 +68,7 @@
   margin-right: auto;
   text-align: center;
   padding-bottom: 5px;
-  background-color: #fcfcfc;
+  background-color: #fcfcfc00;
 }
 
 .containerSocialMediaIcons> :nth-child(n) {
@@ -122,5 +123,44 @@
     margin: 2px 2px;
     background: radial-gradient(#00404a, #007483, );
 
+  }
+
+
+  .containerSocialMediaIcons {
+    font-size: 10px;
+    color: transparent;
+    margin-left: 7px;
+
+  }
+  .socialMediaIcons img {
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    margin: 2px;
+    background-color: transparent;
+  
+  }
+}
+
+
+
+
+
+@media (max-width: 850px) and (orientation: portrait) {
+
+
+  .containerSocialMediaIcons> :nth-child(n) {
+    font-weight: bold;
+    font-size: 10px;
+    padding-top: 5px;
+  }
+
+  .socialMediaIcons img {
+    display: inline-block;
+    height: 15px;
+    width: auto;
+    margin: 2px;
+    background-color: transparent;
+  
   }
 }

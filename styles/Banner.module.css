@@ -178,3 +178,14 @@
   }
   
 }
+
+
+@media (max-width: 850px) and (orientation: portrait) {
+  
+  .containerFadeLeft {
+display: none;
+  }
+  .containerFadeRight {
+    display: none;
+      }
+}
