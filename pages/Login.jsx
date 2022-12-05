@@ -8,6 +8,7 @@ import { WithoutAuth } from '../HOCs/WithoutAuth'
 import Button from '../components/Button'
 import Error from '../components/Error'
 import style from '../styles/Login.module.css'
+import Link from 'next/link'
 
 function Login() {
     const { user, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG } = useUser()
@@ -41,7 +42,7 @@ function Login() {
                     <div className={style.buttonsContainer}>
                         <Button style='buttonSecondary' click={loginWithEmailAndPassword}>Iniciar Sesion</Button>
                     </div>
-                    <div className={style.linkContainer} >Ya tienes una cuenta? <Link href="/Login" legacyBehavior><a className={style.link}>Iniciar Sesion</a></Link></div>
+                    <div className={style.linkContainer} >No tienes una cuenta? <Link href="/S" legacyBehavior><a className={style.link}>Registrate</a></Link></div>
 
                 </form>
             </main>
