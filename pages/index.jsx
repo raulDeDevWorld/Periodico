@@ -75,101 +75,102 @@ function Home() {
   }, [periodicoPDF == "User" ? '' : periodicoPDF])
 
   return (
-    <div className={styles.container}>
+    <>
       <div>
         {router.pathname === "/Admin" && <FormAdds></FormAdds>}
         {userDB["BannerTop"] && <BannerPortada ruta={'/BannerTop'} carpeta="BannerTop" click={handlerClickEnlace}></BannerPortada>}
       </div>
-      
-      {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
-      {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
+     
+      <div className={styles.container}>
+      <div className={styles.fixed}>
+          {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
+          {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
+        </div>
+        <main className={styles.main}>
 
 
-      <main className={styles.main}>
+          <Header></Header>
+          {showImg == true && <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index) => {
+            return (
+              <img src={i} key={index} alt="Vercel Logo" />
+            )
+          })}</div>}
 
 
-        <Header></Header>
-        {showImg == true && <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index) => {
-          return (
-            <img src={i} key={index} alt="Vercel Logo" />
-          )
-        })}</div>}
-
-
-        <Section topic="Inicio" publicView={true} color=''></Section>
-        <Section topic="Sociedad" publicView={true} color=''></Section>
-        <Section topic="Salud" publicView={true} color=''></Section>
-        <Section topic="Seguridad" publicView={true} color=''></Section>
-        <Section topic="Politica" publicView={true} color=''></Section>
-        <Section topic="Economia" publicView={true} color=''></Section>
-        <Section topic="Deportes" publicView={true} color=''></Section>
-        <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
-        <Section topic="Cultura" publicView={true} color=''></Section>
-        <Section topic="Internacional" publicView={true} color=''></Section>
-        <Section topic="Opinion" publicView={true} color=''></Section>
+          <Section topic="Inicio" publicView={true} color=''></Section>
+          <Section topic="Sociedad" publicView={true} color=''></Section>
+          <Section topic="Salud" publicView={true} color=''></Section>
+          <Section topic="Seguridad" publicView={true} color=''></Section>
+          <Section topic="Politica" publicView={true} color=''></Section>
+          <Section topic="Economia" publicView={true} color=''></Section>
+          <Section topic="Deportes" publicView={true} color=''></Section>
+          <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
+          <Section topic="Cultura" publicView={true} color=''></Section>
+          <Section topic="Internacional" publicView={true} color=''></Section>
+          <Section topic="Opinion" publicView={true} color=''></Section>
 
 
 
 
-        <footer className={styles.footer} id="nosotros">
-          <div>
-            <h5>MISIÓN</h5>
-            <div className={styles.footerItemsContainer}>
-              <img src="/vision.svg" alt="" />
-              <p className={styles.paragraph}>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacional e internacional.</p>
+          <footer className={styles.footer} id="nosotros">
+            <div>
+              <h5>MISIÓN</h5>
+              <div className={styles.footerItemsContainer}>
+                <img src="/vision.svg" alt="" />
+                <p className={styles.paragraph}>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacional e internacional.</p>
+
+              </div>
+            </div>
+            <div>
+              <h5>DIRECCIÓN Y PUBLICIDAD ONLINE</h5>
+              <div className={styles.footerItemsContainer}>
+                <img src="/contact.svg" alt="" />
+                <p>(519-2) 2488973 <br /> 73002076 <br />60101760</p>
+                <img src="/ubication.svg" alt="" />
+                <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
+              </div>
 
             </div>
-          </div>
-          <div>
-            <h5>DIRECCIÓN Y PUBLICIDAD ONLINE</h5>
-            <div className={styles.footerItemsContainer}>
-              <img src="/contact.svg" alt="" />
-              <p>(519-2) 2488973 <br /> 73002076 <br />60101760</p>
-              <img src="/ubication.svg" alt="" />
-              <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
+            <div>
+              <h5>VISIÓN</h5>
+              <div className={styles.footerItemsContainer}>
+                <img src="/mision.svg" alt="" />
+                <p>Ser el medio impreso y digital de mayor influencía en la construcción de un cultura ciudadana en torno a la realidad nacional e internacional.</p>
+              </div>
+            </div>
+            <div>
+              <h5>DIRECCIÓN</h5>
+              <div className={styles.socialMediaIcons}>
+                <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
+                  <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook-fotter.png" alt="SocialMedia" /></a>
+                </Link>
+                <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
+                  <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram-fotter.png" alt="SocialMedia" /></a>
+                </Link>
+                <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
+                  <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter-fotter.png" alt="SocialMedia" /></a>
+                </Link>
+                <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                  <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube-fotter.png" alt="SocialMedia" /></a>
+                </Link>
+                <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
+                  <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok-fotter.png" alt="SocialMedia" /></a>
+                </Link>
+                <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
+                  <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/whatsapp.png" alt="SocialMedia" /></a>
+                </Link>
+              </div>
+
             </div>
 
-          </div>
-          <div>
-            <h5>VISIÓN</h5>
-            <div className={styles.footerItemsContainer}>
-              <img src="/mision.svg" alt="" />
-              <p>Ser el medio impreso y digital de mayor influencía en la construcción de un cultura ciudadana en torno a la realidad nacional e internacional.</p>
-            </div>
-          </div>
-          <div>
-            <h5>DIRECCIÓN</h5>
-            <div className={styles.socialMediaIcons}>
-              <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook-fotter.png" alt="SocialMedia" /></a>
-              </Link>
-              <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram-fotter.png" alt="SocialMedia" /></a>
-              </Link>
-              <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter-fotter.png" alt="SocialMedia" /></a>
-              </Link>
-              <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube-fotter.png" alt="SocialMedia" /></a>
-              </Link>
-              <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok-fotter.png" alt="SocialMedia" /></a>
-              </Link>
-              <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
-                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/whatsapp.png" alt="SocialMedia" /></a>
-              </Link>
-            </div>
-
-          </div>
-
-          <span> ©TARKAN Ltda. {monthAndYear.split('-')[1]}</span>
-        </footer>
-      </main>
+            <span> ©TARKAN Ltda. {monthAndYear.split('-')[1]}</span>
+          </footer>
+        </main>
 
 
 
 
-      {/* <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
+        {/* <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
         <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
           <a target='_blanck'>{periodicoPDF === true && 
           <Image src="/periodico.jpeg" width={100} height={100} style={periodicoPDFImg} quality={1}></Image>
@@ -188,7 +189,14 @@ function Home() {
 
 
 
-    </div>
+      </div>
+
+
+
+
+
+    </>
+
   )
 }
 

@@ -1,10 +1,14 @@
 .container {
-position: relative;
+  position: relative;
+top: 0;
+height: 200vh;
 }
 
 /* .container :nth-child(1) {
   grid-column: 1/4;
   grid-row: 1/2;
+  position: sticky;
+  top: 0;
 }
 
 .container :nth-child(2) {
@@ -19,6 +23,13 @@ position: relative;
   width: 60%;
 }
 
+.fixed {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+}
 .containerLogout {
   width: 100%;
   background-color: brown;
@@ -63,7 +74,8 @@ position: relative;
 }
 
 .main {
-  position: relative;
+  position: absolute;
+top: 0;
   top: 0;
   background-color: rgb(255, 255, 255);
   margin: 0 15%;
@@ -74,6 +86,7 @@ position: relative;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 20px rgb(0, 0, 0);
+  z-index: 100000000;
   
 }
 
