@@ -37,13 +37,13 @@
     position: absolute;
     top: 2px;
     margin: 0;
-    font-weight: 200;
     display: inline-block;
-    width: 150px;
+    width: 145px;
     padding: 0;
     font-size: 10px;
     padding: 2px;
     padding-left: 5px;
+    padding-right: 0;
     color: rgb(250, 250, 250);
     clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
     background: linear-gradient(to right, #00404a, #007483, #00404a);
