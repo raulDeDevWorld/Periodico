@@ -7,6 +7,7 @@ import Button from '../components/Button'
 import Success from '../components/Success'
 import Error from '../components/Error'
 import Link from 'next/link'
+import FormAdds from '../components/FormAdds'
 
 import BannerLeft from '../components/BannerLeft'
 import BannerRight from '../components/BannerRight'
