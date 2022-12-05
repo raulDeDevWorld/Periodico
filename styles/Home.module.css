@@ -136,6 +136,13 @@ position: relative;
   align-items: top;
   padding: 0px 15px;
 }
+
+.footer p {
+  font-size: 12px;
+}
+
+
+
 .whatsapp {
   cursor: pointer;
   position: fixed;
@@ -335,12 +342,15 @@ padding: 15px 0;
     display: flex;
     flex-wrap: wrap;
     color: white;
-    font-size: 16px;
     padding: 20px 0;
   }
 
   .footer > :nth-child(n) {
     width: 100%;
+    font-size: 10px;
+  }
+  .footer :nth-child(n) {
+    font-size: 10px;
   }
   .whatsapp {
     cursor: pointer;

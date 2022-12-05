@@ -8,6 +8,7 @@ import { WithoutAuth } from '../HOCs/WithoutAuth'
 import Button from '../components/Button'
 import Error from '../components/Error'
 import style from '../styles/Login.module.css'
+import Link from 'next/link'
 
 function Login() {
     const { user, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG } = useUser()
@@ -35,12 +36,13 @@ function Login() {
                 <Image src="/logo.png" width="350" height="150" alt="User" />
                 <br />
                 <form className={style.form}>
-                    <h4 className={style.subtitle}>LOGIN</h4>
+                    <h4 className={style.subtitle}>REGISTRATE</h4>
                         <input className={style.input} type="text" placeholder="example@gmail.com" />
                         <input className={style.input} type="password" placeholder="contraseña" />
                     <div className={style.buttonsContainer}>
-                        <Button style='buttonSecondary' click={loginWithEmailAndPassword}>Iniciar Sesion</Button>
+                        <Button style='buttonSecondary' click={loginWithEmailAndPassword}>Registrate</Button>
                     </div>
+                    <div className={style.linkContainer} >Ya tienes una cuenta? <Link href="/Login" legacyBehavior><a className={style.link}>Iniciar Sesion</a></Link></div>
                 </form>
             </main>
             {success == false &&  <Error>ERROR: verifique e intente nuevamente</Error>}

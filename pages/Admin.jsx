@@ -63,11 +63,8 @@ function Admin() {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
     router.pathname == "/Admin" && setDataEditor(i)
   }
-  useEffect(() => {
-
+  useEffect(() => { 
     if (!user) router.replace('/Login')
-
-
   }, [user]);
 
 

@@ -106,7 +106,7 @@ function Home() {
             <h5>MISIÓN</h5>
             <div className={styles.footerItemsContainer}>
               <img src="/vision.svg" alt="" />
-              <p>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacional e internacional.</p>
+              <p className={styles.paragraph}>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacional e internacional.</p>
 
             </div>
           </div>
@@ -158,7 +158,7 @@ function Home() {
 
 
 
-      <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
+      {/* <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
         <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
           <a target='_blanck'>{periodicoPDF === true && 
           <Image src="/periodico.jpeg" width={100} height={100} style={periodicoPDFImg} quality={1}></Image>
@@ -173,7 +173,7 @@ function Home() {
           <a target='_blanck'><img src="/gobierno.jpg" className={styles.periodicoPDFImg} alt="" />
           </a>
         </Link>
-      </div>
+      </div> */}
 
 
       
