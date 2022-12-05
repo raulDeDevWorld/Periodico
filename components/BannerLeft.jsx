@@ -89,11 +89,6 @@ export default function Banner({ ruta, carpeta, click }) {
                         </div>
                     )}
             </Fade>}
-
-
-
-
-
         </div>)
 }
 

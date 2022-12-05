@@ -383,6 +383,21 @@ background-color: red;
 }
 
 
+
+@media (max-width: 850px) and (orientation: portrait) {
+    .description {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
 /* 
 
 @media (min-width: 700px) {
