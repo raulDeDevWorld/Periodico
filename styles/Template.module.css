@@ -14,13 +14,13 @@
     max-height: 310px;
     object-fit: cover;
     margin: 0;
-    transition-duration: .5s;
+    transition-duration: .1s;
     filter: brightness(1);
     overflow: hidden;
 }
 
 .section div div img:hover {
-    filter: brightness(.7);
+    filter: brightness(.8);
 
 }
 
