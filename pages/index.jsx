@@ -10,6 +10,7 @@ import Link from 'next/link'
 
 import BannerLeft from '../components/BannerLeft'
 import BannerRight from '../components/BannerRight'
+import BannerPortada from '../components/BannerPortada'
 
 import Section from '../components/Section'
 import Date from '../components/Date'
@@ -31,8 +32,8 @@ function Home() {
   function handlerClickEnlace(data) {
     router.pathname != "/Admin" && window.open(data.href, data.target)
     router.pathname == "/Admin" && setDataEditor(i)
-   // console.log(data.href, data.target)
-   
+    // console.log(data.href, data.target)
+
   }
 
   function handlerClick(url) {
@@ -46,7 +47,7 @@ function Home() {
     parametro && setPeriodicoPDFEffect(true)
     setPeriodicoPDF(!periodicoPDF)
   }
-  
+
 
 
   const periodicoPDFImg = {
@@ -58,7 +59,7 @@ function Home() {
     boxShadow: '0 0 15px black',
     transition: 'all',
     transitionDuration: '.3s',
-  
+
   }
 
 
@@ -75,17 +76,26 @@ function Home() {
 
   return (
     <div className={styles.container}>
+      <div>
+        {router.pathname === "/Admin" && <FormAdds></FormAdds>}
+        {userDB["BannerTop"] && <BannerPortada ruta={'/BannerTop'} carpeta="BannerTop" click={handlerClickEnlace}></BannerPortada>}
+      </div>
+      
       {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
-
       {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
 
+
       <main className={styles.main}>
+
+
         <Header></Header>
         {showImg == true && <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index) => {
           return (
             <img src={i} key={index} alt="Vercel Logo" />
           )
         })}</div>}
+
+
         <Section topic="Inicio" publicView={true} color=''></Section>
         <Section topic="Sociedad" publicView={true} color=''></Section>
         <Section topic="Salud" publicView={true} color=''></Section>
@@ -158,6 +168,7 @@ function Home() {
 
 
 
+
       {/* <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
         <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
           <a target='_blanck'>{periodicoPDF === true && 
@@ -176,7 +187,7 @@ function Home() {
       </div> */}
 
 
-      
+
     </div>
   )
 }

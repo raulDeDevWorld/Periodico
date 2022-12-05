@@ -67,11 +67,7 @@ export default function Header(props) {
     return (
         <>
             <header className={styles.header}>
-                {router.pathname === "/Admin" && <FormAdds></FormAdds>}
-
-                <div className={styles.containerFade} >
-                    {userDB["BannerTop"] && <BannerPortada ruta={'/BannerTop'} carpeta="BannerTop" click={handlerClickEnlace}></BannerPortada>}
-                </div>
+                
 
                 <div className={styles.fecha}>
                     <Date></Date>

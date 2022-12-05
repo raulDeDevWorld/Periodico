@@ -42,7 +42,7 @@ function Login() {
                     <div className={style.buttonsContainer}>
                         <Button style='buttonSecondary' click={loginWithEmailAndPassword}>Iniciar Sesion</Button>
                     </div>
-                    <div className={style.linkContainer} >No tienes una cuenta? <Link href="/S" legacyBehavior><a className={style.link}>Registrate</a></Link></div>
+                    <div className={style.linkContainer} >No tienes una cuenta? <Link href="/SignUp" legacyBehavior><a className={style.link}>Registrate</a></Link></div>
                 </form>
             </main>
             {success == false &&  <Error>ERROR: verifique e intente nuevamente</Error>}
