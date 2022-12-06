@@ -447,9 +447,9 @@ height: 30px;
   justify-content: flex-start;
   align-items: center;
 }
-.footer img {
+.footer > :nth-child(2) img {
   height: 30px;
-}
+  }
 }
 
 
