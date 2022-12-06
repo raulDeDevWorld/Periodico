@@ -38,7 +38,7 @@ function Admin() {
   const [dataEditor, setDataEditor] = useState(null)
 
   function setPostsElements() {
-      setElements(!elements)
+    setElements(!elements)
   }
 
 
@@ -58,17 +58,21 @@ function Admin() {
 
   }
 
-
+  console.log(user.uid)
   function handlerClickEnlace(i) {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
     router.pathname == "/Admin" && setDataEditor(i)
   }
-  useEffect(() => { 
-    if (!user) router.replace('/Login')
-  }, [user]);
+  useEffect(() => {
 
+    if (userDB.users && userDB.users[user.uid] == undefined) {
+      router.replace('/Register')
+      return
+    } 
+  }, [userDB]);
 
   return (
+
     <div className={styles.container}>
       {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
       {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
@@ -81,14 +85,16 @@ function Admin() {
       {success === "CompleteIMG" && <Error>Añade una imagen...</Error>}
       {success == "Cargando" && <Success>Cargando...</Success>}
       <main className={styles.main}>
+
+
+
         <div className={styles.containerLogout}>
-          <span>Bienvenido Admin</span>
+          
+          <span> <img src={postsIMG[`users/${user.uid}`]} className={styles.perfilIMG} alt="" />Bienvenido {userDB.users[user.uid] && userDB.users[user.uid].name} </span>
           <Button style="buttonPrimary" click={handlerLogout}>Logout</Button>
         </div>
 
         <Header></Header>
-
-
         <div>
           <img src="" alt="" />
         </div>

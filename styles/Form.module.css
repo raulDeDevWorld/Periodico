@@ -3,10 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
     margin-bottom: 10px;
-    background-color: transparent;
 }
 
 .require {
@@ -54,17 +51,22 @@
     width: 150px;
 }
 
-.form> :nth-child(2) {
-    margin: 10px 0;
-}
+
 
 .formInputs {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 5px;
 
 }
+.formInputs form {
+    width: 33%;
+    position: relative;
+    margin: 10px 5px;
+}
 
-.formInputs :nth-child(n) {}
+
 
 .formInputs input {
     width: 100%;
@@ -100,11 +102,7 @@
     margin-bottom: 5px;
 }
 
-.form> :nth-child(2) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-}
+
 
 .selectLebel {
     padding: 0px 0;
@@ -143,4 +141,13 @@
 
 .inputFile {
     display: none;
+}
+
+
+@media (max-width: 850px) and (orientation: portrait) {
+    .formInputs form {
+        width: 50%;
+        position: relative;
+        margin: 10px 5px;
+    }
 }

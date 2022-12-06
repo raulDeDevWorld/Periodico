@@ -1,4 +1,4 @@
-import { onAuth, signInWithEmail } from '../firebase/utils'
+import { onAuth, signUpWithEmail } from '../firebase/utils'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
@@ -22,12 +22,12 @@ function Login() {
         }
         const email = e.target.form[0].value
         const password = e.target.form[1].value
-        signInWithEmail(email, password, setUserSuccess)
+        signUpWithEmail(email, password, setUserSuccess)
     }
 
     useEffect(() => {
         onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG)
-        if (user) router.replace('/Admin')
+        if (user) router.replace('/Register')
     }, [user]);
     return (
         <div className={style.container}>

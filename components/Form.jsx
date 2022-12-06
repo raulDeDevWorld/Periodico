@@ -9,7 +9,7 @@ import { getDate, getDayMonthYear, getMonthAndYear } from '../utils/Utils'
 
 
 export default function Form({ topic, value, color}) {
-  const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear } = useUser()
+  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear } = useUser()
 
   const [data, setData] = useState({})
 
@@ -158,9 +158,9 @@ export default function Form({ topic, value, color}) {
       </select>
       <div className={style.formInputs}>
         <form className={style.formSelectPost}>
-          <label htmlFor={`${topic}-Post`} className={style.label} >Seleccionar Post </label>
+          <label htmlFor={`${topic}-Post`} className={style.label} >Añadir publicación </label>
           <img className={style.previewIMG} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionPost : 'center'} `}} src={urlPostImage} alt="" />
-          <p className={`${style.require} ${ postImage?  style.green : ''}` }>{ postImage? 'Correcto' : '*Requerido'}</p>
+          <p className={`${style.require} ${ postImage?  style.green : ''}` }>{ postImage? 'Correcto' : '*Imagen Requerida'}</p>
           <input type="file" id={`${topic}-Post`} className={style.inputFile} name={`PostImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
           <input type="text" placeholder='Descripción' name="descriptionPost" onChange={handlerEventChange} />
           <input type="text" placeholder='Enlace' name="enlacePost" onChange={handlerEventChange} />
@@ -173,6 +173,11 @@ export default function Form({ topic, value, color}) {
           </div>
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SavePost")}>Guardar</Button>
         </form>
+
+
+
+{ userDB.users[user.uid].rol === 'admin' && <>
+
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner Top</label>
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerTop : 'center'} `}} src={urlBannerTopImage} alt="" />
@@ -201,6 +206,9 @@ export default function Form({ topic, value, color}) {
           
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerBottom")}>Guardar</Button>
         </form>
+
+        </>}
+
       </div>
     </div>
 

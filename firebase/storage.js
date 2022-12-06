@@ -18,9 +18,6 @@ async function uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear) {
         maxIteration: 300
     }
 
-
-
-
     const compressedFile = file.type != 'image/gif' ? await imageCompression(file, options): file
 
   

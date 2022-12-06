@@ -44,8 +44,18 @@ background-image: black;
 
 .containerLogout :nth-child(1) {
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.perfilIMG {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-right: 5px;
+}
 .containerLogout> :nth-child(2) {
   display: block;
   width: 200px;

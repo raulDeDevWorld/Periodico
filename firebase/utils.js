@@ -71,6 +71,8 @@ function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG, onlyData)
       setUserData(snapshot.val())
       console.log('getdata')
 
+      
+
     onlyData ?  '' : getList( monthAndYear, postsIMG, setUserPostsIMG)
     getList( 'Inicio/', postsIMG, setUserPostsIMG)
     getList( 'Publicidades/HeaderBanners', postsIMG, setUserPostsIMG)
@@ -88,7 +90,7 @@ function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG, onlyData)
     getList( 'BannerTop/', postsIMG, setUserPostsIMG)
     getList( 'BannerLeft/', postsIMG, setUserPostsIMG)    
     getList( 'BannerRight/', postsIMG, setUserPostsIMG)
-
+    getList( 'users/', postsIMG, setUserPostsIMG)
         } else {
           setUserData('');
         }

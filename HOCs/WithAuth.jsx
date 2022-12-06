@@ -15,8 +15,8 @@ export function WithAuth(Component) {
         }, [user, success])
         return (
             <>
-                {user === undefined && <Loader />}
-                {user && <Component {...arguments} />}
+                {user === undefined || userDB === '' || postsIMG  == {} && <Loader />}
+                {user && userDB !== '' && postsIMG  !== {} && <Component {...arguments} />}
             </>
         )
     }

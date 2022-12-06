@@ -99,3 +99,33 @@
   .link {
     text-decoration: underline;
   }
+
+  .label {
+    background-color: #00B2BD;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    width: 90%;
+    min-width: 140px;
+    padding: 8px 1px; 
+    border-radius: 20px;        
+    text-align: center;
+
+    transition-duration: .5s;
+  }
+
+
+
+.inputFile {
+  display: none;
+}
+.perfil {
+  margin: 5px;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+
