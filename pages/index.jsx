@@ -81,13 +81,13 @@ function Home() {
         {router.pathname === "/Admin" && <FormAdds></FormAdds>}
         {userDB["BannerTop"] && <BannerPortada ruta={'/BannerTop'} carpeta="BannerTop" click={handlerClickEnlace}></BannerPortada>}
       </div>
-     
+
       <div className={styles.container}>
-      <div className={styles.fixed}>
+        <div className={styles.fixed}>
           {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
           {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
         </div>
-        
+
         <main className={styles.main}>
 
 
@@ -126,12 +126,15 @@ function Home() {
             <div>
               <h5>DIRECCIÓN Y PUBLICIDAD ONLINE</h5>
               <div className={styles.footerItemsContainer}>
-                <img src="/contact.svg" alt="" />
-                <p>(519-2) 2488973 <br /> 73002076 <br />60101760</p>
-                <img src="/ubication.svg" alt="" />
-                <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
+                <div>
+                  <img src="/contact.svg" alt="" />
+                  <p>(519-2) 2488973 <br /> 73002076 <br />60101760</p>
+                </div>
+                <div>
+                  <img src="/ubication.svg" alt="" />
+                  <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
+                </div>
               </div>
-
             </div>
             <div>
               <h5>VISIÓN</h5>
