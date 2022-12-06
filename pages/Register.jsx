@@ -63,7 +63,7 @@ function Register() {
                     <h4 className={style.subtitle}>Regitro de Usuario</h4>
                     <input className={style.input} type="text" onChange={handlePerfilName} placeholder="Nombres y apellidos" />
                     <label htmlFor="inputFile" className={style.label}> Subir Perfil Personal</label>
-                    <input className={style.inputFile} id='inputFile' type="file" onChange={handlePerfilImg} placeholder="contraseña" />
+                    <input className={style.inputFile} id='inputFile' type="file" onChange={handlePerfilImg} placeholder="contraseña" accept=".jpg, .jpeg, .png"/>
                     <img src={perfil.url ? perfil.url : '/User.svg'} className={style.perfil} alt="Perfil" />
                     <div className={style.buttonsContainer}>
                         <Button style='buttonSecondary' click={save}>Registrate</Button>
