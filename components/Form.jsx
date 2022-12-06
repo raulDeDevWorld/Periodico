@@ -176,7 +176,7 @@ export default function Form({ topic, value, color}) {
 
 
 
-{ userDB.users[user.uid].rol === 'admin' && <>
+{ userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <>
 
         <form className={style.formSelectPost}>
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner Top</label>
