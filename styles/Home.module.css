@@ -1,7 +1,8 @@
 .container {
   position: relative;
 top: 0;
-height: 200vh;
+background-image: black;
+
 }
 
 /* .container :nth-child(1) {
@@ -75,7 +76,7 @@ height: 200vh;
 
 .main {
   position: absolute;
-top: 0;
+top: -100vh;
   top: 0;
   background-color: rgb(255, 255, 255);
   margin: 0 15%;
