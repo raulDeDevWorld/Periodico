@@ -31,6 +31,8 @@ function Login() {
     }, [user]);
     return (
         <div className={style.container}>
+            {success === "SignUpError" && <Error>Debe ingresar un Gmail existente y una contraseña segura</Error>}
+
             <header className={style.header}>INICIO DE SESION PERIODICO HOY</header>
             <main className={style.main}>
                 <Image src="/logo.png" width="350" height="150" alt="User" />

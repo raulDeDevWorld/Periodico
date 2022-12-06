@@ -26,7 +26,7 @@ function onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG, setUserD
 
 // ---------------------------Login, Sign Up and Sign In------------------------------------
 
-function signUpWithEmail (email, password) {
+function signUpWithEmail (email, password, setUserSuccess) {
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
@@ -36,6 +36,7 @@ function signUpWithEmail (email, password) {
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    setUserSuccess('SignUpError')
     // ..
   });
 }

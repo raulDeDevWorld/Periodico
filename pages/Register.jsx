@@ -15,11 +15,15 @@ function Register() {
     const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG, monthAndYear } = useUser()
     const router = useRouter()
 
-    const [perfil, setPerfil] = useState({});
+    const [perfil, setPerfil] = useState(null);
     const [name, setName] = useState(null);
 
     function save(e) {
         e.preventDefault()
+        if (perfil == null || name == null) {
+            setUserSuccess('complete')
+            return
+        }
         const fileName = user.uid
         const file = perfil.file
         const object = {
@@ -64,11 +68,10 @@ function Register() {
                     <input className={style.input} type="text" onChange={handlePerfilName} placeholder="Nombres y apellidos" />
                     <label htmlFor="inputFile" className={style.label}> Subir Perfil Personal</label>
                     <input className={style.inputFile} id='inputFile' type="file" onChange={handlePerfilImg} placeholder="contraseña" accept=".jpg, .jpeg, .png"/>
-                    <img src={perfil.url ? perfil.url : '/User.svg'} className={style.perfil} alt="Perfil" />
+                    <img src={perfil ? perfil.url : '/User.svg'} className={style.perfil} alt="Perfil" />
                     <div className={style.buttonsContainer}>
                         <Button style='buttonSecondary' click={save}>Registrate</Button>
                     </div>
-                    <div className={style.linkContainer} >Ya tienes una cuenta? <Link href="/Login" legacyBehavior><a className={style.link}>Iniciar Sesion</a></Link></div>
                 </form>
             </main>
             {success == false && <Error>ERROR: verifique e intente nuevamente</Error>}
