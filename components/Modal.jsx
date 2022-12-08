@@ -166,16 +166,6 @@ export default function Error({ post, i, topic, close }) {
               bannerRightImage && uploadIMG(ruteSTG, fileName, bannerRightImage, setUserSuccess, monthYear)
            
           }
-
-
-     
-
-
-
-
-
-
-
     }
 
 function remove (e, key) {
