@@ -20,7 +20,7 @@ function Register() {
 
     function save(e) {
         e.preventDefault()
-        if (perfil == null || name == null) {
+        if (perfil == null || name == null || name == '') {
             setUserSuccess('complete')
             return
         }
@@ -30,7 +30,7 @@ function Register() {
             [fileName]: {name, rol: 'periodista'} }
         const ruteDB = 'users'
         writeUserData(ruteDB, object, setUserSuccess)
-        uploadIMG(ruteDB, fileName, file, setUserSuccess, monthAndYear)
+        uploadIMG(ruteDB, fileName, file, null, monthAndYear)
     }
 
     console.log(userDB)

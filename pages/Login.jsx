@@ -45,8 +45,9 @@ function Login() {
                     <div className={style.linkContainer} >No tienes una cuenta? <Link href="/SignUp" legacyBehavior><a className={style.link}>Registrate</a></Link></div>
                 </form>
             </main>
-            {success == false &&  <Error>ERROR: verifique e intente nuevamente</Error>}
             {success == 'complete' && <Error>Llene todo el formulario</Error>}
+            {success == 'Verify' && <Error>Verifique sus datos e intente nuevamente</Error>}
+
         </div>
     )
 }

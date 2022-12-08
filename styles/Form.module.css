@@ -58,8 +58,14 @@
     display: flex;
     justify-content: center;
     margin: 5px;
-
 }
+.formInputsAdmin {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+}
+
 .formInputs form {
     width: 33%;
     position: relative;
@@ -143,6 +149,20 @@
     display: none;
 }
 
+
+.formChecks {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.formChecks label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 
 @media (max-width: 850px) and (orientation: portrait) {
     .formInputs form {

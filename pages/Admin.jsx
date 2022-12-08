@@ -6,6 +6,7 @@ import { WithAuth } from '../HOCs/WithAuth'
 import Button from '../components/Button'
 import Success from '../components/Success'
 import Error from '../components/Error'
+import Layout from '../layout/Layout'
 
 import BannerLeft from '../components/BannerLeft'
 import BannerRight from '../components/BannerRight'
@@ -72,10 +73,9 @@ function Admin() {
   }, [userDB]);
 
   return (
-
+    <Layout>
     <div className={styles.container}>
-      {userDB["BannerLeft"] && <BannerLeft ruta={'/BannerLeft'} carpeta="BannerLeft" click={handlerClickEnlace}></BannerLeft>}
-      {userDB["BannerRight"] && <BannerRight ruta={'/BannerRight'} carpeta="BannerRight" click={handlerClickEnlace}></BannerRight>}
+
       {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
 
       {success === "CompleteFORM" && <Error>Complete el formulario...</Error>}
@@ -90,20 +90,12 @@ function Admin() {
 
         <div className={styles.containerLogout}>
           
-          <span> <img src={postsIMG[`users/${user.uid}`]} className={styles.perfilIMG} alt="" />Bienvenido {userDB.users[user.uid] && userDB.users[user.uid].name} </span>
+          <span> <img src={postsIMG[`users/${user.uid}`]} className={styles.perfilIMG} alt="" />Bienvenido {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].name} </span>
           <Button style="buttonPrimary" click={handlerLogout}>Logout</Button>
         </div>
 
         <Header></Header>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <div>
-          <img src="" alt="" />
-        </div>
+       
 
         <Section topic="Inicio" publicView={false} color='#8FC2C9'></Section>
         <Section topic="Sociedad" publicView={false} color='#c98f8f'></Section>
@@ -127,6 +119,7 @@ function Admin() {
 
       </main>
     </div>
+    </Layout>
   )
 }
 

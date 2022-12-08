@@ -23,6 +23,8 @@ export default function Form({ topic, value }) {
   const [bannerRightImage, setBannerRightImage] = useState(null)
   const [urlBannerRightImage, setUrlBannerRightImage] = useState(null)
 
+  const [check, setCheck] = useState('cabecera')
+
   function manageInputIMG(e) {
     const fileName = `${e.target.name}`
     const file = e.target.files[0]
@@ -116,13 +118,62 @@ export default function Form({ topic, value }) {
       }
     }
   }
-
+   function handleCheck (e) {
+   const value = e.target.value
+    setCheck(value)
+   }
   return (
     <div className={style.form}>
 
+
+
+                          <form className={style.formChecks}>
+                            
+                              <input
+                                type="radio"
+                                onChange={handleCheck}
+                                value="izquierdo"
+                                id="inlineRadio1"
+                                checked={check == 'izquierdo' ? true : false}
+                              />
+                              <label
+                                for="inlineRadio1"
+                              >
+                                Banner Izquierdo
+                              </label>
+                          
+
+                          
+                              <input
+                                type="radio"
+                                onChange={handleCheck}
+                                value="cabecera"
+                                id="inlineRadio1"
+                                checked={check == 'cabecera' ? true : false}
+                              />
+                              <label
+                                for="inlineRadio1"
+                              >
+                                Banner Cabecera
+                              </label>
+                          
+                              <input
+                                type="radio"
+                                onChange={handleCheck}
+                                value="derecho"
+                                id="inlineRadio2"
+                                checked={check == 'derecho' ? true : false}
+                              />
+                              <label
+                                for="inlineRadio2"
+                              >
+                                Banner Derecho
+                              </label>
+                          </form>
+
       <div className={style.formInputs}>
 
-        <form className={style.formSelectAdds}>
+        {check == 'izquierdo' && <form className={style.formSelectAdds}>
           <label htmlFor={`${topic}-bannerLeft`} className={style.label} >Seleccionar Banner Izquierdo</label>
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerLeft : 'center'} `}} src={urlBannerLeftImage} alt="" />
           <p className={`${style.require} ${ bannerLeftImage?  style.green : ''}` }>{ bannerLeftImage? 'Correcto' : '*Requerido'}</p>
@@ -135,7 +186,7 @@ export default function Form({ topic, value }) {
           <p className={`${style.require} ${ data.dateFinishBannerLeft?  style.green : ''}` }>{ data.dateFinishBannerLeft? 'Correcto' : '*Requerido'}</p>
           
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerLeft")}>Guardar</Button>
-        </form>
+        </form>}
         
 
 
@@ -147,7 +198,7 @@ export default function Form({ topic, value }) {
 
 
 
-        <form className={style.formSelectAdds}>
+        {check === 'cabecera' && <form className={style.formSelectAdds}>
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner de Cabecera</label>
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerTop : 'center'} `}} src={urlBannerTopImage} alt="" />
           <p className={`${style.require} ${ bannerTopImage?  style.green : ''}` }>{ bannerTopImage? 'Correcto' : '*Requerido'}</p>
@@ -160,14 +211,14 @@ export default function Form({ topic, value }) {
           <p className={`${style.require} ${ data.dateFinishBannerTop?  style.green : ''}` }>{ data.dateFinishBannerTop? 'Correcto' : '*Requerido'}</p>
           
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerTop")}>Guardar</Button>
-        </form>
+        </form>}
         
 
 
 
 
 
-        <form className={style.formSelectAdds}>
+        {check == 'derecho' && <form className={style.formSelectAdds}>
           <label htmlFor={`${topic}-bannerRight`} className={style.label} >Seleccionar Banner Derecho </label>
           <img className={style.previewIMGBanner} style={{objectPosition: `${data.objectPositionPost ? data.objectPositionBannerRight : 'center'} `}} src={urlBannerRightImage} alt="" />
           <p className={`${style.require} ${ bannerRightImage?  style.green : ''}` }>{ bannerRightImage? 'Correcto' : '*Requerido'}</p>
@@ -180,7 +231,7 @@ export default function Form({ topic, value }) {
           <p className={`${style.require} ${ data.dateFinishBannerRight?  style.green : ''}` }>{ data.dateFinishBannerRight? 'Correcto' : '*Requerido'}</p>
           
           <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerRight")}>Guardar</Button>
-        </form>
+        </form>}
       </div>
     </div>
 

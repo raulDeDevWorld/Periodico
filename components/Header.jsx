@@ -54,9 +54,9 @@ export default function Header(props) {
         setUserMonthAndYear(`${months[format[1] - 1]}-${format[0]}`)
     }
 
-    function handlerClick(url) {
+    function handlerClick(url) {       
         router.push(url)
-    }
+    }      
     function handlerClickEnlace(i) {
         router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
         router.pathname == "/Admin" && setDataEditor(i)
@@ -66,14 +66,14 @@ export default function Header(props) {
 
     return (
         <>
-            <header className={styles.header}>
-                
 
+            { router.pathname == "/Admin"  && <FormAdds />}
+
+            <header className={styles.header}>
                 <div className={styles.fecha}>
                     <Date></Date>
                     <input className={styles.calendario} type="date" id="start" name="trip" onChange={dateEvent} />
                 </div>
-                
                 <div className={styles.portada}>
                     <RelojDigital></RelojDigital>
                     <img className={styles.navidad} src="/navidad-hoy.svg" alt="navidad" />

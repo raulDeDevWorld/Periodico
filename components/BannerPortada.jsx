@@ -37,15 +37,6 @@ export default function Banner({ ruta, carpeta, click }) {
                         <div className="each-slide" key={index} >
 
                             <div>
-                                {/* {
-                                    router.pathname == "/Admin" ?
-                                        <span><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} /></span>
-                                        : <Link href={userDB['BannerTop'][i].enlace ? userDB['BannerTop'][i].enlace : '#'} legacyBehavior>
-                                            <a target={userDB['BannerTop'][i].enlace ? "_blank" : ''}><img className={styles.sliderIMG} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} src={postsIMG[`${carpeta}/${i}`]} /></a>
-                                        </Link>
-                                } */}
-
-
                                 {
                                     router.pathname === "/Admin" ?
                                         <span onClick={() => click({ key: 'BannerPortada', i })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
@@ -64,3 +55,10 @@ export default function Banner({ ruta, carpeta, click }) {
 }
 
 
+ {/* {
+                                    router.pathname == "/Admin" ?
+                                        <span><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} /></span>
+                                        : <Link href={userDB['BannerTop'][i].enlace ? userDB['BannerTop'][i].enlace : '#'} legacyBehavior>
+                                            <a target={userDB['BannerTop'][i].enlace ? "_blank" : ''}><img className={styles.sliderIMG} style={{ objectPosition: `${userDB[carpeta][i].objectFit}` }} src={postsIMG[`${carpeta}/${i}`]} /></a>
+                                        </Link>
+                                } */}

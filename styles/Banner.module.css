@@ -61,7 +61,7 @@
 .containerFadeLeft {
   padding-top: 2px;
   left: 0;
-  width: 15%;
+  width: 100%;
   height: auto;
   z-index: 10000;
   box-shadow: 0px 0px 1px black;
@@ -90,7 +90,7 @@
 .containerFadeRight {
   padding-top: 2px;
   right: 0;
-  width: 15%;
+  width: 100%;
   height: auto;
   z-index: 10000;
   box-shadow: 0px 0px 1px black;

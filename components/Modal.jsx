@@ -152,7 +152,7 @@ export default function Error({ post, i, topic, close }) {
               const ruteDB = `/BannerTop` // Nov-2022/Inicio
               const ruteSTG = `BannerTop` // Nov-2022/
               const fileName = i // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerPortada ? data.dateInitBannerPortada : userDB["BannerPortada"][i].dateInit , dateFinish: data.dateFinishBannerPortada ? data.dateFinishBannerPortada : userDB["BannerPortada"][i].dateFinish} }
+              const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerPortada ? data.dateInitBannerPortada : userDB["BannerTop"][i].dateInit , dateFinish: data.dateFinishBannerPortada ? data.dateFinishBannerPortada : userDB["BannerTop"][i].dateFinish} }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
               bannerLeftImage && uploadIMG(ruteSTG, fileName, bannerPortadaImage, setUserSuccess, monthYear)
           
@@ -259,16 +259,9 @@ function remove (e, key) {
                     <p className={`${style.require} ${data.dateInitBannerTop ? style.green : ''}`}>{data.dateInitBannerTop ? 'Correcto' : '*Requerido'}</p>
                     <input className={style.calendario} type="date" id="start" name="dateFinishBannerTop" onChange={handlerEventChange} />
                     <p className={`${style.require} ${data.dateFinishBannerTop ? style.green : ''}`}>{data.dateFinishBannerTop ? 'Correcto' : '*Requerido'}</p>
-                    <div className={style.radioInputs}>
-                        <input type="radio" value="left" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇦
-                        <input type="radio" value="top" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇧
-                        <input type="radio" value="center" name="objectPositionBannerTop" onChange={handlerEventChange} /> c
-                        <input type="radio" value="bottom" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇩
-                        <input type="radio" value="right" name="objectPositionBannerTop" onChange={handlerEventChange} /> ⇨
-                    </div>
-                    <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerLeft")}>Guardar</Button>
+                    <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerTop")}>Guardar</Button>
                 <br />
-                <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerLeft")}>Eliminar</Button>
+                <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerTop")}>Eliminar</Button>
                 </form>}
 
                 {post === "BannerBottom" && <form className={style.formSelectPost}>
@@ -281,13 +274,7 @@ function remove (e, key) {
                     <p className={`${style.require} ${data.dateInitBannerBottom ? style.green : ''}`}>{data.dateInitBannerBottom ? 'Correcto' : '*Requerido'}</p>
                     <input className={style.calendario} type="date" id="start" name="dateFinishBannerBottom" onChange={handlerEventChange} />
                     <p className={`${style.require} ${data.dateFinishBannerBottom ? style.green : ''}`}>{data.dateFinishBannerBottom ? 'Correcto' : '*Requerido'}</p>
-                    <div className={style.radioInputs}>
-                        <input type="radio" value="left" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇦
-                        <input type="radio" value="top" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇧
-                        <input type="radio" value="center" name="objectPositionBannerBottom" onChange={handlerEventChange} /> c
-                        <input type="radio" value="bottom" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇩
-                        <input type="radio" value="right" name="objectPositionBannerBottom" onChange={handlerEventChange} /> ⇨
-                    </div>
+                    
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerBottom")}>Guardar</Button>
                     <br />
                     <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerBottom")}>Eliminar</Button>

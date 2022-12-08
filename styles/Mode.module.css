@@ -1,5 +1,7 @@
 .success {
     position: fixed;
+    left: 0;
+    top: 0;
     width: 100vw;
     height: 55px;
     /* background-color: #1eff00; */
@@ -22,6 +24,8 @@
 
 .error {
     position: fixed;
+    left: 0;
+    top: 0;
     width: 100vw;
     height: 55px;
     /* background-color: red; */
@@ -49,12 +53,12 @@
         color: transparent
     }
 
-    20% {
+    5% {
         background-color: #e10000;
         color: #f2f2f2;
     }
 
-    80% {
+    95% {
         background-color: #e10000;
         color: #f2f2f2;
     }
@@ -71,12 +75,12 @@
         color: transparent
     }
 
-    20% {
+    5% {
         background-color: #33b500;
         color: #f2f2f2;
     }
 
-    80% {
+    95% {
         background-color: #33b500;
         color: #f2f2f2;
     }
