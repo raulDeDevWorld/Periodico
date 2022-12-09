@@ -30,7 +30,7 @@ export default function Banner({ ruta, carpeta, click }) {
         window.open(ruta, '_blank')
     }
     return (
-        <div className={styles.containerFade} >
+        <div className={`${styles.containerFade} ${styles.boxShadow}`} >
             {userDB[carpeta] && postsIMG && <Zoom transitionDuration={800} duration={2000} {...properties} indicators={true}>
                 {
                     Object.keys(userDB[carpeta]).map((i, index) =>
