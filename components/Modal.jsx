@@ -138,79 +138,79 @@ export default function Error({ post, i, topic, close }) {
 
 
         if (key == "SaveBannerLeft") {
-      
-              const ruteDB = `/BannerLeft-${topic}` // Nov-2022/Inicio
-              const ruteSTG = `BannerLeft` // Nov-2022/
-              const fileName = i // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null , enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, dateInit: data.dateInitBannerLeft ? data.dateInitBannerLeft : userDB[`BannerLeft-${topic}`][i].dateInit, dateFinish: data.dateFinishBannerLeft ? data.dateFinishBannerLeft : userDB[`BannerLeft-${topic}`][i].dateFinish } }
-              writeUserData(ruteDB, object, setUserSuccess, setUserData)
-              bannerPortadaImage && uploadIMG(ruteSTG, fileName, bannerLeftImage, setUserSuccess, monthYear)
-          
-          }
-          if (key == "SaveBannerPortada") {
-      
-              const ruteDB = `/BannerTop-${topic}` // Nov-2022/Inicio
-              const ruteSTG = `BannerTop` // Nov-2022/
-              const fileName = i // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerPortada ? data.dateInitBannerPortada : userDB[`BannerTop-${topic}`][i].dateInit , dateFinish: data.dateFinishBannerPortada ? data.dateFinishBannerPortada : userDB[`BannerTop-${topic}`][i].dateFinish} }
-              writeUserData(ruteDB, object, setUserSuccess, setUserData)
-              bannerLeftImage && uploadIMG(ruteSTG, fileName, bannerPortadaImage, setUserSuccess, monthYear)
-          
-          }
-          if (key == "SaveBannerRight") {
-              const ruteDB = `/BannerRight-${topic}` // Nov-2022/Inicio
-              const ruteSTG = `BannerRight` // Nov-2022/
-              const fileName = i // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerRight ? data.dateInitBannerRight : userDB[`BannerRight-${topic}`][i].dateInit, dateFinish: data.dateFinishBannerRight ? data.dateFinishBannerRight : userDB[`BannerRight-${topic}`][i].dateFinish}  }
-              writeUserData(ruteDB, object, setUserSuccess, setUserData)
-              bannerRightImage && uploadIMG(ruteSTG, fileName, bannerRightImage, setUserSuccess, monthYear)
-           
-          }
+
+            const ruteDB = `/BannerLeft-${topic}` // Nov-2022/Inicio
+            const ruteSTG = `BannerLeft` // Nov-2022/
+            const fileName = i // PostImage_Tue Nov 15 2022 
+            const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null, enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, dateInit: data.dateInitBannerLeft ? data.dateInitBannerLeft : userDB[`BannerLeft-${topic}`][i].dateInit, dateFinish: data.dateFinishBannerLeft ? data.dateFinishBannerLeft : userDB[`BannerLeft-${topic}`][i].dateFinish } }
+            writeUserData(ruteDB, object, setUserSuccess, setUserData)
+            bannerPortadaImage && uploadIMG(ruteSTG, fileName, bannerLeftImage, setUserSuccess, monthYear)
+
+        }
+        if (key == "SaveBannerPortada") {
+
+            const ruteDB = `/BannerTop-${topic}` // Nov-2022/Inicio
+            const ruteSTG = `BannerTop` // Nov-2022/
+            const fileName = i // PostImage_Tue Nov 15 2022 
+            const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerPortada ? data.dateInitBannerPortada : userDB[`BannerTop-${topic}`][i].dateInit, dateFinish: data.dateFinishBannerPortada ? data.dateFinishBannerPortada : userDB[`BannerTop-${topic}`][i].dateFinish } }
+            writeUserData(ruteDB, object, setUserSuccess, setUserData)
+            bannerLeftImage && uploadIMG(ruteSTG, fileName, bannerPortadaImage, setUserSuccess, monthYear)
+
+        }
+        if (key == "SaveBannerRight") {
+            const ruteDB = `/BannerRight-${topic}` // Nov-2022/Inicio
+            const ruteSTG = `BannerRight` // Nov-2022/
+            const fileName = i // PostImage_Tue Nov 15 2022 
+            const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerRight ? data.dateInitBannerRight : userDB[`BannerRight-${topic}`][i].dateInit, dateFinish: data.dateFinishBannerRight ? data.dateFinishBannerRight : userDB[`BannerRight-${topic}`][i].dateFinish } }
+            writeUserData(ruteDB, object, setUserSuccess, setUserData)
+            bannerRightImage && uploadIMG(ruteSTG, fileName, bannerRightImage, setUserSuccess, monthYear)
+
+        }
     }
 
-function remove (e, key) {
-    e.preventDefault()
-    if (key== 'DeletePost') {
-        const ruteDB = `${topic}/Posts/PostImage_${i}`
-        console.log(ruteDB)
-        removeData (ruteDB, setUserData, setUserSuccess)
-        close(null)
-    }
-    if (key== 'DeleteBannerTop') {
-        const ruteDB = `${topic}/BannerTop/${i}`
-        console.log(ruteDB)
-        removeData (ruteDB, setUserData, setUserSuccess)
-        close(null)
-    }
-    if (key== 'DeleteBannerBottom') {
-        const ruteDB = `${topic}/BannerBottom/${i}`
-        console.log(ruteDB)
-        removeData (ruteDB, setUserData, setUserSuccess)
-        close(null)
-    }
+    function remove(e, key) {
+        e.preventDefault()
+        if (key == 'DeletePost') {
+            const ruteDB = `${topic}/Posts/PostImage_${i}`
+            console.log(ruteDB)
+            removeData(ruteDB, setUserData, setUserSuccess)
+            close(null)
+        }
+        if (key == 'DeleteBannerTop') {
+            const ruteDB = `${topic}/BannerTop/${i}`
+            console.log(ruteDB)
+            removeData(ruteDB, setUserData, setUserSuccess)
+            close(null)
+        }
+        if (key == 'DeleteBannerBottom') {
+            const ruteDB = `${topic}/BannerBottom/${i}`
+            console.log(ruteDB)
+            removeData(ruteDB, setUserData, setUserSuccess)
+            close(null)
+        }
 
 
 
-    if (key== 'DeleteBannerPortada') {
-        const ruteDB = `BannerTop-${topic}/${i}`
-        console.log(ruteDB)
-        removeData (ruteDB, setUserData, setUserSuccess)
-        close(null)
-    }  
-    if (key== 'DeleteBannerLeft') {
-        const ruteDB = `BannerLeft-${topic}/${i}`
-        console.log(ruteDB)
-        removeData (ruteDB, setUserData, setUserSuccess)
-        close(null)
-    }
+        if (key == 'DeleteBannerPortada') {
+            const ruteDB = `BannerTop-${topic}/${i}`
+            console.log(ruteDB)
+            removeData(ruteDB, setUserData, setUserSuccess)
+            close(null)
+        }
+        if (key == 'DeleteBannerLeft') {
+            const ruteDB = `BannerLeft-${topic}/${i}`
+            console.log(ruteDB)
+            removeData(ruteDB, setUserData, setUserSuccess)
+            close(null)
+        }
 
-    if (key== 'DeleteBannerRight') {
-        const ruteDB = `BannerRight-${topic}/${i}`
-        console.log(ruteDB)
-        removeData (ruteDB, setUserData, setUserSuccess)
-        close(null)
-    }   
-}
+        if (key == 'DeleteBannerRight') {
+            const ruteDB = `BannerRight-${topic}/${i}`
+            console.log(ruteDB)
+            removeData(ruteDB, setUserData, setUserSuccess)
+            close(null)
+        }
+    }
 
     return (
         <div className={style.containerEditor}>
@@ -231,11 +231,11 @@ function remove (e, key) {
                             <input type="radio" value="right" name="objectPositionPost" onChange={handlerEventChange} /> ⇨
                         </div>
                         <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SavePost")}>Guardar</Button>
-                    <br />
-                    <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeletePost")}>Eliminar</Button>
+                        <br />
+                        <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeletePost")}>Eliminar</Button>
                     </form>}
 
-                {post === "BannerTop" && <form className={style.formSelectPost}>
+                {post === "BannerTop" && topic === null && <form className={style.formSelectPost}>
                     <label htmlFor={`${topic}-bannerTopConfig`} className={style.label} >Seleccionar Banner Top</label>
                     <img className={style.previewIMGBanner} src={urlBannerTopImage == null ? postsIMG[`${topic}/${i}`] : urlBannerTopImage} alt="" />
                     <input type="file" id={`${topic}-bannerTopConfig`} className={style.inputFile} name={`BannerTopImage`} onChange={manageInputIMGSetting} accept=".jpg, .jpeg, .png, .mp4, webm" />
@@ -246,8 +246,8 @@ function remove (e, key) {
                     <input className={style.calendario} type="date" id="start" name="dateFinishBannerTop" onChange={handlerEventChange} />
                     <p className={`${style.require} ${data.dateFinishBannerTop ? style.green : ''}`}>{data.dateFinishBannerTop ? 'Correcto' : '*Requerido'}</p>
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerTop")}>Guardar</Button>
-                <br />
-                <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerTop")}>Eliminar</Button>
+                    <br />
+                    <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerTop")}>Eliminar</Button>
                 </form>}
 
                 {post === "BannerBottom" && <form className={style.formSelectPost}>
@@ -260,7 +260,7 @@ function remove (e, key) {
                     <p className={`${style.require} ${data.dateInitBannerBottom ? style.green : ''}`}>{data.dateInitBannerBottom ? 'Correcto' : '*Requerido'}</p>
                     <input className={style.calendario} type="date" id="start" name="dateFinishBannerBottom" onChange={handlerEventChange} />
                     <p className={`${style.require} ${data.dateFinishBannerBottom ? style.green : ''}`}>{data.dateFinishBannerBottom ? 'Correcto' : '*Requerido'}</p>
-                    
+
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerBottom")}>Guardar</Button>
                     <br />
                     <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerBottom")}>Eliminar</Button>
@@ -285,9 +285,9 @@ function remove (e, key) {
 
 
 
-{console.log(postsIMG)}
+                {/* {console.log(postsIMG)} */}
 
-                {post === "BannerPortada" && <form className={style.formSelectPost}>
+                {post === "BannerTop" && <form className={style.formSelectPost}>
                     <label htmlFor={`bannerPortadaConfig`} className={style.label} >Seleccionar Banner Portada</label>
                     <img className={style.previewIMGBanner} src={urlBannerPortadaImage == null ? postsIMG[`BannerTop/${i}`] : urlBannerPortadaImage} alt="" />
                     <input type="file" id={`bannerPortadaConfig`} className={style.inputFile} name={`BannerPortadaImage`} onChange={manageInputIMGSetting} accept=".jpg, .jpeg, .png, .mp4, webm" />
@@ -305,8 +305,8 @@ function remove (e, key) {
                         <input type="radio" value="right" name="objectPositionBannerPortada" onChange={handlerEventChange} /> ⇨
                     </div>
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerPortada")}>Guardar</Button>
-                <br />
-                <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerPortada")}>Eliminar</Button>
+                    <br />
+                    <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerPortada")}>Eliminar</Button>
                 </form>}
 
 
@@ -328,11 +328,11 @@ function remove (e, key) {
                         <input type="radio" value="right" name="objectPositionBannerLeft" onChange={handlerEventChange} /> ⇨
                     </div>
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerLeft")}>Guardar</Button>
-                <br />
-                <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerLeft")}>Eliminar</Button>
+                    <br />
+                    <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerLeft")}>Eliminar</Button>
                 </form>}
 
-                       {post === "BannerRight" && <form className={style.formSelectPost}>
+                {post === "BannerRight" && <form className={style.formSelectPost}>
                     <label htmlFor={`bannerConfig`} className={style.label} >Seleccionar Banner Right</label>
                     <img className={style.previewIMGBanner} src={urlBannerRightImage == null ? postsIMG[`BannerRight/${i}`] : urlBannerRightImage} alt="" />
                     <input type="file" id={`bannerConfig`} className={style.inputFile} name={`BannerRightImage`} onChange={manageInputIMGSetting} accept=".jpg, .jpeg, .png, .mp4, webm" />
@@ -342,10 +342,10 @@ function remove (e, key) {
                     <p className={`${style.require} ${data.dateInitBannerRight ? style.green : ''}`}>{data.dateInitBannerRight ? 'Correcto' : '*Requerido'}</p>
                     <input className={style.calendario} type="date" id="start" name="dateFinishBannerRight" onChange={handlerEventChange} />
                     <p className={`${style.require} ${data.dateFinishBannerRight ? style.green : ''}`}>{data.dateFinishBannerRight ? 'Correcto' : '*Requerido'}</p>
-                    
+
                     <Button style="buttonMiniSecondary" click={(e) => saveConfig(e, "SaveBannerRight")}>Guardar</Button>
-                <br />
-                <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerRight")}>Eliminar</Button>
+                    <br />
+                    <Button style="buttonMiniSecondary" click={(e) => remove(e, "DeleteBannerRight")}>Eliminar</Button>
                 </form>}
             </div>
         </div>

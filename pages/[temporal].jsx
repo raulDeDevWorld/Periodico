@@ -99,7 +99,7 @@ function TemplateOne() {
 
 
 
-            <div className={styles.container}>
+         
                 <main className={styles.main}>
 
                     <Navbar></Navbar>
@@ -158,7 +158,7 @@ function TemplateOne() {
                         </div>
                     </div>
                 </main>
-            </div>
+    
 
         </Layout>
     )
