@@ -68,7 +68,7 @@ export default function Form({ topic, value }) {
 
 
 
-  function save(e, key) {
+  function save(e, key , checkData) {
     e.preventDefault()
 
     const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
@@ -78,7 +78,7 @@ export default function Form({ topic, value }) {
 
       if (bannerLeftImage && data.dateInitBannerLeft && data.dateFinishBannerLeft) {
 
-        const ruteDB = `/BannerLeft` // Nov-2022/Inicio
+        const ruteDB = `/BannerLeft-${checkData}` // Nov-2022/Inicio
         const ruteSTG = `BannerLeft` // Nov-2022/
         const fileName = `BannerLeftImage_${newDate}` // PostImage_Tue Nov 15 2022 
         const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null, enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, objectFit: data.objectPositionBannerLeft ? data.objectPositionBannerLeft : 'center', dateInit: data.dateInitBannerLeft, dateFinish: data.dateFinishBannerLeft } }
@@ -92,7 +92,7 @@ export default function Form({ topic, value }) {
     if (key == "SaveBannerTop") {
       if (bannerTopImage && data.dateInitBannerTop && data.dateFinishBannerTop) {
 
-        const ruteDB = `/BannerTop` // Nov-2022/Inicio
+        const ruteDB = `/BannerTop-${checkData}` // Nov-2022/Inicio
         const ruteSTG = `BannerTop` // Nov-2022/
         const fileName = `BannerTopImage_${newDate}` // PostImage_Tue Nov 15 2022 
         const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerTop : null, enlace: data.enlaceBannerTop ? data.enlaceBannerTop : null, objectFit: data.objectPositionBannerTop ? data.objectPositionBannerTop : 'center', dateInit: data.dateInitBannerTop, dateFinish: data.dateFinishBannerTop } }
@@ -106,7 +106,7 @@ export default function Form({ topic, value }) {
     }
     if (key == "SaveBannerRight") {
       if (bannerRightImage && data.dateInitBannerRight && data.dateFinishBannerRight) {
-        const ruteDB = `/BannerRight` // Nov-2022/Inicio
+        const ruteDB = `/BannerRight-${checkData}` // Nov-2022/Inicio
         const ruteSTG = `BannerRight` // Nov-2022/
         const fileName = `BannerRightImage_${newDate}` // PostImage_Tue Nov 15 2022 
         const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, objectFit: data.objectPositionBannerRight ? data.objectPositionBannerRight : 'center', dateInit: data.dateInitBannerRight, dateFinish: data.dateFinishBannerRight } }
@@ -274,8 +274,7 @@ export default function Form({ topic, value }) {
       </form>
 
       <div className={style.formInputs}>
-
-        {check == 'izquierdo2' && <form className={style.formSelectAdds}>
+        {check.split('').slice(0,3 ).toString().replaceAll(',','') == 'izq'  && <form className={style.formSelectAdds}>
           <label htmlFor={`${topic}-bannerLeft`} className={style.label} >Seleccionar Banner Izquierdo</label>
           <img className={style.previewIMGBanner} style={{ objectPosition: `${data.objectPositionPost ? data.objectPositionBannerLeft : 'center'} ` }} src={urlBannerLeftImage} alt="" />
           <p className={`${style.require} ${bannerLeftImage ? style.green : ''}`}>{bannerLeftImage ? 'Correcto' : '*Requerido'}</p>
@@ -287,12 +286,12 @@ export default function Form({ topic, value }) {
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerLeft" onChange={handlerEventChange} />
           <p className={`${style.require} ${data.dateFinishBannerLeft ? style.green : ''}`}>{data.dateFinishBannerLeft ? 'Correcto' : '*Requerido'}</p>
 
-          <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerLeft")}>Guardar</Button>
+          <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerLeft", check)}>Guardar</Button>
         </form>}
 
 
 
-        {check === 'cabecera1' && <form className={style.formSelectAdds}>
+        {check.split('').slice(0,3 ).toString().replaceAll(',','') == 'cab' && <form className={style.formSelectAdds}>
           <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner de Cabecera</label>
           <img className={style.previewIMGBanner} style={{ objectPosition: `${data.objectPositionPost ? data.objectPositionBannerTop : 'center'} ` }} src={urlBannerTopImage} alt="" />
           <p className={`${style.require} ${bannerTopImage ? style.green : ''}`}>{bannerTopImage ? 'Correcto' : '*Requerido'}</p>
@@ -304,7 +303,7 @@ export default function Form({ topic, value }) {
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerTop" onChange={handlerEventChange} />
           <p className={`${style.require} ${data.dateFinishBannerTop ? style.green : ''}`}>{data.dateFinishBannerTop ? 'Correcto' : '*Requerido'}</p>
 
-          <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerTop")}>Guardar</Button>
+          <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerTop", check)}>Guardar</Button>
         </form>}
 
 
@@ -312,7 +311,7 @@ export default function Form({ topic, value }) {
 
 
 
-        {check == 'derecho1' && <form className={style.formSelectAdds}>
+        {check.split('').slice(0,3 ).toString().replaceAll(',','') == 'der' && <form className={style.formSelectAdds}>
           <label htmlFor={`${topic}-bannerRight`} className={style.label} >Seleccionar Banner Derecho </label>
           <img className={style.previewIMGBanner} style={{ objectPosition: `${data.objectPositionPost ? data.objectPositionBannerRight : 'center'} ` }} src={urlBannerRightImage} alt="" />
           <p className={`${style.require} ${bannerRightImage ? style.green : ''}`}>{bannerRightImage ? 'Correcto' : '*Requerido'}</p>
@@ -324,7 +323,7 @@ export default function Form({ topic, value }) {
           <input className={style.calendario} type="date" id="start" name="dateFinishBannerRight" onChange={handlerEventChange} />
           <p className={`${style.require} ${data.dateFinishBannerRight ? style.green : ''}`}>{data.dateFinishBannerRight ? 'Correcto' : '*Requerido'}</p>
 
-          <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerRight")}>Guardar</Button>
+          <Button style="buttonMiniSecondary" click={(e) => save(e, "SaveBannerRight", check)}>Guardar</Button>
         </form>}
       </div>
     </div>

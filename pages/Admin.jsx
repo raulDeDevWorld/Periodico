@@ -61,7 +61,7 @@ function Admin() {
   function handlerViewPeriodista() {
     setUserViewPeriodista(!viewPeriodista)
   }
-  console.log(user.uid)
+  // console.log(user.uid)
   function handlerClickEnlace(i) {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
     router.pathname == "/Admin" && setDataEditor(i)
@@ -113,12 +113,6 @@ function Admin() {
 
 
         { userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <button className={styles.viewPeriodista} onClick={handlerViewPeriodista}>P</button>}
-
-
-
-
-
-
 
       </main>
     </div>

@@ -139,29 +139,29 @@ export default function Error({ post, i, topic, close }) {
 
         if (key == "SaveBannerLeft") {
       
-              const ruteDB = `/BannerLeft` // Nov-2022/Inicio
+              const ruteDB = `/BannerLeft-${topic}` // Nov-2022/Inicio
               const ruteSTG = `BannerLeft` // Nov-2022/
               const fileName = i // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null , enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, dateInit: data.dateInitBannerLeft ? data.dateInitBannerLeft : userDB["BannerLeft"][i].dateInit, dateFinish: data.dateFinishBannerLeft ? data.dateFinishBannerLeft : userDB["BannerLeft"][i].dateFinish } }
+              const object = { [fileName]: { whatsapp: data.whatsappBannerLeft ? data.whatsappBannerLeft : null , enlace: data.enlaceBannerLeft ? data.enlaceBannerLeft : null, dateInit: data.dateInitBannerLeft ? data.dateInitBannerLeft : userDB[`BannerLeft-${topic}`][i].dateInit, dateFinish: data.dateFinishBannerLeft ? data.dateFinishBannerLeft : userDB[`BannerLeft-${topic}`][i].dateFinish } }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
               bannerPortadaImage && uploadIMG(ruteSTG, fileName, bannerLeftImage, setUserSuccess, monthYear)
           
           }
           if (key == "SaveBannerPortada") {
       
-              const ruteDB = `/BannerTop` // Nov-2022/Inicio
+              const ruteDB = `/BannerTop-${topic}` // Nov-2022/Inicio
               const ruteSTG = `BannerTop` // Nov-2022/
               const fileName = i // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerPortada ? data.dateInitBannerPortada : userDB["BannerTop"][i].dateInit , dateFinish: data.dateFinishBannerPortada ? data.dateFinishBannerPortada : userDB["BannerTop"][i].dateFinish} }
+              const object = { [fileName]: { whatsapp: data.whatsappBannerTop ? data.whatsappBannerPortada : null , enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerPortada ? data.dateInitBannerPortada : userDB[`BannerTop-${topic}`][i].dateInit , dateFinish: data.dateFinishBannerPortada ? data.dateFinishBannerPortada : userDB[`BannerTop-${topic}`][i].dateFinish} }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
               bannerLeftImage && uploadIMG(ruteSTG, fileName, bannerPortadaImage, setUserSuccess, monthYear)
           
           }
           if (key == "SaveBannerRight") {
-              const ruteDB = `/BannerRight` // Nov-2022/Inicio
+              const ruteDB = `/BannerRight-${topic}` // Nov-2022/Inicio
               const ruteSTG = `BannerRight` // Nov-2022/
               const fileName = i // PostImage_Tue Nov 15 2022 
-              const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerRight ? data.dateInitBannerRight : userDB["BannerRight"][i].dateInit, dateFinish: data.dateFinishBannerRight ? data.dateFinishBannerRight : userDB["BannerRight"][i].dateFinish}  }
+              const object = { [fileName]: { whatsapp: data.whatsappBannerRight ? data.whatsappBannerRight : null, enlace: data.enlaceBannerRight ? data.enlaceBannerRight : null, dateInit: data.dateInitBannerRight ? data.dateInitBannerRight : userDB[`BannerRight-${topic}`][i].dateInit, dateFinish: data.dateFinishBannerRight ? data.dateFinishBannerRight : userDB[`BannerRight-${topic}`][i].dateFinish}  }
               writeUserData(ruteDB, object, setUserSuccess, setUserData)
               bannerRightImage && uploadIMG(ruteSTG, fileName, bannerRightImage, setUserSuccess, monthYear)
            
@@ -188,33 +188,29 @@ function remove (e, key) {
         removeData (ruteDB, setUserData, setUserSuccess)
         close(null)
     }
+
+
+
     if (key== 'DeleteBannerPortada') {
-        const ruteDB = `BannerTop/${i}`
+        const ruteDB = `BannerTop-${topic}/${i}`
         console.log(ruteDB)
         removeData (ruteDB, setUserData, setUserSuccess)
         close(null)
-    }
-
+    }  
     if (key== 'DeleteBannerLeft') {
-        const ruteDB = `BannerLeft/${i}`
+        const ruteDB = `BannerLeft-${topic}/${i}`
         console.log(ruteDB)
         removeData (ruteDB, setUserData, setUserSuccess)
         close(null)
     }
 
     if (key== 'DeleteBannerRight') {
-        const ruteDB = `BannerRight/${i}`
+        const ruteDB = `BannerRight-${topic}/${i}`
         console.log(ruteDB)
         removeData (ruteDB, setUserData, setUserSuccess)
         close(null)
-    }
-    
+    }   
 }
-
-
-    useEffect(() => {
-    })
-
 
     return (
         <div className={style.containerEditor}>
