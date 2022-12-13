@@ -26,7 +26,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 function Home() {
-  const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
+  const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, date, setUserDate,  } = useUser()
   const router = useRouter()
 
   const [periodicoPDF, setPeriodicoPDF] = useState(false);
@@ -42,6 +42,7 @@ function Home() {
   function handlerClick(url) {
     router.push(url)
   }
+
   function whatsappClickHandler() {
     router.push("https://api.whatsapp.com/send?phone=+59160589090&text=Buenas%20Hoy...")
   }
@@ -93,7 +94,6 @@ function Home() {
         <Section topic="Cultura" publicView={true} color=''></Section>
         <Section topic="Internacional" publicView={true} color=''></Section>
         <Section topic="Opinion" publicView={true} color=''></Section>
-
         <footer className={styles.footer} id="nosotros">
           <div>
             <h5>MISIÓN</h5>

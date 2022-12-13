@@ -119,6 +119,20 @@ background-image: black;
   margin-bottom: 10px;
 }
 
+
+.viewPeriodista  {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+  background-color: brown;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 14px;
+}
+
 .footer {
   display: flex;
   justify-content: center;

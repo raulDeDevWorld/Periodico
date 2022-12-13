@@ -23,7 +23,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 function Admin() {
-  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, setUserDate } = useUser()
+  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, setUserDate, viewPeriodista, setUserViewPeriodista } = useUser()
   const router = useRouter()
 
 
@@ -58,7 +58,9 @@ function Admin() {
     setUserDate(`${parseInt(format[2])}-${months[format[1] - 1]}-${format[0]}`)
 
   }
-
+  function handlerViewPeriodista() {
+    setUserViewPeriodista(!viewPeriodista)
+  }
   console.log(user.uid)
   function handlerClickEnlace(i) {
     router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
@@ -110,6 +112,7 @@ function Admin() {
         <Section topic="Opinion" publicView={false} color='#8FC2C9'></Section>
 
 
+        { userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <button className={styles.viewPeriodista} onClick={handlerViewPeriodista}>P</button>}
 
 
 

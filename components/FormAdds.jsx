@@ -145,122 +145,132 @@ export default function Form({ topic, value }) {
           </label>
         </div>
 
-
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="izquierdo2"
-          id="izquierdo2"
-          checked={check == 'izquierdo2' ? true : false}
-        />
-        <label
-          for="izquierdo2"
-        >
-          Banner Izquierdo 2
-        </label>
-
-
-
+        <div>
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="izquierdo2"
+            id="izquierdo2"
+            checked={check == 'izquierdo2' ? true : false}
+          />
+          <label
+            for="izquierdo2"
+          >
+            Banner Izquierdo 2
+          </label>
+        </div>
 
 
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="izquierdo3"
-          id="izquierdo3"
-          checked={check == 'izquierdo3' ? true : false}
-        />
-        <label
-          for="izquierdo3"
-        >
-          Banner Izquierdo 3
-        </label>
+        <div>
 
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="izquierdo3"
+            id="izquierdo3"
+            checked={check == 'izquierdo3' ? true : false}
+          />
+          <label
+            for="izquierdo3"
+          >
+            Banner Izquierdo 3
+          </label>
+        </div>
 
-
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="cabecera1"
-          id="cabecera1"
-          checked={check == 'cabecera1' ? true : false}
-        />
-        <label
-          for="cabecera1"
-        >
-          Banner Cabecera 1
-        </label>
-
-
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="cabecera2"
-          id="cabecera2"
-          checked={check == 'cabecera2' ? true : false}
-        />
-        <label
-          for="cabecera2"
-        >
-          Banner Cabecera 2
-        </label>
+        <div>
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="cabecera1"
+            id="cabecera1"
+            checked={check == 'cabecera1' ? true : false}
+          />
+          <label
+            for="cabecera1"
+          >
+            Banner Cabecera 1
+          </label>
+        </div>
 
 
 
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="cabecera3"
-          id="cabecera3"
-          checked={check == 'cabecera3' ? true : false}
-        />
-        <label
-          for="cabecera3"
-        >
-          Banner Cabecera 3
-        </label>
+        <div>
+
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="cabecera2"
+            id="cabecera2"
+            checked={check == 'cabecera2' ? true : false}
+          />
+          <label
+            for="cabecera2">
+            Banner Cabecera 2
+          </label>
+
+        </div>
+        <div>
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="cabecera3"
+            id="cabecera3"
+            checked={check == 'cabecera3' ? true : false}
+          />
+          <label
+            for="cabecera3"
+          >
+            Banner Cabecera 3
+          </label>
+
+
+        </div>
+        <div>
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="derecho1"
+            id="derecho1"
+            checked={check == 'derecho1' ? true : false}
+          />
+          <label
+            for="derecho1"
+          >
+            Banner Derecho 1
+          </label>
+        </div>
 
 
 
+        <div>
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="derecho2"
+            id="derecho2"
+            checked={check == 'derecho2' ? true : false}
+          />
+          <label
+            for="derecho2"
+          >
+            Banner Derecho 2
+          </label>
+        </div>
 
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="derecho1"
-          id="derecho1"
-          checked={check == 'derecho1' ? true : false}
-        />
-        <label
-          for="derecho1"
-        >
-          Banner Derecho 1
-        </label>
-
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="derecho2"
-          id="derecho2"
-          checked={check == 'derecho2' ? true : false}
-        />
-        <label
-          for="derecho2"
-        >
-          Banner Derecho 2
-        </label>
-
-        <input
-          type="radio"
-          onChange={handleCheck}
-          value="derecho3"
-          id="derecho3"
-          checked={check == 'derecho3' ? true : false}
-        />
-        <label
-          for="derecho3"
-        >
-          Banner Derecho 3
-        </label>
+        <div>
+          <input
+            type="radio"
+            onChange={handleCheck}
+            value="derecho3"
+            id="derecho3"
+            checked={check == 'derecho3' ? true : false}
+          />
+          <label
+            for="derecho3"
+          >
+            Banner Derecho 3
+          </label>
+        </div>
       </form>
 
       <div className={style.formInputs}>

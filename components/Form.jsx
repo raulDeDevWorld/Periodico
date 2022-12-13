@@ -9,7 +9,7 @@ import { getDate, getDayMonthYear, getMonthAndYear } from '../utils/Utils'
 
 
 export default function Form({ topic, value, color }) {
-  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear } = useUser()
+  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear, viewPeriodista } = useUser()
 
   const [data, setData] = useState({})
 
@@ -139,7 +139,7 @@ export default function Form({ topic, value, color }) {
       </select>
 
 
-      {userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'periodista' &&
+      {userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'periodista' || viewPeriodista == true &&
 
         <div className={style.formInputs}>
           <form className={style.formSelectPost}>
@@ -163,7 +163,7 @@ export default function Form({ topic, value, color }) {
       }
 
 
-      {userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <>
+      {userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && viewPeriodista == false && <>
         <div className={`${style.formInputsAdmin} ${style.formInputs}`}>
           <form className={style.formSelectPost}>
             <label htmlFor={`${topic}-bannerTop`} className={style.label} >Seleccionar Banner Cabecera</label>
