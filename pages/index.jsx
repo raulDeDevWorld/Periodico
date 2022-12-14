@@ -106,7 +106,7 @@ function Home() {
             <h5>DIRECCIÓN Y PUBLICIDAD ONLINE</h5>
             <div className={styles.footerItemsContainer}>
               <img src="/contact.svg" alt="" />
-              <p>(519-2) 2488973 <br /> 73002076 <br />60101760</p>
+              <p>(+591) 2488973 <br /> 73002076 <br />60101760</p>
               <img src="/ubication.svg" alt="" />
               <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
             </div>
@@ -116,7 +116,7 @@ function Home() {
             <h5>VISIÓN</h5>
             <div className={styles.footerItemsContainer}>
               <img src="/mision.svg" alt="" />
-              <p>Ser el medio impreso y digital de mayor influencía en la construcción de un cultura ciudadana en torno a la realidad nacional e internacional.</p>
+              <p>Ser el medio impreso y digital de mayor influencia en la construcción de un cultura ciudadana en torno a la realidad nacional e internacional.</p>
             </div>
           </div>
           <div>

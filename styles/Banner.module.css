@@ -144,7 +144,10 @@
 }
 
 @media (max-width: 850px) and (orientation: portrait) {
-
+  .containerFadeBanner {
+    width: 100vw;
+    padding: 0 5px;
+  }
   .containerFadeLeft,
   .containerFadeRight {
     display: none;

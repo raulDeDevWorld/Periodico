@@ -131,16 +131,8 @@
   font-size: 14px;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 35px;
-  width: 100%;
-  height: 70vh;
-  background-color: black;
-}
+
+
 
 .footer {
   height: auto;
@@ -150,11 +142,13 @@
   color: white;
   font-size: 16px;
   padding: 20px 0;
+  background-color: black;
 }
 
 .footerItemsContainer {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .footerItemsContainer :nth-child(1) {
@@ -198,6 +192,10 @@
 
 
 
+.footer > :nth-child(2) img {
+height: 30px;
+}
+
 .whatsapp {
   cursor: pointer;
   position: fixed;
@@ -221,118 +219,7 @@ padding: 15px 0;
 
 
 
-.periodicoPDFContainer {
-  cursor: pointer;
-  position: fixed;
-  bottom: 5px;
-  right: 10px;
 
-  font-size: 14px;
-  color: rgb(255, 255, 255);
-  border-radius: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: bottom;
-
-
-  border-radius: 5px;
-  max-height: 237px;
-  width: 13%;
-  z-index: 10000000;
-  transition: all;
-  transition-duration: .3s;
-}
-
-
-.periodicoPDFContainer2 {
-  cursor: pointer;
-  position: fixed;
-  bottom: 5px;
-  left: 10px;
-
-  font-size: 14px;
-  color: rgb(255, 255, 255);
-  border-radius: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: bottom;
-
-
-  border-radius: 5px;
-  max-height: 237px;
-  width: 13%;
-  z-index: 10000000;
-  transition: all;
-  transition-duration: .3s;
-}
-
-
-.periodicoPDFView {
-  
-  cursor: pointer;
-  position: fixed;
-  bottom: 5px;
-  right: 10px;
-
-  font-size: 14px;
-  color: rgb(255, 255, 255);
-  border-radius: 2px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: bottom;
-  background-image: url("../public/SocialMedia/ninoPDF-optimizado.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  min-height: 170px;
-  width: 13%;
-  z-index: 100000;
-  transition: all;
-  transition-duration: .3s;
-  box-shadow: 0 0 10px black;
-}
-
-.footer > :nth-child(2) > :nth-child(2){
-  display: flex;
-  justify-content: space-between;
-
-}
-.footer > :nth-child(2) > :nth-child(2) > :nth-child(n){
-width: 100%;
-display: flex;
-flex-direction: row;
-justify-content: flex-start;
-align-items: center;
-}
-.footer > :nth-child(2) img {
-height: 30px;
-}
-
-.periodicoPDFView a {
-  display: block;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  border-radius: 5px;
-  transition: all;
-  transition-duration: .3s;
-  
-}
-
-.periodicoPDFImg {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 5px;
-  box-shadow: 0 0 15px black;
-  transition: all;
-  transition-duration: .3s;
-
-}
 .close {
   position: absolute;
   top: 0px;
@@ -347,16 +234,6 @@ height: 30px;
   justify-content: center;
   align-items: center;
 }
-.periodicoPDF {
-  padding: 15px;
-  font-size: 12px;
-  padding-bottom: 25px;
-  color: brown;
-  font-weight: bold;
-  z-index: 10000000000;
-  transition: all;
-  transition-duration: .3s;
-}
 
 
 
@@ -366,27 +243,6 @@ height: 30px;
     margin-right: 15%;
   }
 
-  .grid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .gridOne {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .gridTwo {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .gridThree {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
 
   .containerSubtitle {
     display: inline-block;
@@ -433,6 +289,7 @@ height: 30px;
   .footer > :nth-child(2) {
     grid-column: 1/3;
     grid-row: 3/4;
+
 
   }
 
@@ -489,6 +346,10 @@ height: 30px;
     display: none;
   }
 
+  .footer > :nth-child(2) p {
+    width: 100vw;
+
+  }
 
 }
 
