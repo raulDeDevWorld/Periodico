@@ -82,7 +82,6 @@ function Home() {
     <Layout>
       <div className={styles.main}>
         <Header></Header>
-
         <Section topic="Inicio" publicView={true} color=''></Section>
         <Section topic="Sociedad" publicView={true} color=''></Section>
         <Section topic="Salud" publicView={true} color=''></Section>

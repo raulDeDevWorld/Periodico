@@ -28,71 +28,71 @@ export default function Banner({ ruta, carpeta, click }) {
     function redirect(ruta) {
         window.open(ruta, '_blank')
     }
-   // console.log(userDB[`${carpeta}-cabecera1`])
+    // console.log(userDB[`${carpeta}-cabecera1`])
 
     return (
         <>
-        <div className={`${styles.containerFade} ${styles.boxShadow}`} >
-            {userDB[`${carpeta}-cabecera1`] && postsIMG && <Zoom transitionDuration={800} duration={2000} {...properties} indicators={true}>
-                {
-                    Object.keys(userDB[`${carpeta}-cabecera1`]).map((i, index) =>
-                        <div className="each-slide" key={index} >
+            {userDB[`${carpeta}-cabecera1`] && postsIMG && <div className={`${styles.containerFade} ${styles.boxShadow}`} >
+                <Zoom transitionDuration={800} duration={2000} {...properties} indicators={true}>
+                    {
+                        Object.keys(userDB[`${carpeta}-cabecera1`]).map((i, index) =>
+                            <div className="each-slide" key={index} >
 
-                            <div>
-                                {
-                                    router.pathname === "/Admin" ?
-                                        <span onClick={() => click({ key: carpeta, i, topic: 'cabecera1' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                        : <span onClick={() => redirect(userDB[`${carpeta}-derecha1`][i].enlace ? userDB[`${carpeta}-cabecera1`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                }
+                                <div>
+                                    {
+                                        router.pathname === "/Admin" ?
+                                            <span onClick={() => click({ key: carpeta, i, topic: 'cabecera1' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                            : <span onClick={() => redirect(userDB[`${carpeta}-derecha1`][i].enlace ? userDB[`${carpeta}-cabecera1`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                    )}
-            </Zoom>
-            }
-        </div>
-        <div className={`${styles.containerFade} ${styles.boxShadow}`} >
-            {userDB[`${carpeta}-cabecera2`] && postsIMG && <Zoom transitionDuration={800} duration={2000} {...properties} indicators={true}>
-                {
-                    Object.keys(userDB[`${carpeta}-cabecera2`]).map((i, index) =>
-                        <div className="each-slide" key={index} >
+                        )}
+                </Zoom>
 
-                            <div>
-                                {
-                                    router.pathname === "/Admin" ?
-                                        <span onClick={() => click({ key: carpeta, i, topic: 'cabecera2' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                        : <span onClick={() => redirect(userDB[`${carpeta}-derecha2`][i].enlace ? userDB[`${carpeta}-cabecera2`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                }
-                            </div>
-                        </div>
-                    )}
-            </Zoom>
-            }
-        </div>
-        <div className={`${styles.containerFade} ${styles.boxShadow}`} >
-            {userDB[`${carpeta}-cabecera3`] && postsIMG && <Zoom transitionDuration={800} duration={2000} {...properties} indicators={true}>
-                {
-                    Object.keys(userDB[`${carpeta}-cabecera3`]).map((i, index) =>
-                        <div className="each-slide" key={index} >
+            </div>}
+            {userDB[`${carpeta}-cabecera2`] && postsIMG && <div className={`${styles.containerFade} ${styles.boxShadow}`} >
+                <Zoom transitionDuration={800} duration={2000} {...properties} indicators={true}>
+                    {
+                        Object.keys(userDB[`${carpeta}-cabecera2`]).map((i, index) =>
+                            <div className="each-slide" key={index} >
 
-                            <div>
-                                {
-                                    router.pathname === "/Admin" ?
-                                        <span onClick={() => click({ key: carpeta, i, topic: 'cabecera3' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                        : <span onClick={() => redirect(userDB[`${carpeta}-derecha3`][i].enlace ? userDB[`${carpeta}-cabecera3`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                }
+                                <div>
+                                    {
+                                        router.pathname === "/Admin" ?
+                                            <span onClick={() => click({ key: carpeta, i, topic: 'cabecera2' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                            : <span onClick={() => redirect(userDB[`${carpeta}-derecha2`][i].enlace ? userDB[`${carpeta}-cabecera2`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                    )}
-            </Zoom>
-            }
-        </div>
-        
+                        )}
+                </Zoom>
+
+            </div>}
+            {userDB[`${carpeta}-cabecera3`] && postsIMG && <div className={`${styles.containerFade} ${styles.boxShadow}`} >
+                <Zoom transitionDuration={800} duration={2000} {...properties} indicators={true}>
+                    {
+                        Object.keys(userDB[`${carpeta}-cabecera3`]).map((i, index) =>
+                            <div className="each-slide" key={index} >
+
+                                <div>
+                                    {
+                                        router.pathname === "/Admin" ?
+                                            <span onClick={() => click({ key: carpeta, i, topic: 'cabecera3' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                            : <span onClick={() => redirect(userDB[`${carpeta}-derecha3`][i].enlace ? userDB[`${carpeta}-cabecera3`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                    }
+                                </div>
+                            </div>
+                        )}
+                </Zoom>
+
+            </div>}
+
         </>
-        )
+    )
 }
 
 
-         {/* <Link href={`https://api.whatsapp.com/send?phone=${userDB[`${carpeta}-derecha1`][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
+{/* <Link href={`https://api.whatsapp.com/send?phone=${userDB[`${carpeta}-derecha1`][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
                                     <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
                                 </Link> */}
 

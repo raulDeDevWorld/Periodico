@@ -1,5 +1,5 @@
 import { useUser } from '../context/Context.js'
-import { Zoom } from 'react-slideshow-image'
+import { Zoom, Fade } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css';
 import styles from '../styles/Banner.module.css'
 import { useState, useEffect } from 'react'
@@ -32,7 +32,7 @@ export default function Banner({ ruta, carpeta, click }) {
     return (
         <div className={`${styles.containerFade} ${styles.containerFadeBanner}`} >
             {userDB[ruta] && postsIMG &&
-                <Zoom transitionDuration={800} duration={2000} scale={1.1}{...properties} indicators={true}>
+                <Fade transitionDuration={800} duration={2000} scale={1}{...properties} indicators={true}>
 
                     {Object.keys(userDB[ruta][carpeta]).map((i, index) =>
                             <div className="each-slide" key={index}>
@@ -49,7 +49,7 @@ export default function Banner({ ruta, carpeta, click }) {
                                 </div>
                             </div>
                         )}
-                </Zoom>
+                </Fade>
             }
         </div>)
 }

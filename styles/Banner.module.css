@@ -1,7 +1,6 @@
 .containerFade {
   margin: 5px 0;
   border-bottom: 5px solid white;
-  background-color: RED;
 }
 
 .containerFade img {
@@ -9,20 +8,33 @@
   display: block;
   cursor: pointer;
   margin: 0;
-  object-fit: contain;  width: 100%;
+  object-fit: contain;
+  width: 100%;
 
 }
 
 .containerFadeBanner {
-  position: relative ;
-  display: block;
+  padding: 0;
+  padding-top: 2px;
+  border: none;
+  width: 68vw;
+  height: auto;
+  z-index: 10000;
+  margin: 5px 0;
+  overflow: hidden;
 
 }
 
-.containerFadeBanner img{
+.containerFadeBanner img {
   position: relative;
   height: auto;
   width: 100%;
+
+}
+
+.containerFadeBanner> :nth-child(1) {
+  position: relative;
+  height: auto;
 }
 
 .boxShadow {
@@ -30,13 +42,13 @@
   margin-bottom: 10px;
 }
 
-.containerFadeLeft > :nth-child(1),
-.containerFadeRight > :nth-child(1) {
+.containerFadeLeft> :nth-child(1),
+.containerFadeRight> :nth-child(1) {
   position: relative;
   height: auto;
 }
 
-.containerFade > :nth-child(n),
+.containerFade> :nth-child(n),
 .containerFadeLeft :nth-child(n),
 .containerFadeRight :nth-child(n) {
   margin: 0;
@@ -74,14 +86,14 @@
 }
 
 .containerFadeLeft span,
-.containerFadeRight span  {
+.containerFadeRight span {
   width: 15vw;
   display: flex;
   justify-content: center;
 }
 
 .containerFadeLeft span img,
-.containerFadeRight span img  {
+.containerFadeRight span img {
   display: block;
   cursor: pointer;
   margin: 0;
@@ -133,7 +145,7 @@
 
 @media (max-width: 850px) and (orientation: portrait) {
 
-  .containerFadeLeft,  
+  .containerFadeLeft,
   .containerFadeRight {
     display: none;
   }
