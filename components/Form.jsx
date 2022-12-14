@@ -81,9 +81,6 @@ export default function Form({ topic, value, color }) {
       } else {
         setUserSuccess("CompleteIMG")
       }
-
-
-
     }
     if (key == "SaveBannerTop") {
       if (bannerTopImage && data.dateInitBannerTop && data.dateFinishBannerTop) {

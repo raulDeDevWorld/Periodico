@@ -39,7 +39,7 @@ console.log(userDB[`${carpeta}-derecho1`])
                                     router.pathname == "/Admin" ?
                                         <span onClick={() => click({ key: carpeta , i, topic: 'derecho1' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
                                         </span>
-                                        : <span onClick={() => click({ href: userDB[userDB[`${carpeta}-derecho1`]][i].enlace ? userDB[userDB[`${carpeta}-derecho1`]][i].enlace : '#', target: userDB[userDB[`${carpeta}-derecho1`]][i].enlace ? "_blank" : '' })}>
+                                        : <span onClick={() => click({ href: userDB[`${carpeta}-derecho1`][i].enlace ? userDB[`${carpeta}-derecho1`][i].enlace : '#', target: userDB[`${carpeta}-derecho1`][i].enlace ? "_blank" : '' })}>
                                         <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
                                     </span>
                                 }
@@ -62,7 +62,7 @@ console.log(userDB[`${carpeta}-derecho1`])
                                     router.pathname == "/Admin" ?
                                         <span onClick={() => click({ key: carpeta , i, topic: 'derecho2' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
                                         </span>
-                                        : <span onClick={() => click({ href: userDB[userDB[`${carpeta}-derecho2`]][i].enlace ? userDB[userDB[`${carpeta}-derecho2`]][i].enlace : '#', target: userDB[userDB[`${carpeta}-derecho2`]][i].enlace ? "_blank" : '' })}>
+                                        : <span onClick={() => click({ href: userDB[`${carpeta}-derecho2`][i].enlace ? userDB[`${carpeta}-derecho2`][i].enlace : '#', target: userDB[`${carpeta}-derecho2`][i].enlace ? "_blank" : '' })}>
                                         <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
                                     </span>
                                 }
@@ -85,7 +85,7 @@ console.log(userDB[`${carpeta}-derecho1`])
                                     router.pathname == "/Admin" ?
                                         <span onClick={() => click({ key: carpeta, i, topic: 'derecho3' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
                                         </span>
-                                        : <span onClick={() => click({ href: userDB[userDB[`${carpeta}-derecho3`]][i].enlace ? userDB[userDB[`${carpeta}-derecho3`]][i].enlace : '#', target: userDB[userDB[`${carpeta}-derecho3`]][i].enlace ? "_blank" : '' })}>
+                                        : <span onClick={() => click({ href: userDB[`${carpeta}-derecho3`][i].enlace ? userDB[`${carpeta}-derecho3`][i].enlace : '#', target: userDB[`${carpeta}-derecho3`][i].enlace ? "_blank" : '' })}>
                                         <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
                                     </span>
                                 }
