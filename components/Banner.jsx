@@ -24,24 +24,17 @@ export default function Banner({ ruta, carpeta, click }) {
         nextArrow: <button style={{ ...buttonStyle }}></button>
     }
 
-
     function redirect(ruta) {
        ruta != '#' ? window.open(ruta, '_blank') : ''
     }
 
 
     return (
-        <div className={styles.containerFade} >
+        <div className={`${styles.containerFade} ${styles.containerFadeBanner}`} >
             {userDB[ruta] && postsIMG &&
+                <Zoom transitionDuration={800} duration={2000} scale={1.1}{...properties} indicators={true}>
 
-
-                <Zoom transitionDuration={800} duration={2000} scale={1.4}{...properties} indicators={true}>
-
-
-
-
-                    {
-                        Object.keys(userDB[ruta][carpeta]).map((i, index) =>
+                    {Object.keys(userDB[ruta][carpeta]).map((i, index) =>
                             <div className="each-slide" key={index}>
 
                                 <div>

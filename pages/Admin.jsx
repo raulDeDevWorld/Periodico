@@ -71,51 +71,39 @@ function Admin() {
     if (userDB.users && userDB.users[user.uid] == undefined) {
       router.replace('/Register')
       return
-    } 
+    }
   }, [userDB]);
 
   return (
     <Layout>
-    <div className={styles.container}>
-
-      {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
-
-      {success === "CompleteFORM" && <Error>Complete el formulario...</Error>}
-
-      {success === "CompleteFechaInit" && <Error>Complete la fecha de inicio...</Error>}
-      {success === "CompleteFechaFinish" && <Error>Complete la fecha final...</Error>}
-      {success === "CompleteIMG" && <Error>Añade una imagen...</Error>}
-      {success == "Cargando" && <Success>Cargando...</Success>}
-      <main className={styles.main}>
-
-
-
-        <div className={styles.containerLogout}>
-          
-          <span> <img src={postsIMG[`users/${user.uid}`]} className={styles.perfilIMG} alt="" />Bienvenido {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].name} </span>
-          <Button style="buttonPrimary" click={handlerLogout}>Logout</Button>
-        </div>
-
-        <Header></Header>
-       
-
-        <Section topic="Inicio" publicView={false} color='#8FC2C9'></Section>
-        <Section topic="Sociedad" publicView={false} color='#c98f8f'></Section>
-        <Section topic="Salud" publicView={false} color='#8FC2C9'></Section>
-        <Section topic="Seguridad" publicView={false} color='#c98f8f'></Section>
-        <Section topic="Politica" publicView={false} color='#8FC2C9'></Section>
-        <Section topic="Economia" publicView={false} color='#c98f8f'></Section>
-        <Section topic="Deportes" publicView={false} color='#8FC2C9'></Section>
-        <Section topic="GestionDeGobierno" publicView={false} color='#c98f8f'></Section>
-        <Section topic="Cultura" publicView={false} color='#8FC2C9'></Section>
-        <Section topic="Internacional" publicView={false} color='#c98f8f'></Section>
-        <Section topic="Opinion" publicView={false} color='#8FC2C9'></Section>
-
-
-        { userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <button className={styles.viewPeriodista} onClick={handlerViewPeriodista}>P</button>}
-
-      </main>
-    </div>
+      <>
+        {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
+        {success === "CompleteFORM" && <Error>Complete el formulario...</Error>}
+        {success === "CompleteFechaInit" && <Error>Complete la fecha de inicio...</Error>}
+        {success === "CompleteFechaFinish" && <Error>Complete la fecha final...</Error>}
+        {success === "CompleteIMG" && <Error>Añade una imagen...</Error>}
+        {success == "Cargando" && <Success>Cargando...</Success>}
+        
+        <main className={styles.main}>
+          <div className={styles.containerLogout}>
+            <span> <img src={postsIMG[`users/${user.uid}`]} className={styles.perfilIMG} alt="" />Bienvenido {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].name} </span>
+            <Button style="buttonPrimary" click={handlerLogout}>Logout</Button>
+          </div>
+          <Header></Header>
+          <Section topic="Inicio" publicView={false} color='#8FC2C9'></Section>
+          <Section topic="Sociedad" publicView={false} color='#c98f8f'></Section>
+          <Section topic="Salud" publicView={false} color='#8FC2C9'></Section>
+          <Section topic="Seguridad" publicView={false} color='#c98f8f'></Section>
+          <Section topic="Politica" publicView={false} color='#8FC2C9'></Section>
+          <Section topic="Economia" publicView={false} color='#c98f8f'></Section>
+          <Section topic="Deportes" publicView={false} color='#8FC2C9'></Section>
+          <Section topic="GestionDeGobierno" publicView={false} color='#c98f8f'></Section>
+          <Section topic="Cultura" publicView={false} color='#8FC2C9'></Section>
+          <Section topic="Internacional" publicView={false} color='#c98f8f'></Section>
+          <Section topic="Opinion" publicView={false} color='#8FC2C9'></Section>
+          {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <button className={styles.viewPeriodista} onClick={handlerViewPeriodista}>P</button>}
+        </main>
+      </>
     </Layout>
   )
 }

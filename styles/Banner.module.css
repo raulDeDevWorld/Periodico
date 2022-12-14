@@ -1,61 +1,57 @@
 .containerFade {
   position: relative;
-  width: 100%;
   margin: 5px 0;
   border-bottom: 5px solid white;
+
 }
-.boxShadow  {
+
+.containerFade img {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin: 0;
+  object-fit: contain;
+}
+
+.containerFadeBanner {
+  position: relative ;
+  display: block;
+  width: 100% ;
+  max-width: 70vw;
+}
+
+.containerFadeBanner img{
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.boxShadow {
   box-shadow: 0px 0px 10px 2px #007484;
   margin-bottom: 10px;
 }
-.containerFade button {
-}
 
-
-
-.containerFadeLeft > :nth-child(1), .containerFadeRight > :nth-child(1) {
+.containerFadeLeft > :nth-child(1),
+.containerFadeRight > :nth-child(1) {
   position: relative;
   height: auto;
-
-}
-.containerFadeLeft > :nth-child(1) > :nth-child(1) {
-  position: relative;
-  height: auto;
-
-}
-.containerFadeRight > :nth-child(1) > :nth-child(1) {
-  position: relative;
-  height: auto;
-
 }
 
- .containerFadeLeft :nth-child(n), .containerFadeRight :nth-child(n)  {
+.containerFade > :nth-child(n),
+.containerFadeLeft :nth-child(n),
+.containerFadeRight :nth-child(n) {
   margin: 0;
+  padding: 0;
 }
 
-.containerFade ul, .containerFadeLeft ul, .containerFadeRight ul {
+.containerFade ul,
+.containerFadeLeft ul,
+.containerFadeRight ul {
   position: absolute;
   width: 100%;
   bottom: 0px;
   padding: 0;
   z-index: 1000000000000000;
-}
-
-
-
-
-.containerFade> :nth-child(n) {
-  padding: 0;
-  margin: 0;
-
-}
-
-.containerFade img {
-  display: block;
-  cursor: pointer;
-  margin: 0;
-  width: 101%;
-  object-fit: contain;
 }
 
 
@@ -69,26 +65,6 @@
   box-shadow: 0px 0px 1px black;
 }
 
-.containerFadeLeft span {
-  width: 15vw;
-  display: flex;
-  justify-content: center;
-}
-.containerFadeLeft span img {
-
-  display: block;
-  cursor: pointer;
-  margin: 0;
-  width: 80%;
-  max-height: 70vh;
-  object-fit: contain;
-  object-position: top;
-}
-
-
-
-
-
 .containerFadeRight {
   padding-top: 2px;
   right: 0;
@@ -96,15 +72,17 @@
   height: auto;
   z-index: 10000;
   box-shadow: 0px 0px 1px black;
-
 }
 
+.containerFadeLeft span,
 .containerFadeRight span  {
   width: 15vw;
   display: flex;
   justify-content: center;
 }
-.containerFadeRight span img {
+
+.containerFadeLeft span img,
+.containerFadeRight span img  {
   display: block;
   cursor: pointer;
   margin: 0;
@@ -113,10 +91,6 @@
   object-fit: contain;
   object-position: top;
 }
-
-
-
-
 
 .containerFade .sliderWhatsapp {
   right: 5px;
@@ -126,26 +100,10 @@
   cursor: pointer;
   position: absolute;
   z-index: 10000;
-
 }
 
-.sliderIMG {
-  display: block;
-  cursor: pointer;
-  margin: 0;
-  width: 101%;
-  object-fit: contain;
-}
-
-
-
-@media (max-width: 1050px) and (orientation: portrait){
+@media (max-width: 1050px) and (orientation: portrait) {
   .containerFadeLeft {
-  
-
-
-
-
     position: fixed;
     padding-top: 2px;
     top: 35vh;
@@ -157,16 +115,11 @@
     box-shadow: 0px 0px 1px black;
   }
 
-
-
-
   .containerFadeLeft span {
     width: 15vw;
     display: flex;
     justify-content: center;
   }
-
-
 
   .containerFadeLeft span img {
     display: block;
@@ -177,16 +130,62 @@
     object-fit: contain;
     object-position: top;
   }
-  
 }
-
 
 @media (max-width: 850px) and (orientation: portrait) {
-  
-  .containerFadeLeft {
-display: none;
-  }
+
+  .containerFadeLeft,  
   .containerFadeRight {
     display: none;
-      }
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+/* .sliderIMG {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+  width: 101%;
+  object-fit: contain;
+} */
+
+
+
+/* 
+.containerFadeLeft > :nth-child(1)> :nth-child(1) {
+  position: relative;
+  height: auto;
+
+}
+
+.containerFadeRight> :nth-child(1)> :nth-child(1) {
+  position: relative;
+  height: auto;
+
+} */
+
+/* .containerFadeRight span {
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+} */
+
+/* .containerFadeRight span img {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+  width: 80%;
+  max-height: 70vh;
+  object-fit: contain;
+  object-position: top;
+} */
