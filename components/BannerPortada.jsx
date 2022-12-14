@@ -42,7 +42,7 @@ export default function Banner({ ruta, carpeta, click }) {
                                     {
                                         router.pathname === "/Admin" ?
                                             <span onClick={() => click({ key: carpeta, i, topic: 'cabecera1' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                            : <span onClick={() => redirect(userDB[`${carpeta}-derecha1`][i].enlace ? userDB[`${carpeta}-cabecera1`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                            : <span onClick={() => redirect(userDB[`${carpeta}-cabecera1`][i].enlace ? userDB[`${carpeta}-cabecera1`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
                                     }
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ export default function Banner({ ruta, carpeta, click }) {
                                     {
                                         router.pathname === "/Admin" ?
                                             <span onClick={() => click({ key: carpeta, i, topic: 'cabecera2' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                            : <span onClick={() => redirect(userDB[`${carpeta}-derecha2`][i].enlace ? userDB[`${carpeta}-cabecera2`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                            : <span onClick={() => redirect(userDB[`${carpeta}-cabecera2`][i].enlace ? userDB[`${carpeta}-cabecera2`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
                                     }
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ export default function Banner({ ruta, carpeta, click }) {
                                     {
                                         router.pathname === "/Admin" ?
                                             <span onClick={() => click({ key: carpeta, i, topic: 'cabecera3' })}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
-                                            : <span onClick={() => redirect(userDB[`${carpeta}-derecha3`][i].enlace ? userDB[`${carpeta}-cabecera3`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
+                                            : <span onClick={() => redirect(userDB[`${carpeta}-cabecera3`][i].enlace ? userDB[`${carpeta}-cabecera3`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`${carpeta}/${i}`]} /></span>
                                     }
                                 </div>
                             </div>
