@@ -76,13 +76,8 @@ function Admin() {
 
   return (
     <Layout>
-      <>
-        {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
-        {success === "CompleteFORM" && <Error>Complete el formulario...</Error>}
-        {success === "CompleteFechaInit" && <Error>Complete la fecha de inicio...</Error>}
-        {success === "CompleteFechaFinish" && <Error>Complete la fecha final...</Error>}
-        {success === "CompleteIMG" && <Error>Añade una imagen...</Error>}
-        {success == "Cargando" && <Success>Cargando...</Success>}
+
+        
         
         <main className={styles.main}>
           <div className={styles.containerLogout}>
@@ -103,7 +98,14 @@ function Admin() {
           <Section topic="Opinion" publicView={false} color='#8FC2C9'></Section>
           {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <button className={styles.viewPeriodista} onClick={handlerViewPeriodista}>P</button>}
         </main>
-      </>
+   
+
+      {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
+        {success === "CompleteFORM" && <Error>Complete el formulario...</Error>}
+        {success === "CompleteFechaInit" && <Error>Complete la fecha de inicio...</Error>}
+        {success === "CompleteFechaFinish" && <Error>Complete la fecha final...</Error>}
+        {success === "CompleteIMG" && <Error>Añade una imagen...</Error>}
+        {success == "Cargando" && <Success>Cargando...</Success>}
     </Layout>
   )
 }

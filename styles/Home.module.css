@@ -15,6 +15,24 @@
 .container :nth-child(3) {
   grid-column: 2/4;
 } */
+
+
+.main {
+  position: relative;
+
+  top: 0;
+  background-color: white;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px 2px #007484;
+  z-index: 100;
+}
 .video {
   width: 60%;
 }
@@ -79,24 +97,7 @@
   color: brown;
 }
 
-.main {
-  position: relative;
 
-  top: 0;
-  background-color: white;
-  margin: 0;
-  width: 100%;
-  min-height: 100vh;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 10px 2px #007484;
-    z-index: 100;
-
-  
-}
 
 .gridIMG {
   width: 70vw;

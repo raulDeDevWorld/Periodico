@@ -93,7 +93,6 @@ function Layout({ children }) {
             </div>
             <main>{children}</main>
             {dataEditor && <Modal post={dataEditor.key} topic={dataEditor.topic} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
-
         </div>
 
     )
