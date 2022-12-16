@@ -69,7 +69,7 @@ export default function Form() {
       title: 'Banner derecho 3'
     },
   ]
- 
+
 
   function handleCheck(e) {
     const value = e.target.value
@@ -94,7 +94,9 @@ export default function Form() {
 
       <div className={style.formInputs}>
         {items.map((item, index) =>
-          check == item.id && <FormAddsC ruteDB={item.ruteDB} ruteSTG={item.ruteSTG} id={item.id} title={item.title} />
+          <>
+{            check == item.id && <FormAddsC ruteDB={item.ruteDB} ruteSTG={item.ruteSTG} id={item.id} title={item.title} />
+}          </>
         )}
       </div>
     </div>
