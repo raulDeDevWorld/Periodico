@@ -91,14 +91,16 @@ export default function Form() {
           </div>
         )}
       </form>
+      {items.map((item, index) =>
+        <div className={style.formInputs} key={index}>
 
-      <div className={style.formInputs}>
-        {items.map((item, index) =>
-          <>
-{            check == item.id && <FormAddsC ruteDB={item.ruteDB} ruteSTG={item.ruteSTG} id={item.id} title={item.title} />
-}          </>
-        )}
-      </div>
+  
+            {check == item.id && <FormAddsC ruteDB={item.ruteDB} ruteSTG={item.ruteSTG} id={item.id} title={item.title} />}
+            
+
+        </div>
+      )}
+
     </div>
 
 
