@@ -93,6 +93,7 @@ function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG, onlyData)
     getList( 'BannerLeft/', postsIMG, setUserPostsIMG)    
     getList( 'BannerRight/', postsIMG, setUserPostsIMG)
     getList( 'users/', postsIMG, setUserPostsIMG)
+    getList( 'Banners/', postsIMG, setUserPostsIMG)
         } else {
           setUserData('');
         }

@@ -5,15 +5,19 @@ import Modal from './Modal'
 import { downloadIMG } from '../firebase/storage'
 import styles from '../styles/Template.module.css'
 import { useRouter } from 'next/router'
+
 import Link from 'next/link'
 
 
 
-function TemplateThreeA({ color, topic, post1, post2, post3, description1, description2, description3, objectPosition1, objectPosition2, objectPosition3 }) {
+
+function TemplateFour({ color, topic, post1, post2, post3, post4, description1, description2, description3, description4,
+    objectPosition1, objectPosition2, objectPosition3, objectPosition4 }) {
+
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
     const router = useRouter()
     const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-    
+
 
     const [elements, setElements] = useState(false)
     const [dataForDate, setDataForDate] = useState([])
@@ -36,13 +40,15 @@ function TemplateThreeA({ color, topic, post1, post2, post3, description1, descr
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO':topic.toUpperCase()}</h4></div>}
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
+
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>}
+
             <div className={`${styles.gridThreeA} ${elements == true && styles.allVisible}`}>
             {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
                     userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
 
                         {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
-                        {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
+                        {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, carpeta: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
 
                         <Link href={userDB[topic]["Posts"][`PostImage_${i}`]['enlace']} legacyBehavior>
                             <a target={userDB[topic]["Posts"][`PostImage_${i}`]['enlace'].includes('http') ? '_blanck' : ''}><img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${userDB[topic]["Posts"][`PostImage_${i}`]['objectFit']}` }} /></a>
@@ -53,10 +59,11 @@ function TemplateThreeA({ color, topic, post1, post2, post3, description1, descr
 
                 )}
             </div>
+
             {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}
-            {dataEditor && <Modal post={dataEditor.key} topic={topic} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
+            {dataEditor && <Modal topic={topic} carpeta={dataEditor.carpeta}  i={dataEditor.i} close={handlerClickEnlace} ></Modal>}
 
         </section>
     )
 }
-export default TemplateThreeA
+export default TemplateFour

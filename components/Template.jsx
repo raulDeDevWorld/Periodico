@@ -8,14 +8,13 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 
-function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
-    description1, description2, description3, description4, description5, description6,
-    objectPosition1, objectPosition2, objectPosition3, objectPosition4, objectPosition5, objectPosition6 }) {
 
+function Template ({ color, topic }) {
+    
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
     const router = useRouter()
     const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-
+    
 
     const [elements, setElements] = useState(false)
     const [dataForDate, setDataForDate] = useState([])
@@ -25,9 +24,9 @@ function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
         setElements(!elements)
     }
 
-    function handlerClickEnlace(info) {
-        router.pathname != "/Admin" && info.i !== undefined && router.push("/" + userDB[topic]["Posts"][`PostImage_${info.i}`])
-        router.pathname == "/Admin" && setDataEditor(info)
+    function handlerClickEnlace(i) {
+        router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
+        router.pathname == "/Admin" && setDataEditor(i)
     }
 
     useEffect(() => {
@@ -39,31 +38,30 @@ function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
 
-            {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>
-            }
+            {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>}
 
-            <div className={`${styles.gridEight} ${elements == true && styles.allVisible}`} style={{backgroundColor: color}}>
+            <div className={`${styles['gridThreeB']} ${elements == true && styles.allVisible}`}>
 
-                {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
-                    userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
+            {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
+                    userDB[topic]["Posts"] && userDB[topic]["Posts"][i] && <div key={index} >
 
-                        {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
+                        {userDB[topic]["Posts"][i]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
                         {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, carpeta: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
 
-                        <Link href={userDB[topic]["Posts"][`PostImage_${i}`]['enlace']} legacyBehavior>
-                            <a target={userDB[topic]["Posts"][`PostImage_${i}`]['enlace'].includes('http') ? '_blanck' : ''}><img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${userDB[topic]["Posts"][`PostImage_${i}`]['objectFit']}` }} /></a>
+                        <Link href={userDB[topic]["Posts"][i]['enlace']} legacyBehavior>
+                            <a target={userDB[topic][i]['enlace'].includes('http') ? '_blanck' : ''}><img src={postsIMG[i]} style={{ objectPosition: `${userDB[topic]["Posts"][i]['objectFit']}` }} /></a>
                         </Link>
 
-                        {userDB[topic]["Posts"][`PostImage_${i}`]['description'] && <p className={styles.description}>{userDB[topic]["Posts"][`PostImage_${i}`]['description']}</p>}
+                        {userDB[topic]["Posts"][i]['description'] && <p className={styles.description}>{userDB[topic]["Posts"][i]['description']}</p>}
                     </div>
-
                 )}
-
             </div>
 
             {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}
+            
             {dataEditor && <Modal topic={topic} carpeta={dataEditor.carpeta}  i={dataEditor.i} close={handlerClickEnlace} ></Modal>}
+
         </section>
     )
 }
-export default TemplateSix 
+export default Template

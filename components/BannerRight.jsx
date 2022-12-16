@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 
-export default function Banner({ ruta, carpeta, click }) {
+export default function Banner({ carpeta, items, click }) {
 
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
     // console.log(userDB[ruta])
@@ -25,82 +25,31 @@ export default function Banner({ ruta, carpeta, click }) {
         nextArrow: <button style={{ ...buttonStyle }}></button>
     }
 
-console.log(userDB[`${carpeta}-derecho1`])
+    console.log(userDB[`${carpeta}-derecho1`])
     return (
         <>
-         <div className={styles.containerFadeRight} >
-            {userDB[`${carpeta}-derecho1`] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4} {...properties} indicators={true}>
-                {
-                    Object.keys(userDB[`${carpeta}-derecho1`]).map((i, index) =>
-                        <div className="each-slide" key={index} >
-                            
-                            <div>
-                                {
-                                    router.pathname == "/Admin" ?
-                                        <span onClick={() => click({ key: carpeta , i, topic: 'derecho1' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
-                                        </span>
-                                        : <span onClick={() => click({ href: userDB[`${carpeta}-derecho1`][i].enlace ? userDB[`${carpeta}-derecho1`][i].enlace : '#', target: userDB[`${carpeta}-derecho1`][i].enlace ? "_blank" : '' })}>
-                                        <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
-                                    </span>
-                                }
-                    
-
-                            </div>
-                        </div>
-                    )}
-            </Fade>
+            {
+                items.map((item,) =>
+                    userDB[`${carpeta}${item}`] && postsIMG && <div className={`${styles.containerFadeRight}`} >
+                        <Fade transitionDuration={800} duration={2000} scale={1}{...properties} indicators={true}>
+                            {
+                                Object.keys(userDB[`${carpeta}${item}`]).map((i, index) =>
+                                    <div className="each-slide" key={index} >
+                                        <div>
+                                            {
+                                                router.pathname === "/Admin" ?
+                                                    <span onClick={() => click({ carpeta, item, i })}><img className={styles.sliderIMG} src={postsIMG[`Banners/${i}`]} /></span>
+                                                    : <span onClick={() => redirect(userDB[`${carpeta}${item}`][i].enlace ? userDB[`${carpeta}${item}`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`Banners/${i}`]} /></span>
+                                            }
+                                        </div>
+                                    </div>
+                                )}
+                        </Fade>
+                    </div>
+                )
             }
-        </div>
-        <div className={styles.containerFadeRight} >
-            {userDB[`${carpeta}-derecho2`] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4} {...properties} indicators={true}>
-                {
-                    Object.keys(userDB[`${carpeta}-derecho2`]).map((i, index) =>
-                        <div className="each-slide" key={index} >
-                            
-                            <div>
-                                {
-                                    router.pathname == "/Admin" ?
-                                        <span onClick={() => click({ key: carpeta , i, topic: 'derecho2' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
-                                        </span>
-                                        : <span onClick={() => click({ href: userDB[`${carpeta}-derecho2`][i].enlace ? userDB[`${carpeta}-derecho2`][i].enlace : '#', target: userDB[`${carpeta}-derecho2`][i].enlace ? "_blank" : '' })}>
-                                        <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
-                                    </span>
-                                }
-
-                            </div>
-                        </div>
-                    )}
-            </Fade>
-            }
-        </div>
-      
-        <div className={styles.containerFadeRight} >
-            {userDB[`${carpeta}-derecho3`] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4} {...properties} indicators={true}>
-                {
-                    Object.keys(userDB[`${carpeta}-derecho3`]).map((i, index) =>
-                        <div className="each-slide" key={index} >
-                            
-                            <div>
-                                {
-                                    router.pathname == "/Admin" ?
-                                        <span onClick={() => click({ key: carpeta, i, topic: 'derecho3' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} /> 
-                                        </span>
-                                        : <span onClick={() => click({ href: userDB[`${carpeta}-derecho3`][i].enlace ? userDB[`${carpeta}-derecho3`][i].enlace : '#', target: userDB[`${carpeta}-derecho3`][i].enlace ? "_blank" : '' })}>
-                                        <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
-                                    </span>
-                                }
-
-                            </div>
-                        </div>
-                    )}
-            </Fade>
-            }
-        </div>
-        
-        
-        
         </>
-        )
+    )
 }
 
 

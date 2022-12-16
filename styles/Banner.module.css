@@ -1,19 +1,12 @@
+
 .containerFade {
   margin: 5px 0;
   border-bottom: 5px solid white;
-}
-
-.containerFade img {
-  position: relative;
-  display: block;
-  cursor: pointer;
-  margin: 0;
-  object-fit: contain;
   width: 100%;
-
 }
 
 .containerFadeBanner {
+  position: relative;
   padding: 0;
   padding-top: 2px;
   border: none;
@@ -25,14 +18,15 @@
 
 }
 
-.containerFadeBanner img {
+.containerFade img, .containerFadeBanner img {
   position: relative;
   height: auto;
   width: 100%;
 
+
 }
 
-.containerFadeBanner> :nth-child(1) {
+.containerFade> :nth-child(1), .containerFadeBanner> :nth-child(1) {
   position: relative;
   height: auto;
 }
@@ -162,44 +156,3 @@
 
 
 
-
-
-
-/* .sliderIMG {
-  display: block;
-  cursor: pointer;
-  margin: 0;
-  width: 101%;
-  object-fit: contain;
-} */
-
-
-
-/* 
-.containerFadeLeft > :nth-child(1)> :nth-child(1) {
-  position: relative;
-  height: auto;
-
-}
-
-.containerFadeRight> :nth-child(1)> :nth-child(1) {
-  position: relative;
-  height: auto;
-
-} */
-
-/* .containerFadeRight span {
-  width: 15vw;
-  display: flex;
-  justify-content: center;
-} */
-
-/* .containerFadeRight span img {
-  display: block;
-  cursor: pointer;
-  margin: 0;
-  width: 80%;
-  max-height: 70vh;
-  object-fit: contain;
-  object-position: top;
-} */

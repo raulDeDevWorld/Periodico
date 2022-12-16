@@ -5,13 +5,15 @@ import Modal from './Modal'
 import { downloadIMG } from '../firebase/storage'
 import styles from '../styles/Template.module.css'
 import { useRouter } from 'next/router'
+
 import Link from 'next/link'
 
 
 
-function TemplateFive({ color, topic, post1, post2, post3, post4, post5,
-    description1, description2, description3, description4, description5,
-    objectPosition1, objectPosition2, objectPosition3, objectPosition4, objectPosition5 }) {
+
+function TemplateFour({ color, topic, post1, post2, post3, post4, description1, description2, description3, description4,
+    objectPosition1, objectPosition2, objectPosition3, objectPosition4 }) {
+
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
     const router = useRouter()
     const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
@@ -25,9 +27,9 @@ function TemplateFive({ color, topic, post1, post2, post3, post4, post5,
         setElements(!elements)
     }
 
-    function handlerClickEnlace(info) {
-        router.pathname != "/Admin" && info.i !== undefined && router.push("/" + userDB[topic]["Posts"][`PostImage_${info.i}`])
-        router.pathname == "/Admin" && setDataEditor(info)
+    function handlerClickEnlace(i) {
+        router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
+        router.pathname == "/Admin" && setDataEditor(i)
     }
 
     useEffect(() => {
@@ -39,7 +41,6 @@ function TemplateFive({ color, topic, post1, post2, post3, post4, post5,
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
 
-
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>}
 
             <div className={`${styles.gridFive} ${elements == true && styles.allVisible}`}>
@@ -47,7 +48,7 @@ function TemplateFive({ color, topic, post1, post2, post3, post4, post5,
                     userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
 
                         {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
-                        {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, key: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
+                        {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, carpeta: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
 
                         <Link href={userDB[topic]["Posts"][`PostImage_${i}`]['enlace']} legacyBehavior>
                             <a target={userDB[topic]["Posts"][`PostImage_${i}`]['enlace'].includes('http') ? '_blanck' : ''}><img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${userDB[topic]["Posts"][`PostImage_${i}`]['objectFit']}` }} /></a>
@@ -58,17 +59,13 @@ function TemplateFive({ color, topic, post1, post2, post3, post4, post5,
 
                 )}
             </div>
+
             {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}
-            {dataEditor && <Modal post={dataEditor.key} topic={topic} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
+            {dataEditor && <Modal topic={topic} carpeta={dataEditor.carpeta}  i={dataEditor.i} close={handlerClickEnlace} ></Modal>}
 
         </section>
     )
 }
-export default TemplateFive
-
-
-
-
-
+export default TemplateFour
 
 

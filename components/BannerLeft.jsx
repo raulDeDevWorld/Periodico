@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 
-export default function Banner({ ruta, carpeta, click }) {
+export default function Banner({ carpeta, items, click }) {
 
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
     const router = useRouter()
@@ -24,89 +24,50 @@ export default function Banner({ ruta, carpeta, click }) {
         nextArrow: <button style={{ ...buttonStyle }}></button>
     }
 
-
-
-    // console.log(userDB)
-
-    
-
     return (
-        <>
-            <div className={styles.containerFadeLeft} >
-                {userDB[`${carpeta}-izquierdo1`] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4}{...properties} indicators={true}>
-                    {
-                        Object.keys(userDB[`${carpeta}-izquierdo1`]).map((i, index) =>
-                            <div className="each-slide" key={index} >
-                                {console.log(i)}
-                                <div>
-                                    {
-                                        router.pathname == "/Admin" ?
-                                            <span onClick={() => click({ key: carpeta, i, topic: 'izquierdo1' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${`${carpeta}`}/${i}`]} /></span>
-                                            : <span onClick={() => click({ href: userDB[`${carpeta}-izquierdo1`][i].enlace ? userDB[`${carpeta}-izquierdo1`][i].enlace : '#', target: userDB[`${carpeta}-izquierdo1`][i].enlace ? "_blank" : '' })}>
-                                                <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
-                                            </span>
-                                    }
-                                    {/*<Link href={`https://api.whatsapp.com/send?phone=${userDB[carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
-                                    <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
-                            </Link>*/}
-
+        <>{
+            items.map((item,) =>
+                userDB[`${carpeta}${item}`] && postsIMG && <div className={`${styles.containerFadeLeft}`} >
+                    <Fade transitionDuration={800} duration={2000} scale={1}{...properties} indicators={true}>
+                        {
+                            Object.keys(userDB[`${carpeta}${item}`]).map((i, index) =>
+                                <div className="each-slide" key={index} >
+                                    <div>
+                                        {
+                                            router.pathname === "/Admin" ?
+                                                <span onClick={() => click({ carpeta, item, i })}><img className={styles.sliderIMG} src={postsIMG[`Banners/${i}`]} /></span>
+                                                : <span onClick={() => redirect(userDB[`${carpeta}${item}`][i].enlace ? userDB[`${carpeta}${item}`][i].enlace : '#')}><img className={styles.sliderIMG} src={postsIMG[`Banners/${i}`]} /></span>
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                </Fade>}
-            </div>
+                            )}
+                    </Fade>
+                </div>
+            )
+        }
 
-            {console.log(userDB)}
-            <div className={styles.containerFadeLeft} >
-                {userDB[`${carpeta}-izquierdo2`] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4}{...properties} indicators={true}>
-                    {
-                        Object.keys(userDB[`${carpeta}-izquierdo2`]).map((i, index) =>
-                            <div className="each-slide" key={index} >
-                                {console.log(i)}
-                                <div>
-                                    {
-                                        router.pathname == "/Admin" ?
-                                            <span onClick={() => click({ key: carpeta, i, topic: 'izquierdo2' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${`${carpeta}`}/${i}`]} /></span>
-                                            : <span onClick={() => click({ href: userDB[`${carpeta}-izquierdo2`][i].enlace ? userDB[`${carpeta}-izquierdo2`][i].enlace : '#', target: userDB[`${carpeta}-izquierdo2`][i].enlace ? "_blank" : '' })}>
-                                                <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
-                                            </span>
-                                    }
-                                    {/*<Link href={`https://api.whatsapp.com/send?phone=${userDB[carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
-                                    <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
-                            </Link>*/}
-
-                                </div>
-                            </div>
-                        )}
-                </Fade>}
-            </div>
-
-            <div className={styles.containerFadeLeft} >
-                {userDB[`${carpeta}-izquierdo3`] && postsIMG && <Fade transitionDuration={800} duration={2000} scale={1.4}{...properties} indicators={true}>
-                    {
-                        Object.keys(userDB[`${carpeta}-izquierdo3`]).map((i, index) =>
-                            <div className="each-slide" key={index} >
-                                {console.log(i)}
-                                <div>
-                                    {
-                                        router.pathname == "/Admin" ?
-                                            <span onClick={() => click({ key: carpeta, i, topic: 'izquierdo3' })}><img className={styles.sliderIMGLeft} src={postsIMG[`${`${carpeta}`}/${i}`]} /></span>
-                                            : <span onClick={() => click({ href: userDB[`${carpeta}-izquierdo3`][i].enlace ? userDB[`${carpeta}-izquierdo3`][i].enlace : '#', target: userDB[`${carpeta}-izquierdo3`][i].enlace ? "_blank" : '' })}>
-                                                <img className={styles.sliderIMGLeft} src={postsIMG[`${carpeta}/${i}`]} />
-                                            </span>
-                                    }
-                                    {/*<Link href={`https://api.whatsapp.com/send?phone=${userDB[carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
-                                    <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
-                            </Link>*/}
-
-                                </div>
-                            </div>
-                        )}
-                </Fade>}
-            </div>
         </>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*<Link href={`https://api.whatsapp.com/send?phone=${userDB[carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
+                                    <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
+                            </Link>*/}
 
 
 {/* <div className={styles.containerFadeLeft} >

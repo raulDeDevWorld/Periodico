@@ -1,12 +1,7 @@
-.form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 10px;
-}
+
 
 .formSelectAdds {
+    width: 70%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -67,7 +62,7 @@
     margin: 10px 5px;
 }
 
-.formInputs  input {
+.formSelectAdds  input {
     width: 100%;
     margin-bottom: 5px;
     padding: 5px 5px;
@@ -88,10 +83,12 @@
     margin-bottom: 5px;
     padding: 0;
 }
-.formInputs input::placeholder {
+
+.formSelectAdds input::placeholder {
     color: brown
 }
-.formInputs label {
+
+.formSelectAdds label {
     display: inline-block;
     width: 100%;
     padding: 2px 0;
