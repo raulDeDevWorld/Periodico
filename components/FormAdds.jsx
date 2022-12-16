@@ -79,7 +79,7 @@ export default function Form() {
     <div className={style.form}>
       <form className={style.formChecks}>
         {items.map((item, index) =>
-          <div>
+          <div key={index}>
             <input
               type="radio"
               onChange={handleCheck}
