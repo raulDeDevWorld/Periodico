@@ -8,7 +8,7 @@ import Success from '../components/Success'
 import Section from '../components/Section'
 import Date from '../components/Date'
 import Layout from '../layout/Layout'
-
+import TextEditor from '../components/TextEditor'
 import { handleSignOut } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
 import { useRouter } from 'next/router'
@@ -134,14 +134,15 @@ function TemplateOne() {
                                 <span onClick={() => getSelectionHandler('IMG')}>IMG</span>
 
                             </div>
-                            <textarea id="paragraph" name="paragraph" cols="30" rows="10" onSelect={currentSelection} onChange={handlerOnChange} value={data.paragraph && data.paragraph}></textarea>
+                     <TextEditor></TextEditor>
+
+                            {/* <textarea id="paragraph" name="paragraph" cols="30" rows="10" onSelect={currentSelection} onChange={handlerOnChange} value={data.paragraph && data.paragraph}></textarea> */}
                             <div className={styles.buttonsContainer}>
                                 <Button style="miniButtonPrimary"> Guardar</Button>
                                 <Button style="miniButtonPrimary"> Publicar</Button>
                             </div>
 
                         </form>
-
                         <div className={styles.viewer}>
                             <img className={styles.bannerIntroIMG} src="portada.jpg" alt="Vercel Logo" />
                             <div className={styles.flex}>
