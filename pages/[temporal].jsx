@@ -13,14 +13,18 @@ import { handleSignOut } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-
 import parse from 'html-react-parser';
 
-import styles from '../styles/TemplatePage.module.css'
+import styles from '../styles/Temporal.module.css'
 
+import 'react-quill/dist/quill.snow.css';
 
+import dynamic from 'next/dynamic'
 
-
+const ReactQuill = dynamic(()=>import('../components/content'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
 
 
 function TemplateOne() {
@@ -29,6 +33,9 @@ function TemplateOne() {
     const [arr, setArr] = useState([])
 
     const [data, setData] = useState({ paragraph: "" })
+    const [textEditor, setTextEditor] = useState("")
+    const [value, setValue] = useState('');
+
     const [formViewer, setFormViewer] = useState(true)
     const [image, setImage] = useState({})
 
@@ -37,8 +44,18 @@ function TemplateOne() {
     const [endParagraph, setEndParagraph] = useState("")
 
 
+    const [formats, setFormats] = useState([
+        'font','size',
+        'bold','italic','underline','strike',
+        'color','background',
+        'script',
+        'header','blockquote','code-block',
+        'indent','list',
+        'direction','align',
+        'link','image','video','formula',
+      ]);
 
-    console.log(selection)
+
 
 
 
@@ -48,28 +65,12 @@ function TemplateOne() {
 
         setData({ ...data, [name]: value })
     }
-
-
-    const currentSelection = e => {
-
-        setFirstParagraph(data.paragraph.substring(0, e.target.selectionStart))
-        setSelection(e.target.value.substring(e.target.selectionStart, e.target.selectionEnd))
-        setEndParagraph(data.paragraph.substring(e.target.selectionEnd))
+    function handlerTextEditorOnChange (content, delta, source, editor) {
+        console.log(editor.getHTML())
+        setTextEditor(editor.getHTML())
     }
 
-    const getSelectionHandler = (letter) => {
-        letter === "N" ? setData({ ...data, paragraph: `${firstParagraph}<b>${selection}</b>${endParagraph}` }) : ""
-        letter === "K" ? setData({ ...data, paragraph: `${firstParagraph}<i>${selection}</i>${endParagraph}` }) : ""
-        letter === "U" ? setData({ ...data, paragraph: `${firstParagraph}<u>${selection}</u>${endParagraph}` }) : ""
-        letter === "L" ? setData({ ...data, paragraph: `${firstParagraph}<a href="" target="_blank">${selection}</a>${endParagraph}` }) : ""
-        letter === "S" ? setData({ ...data, paragraph: `${firstParagraph}<br/>${endParagraph}` }) : ""
-        letter === "IMG" ? setData({
-            ...data, paragraph: `${firstParagraph}<img style={{witdh: "100%"}} src="" alt="" />
-        ${endParagraph}`
-        }) : ""
-
-
-    };
+   console.log(value)
 
     function manageInputIMG(e) {
         const fileName = `${e.target.name}`
@@ -88,16 +89,6 @@ function TemplateOne() {
     return (
 
         <Layout>
-
-
-
-
-
-
-
-
-
-
 
          
                 <main className={styles.main}>
@@ -125,24 +116,17 @@ function TemplateOne() {
                             <input type="file" id="Image" name="Image" onChange={manageInputIMG} />
 
                             <label htmlFor="paragraph">Redactar contenido</label>
-                            <div className={styles.toolsContainer}>
-                                <span onClick={() => getSelectionHandler('N')}><b>N</b></span>
-                                <span onClick={() => getSelectionHandler('K')}><i>K</i></span>
-                                <span onClick={() => getSelectionHandler('U')}><u>U</u></span>
-                                <span onClick={() => getSelectionHandler('L')}>↳</span>
-                                <span onClick={() => getSelectionHandler('S')}>S</span>
-                                <span onClick={() => getSelectionHandler('IMG')}>IMG</span>
-
-                            </div>
-                     <TextEditor></TextEditor>
+                           
+                     <TextEditor setValue={handlerTextEditorOnChange} value={textEditor}></TextEditor>
 
                             {/* <textarea id="paragraph" name="paragraph" cols="30" rows="10" onSelect={currentSelection} onChange={handlerOnChange} value={data.paragraph && data.paragraph}></textarea> */}
-                            <div className={styles.buttonsContainer}>
+                            {/* <div className={styles.buttonsContainer}>
                                 <Button style="miniButtonPrimary"> Guardar</Button>
                                 <Button style="miniButtonPrimary"> Publicar</Button>
-                            </div>
+                            </div> */}
 
                         </form>
+
                         <div className={styles.viewer}>
                             <img className={styles.bannerIntroIMG} src="portada.jpg" alt="Vercel Logo" />
                             <div className={styles.flex}>
@@ -150,11 +134,8 @@ function TemplateOne() {
                                 <p className={styles.description}>{data.Description}</p>
                                 <img src={image.url} className={styles.image} alt="" />
                                 <h4 className={styles.subtitle}>{data.Subtitle}</h4>
-                                <p className={styles.paragraphText}>
-                                    {parse(`${data.paragraph}`)}
-                                </p>
+                                <  ReactQuill textEditor={textEditor} />
                             </div>
-                            <img src='/publicidad.jpg' className={styles.publicidad} alt="" />
                             {formViewer == false ? <span className={styles.formViewer} onClick={formViewerHandler}>▷</span> : ''}
                         </div>
                     </div>
