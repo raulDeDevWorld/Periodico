@@ -36,18 +36,18 @@ function TemplateFour({ color, topic, post1, post2, post3, post4, description1, 
         userDB[topic] && userDB[topic]["Posts"] && setDataForDate(Object.keys(userDB[topic]["Posts"]).map(i => { const newI = i.split('_'); return new Date(newI[1]) }).sort((a, b) => b - a))
     }, [userDB, postsIMG]);
     return (
-        <section className={styles.section} id={topic} style={{backgroundColor: color}}>
-            {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO':topic.toUpperCase()}</h4></div>}
+        <section className={styles.section} id={topic} style={{ backgroundColor: color }}>
+            {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO' : topic.toUpperCase()}</h4></div>}
 
             {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
 
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>}
 
             <div className={`${styles.gridSix} ${elements == true && styles.allVisible}`}>
-            {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
+                {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
                     userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
 
-                        {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
+                        {/* {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} */}
                         {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, carpeta: 'Post' })}>{`${i.getDate()}-${months[i.getMonth()]} ${i.getHours()}:${i.getMinutes()}`}</span>}
 
                         <Link href={userDB[topic]["Posts"][`PostImage_${i}`]['enlace']} legacyBehavior>
@@ -61,7 +61,7 @@ function TemplateFour({ color, topic, post1, post2, post3, post4, description1, 
             </div>
 
             {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}
-            {dataEditor && <Modal topic={topic} carpeta={dataEditor.carpeta}  i={dataEditor.i} close={handlerClickEnlace} ></Modal>}
+            {dataEditor && <Modal topic={topic} carpeta={dataEditor.carpeta} i={dataEditor.i} close={handlerClickEnlace} ></Modal>}
 
         </section>
     )

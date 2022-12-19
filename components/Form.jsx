@@ -43,23 +43,69 @@ export default function Form({ topic, value, color }) {
     setData({ ...data, ...object })
   }
 
-  function save(e, key) {
+
+  function validator(e) {
     e.preventDefault()
+
+    switch (topic) {
+      case "Inicio":
+        return save(11)
+        break;
+      case "Sociedad": 
+        return save(12)
+        break;
+      case "Salud":
+        return save(13)
+        break; 
+      case "Seguridad":
+        return save(14)
+        break;
+      case "Politica":
+        return save(15)
+        break;
+      case "Economia": 
+        return save(16)
+      case "Deportes":
+        return save(17)
+        break; 
+      case "GestionDeGobierno":
+        return save(18)
+        break;
+      case "Cultura": 
+        return save(19)
+        break;
+      case "Deportes": 
+        return save(20)
+        break; 
+      case "Opinion":
+        return save(21)
+        break;
+      default:
+        return setUserSuccess(false)
+    }
+
+  }
+
+
+
+  function save(num) {
+
+
 
     const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
     const newDate = new Date()
-    if (key == "SavePost") {
-      if (postImage) {
-        const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
-        const ruteSTG = `${topic}` // Nov-2022/
-        const fileName = `PostImage_${newDate}` // PostImage_Tue Nov 15 2022 
-        const object = { [fileName]: { description: data.descriptionPost ? data.descriptionPost : null, enlace: data.enlacePost ? data.enlacePost : `${newDate.getTime()}`, objectFit: data.objectPositionPost ? data.objectPositionPost : 'center' } }
-        writeUserData(ruteDB, object, setUserSuccess, setUserData)
-        uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
-      } else {
-        setUserSuccess("CompleteIMG")
-      }
+
+    if (postImage) {
+      const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
+      const ruteSTG = `${topic}` // Nov-2022/
+      const fileName = `PostImage_${newDate.getTime()}` // PostImage_Tue Nov 15 2022 
+      const object = { [fileName]: {fecha: newDate.toString(), description: data.descriptionPost ? data.descriptionPost : '', enlace: data.enlacePost ? data.enlacePost : `${num}${newDate.getTime()}`, objectFit: data.objectPositionPost ? data.objectPositionPost : 'center' } }
+      writeUserData(ruteDB, object, setUserSuccess, setUserData)
+      uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
+    } else {
+      setUserSuccess("CompleteIMG")
     }
+
   }
 
   return (
@@ -93,7 +139,7 @@ export default function Form({ topic, value, color }) {
               <input type="radio" value="bottom" name="objectPositionPost" onChange={handlerEventChange} /> ⇩
               <input type="radio" value="right" name="objectPositionPost" onChange={handlerEventChange} /> ⇨
             </div>
-            <Button style="buttonMiniSecondary" click={(e) => save(e, "SavePost")}>Guardar</Button>
+            <Button style="buttonMiniSecondary" click={validator}>Guardar</Button>
           </form>
         </div>
       }

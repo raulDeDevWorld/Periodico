@@ -11,7 +11,7 @@ import Link from 'next/link'
 export default function Banner({ ruta, carpeta, click }) {
 
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
-    console.log(userDB[ruta])
+    // console.log(userDB[ruta])
     const router = useRouter()
     const buttonStyle = {
         width: "30px",

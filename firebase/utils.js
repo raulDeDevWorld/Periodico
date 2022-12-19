@@ -101,7 +101,7 @@ function getData(setUserData, monthAndYear, postsIMG, setUserPostsIMG, onlyData)
   });
 }
 
-function getSpecificData(query, setUserSpecificData) {
+function getSpecificData(rute, setUserSpecificData) {
   get(child(dbRef, `users/${query}`)).then((snapshot) => {
     if (snapshot.exists()) {
       setUserSpecificData(snapshot.val()) 

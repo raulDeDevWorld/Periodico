@@ -11,66 +11,68 @@ const ReactQuill = dynamic(import('react-quill'), {
 })
 
 
-export default function TextEditor({value, setValue}) {
+export default function TextEditor({ value, setValue }) {
 
   const [modules, setModules] = useState({
-    toolbar:  [
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        // ['blockquote', 'code-block'],
-        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
-        ["link", "image", "video"],
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      // ['blockquote', 'code-block'],
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+      [{ 'direction': 'rtl' }], 
       
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        [{ 'font': [] }],
-        [{ 'align': [] }],
-      
-        ['clean']                                         // remove formatting button
-      ],
-      clipboard: {
-        // toggle to add extra line breaks when pasting HTML:
-        matchVisual: false,
-      },
-    
-    }
+      // text direction
+      ["link", 'image', "video"],
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+      ['clean']                                         // remove formatting button
+    ],
+    clipboard: {
+      // toggle to add extra line breaks when pasting HTML:
+      matchVisual: false,
+    },
+
+  }
   );
 
 
   const [formats, setFormats] = useState([
-    'font','size',
-    'bold','italic','underline','strike',
-    'color','background',
+    'font', 'size',
+    'bold', 'italic', 'underline', 'strike',
+    'color', 'background',
     'script',
-    'header','blockquote','code-block',
-    'indent','list',
-    'direction','align',
-    'link','image','video','formula',
+    'header', 'blockquote', 'code-block',
+    'indent', 'list',
+    'direction', 'align',
+    'link', 'image', 'video', 'formula',
     "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "align",
-  "color",
-  "background",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "indent",
+    "link",
+    "image",
+    "align",
+    "color",
+    "background",
   ]);
 
 
 
 
   return <ReactQuill theme="snow" modules={modules}
-  formats={formats} value={value} onChange={setValue} />;
+    formats={formats} value={value} onChange={setValue} />;
 }
 
 

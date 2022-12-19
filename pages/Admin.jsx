@@ -76,9 +76,6 @@ function Admin() {
 
   return (
     <Layout>
-
-        
-        
         <main className={styles.main}>
           <div className={styles.containerLogout}>
             <span> <img src={postsIMG[`users/${user.uid}`]} className={styles.perfilIMG} alt="" />Bienvenido {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].name} </span>
