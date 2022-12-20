@@ -5,7 +5,7 @@ import { useUser } from '../context/Context.js'
 import { WithoutAuth } from '../HOCs/WithoutAuth'
 import Button from '../components/Button'
 import Success from '../components/Success'
-import Section from '../components/Section'
+import TemplateEight from '../components/TemplateEight'
 import Layout from '../layout/Layout'
 import TextEditor from '../components/TextEditor'
 import { handleSignOut, writeUserData, getESpecificData } from '../firebase/utils'
@@ -252,10 +252,7 @@ name == 'title' ? setTitle(value) : setDescription(value)
             {/* <label htmlFor="Image" >Imagen</label>
             <input type="file" id="Image" name="Image" onChange={manageInputIMG} /> */}
 
-
-
             <TextEditor setValue={handlerTextEditorOnChange} value={textEditor ? textEditor : userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota }></TextEditor>
-
 
             {/* <textarea id="paragraph" name="paragraph" cols="30" rows="10" onSelect={currentSelection} onChange={handlerOnChange} value={data.paragraph && data.paragraph}></textarea> */}
 
@@ -269,10 +266,12 @@ name == 'title' ? setTitle(value) : setDescription(value)
           {/* <button className={`${styles.pluss} ${pluss === true ? styles.add : ''}`} onClick={arrItemsHandler}>A</button>
           <button className={`${styles.pluss} ${pluss === true ? styles.qr : ''}`} onClick={handlerQR}>P</button>
           <button className={`${styles.pluss} ${pluss === true ? styles.pdf : ''}`} onClick={handlerPDF}>B</button>
-          <button className={`${styles.pluss}`} onClick={plussButton}>+</button>
- */}
+          <button className={`${styles.pluss}`} onClick={plussButton}>+</button> */}
+
 
           <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
+
+            
             <img className={styles.bannerIntroIMG} src="portada.jpg" alt="Vercel Logo" />
             <div className={styles.flex}>
               <h2 className={styles.title}>{title}</h2>
@@ -280,23 +279,30 @@ name == 'title' ? setTitle(value) : setDescription(value)
               <img src={postsIMG[`${validate()}/PostImage_${router.query.temporal.slice(2)}`]} className={styles.image} alt="" />
               <  ReactQuill textEditor={userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota ? userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota : 'En redacción...'} />
             </div>
-            {formViewer == false ? <span className={styles.formViewer} onClick={formViewerHandler}>▷</span> : ''}
-          </div>
-        </div>
-        <Section topic={validate()} publicView={true} color='#8FC2C9'></Section>
+            <div className={styles.add}>
 
+            </div>
+            {formViewer == false ? <span className={styles.formHide} onClick={formViewerHandler}>▷</span> : ''}
+          </div>
+
+
+        </div>
+        <TemplateEight topic={validate()} publicView={true}  banner='none'></TemplateEight>
       </main>
 
-
-
-
-
-
-
-
+<br />
     </Layout>
   )
 }
 export default WithoutAuth(TemplateOne)
+
+
+
+
+
+
+
+
+
 
 

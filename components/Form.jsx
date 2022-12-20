@@ -91,7 +91,6 @@ export default function Form({ topic, value, color }) {
   function save(num) {
 
 
-
     const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
     const newDate = new Date()
 

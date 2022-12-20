@@ -8,11 +8,9 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 
-function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
-    description1, description2, description3, description4, description5, description6,
-    objectPosition1, objectPosition2, objectPosition3, objectPosition4, objectPosition5, objectPosition6 }) {
+function TemplateSix({ color, topic, banner}) {
 
-    const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
+    const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear   } = useUser()
     const router = useRouter()
     const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
@@ -31,13 +29,13 @@ function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
     }
 
     useEffect(() => {
-        userDB[topic] && userDB[topic]["Posts"] && setDataForDate(Object.keys(userDB[topic]["Posts"]).map(i => { const newI = i.split('_'); return new Date(newI[1]) }).sort((a, b) => b - a))
+        userDB[topic] && userDB[topic]["Posts"] && setDataForDate(Object.keys(userDB[topic]["Posts"]).map(i => { const newI = i.split('_'); return newI[1] }).sort((a, b) => b - a))
     }, [userDB, postsIMG]);
     return (
         <section className={styles.section} id={topic} style={{backgroundColor: color}}>
             {topic != "Inicio" && <div className={styles.containerSubtitle}><h4 className={styles.subtitle}>{topic == 'GestionDeGobierno' ? 'GESTIÓN DE GOBIERNO':topic.toUpperCase()}</h4></div>}
 
-            {userDB[topic]["BannerTop"] && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
+            {userDB[topic]["BannerTop"] && banner !== 'none' && <Banner ruta={topic} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
 
             {topic != "Inicio" && <button className={styles.buttonSeeAll} onClick={setPostsElements}>Ver todo</button>
             }
@@ -61,7 +59,7 @@ function TemplateSix({ color, topic, post1, post2, post3, post4, post5, post6,
 
             </div>
 
-            {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}
+            {userDB[topic]["BannerBottom"] && banner !== 'none' &&  <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}
             {dataEditor && <Modal topic={topic} carpeta={dataEditor.carpeta}  i={dataEditor.i} close={handlerClickEnlace} ></Modal>}
         </section>
     )
