@@ -6,9 +6,14 @@ import style from '../styles/Content.module.css'
 
 
 export default function View ({textEditor}) {
+
+    const {user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date } = useUser()
+
+
     return (
         <div className={`${style.qlEditor} ql-editor`}  >
                 {parse(`${textEditor}`)}
+             
         </div>
     )
 }

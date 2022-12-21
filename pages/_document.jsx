@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
                 <Head>   
                     <link rel="icon" href="h.png" />
                     <link rel='apple-touch-icon' href='/h.png' />
+                    <link rel='manifest' href='/manifest.json' />
                     <meta name="theme-color" content="#007483" />
                     <meta name="msapplication-navbutton-color" content="#007483" />
                     <meta name="apple-mobile-web-app-status-bar-style" content="#007483" />

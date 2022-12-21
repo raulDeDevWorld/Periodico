@@ -98,7 +98,7 @@ export default function Form({ topic, value, color }) {
       const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
       const ruteSTG = `${topic}` // Nov-2022/
       const fileName = `PostImage_${newDate.getTime()}` // PostImage_Tue Nov 15 2022 
-      const object = { [fileName]: {fecha: newDate.toString(), description: data.descriptionPost ? data.descriptionPost : '', enlace: data.enlacePost ? data.enlacePost : `${num}${newDate.getTime()}`, objectFit: data.objectPositionPost ? data.objectPositionPost : 'center' } }
+      const object = { [fileName]: {fecha: newDate.toString(), description: data.descriptionPost ? data.descriptionPost : '', enlace: data.enlacePost ? data.enlacePost : `${num}${newDate.getTime()}`, objectFit: data.objectPositionPost ? data.objectPositionPost : 'center', nota:'' } }
       writeUserData(ruteDB, object, setUserSuccess, setUserData)
       uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
     } else {
@@ -121,7 +121,7 @@ export default function Form({ topic, value, color }) {
         <option value="TemplateEight" selected={value == "TemplateEight" ? true : false}>Plantilla 8-{topic}</option>
       </select>
 
-      {userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'periodista' || viewPeriodista == true &&
+      {userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'periodista' || viewPeriodista == true ?
 
         <div className={style.formInputs}>
           <form className={style.formSelectPost}>
@@ -140,7 +140,7 @@ export default function Form({ topic, value, color }) {
             </div>
             <Button style="buttonMiniSecondary" click={validator}>Guardar</Button>
           </form>
-        </div>
+        </div> : ''
       }
 
       {userDB && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && viewPeriodista == false && <>

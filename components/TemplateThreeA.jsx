@@ -51,11 +51,9 @@ function TemplateFour({ color, topic, post1, post2, post3, post4, description1, 
                         <Link href={userDB[topic]["Posts"][`PostImage_${i}`]['enlace']} legacyBehavior>
                             <a target={userDB[topic]["Posts"][`PostImage_${i}`]['enlace'].includes('http') ? '_blanck' : ''}><img src={postsIMG[`${topic}/PostImage_${i}`]} style={{ objectPosition: `${userDB[topic]["Posts"][`PostImage_${i}`]['objectFit']}` }} /></a>
                         </Link>
-
                         {userDB[topic]["Posts"][`PostImage_${i}`]['description'] && <p className={styles.description}>{userDB[topic]["Posts"][`PostImage_${i}`]['description']}</p>}
                     </div>
-
-                )}
+                )}  
             </div>
 
             {userDB[topic]["BannerBottom"] && <Banner ruta={topic} carpeta="BannerBottom" click={handlerClickEnlace} ></Banner>}

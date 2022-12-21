@@ -9,7 +9,11 @@ const ReactQuill = dynamic(import('react-quill'), {
   ssr: false,
   loading: () => <p>Loading ...</p>,
 })
-
+// var FontAttributor = Quill.import('attributors/class/font');
+// FontAttributor.whitelist = [
+//   'sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'
+// ];
+// Quill.register(FontAttributor, true);
 
 export default function TextEditor({ value, setValue }) {
 
@@ -17,20 +21,25 @@ export default function TextEditor({ value, setValue }) {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
       // ['blockquote', 'code-block'],
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+
+      [{'size': ['small', '', 'large', 'huge']}],  // custom dropdown
+      [{ 'font': [] }],
+      
       [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
       [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
       [{ 'direction': 'rtl' }], 
       
       // text direction
+     
+      // {'size': {'Small': '14px', 'Normal': false, 'Large': '16px', 'Huge': '18px'}}
       ["link", 'image', "video"],
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+
+      [{ 'align': '' }],
+      [{ 'align': 'center' }],
+      [{ 'align': 'right' }],
 
       ['clean']                                         // remove formatting button
     ],
@@ -73,6 +82,7 @@ export default function TextEditor({ value, setValue }) {
 
   return <ReactQuill theme="snow" modules={modules}
     formats={formats} value={value} onChange={setValue} />;
+    
 }
 
 

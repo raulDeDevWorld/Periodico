@@ -5,7 +5,7 @@ import { useUser } from '../context/Context.js'
 import { WithoutAuth } from '../HOCs/WithoutAuth'
 import Button from '../components/Button'
 import Success from '../components/Success'
-import TemplateEight from '../components/TemplateEight'
+import TemplateNota from '../components/TemplateNota'
 import Layout from '../layout/Layout'
 import TextEditor from '../components/TextEditor'
 import { handleSignOut, writeUserData, getESpecificData } from '../firebase/utils'
@@ -13,6 +13,7 @@ import { uploadIMG } from '../firebase/storage'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
+import Banner from '../components/Banner'
 
 import styles from '../styles/Temporal.module.css'
 
@@ -28,7 +29,7 @@ const ReactQuill = dynamic(() => import('../components/content'), {
 
 function TemplateOne() {
   const [textArea, setTextArea] = useState("");
-  const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date } = useUser()
+  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date } = useUser()
   const [arr, setArr] = useState([0])
 
   const [title, setTitle] = useState('')
@@ -66,7 +67,7 @@ function TemplateOne() {
   function handlerOnChange(e) {
     const name = e.target.name
     const value = e.target.value
-name == 'title' ? setTitle(value) : setDescription(value)
+    name == 'title' ? setTitle(value) : setDescription(value)
   }
   function handlerTextEditorOnChange(content, delta, source, editor) {
     console.log(editor.getHTML())
@@ -88,47 +89,47 @@ name == 'title' ? setTitle(value) : setDescription(value)
 
 
 
-  function validator(e, f) {
-    e.preventDefault()
+  // function validator(e, f) {
+  //   e.preventDefault()
 
-    switch (router.query.temporal.slice(0, 2)) {
-      case '11':
-        return save("Inicio")
-        break;
-      case '12':
-        return save("Sociedad")
-        break;
-      case '13':
-        return save("Salud")
-        break;
-      case '14':
-        return save("Seguridad")
-        break;
-      case '15':
-        return save("Politica")
-        break;
-      case '16':
-        return save("Economia")
-        break;
-      case '17':
-        return save("Deportes")
-        break;
-      case '18':
-        return save("GestionDeGobierno")
-        break;
-      case '19':
-        return save("Cultura")
-        break;
-      case '20':
-        return save("Deportes")
-        break;
-      case '21':
-        return save("Opinion")
-        break;
-      default:
-        return setUserSuccess(false)
-    }
-  }
+  //   switch (router.query.temporal.slice(0, 2)) {
+  //     case '11':
+  //       return save("Inicio")
+  //       break;
+  //     case '12':
+  //       return save("Sociedad")
+  //       break;
+  //     case '13':
+  //       return save("Salud")
+  //       break;
+  //     case '14':
+  //       return save("Seguridad")
+  //       break;
+  //     case '15':
+  //       return save("Politica")
+  //       break;
+  //     case '16':
+  //       return save("Economia")
+  //       break;
+  //     case '17':
+  //       return save("Deportes")
+  //       break;
+  //     case '18':
+  //       return save("GestionDeGobierno")
+  //       break;
+  //     case '19':
+  //       return save("Cultura")
+  //       break;
+  //     case '20':
+  //       return save("Deportes")
+  //       break;
+  //     case '21':
+  //       return save("Opinion")
+  //       break;
+  //     default:
+  //       return setUserSuccess(false)
+  //   }
+  // }
 
 
 
@@ -177,30 +178,21 @@ name == 'title' ? setTitle(value) : setDescription(value)
   }
 
 
-  function save(num) {
+  function save(e, st) {
 
-    const ruteDB = `${num}/Posts/PostImage_${router.query.temporal.slice(2)}`
+    const ruteDB = `${validate()}/Posts/PostImage_${router.query.temporal.slice(2)}`
     const object = {
       nota: textEditor,
       title,
       description,
-      state: true
+      state: st == 'B' ? 'Borrador' : 'Publicado',
+      redactor: user.uid
     }
 
     writeUserData(ruteDB, object, setUserSuccess)
   }
 
-  function publish(e) {
 
-    const ruteDB = `${num}/Posts/PostImage_${router.query.temporal.slice(2)}`
-    const object = {
-      nota: textEditor,
-      estado: false
-    }
-
-    writeUserData(ruteDB, object, setUserSuccess)
-
-  }
   function formViewerHandler() {
     setFormViewer(!formViewer)
   }
@@ -221,12 +213,16 @@ name == 'title' ? setTitle(value) : setDescription(value)
   function handlerPDF() {
     setPluss(!pluss)
   }
-
+  function handlerClickEnlace(info) {
+    router.pathname != "/Admin" && info.i !== undefined && router.push("/" + userDB[topic]["Posts"][`PostImage_${info.i}`])
+    router.pathname == "/Admin" && setDataEditor(info)
+  }
 
 
   useEffect(() => {
     userDB && setTitle(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].title)
-    userDB && setTitle(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].description)
+    userDB && setDescription(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].description)
+    userDB && setTextEditor(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota)
 
   }, []);
 
@@ -236,72 +232,88 @@ name == 'title' ? setTitle(value) : setDescription(value)
 
     <Layout>
 
-
       <main className={styles.main}>
+        <div>
 
-        <NavbarSimple></NavbarSimple>
-
-        <div className={styles.editor}>
-          <div className={`${styles.form} ${formViewer == false && styles.hideForm}`}>
-
-            {formViewer == true ? <span className={styles.formHide} onClick={formViewerHandler}>◁</span> : ''}
-            <label htmlFor="Title" >Titulo</label>
-            <input type="text" id="Title" name="title" onChange={handlerOnChange} defaultValue={title} />
-            <label htmlFor="Description" >Descripcion</label>
-            <input type="text" id="Description" name="description" onChange={handlerOnChange} defaultValue={description} />
-            {/* <label htmlFor="Image" >Imagen</label>
-            <input type="file" id="Image" name="Image" onChange={manageInputIMG} /> */}
-
-            <TextEditor setValue={handlerTextEditorOnChange} value={textEditor ? textEditor : userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota }></TextEditor>
-
-            {/* <textarea id="paragraph" name="paragraph" cols="30" rows="10" onSelect={currentSelection} onChange={handlerOnChange} value={data.paragraph && data.paragraph}></textarea> */}
-
-
-            <div className={styles.buttonsContainer}>
-              <Button style="miniButtonPrimary" click={(e) => validator(e, 'G')}> Guardar</Button>
-              <Button style="miniButtonPrimary" click={(e) => validator(e, 'P')}> Publicar</Button>
-            </div>
-          </div>
-
-          {/* <button className={`${styles.pluss} ${pluss === true ? styles.add : ''}`} onClick={arrItemsHandler}>A</button>
-          <button className={`${styles.pluss} ${pluss === true ? styles.qr : ''}`} onClick={handlerQR}>P</button>
-          <button className={`${styles.pluss} ${pluss === true ? styles.pdf : ''}`} onClick={handlerPDF}>B</button>
-          <button className={`${styles.pluss}`} onClick={plussButton}>+</button> */}
-
-
-          <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
-
-            
-            <img className={styles.bannerIntroIMG} src="portada.jpg" alt="Vercel Logo" />
-            <div className={styles.flex}>
-              <h2 className={styles.title}>{title}</h2>
-              <p className={styles.description}>{description}</p>
-              <img src={postsIMG[`${validate()}/PostImage_${router.query.temporal.slice(2)}`]} className={styles.image} alt="" />
-              <  ReactQuill textEditor={userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota ? userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota : 'En redacción...'} />
-            </div>
-            <div className={styles.add}>
-
-            </div>
-            {formViewer == false ? <span className={styles.formHide} onClick={formViewerHandler}>▷</span> : ''}
-          </div>
-
+          <NavbarSimple></NavbarSimple>
 
         </div>
-        <TemplateEight topic={validate()} publicView={true}  banner='none'></TemplateEight>
+
+        <div className={styles.containerBanner}>
+          {userDB[validate()]["BannerTop"] && <Banner ruta={validate()} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
+        </div>
+
+
+        <div className={`${styles.viewer} ${formViewer == false && styles.hideForm}`}>
+
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.description}>{description}</p>
+          <img src={postsIMG[`${validate()}/PostImage_${router.query.temporal.slice(2)}`]} className={styles.image} alt="" />
+
+          {userDB && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].state == 'Publicado' || user ?
+            <div className={styles.qlEditor} styles={{ padding: '0' }} >
+              {parse(`${textEditor}`)}
+              {userDB && postsIMG && console.log(`users/${userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].redactor}`)}
+              <br />
+              <div className={styles.perfil}>
+                <img src={postsIMG[`users/${userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].redactor}`]} className={styles.perfilIMG} alt="" />
+                {userDB.users[userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].redactor] && <p>{userDB.users[userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].redactor].name} <br /> Redactor</p>}
+              </div>
+            </div> : <div>En redacción...</div>
+          }
+          {formViewer == false ? <span className={styles.formHide} onClick={formViewerHandler}>▷</span> : ''}
+        </div>
+
+        <div className={styles.adds}>
+          <img src="/publicidad.jpg" alt="" />
+        </div>
+
+
+
+
+
+
+        {user && <div className={`${styles.form} ${formViewer == true && styles.hideForm}`}>
+          <label htmlFor="Title" >Titulo</label>
+          <input type="text" id="Title" name="title" onChange={handlerOnChange} defaultValue={title} />
+          <label htmlFor="Description" >Descripcion</label>
+          <input type="text" id="Description" name="description" onChange={handlerOnChange} defaultValue={description} />
+
+<div>
+
+            <TextEditor setValue={handlerTextEditorOnChange} value={textEditor ? textEditor : userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota}></TextEditor>
+
+</div>
+<br />
+
+          <div className={styles.buttonsContainer}>
+            <Button style="miniButtonPrimary" click={(e) => save(e, 'B')}> Guardar/Borrador</Button>
+            <Button style="miniButtonPrimary" click={(e) => save(e, 'P')}> Publicar</Button>
+          </div>
+        </div>}
+        <span className={styles.formViewer} onClick={formViewerHandler}>▷</span>
+
+        <TemplateNota topic={validate()} publicView={true} banner='none'></TemplateNota>
+
       </main>
 
-<br />
+      <br />
+
     </Layout>
   )
 }
 export default WithoutAuth(TemplateOne)
 
 
+{/* <button className={`${styles.pluss} ${pluss === true ? styles.add : ''}`} onClick={arrItemsHandler}>A</button>
+      <button className={`${styles.pluss} ${pluss === true ? styles.qr : ''}`} onClick={handlerQR}>P</button>
+      <button className={`${styles.pluss} ${pluss === true ? styles.pdf : ''}`} onClick={handlerPDF}>B</button>
+      <button className={`${styles.pluss}`} onClick={plussButton}>+</button> */}
 
 
 
-
-
+{/* <label htmlFor="Image" >Imagen</label>
+            <input type="file" id="Image" name="Image" onChange={manageInputIMG} /> */}
 
 
 
