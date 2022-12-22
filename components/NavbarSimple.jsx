@@ -19,43 +19,43 @@ export default function Navbar() {
 
             <div className={style.container}>
                 <nav className={style.nav}>
-                    <Link href="#Sociedad" legacyBehavior scroll={false}>
+                    <Link href="/#Sociedad" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Sociedad" ? style.active : ''}`} onClick={handlerClick}>SOCIEDAD</a>
                     </Link>
-                    <Link href="#Salud" legacyBehavior scroll={false}>
+                    <Link href="/#Salud" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Salud" ? style.active : ''}`} onClick={handlerClick}>SALUD</a>
                     </Link>
-                    <Link href="#Seguridad" legacyBehavior scroll={false}>
+                    <Link href="/#Seguridad" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Seguridad" ? style.active : ''}`} onClick={handlerClick}>SEGURIDAD</a>
                     </Link>
-                    <Link href="#Politica" legacyBehavior scroll={false}>
+                    <Link href="/#Politica" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Politica" ? style.active : ''}`} onClick={handlerClick}>POLÍTICA</a>
                     </Link>
-                    <Link href="#Economia" legacyBehavior scroll={false}>
+                    <Link href="/#Economia" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Economia" ? style.active : ''}`} onClick={handlerClick}>ECONOMÍA</a>
                     </Link>
-                    <Link href="#Deportes" legacyBehavior scroll={false}>
+                    <Link href="/#Deportes" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Deportes" ? style.active : ''}`} onClick={handlerClick}>DEPORTES</a>
                     </Link>
-                    <Link href="#GestionDeGobierno" legacyBehavior scroll={false}>
+                    <Link href="/#GestionDeGobierno" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#GestionDeGobierno" ? style.active : ''}`} onClick={handlerClick}>GESTIÓN DE GOBIERNO</a>
                     </Link>
-                    <Link href="#Cultura" legacyBehavior scroll={false}>
+                    <Link href="/#Cultura" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Cultura" ? style.active : ''}`} onClick={handlerClick}>CULTURA</a>
                     </Link>
-                    <Link href="#Internacional" legacyBehavior scroll={false}>
+                    <Link href="/#Internacional" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Internacional" ? style.active : ''}`} onClick={handlerClick}>INTERNACIONAL</a>
                     </Link>
-                    <Link href="#Opinion" legacyBehavior scroll={false}>
+                    <Link href="/#Opinion" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Opinion" ? style.active : ''}`} onClick={handlerClick}>OPINIÓN</a>
                     </Link>
-                    <Link href="#Imagenes" legacyBehavior scroll={false}>
+                    <Link href="/#Imagenes" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Imagenes" ? style.active : ''}`} onClick={handlerClick}>IMÁGENES</a>
                     </Link>
-                    <Link href="#Videos" legacyBehavior scroll={false}>
+                    <Link href="/#Videos" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handleClick}>VIDEOS</a>
                     </Link>
-                    <Link href="#Nosotros" legacyBehavior scroll={false}>
+                    <Link href="/#Nosotros" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} onClick={handleClick}>NOSOTROS</a>
                     </Link>
 
