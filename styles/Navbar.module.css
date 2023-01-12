@@ -100,13 +100,11 @@
     color: black;
     font-size: 18px;
     font-weight: bold;
-    background-color: rgba(0, 0, 255, 0.305);
   }
 
   .socialMedia {
     top: 43px;
     height: 2.5vw;
-    background-color: rgba(255, 0, 0, 0.305);
   }
 
   .nav {
