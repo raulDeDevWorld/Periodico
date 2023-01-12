@@ -9,7 +9,6 @@
   grid-template-columns: 15fr 1fr;
   grid-gap: 5px;
 
-  box-shadow: 0px 0px 10px 2px #007484;
   z-index: 100;
 }
 
@@ -204,7 +203,28 @@
 
 }
 
+.containerIMG {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
 
+.copyrightIMG {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  z-index: 10000000000000;
+  color: white;
+  padding: 0 1px;
+  background-color: rgba(0, 0, 0, 0.516);
+}
+
+.image {
+  width: auto;
+  max-width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
 .pluss {
   cursor: pointer;
   position: fixed;
@@ -226,23 +246,6 @@
   font-size: 15px;
 }
 
-.add {
-  bottom: 15px;
-  right: 75px;
-
-}
-
-.qr {
-  bottom: 75px;
-  right: 15px;
-
-}
-
-.pdf {
-  bottom: 60px;
-  right: 60px;
-
-}
 
 
 
@@ -251,6 +254,10 @@
   display: flex;
 }
 
+.qlEditor img {
+  height: auto;
+  min-height: auto;
+}
 
 .qlEditor img {
   max-width: 40vw;
@@ -269,7 +276,7 @@
   justify-content: flex-end;
   align-items: center;
   background-color: rgba(165, 42, 42, 0.471);
-  padding: 5px;
+  padding: 0 5px;
   border-radius: 2px;
 
 
@@ -279,6 +286,8 @@
   text-align: end;
   width: 100%;
   margin-left: 15px;
+  padding:  5px;
+  margin: 0;
 }
 
 .perfilIMG {

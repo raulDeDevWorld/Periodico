@@ -23,7 +23,7 @@ export default function TextEditor({ value, setValue }) {
       // ['blockquote', 'code-block'],
       // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
 
-      [{'size': ['small', '', 'large', 'huge']}],  // custom dropdown
+      [{'size': ['small', '', 'large']}],  // custom dropdown
       [{ 'font': [] }],
       
       [{ 'list': 'ordered' }, { 'list': 'bullet' }],
@@ -40,6 +40,8 @@ export default function TextEditor({ value, setValue }) {
       [{ 'align': '' }],
       [{ 'align': 'center' }],
       [{ 'align': 'right' }],
+      [{ 'align': 'justify' }],
+
 
       ['clean']                                         // remove formatting button
     ],

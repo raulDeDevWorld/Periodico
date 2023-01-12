@@ -148,13 +148,8 @@ z-index: 10000;
 
 
 
-@media (max-width: 750px) {
-  .socialMediaIcons img {
-    display: inline-block;
-    height: 15px;
-    width: auto;
-    margin: 5px;
-  }
+@media (max-width: 850px) {
+
   .portada {
     display: flex;
     justify-content: space-between;
@@ -176,6 +171,5 @@ z-index: 10000;
     padding: 0;
   }
   .header {
-    background-color: red;
   }
 }

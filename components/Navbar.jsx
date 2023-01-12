@@ -15,35 +15,36 @@ export default function Navbar() {
     }
     return (
         <>
+            <span className={style.socialMediaSpan}>Siguenos en:</span>
+
             <div className={style.socialMedia}>
 
-                <div className={style.containerSocialMediaIcons}>
-                    
-                    <span>Siguenos en:</span>
-                    <div className={style.socialMediaIcons}>
 
-                        <Link href="https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas..." legacyBehavior scroll={false}>
-                            <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/whatsapp.svg" alt="SocialMedia" /></a>
-                        </Link>
-                        <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
-                            <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
-                        </Link>
-                        <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
-                            <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
-                        </Link>
-                        <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
-                            <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
-                        </Link>
-                        <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
-                            <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
-                        </Link>
-                        <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
-                            <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
-                        </Link>
-                    </div>
+
+                <div className={style.socialMediaIcons}>
+
+                    <Link href="https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas..." legacyBehavior scroll={false}>
+                        <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/whatsapp.svg" alt="SocialMedia" /></a>
+                    </Link>
+                    <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
+                        <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook.png" alt="SocialMedia" /></a>
+                    </Link>
+                    <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
+                        <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram.png" alt="SocialMedia" /></a>
+                    </Link>
+                    <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
+                        <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter.png" alt="SocialMedia" /></a>
+                    </Link>
+                    <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                        <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube.png" alt="SocialMedia" /></a>
+                    </Link>
+                    <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
+                        <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok.png" alt="SocialMedia" /></a>
+                    </Link>
                 </div>
+
             </div>
-            
+
             <div className={style.container}>
                 <nav className={style.nav}>
                     <Link href="#Sociedad" legacyBehavior scroll={false}>
