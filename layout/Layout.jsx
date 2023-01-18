@@ -112,7 +112,7 @@ function Layout({ children }) {
 
                         </div>
 
-                        <span> ©TARKAN Ltda. {monthAndYear.split('-')[1]}</span>
+                        <span> ©TARKAN Ltda.</span>
                     </footer>
 
 

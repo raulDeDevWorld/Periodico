@@ -171,5 +171,7 @@ z-index: 10000;
     padding: 0;
   }
   .header {
+    background-color: red;
+    height: auto
   }
 }

@@ -87,7 +87,6 @@ export default function Header(props) {
             </header>
             <Navbar />
             {dataEditor && <Modal post={dataEditor.key} topic={'/'} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
-
         </>
     )
 }

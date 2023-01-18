@@ -116,9 +116,9 @@ function TemplateOne() {
     const ruteDB = `${validate()}/Posts/PostImage_${router.query.temporal.slice(2)}`
     const object = {
       nota: textEditor,
-      title,
-      description,
-      copyrightIMG,
+      title: title ? title: '',
+      description: description ? description: '',
+      copyrightIMG: copyrightIMG ? copyrightIMG: '',
       state: st == 'B' ? 'Borrador' : 'Publicado',
       redactor: user.uid
     }
@@ -150,7 +150,7 @@ function TemplateOne() {
   return (
 
     <Layout>
-
+ 
       <main className={styles.main}>
         <div>
           <NavbarSimple></NavbarSimple>
