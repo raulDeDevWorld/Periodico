@@ -72,7 +72,7 @@
 
 .form p img {
   display: inline-block;
-  max-height: 200px;
+  max-height: 300px;
 }
 
 
@@ -104,6 +104,7 @@
   font-size: 20px;
   margin: 10px 2px;
   overflow: hidden;
+  font-style: italic;
 }
 
 .form {
@@ -116,7 +117,7 @@
 }
 
 .viewer p img {
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .form textarea {
@@ -180,6 +181,7 @@
 }
 
 .image {
+  background-color: red;
   width: auto;
   height: 40vh;
   object-fit: cover;
@@ -202,7 +204,10 @@
   width: 300px;
 
 }
-
+.containerIMGCenter {
+  width: 100%;
+  text-align: center;
+}
 .containerIMG {
   position: relative;
   display: inline-block;
@@ -266,8 +271,15 @@
   margin: 0;
 }
 
-
-
+.ql-editor .ql-size-large {
+  font-size: 5px;
+}
+.ql-size-normal {
+  font-size: 25px;
+}
+.ql-size-normal {
+  font-size: 25px;
+}
 .perfil {
   position: relative;
   width: fit-content;
@@ -312,3 +324,16 @@
   background-color: #007483;
 }
 
+
+@media (max-width: 850px) {
+  /* .form p img {
+    display: inline-block;
+    max-height: 500px;
+  }
+  .viewer p img {
+    width: 100%;
+    height: 800px;
+  } */
+
+
+}

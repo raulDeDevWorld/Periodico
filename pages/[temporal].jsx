@@ -14,7 +14,6 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
 import Banner from '../components/Banner'
-import 'react-quill/dist/quill.snow.css';
 
 import styles from '../styles/Temporal.module.css'
 
@@ -100,9 +99,12 @@ function TemplateOne() {
         return "Cultura"
         break;
       case '20':
-        return "Deportes"
+        return "Internacional"
         break;
       case '21':
+        return "Deportes"
+        break;
+      case '22':
         return "Opinion"
         break;
       default:
@@ -116,9 +118,9 @@ function TemplateOne() {
     const ruteDB = `${validate()}/Posts/PostImage_${router.query.temporal.slice(2)}`
     const object = {
       nota: textEditor,
-      title: title ? title: '',
-      description: description ? description: '',
-      copyrightIMG: copyrightIMG ? copyrightIMG: '',
+      title: title ? title : '',
+      description: description ? description : '',
+      copyrightIMG: copyrightIMG ? copyrightIMG : '',
       state: st == 'B' ? 'Borrador' : 'Publicado',
       redactor: user.uid
     }
@@ -150,7 +152,7 @@ function TemplateOne() {
   return (
 
     <Layout>
- 
+
       <main className={styles.main}>
         <div>
           <NavbarSimple></NavbarSimple>
@@ -163,12 +165,16 @@ function TemplateOne() {
         <div className={`${styles.viewer} ${formViewer == false && styles.hideForm}`}>
 
           <h2 className={styles.title}>{description}</h2>
-
-          <div className={styles.containerIMG}>
-            <img src={postsIMG[`${validate()}/PostImage_${router.query.temporal.slice(2)}`]} className={styles.image} alt="" />
-            <span className={styles.copyrightIMG}>{copyrightIMG}</span>
-          </div>
           <p className={styles.description}>{title}</p>
+
+
+          <div className={styles.containerIMGCenter}>
+            <div className={styles.containerIMG}>
+              <img src={postsIMG[`${validate()}/PostImage_${router.query.temporal.slice(2)}`]} className={styles.image} alt="" />
+              <span className={styles.copyrightIMG}>{copyrightIMG}</span>
+            </div>
+          </div>
+
 
 
           {userDB && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].state == 'Publicado' || user ?
@@ -208,9 +214,12 @@ function TemplateOne() {
 
           <h2 className={styles.title}>{description}</h2>
           <p className={styles.description}>{title}</p>
+
+          <div className={styles.containerIMGCenter}>
           <div className={styles.containerIMG}>
             <img src={postsIMG[`${validate()}/PostImage_${router.query.temporal.slice(2)}`]} className={styles.image} alt="" />
             <span className={styles.copyrightIMG}>{copyrightIMG}</span>
+          </div>
           </div>
           <div>
             <TextEditor setValue={handlerTextEditorOnChange} value={textEditor ? textEditor : userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].nota}></TextEditor>

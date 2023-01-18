@@ -74,11 +74,14 @@ export default function Form({ topic, value, color }) {
       case "Cultura": 
         return save(19)
         break;
-      case "Deportes": 
+      case "Internacional": 
         return save(20)
+        break;
+      case "Deportes": 
+        return save(21)
         break; 
       case "Opinion":
-        return save(21)
+        return save(22)
         break;
       default:
         return setUserSuccess(false)
