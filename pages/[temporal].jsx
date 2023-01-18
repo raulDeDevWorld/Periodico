@@ -105,7 +105,7 @@ function TemplateOne() {
         return "Deportes"
         break;
       case '22':
-        return "Opinion"
+        return "Empresarial"
         break;
       default:
         return ''

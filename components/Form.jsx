@@ -80,7 +80,7 @@ export default function Form({ topic, value, color }) {
       case "Deportes": 
         return save(21)
         break; 
-      case "Opinion":
+      case "Empresarial":
         return save(22)
         break;
       default:

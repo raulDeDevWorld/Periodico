@@ -92,7 +92,7 @@ function Admin() {
           <Section topic="GestionDeGobierno" publicView={false} color='#c98f8f'></Section>
           <Section topic="Cultura" publicView={false} color='#8FC2C9'></Section>
           <Section topic="Internacional" publicView={false} color='#c98f8f'></Section>
-          <Section topic="Opinion" publicView={false} color='#8FC2C9'></Section>
+          <Section topic="Empresarial" publicView={false} color='#8FC2C9'></Section>
           {userDB.users && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && <button className={styles.viewPeriodista} onClick={handlerViewPeriodista}>P</button>}
         </main>
    

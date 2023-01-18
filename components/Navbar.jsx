@@ -75,7 +75,7 @@ export default function Navbar() {
                         <a className={`${style.link} ${pathname == "#Internacional" ? style.active : ''}`} onClick={handlerClick}>INTERNACIONAL</a>
                     </Link>
                     <Link href="#Opinion" legacyBehavior scroll={false}>
-                        <a className={`${style.link} ${pathname == "#Opinion" ? style.active : ''}`} onClick={handlerClick}>OPINIÓN</a>
+                        <a className={`${style.link} ${pathname == "#Empresarial" ? style.active : ''}`} onClick={handlerClick}>EMPRESARIAL</a>
                     </Link>
                     <Link href="#Imagenes" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Imagenes" ? style.active : ''}`} onClick={handlerClick}>IMÁGENES</a>
