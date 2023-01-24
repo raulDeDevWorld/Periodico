@@ -181,7 +181,6 @@
 }
 
 .image {
-  background-color: red;
   width: auto;
   height: 40vh;
   object-fit: cover;
@@ -323,6 +322,9 @@
   align-self: start;
   background-color: #007483;
 }
+
+
+
 
 
 @media (max-width: 850px) {
