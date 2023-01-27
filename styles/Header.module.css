@@ -94,7 +94,8 @@
 }
 
 .navidad {
-  width: 28%;
+  width: auto;
+  height: 15vw ;
   margin-left: 60px;
   height: 15vw;
   margin-top: 7px;

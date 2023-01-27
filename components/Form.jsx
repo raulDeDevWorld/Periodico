@@ -116,7 +116,6 @@ export default function Form({ topic, value, color }) {
     } else {
       setUserSuccess("CompleteIMG")
     }
-
   }
 
   return (
