@@ -67,7 +67,7 @@
     position: absolute;
     color: white;
     bottom: 0;
-    padding: 10px 15px;
+    padding: 5px;
     text-overflow: ellipsis;
     display: flex;
     flex-wrap: wrap;

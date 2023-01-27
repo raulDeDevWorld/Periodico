@@ -140,7 +140,7 @@ export default function Form({ topic, value, color }) {
             <img className={style.previewIMG} style={{ objectPosition: `${data.objectPositionPost ? data.objectPositionPost : 'center'} ` }} src={urlPostImage} alt="" />
             <p className={`${style.require} ${postImage ? style.green : ''}`}>{postImage ? 'Correcto' : '*Imagen Requerida'}</p>
             <input type="file" id={`${topic}-Post`} className={style.inputFile} name={`PostImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
-            <input type="text" placeholder='Titular' name="descriptionPost" onChange={handlerEventChange} />
+            <input type="text" placeholder='Titular' name="descriptionPost" onChange={handlerEventChange} maxlength='65' />
             <input type="text" placeholder='Enlace' name="enlacePost" onChange={handlerEventChange} />
             <div className={style.radioInputs}>
               <input type="radio" value="left" name="objectPositionPost" onChange={handlerEventChange} /> ⇦
