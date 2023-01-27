@@ -8,11 +8,11 @@ export default function Navbar() {
     const { pathname } = useRouter()
     
     const { setUserShowImg, showImg } = useUser()
-    // function handleClick() {
-    //     setUserShowImg(!showImg)
-    // }
-    function handlerClick() {
+    function handleClick() {
         setUserShowImg(!showImg)
+    }
+    function handlerClick() {
+        setUserShowImg(false)
     }
     return (
         <>
@@ -79,10 +79,10 @@ export default function Navbar() {
                         <a className={`${style.link} ${pathname == "#Empresarial" ? style.active : ''}`} onClick={handlerClick}>EMPRESARIAL</a>
                     </Link>
                     <Link href="#" legacyBehavior scroll={false}>
-                        <a className={`${style.link} ${pathname == "#Imagenes" ? style.active : ''}`} onClick={handlerClick}>IMÁGENES</a>
+                        <a className={`${style.link} ${pathname == "#Imagenes" ? style.active : ''}`} onClick={handleClick}>IMÁGENES</a>
                     </Link>
                     <Link href="#Videos" legacyBehavior scroll={false}>
-                        <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handlerClick}>VIDEOS</a>
+                        <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handleClick}>VIDEOS</a>
                     </Link>
                     <Link href="#Nosotros" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS</a>

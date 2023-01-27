@@ -238,6 +238,7 @@ function TemplateOne() {
       </main>
 
       <br />
+      {success == "save" && <Success>Cargando...</Success>}
 
     </Layout>
   )
