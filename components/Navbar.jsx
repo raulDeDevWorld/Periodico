@@ -6,12 +6,13 @@ import style from '../styles/Navbar.module.css'
 
 export default function Navbar() {
     const { pathname } = useRouter()
+    
     const { setUserShowImg, showImg } = useUser()
-    function handleClick() {
-        setUserShowImg(!showImg)
-    }
+    // function handleClick() {
+    //     setUserShowImg(!showImg)
+    // }
     function handlerClick() {
-        setUserShowImg(false)
+        setUserShowImg(!showImg)
     }
     return (
         <>
@@ -77,14 +78,14 @@ export default function Navbar() {
                     <Link href="#Opinion" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Empresarial" ? style.active : ''}`} onClick={handlerClick}>EMPRESARIAL</a>
                     </Link>
-                    <Link href="#Imagenes" legacyBehavior scroll={false}>
+                    <Link href="#" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Imagenes" ? style.active : ''}`} onClick={handlerClick}>IMÁGENES</a>
                     </Link>
                     <Link href="#Videos" legacyBehavior scroll={false}>
-                        <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handleClick}>VIDEOS</a>
+                        <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handlerClick}>VIDEOS</a>
                     </Link>
                     <Link href="#Nosotros" legacyBehavior scroll={false}>
-                        <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} onClick={handleClick}>NOSOTROS</a>
+                        <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS</a>
                     </Link>
 
                 </nav>

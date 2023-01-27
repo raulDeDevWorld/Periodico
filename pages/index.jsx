@@ -26,7 +26,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 function Home() {
-  const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, date, setUserDate,  } = useUser()
+  const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
   const router = useRouter()
 
   const [periodicoPDF, setPeriodicoPDF] = useState(false);
@@ -39,7 +39,7 @@ function Home() {
 
   }
 
-  
+
 
   function whatsappClickHandler() {
     router.push("https://api.whatsapp.com/send?phone=+59160589090&text=Buenas%20Hoy...")
@@ -66,31 +66,59 @@ function Home() {
 
 
 
-  useEffect(() => {
-    if (periodicoPDFEffect == true) {
-      return
-    }
-    setTimeout(() => {
-      setPeriodicoPDF(!periodicoPDF)
-    }, 2000)
+  // useEffect(() => {
+  //   if (periodicoPDFEffect == true) {
+  //     return
+  //   }
+  //   setTimeout(() => {
+  //     setPeriodicoPDF(!periodicoPDF)
+  //   }, 2000)
 
-  }, [periodicoPDF == "User" ? '' : periodicoPDF])
-  console.log(success)
+  // }, [periodicoPDF == "User" ? '' : periodicoPDF])
+  console.log(postsIMG)
   return (
     <Layout>
       <div className={styles.main}>
         <Header></Header>
-        <Section topic="Inicio" publicView={true} color=''></Section>
-        <Section topic="Sociedad" publicView={true} color=''></Section>
-        <Section topic="Salud" publicView={true} color=''></Section>
-        <Section topic="Seguridad" publicView={true} color=''></Section>
-        <Section topic="Politica" publicView={true} color=''></Section>
-        <Section topic="Economia" publicView={true} color=''></Section>
-        <Section topic="Deportes" publicView={true} color=''></Section>
-        <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
-        <Section topic="Cultura" publicView={true} color=''></Section>
-        <Section topic="Internacional" publicView={true} color=''></Section>
-        <Section topic="Empresarial" publicView={true} color=''></Section>
+        {showImg ?
+
+          <div className={styles.gridImages}>
+
+            {Object.keys(postsIMG).map((i, index) => {
+              if (i.split('/')[0].includes('Banners')) {
+                return
+              }
+              return <div className={styles.image}>
+                <Link href={i.split('/')[0].includes('Banners') == false && userDB[i.split('/')[0]] && userDB[i.split('/')[0]].Posts && userDB[i.split('/')[0]].Posts[i.split('/')[1]] && userDB[i.split('/')[0]].Posts[i.split('/')[1]].enlace ? userDB[i.split('/')[0]]["Posts"][i.split('/')[1]]['enlace']: '#'} legacyBehavior>
+                  <a target='_blank'>
+                    <img className={styles.image} src={postsIMG[i]} alt="img" />
+                    {/* {console.log(i.split('/')[1])} */}
+                    {console.log(i.split('/')[0].includes('Banners') == false && userDB[i.split('/')[0]] && userDB[i.split('/')[0]].Posts && userDB[i.split('/')[0]].Posts[i.split('/')[1]] && userDB[i.split('/')[0]].Posts[i.split('/')[1]].description && userDB[i.split('/')[0]].Posts[i.split('/')[1]].description)}
+                    <span className={styles.description}>{i.split('/')[0].includes('Banners') == false && userDB[i.split('/')[0]] && userDB[i.split('/')[0]].Posts && userDB[i.split('/')[0]].Posts[i.split('/')[1]] && userDB[i.split('/')[0]].Posts[i.split('/')[1]].description && userDB[i.split('/')[0]].Posts[i.split('/')[1]].description}</span>
+                  </a>
+                </Link >
+              </div>
+            })}
+
+          </div>
+
+
+
+
+
+          : <>
+            <Section topic="Inicio" publicView={true} color=''></Section>
+            <Section topic="Sociedad" publicView={true} color=''></Section>
+            <Section topic="Salud" publicView={true} color=''></Section>
+            <Section topic="Seguridad" publicView={true} color=''></Section>
+            <Section topic="Politica" publicView={true} color=''></Section>
+            <Section topic="Economia" publicView={true} color=''></Section>
+            <Section topic="Deportes" publicView={true} color=''></Section>
+            <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
+            <Section topic="Cultura" publicView={true} color=''></Section>
+            <Section topic="Internacional" publicView={true} color=''></Section>
+            <Section topic="Empresarial" publicView={true} color=''></Section>
+          </>}
       </div>
     </Layout>
   )

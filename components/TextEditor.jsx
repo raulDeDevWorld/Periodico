@@ -2,7 +2,7 @@ import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 import 'react-quill/dist/quill.core.css';
 import React, { useState } from 'react';
-import 'react-quill/dist/quill.snow.css';
+// import 'react-quill/dist/quill.Bubble.css';
 import dynamic from 'next/dynamic'
 
 const ReactQuill = dynamic(import('react-quill'), {
@@ -23,15 +23,15 @@ export default function TextEditor({ value, setValue }) {
       // ['blockquote', 'code-block'],
       // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
 
-      [{'size': ['small', '', 'large']}],  // custom dropdown
+      [{ 'size': ['small', '', 'large'] }],  // custom dropdown
       [{ 'font': [] }],
-      
+
       [{ 'list': 'ordered' }, { 'list': 'bullet' }],
       [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }], 
-      
+      [{ 'direction': 'rtl' }],
+
       // text direction
-     
+
       // {'size': {'Small': '14px', 'Normal': false, 'Large': '16px', 'Huge': '18px'}}
       ["link", 'image', "video"],
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
@@ -82,9 +82,15 @@ export default function TextEditor({ value, setValue }) {
 
 
 
-  return <ReactQuill theme="snow" modules={modules}
-    formats={formats} value={value} onChange={setValue} />;
-    
+  return <div style={{ zIndex: '100000000000000000000000' }}>
+
+
+    <ReactQuill theme="snow" modules={modules}
+      formats={formats} value={value} onChange={setValue} />
+  </div>
+
+
+
 }
 
 
