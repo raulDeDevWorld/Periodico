@@ -90,7 +90,6 @@
   justify-content: space-between;
   padding: 0 00px;
   background-color: #fcfcfc;
-
 }
 
 .navidad {
@@ -149,7 +148,9 @@ z-index: 10000;
 
 
 @media (max-width: 850px) {
-
+  .portada {
+    background-color: #ffffff;
+  }
   .portada {
     display: flex;
     justify-content: space-between;
@@ -160,9 +161,7 @@ z-index: 10000;
     font-size: 12px;
   }
   .navidad {
-    width: 28%;
     margin-left: 10px;
-    height: 15vw;
     margin-top: 7px;
     position: relative;
     bottom: 0;
@@ -171,7 +170,6 @@ z-index: 10000;
     padding: 0;
   }
   .header {
-    background-color: red;
     height: auto
   }
 }
