@@ -88,7 +88,7 @@ function Home() {
               if (i.split('/')[0].includes('Banners')) {
                 return
               }
-              return <div className={styles.image}>
+              return <div className={styles.image} key={index}>
                 <Link href={i.split('/')[0].includes('Banners') == false && userDB[i.split('/')[0]] && userDB[i.split('/')[0]].Posts && userDB[i.split('/')[0]].Posts[i.split('/')[1]] && userDB[i.split('/')[0]].Posts[i.split('/')[1]].enlace ? userDB[i.split('/')[0]]["Posts"][i.split('/')[1]]['enlace']: '#'} legacyBehavior>
                   <a target='_blank'>
                     <img className={styles.image} src={postsIMG[i]} alt="img" />
