@@ -1,3 +1,6 @@
+import 'react-quill/dist/quill.snow.css';
+import 'react-quill/dist/quill.bubble.css';
+import 'react-quill/dist/quill.core.css';
 import React, { useState } from 'react';
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic'

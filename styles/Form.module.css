@@ -180,7 +180,15 @@
     align-items: center;
     height: 100%;
 }
-
+.init {
+    display: block;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 90px;
+}
 @media (max-width: 850px) and (orientation: portrait) {
     .formInputs form {
         width: 50%;

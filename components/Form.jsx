@@ -13,6 +13,7 @@ export default function Form({ topic, value, color }) {
   const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear, viewPeriodista } = useUser()
 
   const [data, setData] = useState({})
+  const [isChecked, setIsChecked] = useState(true)
 
   const [postImage, setPostImage] = useState(null)
   const [urlPostImage, setUrlPostImage] = useState(null)
@@ -42,7 +43,9 @@ export default function Form({ topic, value, color }) {
     const object = { [name]: value }
     setData({ ...data, ...object })
   }
-
+  function handlerChecked() {
+    setIsChecked(!isChecked)
+  }
 
   function validator(e) {
     e.preventDefault()
@@ -92,6 +95,7 @@ export default function Form({ topic, value, color }) {
 
 
   function save(num) {
+    setUserSuccess('Cargando')
 
 
     const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
@@ -102,8 +106,13 @@ export default function Form({ topic, value, color }) {
       const ruteSTG = `${topic}` // Nov-2022/
       const fileName = `PostImage_${newDate.getTime()}` // PostImage_Tue Nov 15 2022 
       const object = { [fileName]: {fecha: newDate.toString(), description: data.descriptionPost ? data.descriptionPost : '', enlace: data.enlacePost ? data.enlacePost : `${num}${newDate.getTime()}`, objectFit: data.objectPositionPost ? data.objectPositionPost : 'center', nota:'' } }
+      setUserSuccess('Cargando')
       writeUserData(ruteDB, object, setUserSuccess, setUserData)
       uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
+
+      isChecked && writeUserData(`/Inicio/Posts`, object, setUserSuccess, setUserData)
+      isChecked && uploadIMG('Inicio', fileName, postImage, setUserSuccess, monthYear)
+
     } else {
       setUserSuccess("CompleteIMG")
     }
@@ -140,6 +149,8 @@ export default function Form({ topic, value, color }) {
               <input type="radio" value="center" name="objectPositionPost" onChange={handlerEventChange} /> c
               <input type="radio" value="bottom" name="objectPositionPost" onChange={handlerEventChange} /> ⇩
               <input type="radio" value="right" name="objectPositionPost" onChange={handlerEventChange} /> ⇨
+              <input type="checkbox" onClick={handlerChecked} checked={isChecked} onChange={handlerEventChange} /> init
+
             </div>
             <Button style="buttonMiniSecondary" click={validator}>Guardar</Button>
           </form>
