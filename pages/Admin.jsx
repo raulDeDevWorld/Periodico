@@ -103,6 +103,8 @@ function Admin() {
         {success === "CompleteFechaFinish" && <Error>Complete la fecha final...</Error>}
         {success === "CompleteIMG" && <Error>Añade una imagen...</Error>}
         {success == "Cargando" && <Success>Cargando...</Success>}
+        {success == "save" && <Success>Cargando...</Success>}
+
     </Layout>
   )
 }

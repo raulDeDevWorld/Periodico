@@ -116,3 +116,21 @@
 
 
 }
+
+
+@media (max-width: 850px) and (orientation: portrait) {
+   
+    .containerForm {
+        position: relative;
+        height: 50%;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+        border-radius: 5px;
+    }
+
+
+  
+  }
