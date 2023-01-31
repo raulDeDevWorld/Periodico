@@ -120,10 +120,10 @@ function Home() {
                 const { title, thumbnails = {}, resourceId = {} } = snippet;
                 const { medium } = thumbnails;
                 return (
-                  <div  className={styles.video}>
+                  <div    key={id}  className={styles.video}>
                     
                     <iframe
-                    key={id}
+                 
                       width={medium.width} height={medium.height}
                       src={`https://www.youtube.com/embed/${resourceId.videoId}`}
                       title="YouTube video player"
