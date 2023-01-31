@@ -61,7 +61,7 @@ function Layout({ children }) {
             <main className={styles.main}>
                     {children}
 
-                    <footer className={styles.footer} id="nosotros">
+                    <footer className={styles.footer} id="Nosotros">
                         <div>
                             <h5>MISIÓN</h5>
                             <div className={styles.footerItemsContainer}>

@@ -10,12 +10,16 @@ export default function Navbar() {
     const { setUserShowImg, showImg, setUserShowVideo, showVideo  } = useUser()
     function handleClick() {
         setUserShowImg(!showImg)
+        setUserShowVideo(false)
+
     }
     function handleClickYT() {
         setUserShowVideo(!showVideo)
+        setUserShowImg(false)
     }
     function handlerClick() {
         setUserShowImg(false)
+        setUserShowVideo(false)
     }
     return (
         <>
@@ -88,7 +92,7 @@ export default function Navbar() {
                         <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handleClickYT}>VIDEOS</a>
                     </Link>
                     <Link href="#Nosotros" legacyBehavior scroll={false}>
-                        <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS</a>
+                        <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} >NOSOTROS</a>
                     </Link>
 
                 </nav>
