@@ -14,6 +14,8 @@ export default function Form({ topic, value, color }) {
 
   const [data, setData] = useState({})
   const [isChecked, setIsChecked] = useState(true)
+  const [isCheckedLength, setIsCheckedLength] = useState(true)
+
 
   const [postImage, setPostImage] = useState(null)
   const [urlPostImage, setUrlPostImage] = useState(null)
@@ -46,7 +48,9 @@ export default function Form({ topic, value, color }) {
   function handlerChecked() {
     setIsChecked(!isChecked)
   }
-
+  function handlerCheckedLength() {
+    setIsCheckedLength(!isCheckedLength)
+  }
   function validator(e) {
     e.preventDefault()
 
@@ -54,35 +58,35 @@ export default function Form({ topic, value, color }) {
       case "Inicio":
         return save(11)
         break;
-      case "Sociedad": 
+      case "Sociedad":
         return save(12)
         break;
       case "Salud":
         return save(13)
-        break; 
+        break;
       case "Seguridad":
         return save(14)
         break;
       case "Politica":
         return save(15)
         break;
-      case "Economia": 
+      case "Economia":
         return save(16)
       case "Deportes":
         return save(17)
-        break; 
+        break;
       case "GestionDeGobierno":
         return save(18)
         break;
-      case "Cultura": 
+      case "Cultura":
         return save(19)
         break;
-      case "Internacional": 
+      case "Internacional":
         return save(20)
         break;
-      case "Deportes": 
+      case "Deportes":
         return save(21)
-        break; 
+        break;
       case "Empresarial":
         return save(22)
         break;
@@ -105,7 +109,7 @@ export default function Form({ topic, value, color }) {
       const ruteDB = `/${topic}/Posts` // Nov-2022/Inicio
       const ruteSTG = `${topic}` // Nov-2022/
       const fileName = `PostImage_${newDate.getTime()}` // PostImage_Tue Nov 15 2022 
-      const object = { [fileName]: {fecha: newDate.toString(), description: data.descriptionPost ? data.descriptionPost : '', enlace: data.enlacePost ? data.enlacePost : `${num}${newDate.getTime()}`, objectFit: data.objectPositionPost ? data.objectPositionPost : 'center', nota:'' } }
+      const object = { [fileName]: { fecha: newDate.toString(), description: data.descriptionPost ? data.descriptionPost : '', enlace: data.enlacePost ? data.enlacePost : `${num}${newDate.getTime()}`, objectFit: data.objectPositionPost ? data.objectPositionPost : 'center', nota: '' } }
       setUserSuccess('Cargando')
       writeUserData(ruteDB, object, setUserSuccess, setUserData)
       uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
@@ -137,12 +141,18 @@ export default function Form({ topic, value, color }) {
         <div className={style.formInputs}>
           <form className={style.formSelectPost}>
             <label htmlFor={`${topic}-Post`} className={style.label} >Añadir publicación </label>
-            <img className={style.previewIMG} style={{ objectPosition: `${data.objectPositionPost ? data.objectPositionPost : 'center'} ` }} src={urlPostImage} alt="" />
-            <p className={`${style.require} ${postImage ? style.green : ''}`}>{postImage ? 'Correcto' : '*Imagen Requerida'}</p>
+            <div className={style.counterBox}>
+              <div>
+                <img className={style.previewIMG} style={{ objectPosition: `${data.objectPositionPost ? data.objectPositionPost : 'center'} ` }} src={urlPostImage} alt="" />
+                <p className={`${style.require} ${postImage ? style.green : ''}`}>{postImage ? 'Correcto' : '*Imagen Requerida'}  </p>
+              </div>
+              <span className={style.counter} > Caracteres: <br /> {data.descriptionPost ? data.descriptionPost.length : '0'}</span>
+            </div>
             <input type="file" id={`${topic}-Post`} className={style.inputFile} name={`PostImage`} onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" />
-            <input type="text" placeholder='Titular' name="descriptionPost" onChange={handlerEventChange} maxlength='65' />
+            <input type="text" placeholder='Titular' name="descriptionPost" onChange={handlerEventChange} maxLength={isCheckedLength ? 65 : ''}/>
             <input type="text" placeholder='Enlace' name="enlacePost" onChange={handlerEventChange} />
             <div className={style.radioInputs}>
+            <input type="checkbox" onClick={handlerCheckedLength} checked={isCheckedLength} onChange={handlerEventChange} /> Max65
               <input type="radio" value="left" name="objectPositionPost" onChange={handlerEventChange} /> ⇦
               <input type="radio" value="top" name="objectPositionPost" onChange={handlerEventChange} /> ⇧
               <input type="radio" value="center" name="objectPositionPost" onChange={handlerEventChange} /> c

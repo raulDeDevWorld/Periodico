@@ -6,7 +6,7 @@
   align-items: center;
   position: relative;
   top: 0;
-  background-color: #fcfcfc;
+  background-color: white;
 
 }
 .bannerIntroContainer {
@@ -89,7 +89,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 00px;
-  background-color: #fcfcfc;
+  background-color: white;
 }
 
 .navidad {

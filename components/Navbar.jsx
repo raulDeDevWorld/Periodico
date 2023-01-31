@@ -7,9 +7,12 @@ import style from '../styles/Navbar.module.css'
 export default function Navbar() {
     const { pathname } = useRouter()
     
-    const { setUserShowImg, showImg } = useUser()
+    const { setUserShowImg, showImg, setUserShowVideo, showVideo  } = useUser()
     function handleClick() {
         setUserShowImg(!showImg)
+    }
+    function handleClickYT() {
+        setUserShowVideo(!showVideo)
     }
     function handlerClick() {
         setUserShowImg(false)
@@ -81,8 +84,8 @@ export default function Navbar() {
                     <Link href="#" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Imagenes" ? style.active : ''}`} onClick={handleClick}>IMÁGENES</a>
                     </Link>
-                    <Link href="#Videos" legacyBehavior scroll={false}>
-                        <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handleClick}>VIDEOS</a>
+                    <Link href="#" legacyBehavior scroll={false}>
+                        <a className={`${style.link} ${pathname == "#Videos" ? style.active : ''}`} onClick={handleClickYT}>VIDEOS</a>
                     </Link>
                     <Link href="#Nosotros" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} onClick={handlerClick}>NOSOTROS</a>

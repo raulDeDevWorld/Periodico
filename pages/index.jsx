@@ -24,13 +24,22 @@ import { handleSignOut } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { listAll } from 'firebase/storage'
+
+// const API_KEY = 'AIzaSyBZkk7x_tGRbf-Yg_A7Y9QYcBQe7T9QtWU'
+// const channelID = 'UCXFA6pzESb1NQMsepmhC6Vw'
+const YOUTUBE_PLAYLIST_ITEMS_API = 'https://www.googleapis.com/youtube/v3/playlistItems'
+const YOUTUBE_API_KEY = "AIzaSyBZkk7x_tGRbf-Yg_A7Y9QYcBQe7T9QtWU"
+
+var fetch_url = `${YOUTUBE_PLAYLIST_ITEMS_API}`
+
 
 function Home() {
-  const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
+  const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, showVideo, date, setUserDate } = useUser()
   const router = useRouter()
 
   const [periodicoPDF, setPeriodicoPDF] = useState(false);
-  const [periodicoPDFEffect, setPeriodicoPDFEffect] = useState(false);
+  const [listYT, setListYT] = useState(false);
 
   function handlerClickEnlace(data) {
     router.pathname != "/Admin" && window.open(data.href, data.target)
@@ -63,24 +72,25 @@ function Home() {
     transitionDuration: '.3s',
 
   }
+  async function getYB() {
+    const res = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&maxResults=50&playlistId=UULFXFA6pzESb1NQMsepmhC6Vw&key=${YOUTUBE_API_KEY}`)
+    const data = await res.json();
+    setListYT(data)
+  }
 
 
 
-  // useEffect(() => {
-  //   if (periodicoPDFEffect == true) {
-  //     return
-  //   }
-  //   setTimeout(() => {
-  //     setPeriodicoPDF(!periodicoPDF)
-  //   }, 2000)
+  useEffect(() => {
 
-  // }, [periodicoPDF == "User" ? '' : periodicoPDF])
-  console.log(postsIMG)
+    getYB()
+  }, [])
+  console.log(showVideo)
+
   return (
     <Layout>
       <div className={styles.main}>
         <Header></Header>
-        {showImg ?
+        {showImg &&
 
           <div className={styles.gridImages}>
 
@@ -89,7 +99,7 @@ function Home() {
                 return
               }
               return <div className={styles.image} key={index}>
-                <Link href={i.split('/')[0].includes('Banners') == false && userDB[i.split('/')[0]] && userDB[i.split('/')[0]].Posts && userDB[i.split('/')[0]].Posts[i.split('/')[1]] && userDB[i.split('/')[0]].Posts[i.split('/')[1]].enlace ? userDB[i.split('/')[0]]["Posts"][i.split('/')[1]]['enlace']: '#'} legacyBehavior>
+                <Link href={i.split('/')[0].includes('Banners') == false && userDB[i.split('/')[0]] && userDB[i.split('/')[0]].Posts && userDB[i.split('/')[0]].Posts[i.split('/')[1]] && userDB[i.split('/')[0]].Posts[i.split('/')[1]].enlace ? userDB[i.split('/')[0]]["Posts"][i.split('/')[1]]['enlace'] : '#'} legacyBehavior>
                   <a target='_blank'>
                     <img className={styles.image} src={postsIMG[i]} alt="img" />
                     {/* {console.log(i.split('/')[1])} */}
@@ -99,26 +109,56 @@ function Home() {
                 </Link >
               </div>
             })}
+          </div>}
 
-          </div>
+        {showVideo && listYT !== false &&
 
+          <div className={styles.gridImages}>
 
+            <ul className={styles.grid}>
+              {listYT.items.map(({ id, snippet = {} }) => {
+                const { title, thumbnails = {}, resourceId = {} } = snippet;
+                const { medium } = thumbnails;
+                return (
+                  <li key={id} className={styles.card}>
+                    <video
+                      muted
+                      autoPlay={"autoplay"}
+                      preload="auto"
+                      loop
+                      className={styles.video}>
+                      <source src={`https://www.youtube.com/watch?v=${resourceId.videoId}`} alt="" />
+                    </video>
 
+                    <iframe
+                      width={medium.width} height={medium.height}
+                      src={`https://www.youtube.com/embed/${resourceId.videoId}`}
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen></iframe>
 
+                    <h3>{title}</h3>
 
-          : <>
-            <Section topic="Inicio" publicView={true} color=''></Section>
-            <Section topic="Sociedad" publicView={true} color=''></Section>
-            <Section topic="Salud" publicView={true} color=''></Section>
-            <Section topic="Seguridad" publicView={true} color=''></Section>
-            <Section topic="Politica" publicView={true} color=''></Section>
-            <Section topic="Economia" publicView={true} color=''></Section>
-            <Section topic="Deportes" publicView={true} color=''></Section>
-            <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
-            <Section topic="Cultura" publicView={true} color=''></Section>
-            <Section topic="Internacional" publicView={true} color=''></Section>
-            <Section topic="Empresarial" publicView={true} color=''></Section>
-          </>}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>}
+
+        {showImg == false && showVideo == false && <>
+          <Section topic="Inicio" publicView={true} color=''></Section>
+          <Section topic="Sociedad" publicView={true} color=''></Section>
+          <Section topic="Salud" publicView={true} color=''></Section>
+          <Section topic="Seguridad" publicView={true} color=''></Section>
+          <Section topic="Politica" publicView={true} color=''></Section>
+          <Section topic="Economia" publicView={true} color=''></Section>
+          <Section topic="Deportes" publicView={true} color=''></Section>
+          <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
+          <Section topic="Cultura" publicView={true} color=''></Section>
+          <Section topic="Internacional" publicView={true} color=''></Section>
+          <Section topic="Empresarial" publicView={true} color=''></Section>
+        </>}
       </div>
     </Layout>
   )
@@ -128,25 +168,3 @@ export default WithoutAuth(Home)
 
 
 
-{/* {showImg == true && <div className={styles.gridIMG}>{Object.values(postsIMG).map((i, index) => 
-
-            <img src={i} key={index} alt="Vercel Logo" />
-
-        )}</div>} */}
-
-{/* <div className={`${styles.periodicoPDFContainer} ${periodicoPDF === false ? styles.periodicoPDFView : ''}`}>
-        <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
-          <a target='_blanck'>{periodicoPDF === true && 
-          <Image src="/periodico.jpeg" width={100} height={100} style={periodicoPDFImg} quality={1}></Image>
-          // <img src="/periodico.jpeg" className={styles.periodicoPDFImg} alt="" />
-          }
-          </a>
-        </Link>
-      </div>
-
-      <div className={`${styles.periodicoPDFContainer2} `}>
-        <Link href="https://drive.google.com/file/d/13waX1Uh82ocFDetKArTXOByTOKkMtmQf/view?usp=share_link" legacyBehavior>
-          <a target='_blanck'><img src="/gobierno.jpg" className={styles.periodicoPDFImg} alt="" />
-          </a>
-        </Link>
-      </div> */}

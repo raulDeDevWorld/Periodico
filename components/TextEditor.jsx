@@ -15,7 +15,7 @@ const ReactQuill = dynamic(import('react-quill'), {
 // ];
 // Quill.register(FontAttributor, true);
 
-export default function TextEditor({ value, setValue }) {
+export default function TextEditor({ value, setValue }) { 
 
   const [modules, setModules] = useState({
     toolbar: [

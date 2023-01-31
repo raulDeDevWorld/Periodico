@@ -14,6 +14,7 @@ export function UserProvider ({ children }) {
 	const [monthAndYear, setMonthAndYear] = useState(null)
 	const [dayMonthYear, setDayMonthYear] = useState(null)
 	const [showImg, setShowImg] = useState(false)
+	const [showVideo, setShowVideo] = useState(false)
 	const [success, setSuccess] = useState(null)
 	const [viewPeriodista, setViewPeriodista] = useState(false)
 
@@ -51,6 +52,9 @@ export function UserProvider ({ children }) {
 	function setUserShowImg (mode) {
 		setShowImg(mode)
 	}
+	function setUserShowVideo (mode) {
+		setShowVideo(mode)
+	}
 	function setUserViewPeriodista (mode) {
 		setViewPeriodista(mode)
 	}
@@ -63,6 +67,7 @@ export function UserProvider ({ children }) {
 			specificDataEditable,
 			postsIMG,
 			showImg,
+			showVideo,
 			date,
 			monthAndYear,
 			dayMonthYear,
@@ -75,13 +80,14 @@ export function UserProvider ({ children }) {
 			setUserSpecificDataEditable,
 			setUserPostsIMG,
 			setUserShowImg,
+			setUserShowVideo,
 			setUserDate,
 			setUserMonthAndYear,
 			setUserDayMonthYear,
 			setUserSuccess,
 			setUserViewPeriodista,
 		})
-	}, [ user, userDB, pdfData, success, specificData, specificDataEditable, postsIMG, showImg, date, monthAndYear, dayMonthYear, viewPeriodista])
+	}, [ user, userDB, pdfData, success, specificData, specificDataEditable, postsIMG, showImg, showVideo, date, monthAndYear, dayMonthYear, viewPeriodista])
 
 	return (
 		<UserContext.Provider value={value} >

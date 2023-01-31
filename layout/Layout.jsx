@@ -74,7 +74,7 @@ function Layout({ children }) {
                             <h5>DIRECCIÓN Y PUBLICIDAD ONLINE</h5>
                             <div className={styles.footerItemsContainer}>
                                 <img src="/contact.svg" alt="" />
-                                <p>(+591) 2488973 <br /> 73002076 <br />60101760</p>
+                                <p>(+591) 2 488973 <br /> 73002076 <br />60101760</p>
                                 <img src="/ubication.svg" alt="" />
                                 <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 6, Of. 6B <br /> Zona San Pedro</p>
                             </div>
@@ -91,22 +91,22 @@ function Layout({ children }) {
                             <h5>DIRECCIÓN</h5>
                             <div className={styles.socialMediaIcons}>
                                 <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/facebook-fotter.png" alt="SocialMedia" /></a>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/FACEBOOK-01.svg" alt="SocialMedia" /></a>
                                 </Link>
                                 <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/instagram-fotter.png" alt="SocialMedia" /></a>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/INSTAGRAM-02.svg" alt="SocialMedia" /></a>
                                 </Link>
                                 <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/twiter-fotter.png" alt="SocialMedia" /></a>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/TWITTER-03.svg" alt="SocialMedia" /></a>
                                 </Link>
                                 <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/youtube-fotter.png" alt="SocialMedia" /></a>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/YOUTUBE-04.svg" alt="SocialMedia" /></a>
                                 </Link>
                                 <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tiktok-fotter.png" alt="SocialMedia" /></a>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tIK tOK-05.svg" alt="SocialMedia" /></a>
                                 </Link>
                                 <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
-                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/whatsapp.png" alt="SocialMedia" /></a>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/WHATSAPP-06.svg" alt="SocialMedia" /></a>
                                 </Link>
                             </div>
 
