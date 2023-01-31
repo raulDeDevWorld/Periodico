@@ -123,7 +123,6 @@ function Home() {
                   <div    key={id}  className={styles.video}>
                     
                     <iframe
-                 
                       width={medium.width} height={medium.height}
                       src={`https://www.youtube.com/embed/${resourceId.videoId}`}
                       title="YouTube video player"
