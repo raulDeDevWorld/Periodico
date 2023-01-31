@@ -14,6 +14,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
 import Banner from '../components/Banner'
+// import Form from './Form'
 
 import styles from '../styles/Temporal.module.css'
 
@@ -204,6 +205,14 @@ function TemplateOne() {
 
 
         {user && <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
+
+
+        {/* <Form topic={topic} value={userDB[`${topic}-${date}`]} color={color}></Form> */}
+
+
+
+
+
           <label htmlFor="Title" >Titulo</label>
           <input type="text" id="Title" name="description" onChange={handlerOnChange} defaultValue={description} />
           <label htmlFor="Description" >Descripcion</label>

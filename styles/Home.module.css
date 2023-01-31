@@ -246,7 +246,7 @@ padding: 15px 0;
 .gridVideos {
   position: relative;
   width: 99%;
-  height: 75vw;
+  height: 45vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
