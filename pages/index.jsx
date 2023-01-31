@@ -73,7 +73,7 @@ function Home() {
 
   }
   async function getYB() {
-    const res = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&maxResults=50&playlistId=UULFXFA6pzESb1NQMsepmhC6Vw&key=${YOUTUBE_API_KEY}`)
+    const res = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&maxResults=8&playlistId=UULFXFA6pzESb1NQMsepmhC6Vw&key=${YOUTUBE_API_KEY}`)
     const data = await res.json();
     setListYT(data)
   }
@@ -113,24 +113,17 @@ function Home() {
 
         {showVideo && listYT !== false &&
 
-          <div className={styles.gridImages}>
+          <div className={styles.gridVideos}>
 
-            <ul className={styles.grid}>
+           
               {listYT.items.map(({ id, snippet = {} }) => {
                 const { title, thumbnails = {}, resourceId = {} } = snippet;
                 const { medium } = thumbnails;
                 return (
-                  <li key={id} className={styles.card}>
-                    <video
-                      muted
-                      autoPlay={"autoplay"}
-                      preload="auto"
-                      loop
-                      className={styles.video}>
-                      <source src={`https://www.youtube.com/watch?v=${resourceId.videoId}`} alt="" />
-                    </video>
-
+                  <div  className={styles.video}>
+                    
                     <iframe
+                    key={id}
                       width={medium.width} height={medium.height}
                       src={`https://www.youtube.com/embed/${resourceId.videoId}`}
                       title="YouTube video player"
@@ -140,10 +133,10 @@ function Home() {
     
                     <h3>{title}</h3>
 
-                  </li>
+                  </div>
                 )
               })}
-            </ul>
+         
           </div>}
 
         {showImg == false && showVideo == false && <>

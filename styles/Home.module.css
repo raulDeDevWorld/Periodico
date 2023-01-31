@@ -241,8 +241,24 @@ padding: 15px 0;
   color: white;
   font-size: 15px;
   background: linear-gradient(to top, #002e35, #00404a91, transparent);
+}
+
+.gridVideos {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  overflow: hidden;
 
 }
+.video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
 
 
 @media (max-width: 1050px) and (orientation: portrait) {
