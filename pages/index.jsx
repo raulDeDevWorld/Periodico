@@ -92,7 +92,8 @@ function Home() {
 
                   <iframe
                     className={styles.video}
-                 
+                    // width={medium.width}
+                    // height={medium.heigth}
                     src={`https://www.youtube.com/embed/${resourceId.videoId}`}
                     title="YouTube video player"
                     frameborder="0"
