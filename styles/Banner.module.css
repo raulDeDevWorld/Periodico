@@ -108,7 +108,33 @@
 }
 
 @media (max-width: 1050px) and (orientation: portrait) {
+  .containerFadeLeft {
+    position: fixed;
+    padding-top: 2px;
+    top: 35vh;
+    right: 0;
+    left: auto;
+    width: 15%;
+    height: 100vh;
+    z-index: 10000;
+    box-shadow: 0px 0px 1px black;
+  }
 
+  .containerFadeLeft span {
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .containerFadeLeft span img {
+    display: block;
+    cursor: pointer;
+    margin: 0;
+    width: 80%;
+    max-height: 70vh;
+    object-fit: contain;
+    object-position: top;
+  }
 }
 
 @media (max-width: 850px) and (orientation: portrait) {
