@@ -126,7 +126,7 @@ function TemplateOne() {
       redactor: user.uid
     }
 
-    writeUserData(ruteDB, object, setUserSuccess)
+    writeUserData(ruteDB, object, setUserSuccess, 'save')
   }
 
 
