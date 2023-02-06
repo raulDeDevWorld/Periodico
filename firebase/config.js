@@ -1,13 +1,13 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBZkk7x_tGRbf-Yg_A7Y9QYcBQe7T9QtWU",
-  authDomain: "periodico-hoy-bolivia.firebaseapp.com",
-  databaseURL: "https://periodico-hoy-bolivia-default-rtdb.firebaseio.com",
-  projectId: "periodico-hoy-bolivia",
-  storageBucket: "periodico-hoy-bolivia.appspot.com",
-  messagingSenderId: "618787391049",
-  appId: "1:618787391049:web:98b34d2849d093d67e6198"
+  apiKey: "AIzaSyDsyDIvCN0XtYEz8IO5wOxfBCC-wl7JWtc",
+  authDomain: "hoy-bo.firebaseapp.com",
+  databaseURL: "https://hoy-bo-default-rtdb.firebaseio.com",
+  projectId: "hoy-bo",
+  storageBucket: "hoy-bo.appspot.com",
+  messagingSenderId: "229884353815",
+  appId: "1:229884353815:web:a9b479d91d614894dcab52"
 };
 // 
 
