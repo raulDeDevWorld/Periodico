@@ -1,8 +1,5 @@
 
 
-
-
-
 .main {
   position: relative;
 
@@ -351,7 +348,7 @@ padding: 15px 0;
   }
   .periodicoPDFContainer, .periodicoPDFContainer2 {
     display: none;
-  }
+  } 
 
   .footer > :nth-child(2) p {
     width: 100vw;
@@ -359,4 +356,3 @@ padding: 15px 0;
   }
 
 }
-
