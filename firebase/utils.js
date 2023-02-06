@@ -116,7 +116,7 @@ function getSpecificData(rute, setUserSpecificData) {
 function writeUserData (ruteDB, object, setUserSuccess, detail) {
   update(ref(db, `${ruteDB}`), object )
   .then(()=> {
-    setUserSuccess !== null? setUserSuccess(detail !== undefined && detail!== null ? detail :'saved'): ''
+    setUserSuccess !== null? setUserSuccess('save'): ''
     getData(setUserData)
   })
   .catch(()=>'')
