@@ -114,7 +114,7 @@ export default function Form({ topic, value, color }) {
       writeUserData(ruteDB, object, setUserSuccess, setUserData)
       uploadIMG(ruteSTG, fileName, postImage, setUserSuccess, monthYear)
 
-      isChecked && writeUserData(`/Inicio/Posts`, object, setUserSuccess, setUserData)
+      isChecked && writeUserData(`/Inicio/Posts`, object, setUserSuccess, setUserData, 'saved')
       isChecked && uploadIMG('Inicio', fileName, postImage, setUserSuccess, monthYear)
 
     } else {
