@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { getDate, getDayMonthYear, getMonthAndYear } from '../utils/Utils'
 import FormAddsC from './FormAddsC'
 
-
+ 
 export default function Form({ topic, value, color }) {
   const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear, viewPeriodista } = useUser()
 
