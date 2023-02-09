@@ -74,14 +74,8 @@ export default function Header(props) {
                 </div>
                 <div className={styles.portada}>
                     <RelojDigital></RelojDigital>
-<video
-                        muted
-                        autoPlay={"autoplay"}
-                        preload="auto"
-                        loop
-                        className={styles.video}>
-                        <source src="/video-comprimido.mp4" type="video/mp4" />
-                    </video>
+
+<img className={styles.video} src="/1675975675928.gif" alt="navidad" />
                     <img className={styles.navidad} src="/4444.gif" alt="navidad" />
  
                 </div>
