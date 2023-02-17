@@ -1,13 +1,13 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDsyDIvCN0XtYEz8IO5wOxfBCC-wl7JWtc",
-  authDomain: "hoy-bo.firebaseapp.com",
-  databaseURL: "https://hoy-bo-default-rtdb.firebaseio.com",
-  projectId: "hoy-bo",
-  storageBucket: "hoy-bo.appspot.com",
-  messagingSenderId: "229884353815",
-  appId: "1:229884353815:web:a9b479d91d614894dcab52"
+  apiKey: "AIzaSyCz6-81rIlsixQzgB5WsIb6GfvqGpWu4-4",
+  authDomain: "hoy-bo-bd.firebaseapp.com",
+  databaseURL: "https://hoy-bo-bd-default-rtdb.firebaseio.com",
+  projectId: "hoy-bo-bd",
+  storageBucket: "hoy-bo-bd.appspot.com",
+  messagingSenderId: "332334893181",
+  appId: "1:332334893181:web:1295ead91957c8b395c914"
 };
 // 
 
