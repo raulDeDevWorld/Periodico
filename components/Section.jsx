@@ -39,7 +39,7 @@ export default function Section({ topic, publicView, color }) {
             {userDB
                 && userDB[topic]
                 && userDB[topic]['Templates']
-                && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == undefined &&
+                && userDB[topic]['Templates'][userDB[topic]['Templates'][dayMonthYear] ? dayMonthYear : getDayMonthYear()] == null &&
                 <TemplateThreeB topic={topic} color={color} />}   
             {userDB
                 && userDB[topic]
