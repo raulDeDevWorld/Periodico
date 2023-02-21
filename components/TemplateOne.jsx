@@ -42,7 +42,7 @@ function TemplateOne({ color, topic, post1, description1, objectPosition1 }) {
             {userDB && dataForDate.length > 0 && dataForDate.map((i, index) =>
                     userDB[topic]["Posts"] && userDB[topic]["Posts"][`PostImage_${i}`] && <div key={index} >
 
-                        {userDB[topic]["Posts"][`PostImage_${i}`]['content'] ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
+                        {userDB[topic]["Posts"][`PostImage_${i}`]['state'] == 'publicado' ? '' : <span className={styles.inDevelop}>{router.pathname !== "/Admin" && ''}</span>} 
                         {router.pathname == "/Admin" && <span className={styles.datePost} onClick={() => handlerClickEnlace({ i, carpeta: 'Post' })}>{`${new Date(userDB[topic].Posts[`PostImage_${i}`].fecha).getDate()}-${months[new Date(userDB[topic].Posts[`PostImage_${i}`].fecha).getMonth()]} ${new Date(userDB[topic].Posts[`PostImage_${i}`].fecha).getHours()}:${new Date(userDB[topic].Posts[`PostImage_${i}`].fecha).getMinutes()}`}</span>}
 
                         <Link href={userDB[topic]["Posts"][`PostImage_${i}`]['enlace']} legacyBehavior>
