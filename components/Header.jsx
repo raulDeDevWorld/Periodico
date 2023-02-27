@@ -76,7 +76,7 @@ export default function Header(props) {
                     <RelojDigital></RelojDigital>
 
 <img className={styles.video} src="/1675975675928.gif" alt="navidad" />
-                    <img className={styles.navidad} src="/4444.gif" alt="navidad" />
+                    <img className={styles.navidad} src="/semana-santa.gif" alt="navidad" />
  
                 </div>
             </header>
