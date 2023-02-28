@@ -23,6 +23,9 @@ export default function Banner({ carpeta, items, click }) {
         prevArrow: <button style={{ ...buttonStyle }}></button>,
         nextArrow: <button style={{ ...buttonStyle }}></button>
     }
+function redirect(rute) {
+        window.open(rute, '_blank')
+    }
 
     return (
         <>{
