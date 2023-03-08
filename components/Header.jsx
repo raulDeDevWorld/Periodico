@@ -75,7 +75,7 @@ export default function Header(props) {
                 <div className={styles.portada}>
                     <RelojDigital></RelojDigital>
 
-<img className={styles.video} src="/1675975675928.gif" alt="navidad" />
+                    <img className={styles.video} src="/1675975675928.gif" alt="navidad" />
                     <img className={styles.navidad} src="/dia-mujer.webp" alt="navidad" />
  
                 </div>
